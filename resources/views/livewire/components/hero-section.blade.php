@@ -32,7 +32,7 @@
             <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
                 <!-- Row 1 -->
                 <div class="space-y-4">
-                    <img src="{{ asset('images/kamera.jpeg') }}" 
+                    <img src="{{ asset('images/naikGunung.png') }}" 
                          alt="Camera equipment" 
                          class="rounded-lg w-full h-32 object-cover">
                     <img src="{{ asset('images/proyektor.jpeg') }}" 

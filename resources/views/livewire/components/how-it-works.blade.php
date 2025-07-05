@@ -9,10 +9,10 @@
         <div class="grid md:grid-cols-3 gap-8">
             <!-- Step 1 -->
             <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <div class="relative">
+                <div class="relative aspect-[3/4]">
                     <img src="{{ asset('images/kamera.jpeg') }}" 
                          alt="Browse Items" 
-                         class="w-full h-48 object-cover">
+                         class="w-full h-full object-cover">
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
                         <h3 class="text-xl text-white mb-2" style="font-weight: 700; font-family: 'Google Sans', 'Product Sans', sans-serif;">
                             Browse & Select
@@ -26,10 +26,10 @@
 
             <!-- Step 2 -->
             <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <div class="relative">
+                <div class="relative aspect-[3/4]">
                     <img src="{{ asset('images/proyektor.jpeg') }}" 
                          alt="Book and Reserve" 
-                         class="w-full h-48 object-cover">
+                         class="w-full h-full object-cover">
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
                         <h3 class="text-xl text-white mb-2" style="font-weight: 700; font-family: 'Google Sans', 'Product Sans', sans-serif;">
                             Book & Reserve
@@ -43,10 +43,10 @@
 
             <!-- Step 3 -->
             <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <div class="relative">
+                <div class="relative aspect-[3/4]">
                     <img src="{{ asset('images/MainPS.jpg') }}" 
                          alt="Enjoy and Return" 
-                         class="w-full h-48 object-cover">
+                         class="w-full h-full object-cover">
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
                         <h3 class="text-xl text-white mb-2" style="font-weight: 700; font-family: 'Google Sans', 'Product Sans', sans-serif;">
                             Enjoy & Return
