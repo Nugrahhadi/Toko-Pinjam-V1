@@ -14,7 +14,7 @@
                     </h1>
                     
                     <p class="text-xl text-gray-600 max-w-md">
-                        Rent useful household items from your local high street. Learn DIY & repair skills to complete projects yourself.
+                        Daripada hanya dipakai sekali, mending pinjam barang yang kamu perlukan dengan harga miring. Dompetmu tenang, lingkungan pun aman.
                     </p>
                 </div>
                 
@@ -23,7 +23,7 @@
                        style="background-color: #433592;" 
                        onmouseover="this.style.backgroundColor='#3A2B7A'" 
                        onmouseout="this.style.backgroundColor='#433592'">
-                        Join to get started
+                        Bergabung untuk memulai
                     </a>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                     <img src="{{ asset('images/naikGunung.png') }}" 
                          alt="Camera equipment" 
                          class="rounded-lg w-full h-32 object-cover">
-                    <img src="{{ asset('images/proyektor.jpeg') }}" 
+                    <img src="{{ asset('images/buku.jpg') }}" 
                          alt="Projector rental" 
                          class="rounded-lg w-full h-40 object-cover">
                 </div>
@@ -45,7 +45,7 @@
                     <img src="{{ asset('images/MainPS.jpg') }}" 
                          alt="Gaming console" 
                          class="rounded-lg w-full h-40 object-cover">
-                    <img src="{{ asset('images/foto.jpeg') }}" 
+                    <img src="{{ asset('images/proyektor.jpeg') }}" 
                          alt="Photography equipment" 
                          class="rounded-lg w-full h-32 object-cover">
                 </div>
@@ -55,7 +55,7 @@
                     <img src="{{ asset('images/foto.jpeg') }}" 
                          alt="Photography setup" 
                          class="rounded-lg w-full h-32 object-cover">
-                    <img src="{{ asset('images/kamera.jpeg') }}" 
+                    <img src="{{ asset('images/badminton.jpg') }}" 
                          alt="Camera rental" 
                          class="rounded-lg w-full h-40 object-cover">
                 </div>
