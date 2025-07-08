@@ -25,5 +25,26 @@
                 </div>
             </div>
         </div>
+
+        <!-- Kotak lokasi kita -->
+        <div class="mt-6 bg-white shadow rounded-lg p-6">
+            <h3 class="text-lg font-bold text-gray-800 mb-2">
+                Lokasi Kami - Purwokerto
+            </h3>
+            <p class="text-gray-600 mb-4">
+                Universitas Jenderal Soedirman (UNSOED), Purwokerto, Jawa Tengah
+            </p>
+            <div class="w-full h-[400px] rounded overflow-hidden">
+                <iframe
+                    width="100%"
+                    height="100%"
+                    frameborder="0"
+                    style="border:0"
+                    src="https://maps.google.com/maps?q=Universitas%20Jenderal%20Soedirman%20Purwokerto&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    allowfullscreen
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
     </div>
 </div>
