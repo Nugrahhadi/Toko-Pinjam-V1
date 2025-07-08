@@ -72,14 +72,12 @@
             let currentIndex = 0;
             
             function changeWord() {
-                // Change text during the fade out phase (25%-50% of animation)
                 setTimeout(() => {
                     currentIndex = (currentIndex + 1) % words.length;
                     animatedText.textContent = words[currentIndex];
-                }, 750); // 25% of 3000ms = 750ms
+                }, 750); 
             }
             
-            // Change word every 3 seconds to sync with CSS animation
             setInterval(changeWord, 3000);
         }
     });
