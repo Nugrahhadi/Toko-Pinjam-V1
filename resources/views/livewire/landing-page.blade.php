@@ -19,6 +19,12 @@
     
     <!-- Items Section -->
     <livewire:components.items-section />
+
+    <!-- Why Rent Section -->
+    <livewire:components.kenapa-pinjam />
+
+    <!-- Impact Section -->
+    <livewire:components.perubahan-nyata />
     
     <!-- Testimonials Section -->
     <livewire:components.testimonials-section />
