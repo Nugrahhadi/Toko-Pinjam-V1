@@ -63,7 +63,7 @@
         </div>
     </div>
     
-    <!-- Script untuk animasi teks -->
+    <!-- Script animasi teks -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const animatedText = document.getElementById('animated-text');
@@ -83,7 +83,7 @@
     });
     </script>
     
-    <!-- Style untuk animasi teks -->
+    <!-- Style animasi teks -->
     <style>
     @keyframes fadeInOut {
         0% { opacity: 1; transform: translateY(0); }
@@ -99,7 +99,6 @@
         font-family: 'Google Sans', 'Product Sans', sans-serif !important;
     }
     
-    /* Ensure all headings use the bold font */
     h1, h2, h3, h4, h5, h6 {
         font-family: 'Google Sans', 'Product Sans', sans-serif !important;
     }

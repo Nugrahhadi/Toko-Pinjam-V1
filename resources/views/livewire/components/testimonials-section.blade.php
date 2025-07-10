@@ -7,7 +7,6 @@
                 </h2>
             </div>
 
-            <!-- Horizontal scrolling testimonials -->
             <div class="relative overflow-hidden">
                 <div class="flex gap-6 testimonials-scroll">
                     @foreach($testimonials as $testimonial)
@@ -42,7 +41,6 @@
                         </div>
                     @endforeach
                     
-                    <!-- Duplicate for seamless loop -->
                     @foreach($testimonials as $testimonial)
                         <div class="bg-white rounded-lg shadow-sm p-6 min-w-80 flex-shrink-0">
                             <div class="flex items-center mb-4">
