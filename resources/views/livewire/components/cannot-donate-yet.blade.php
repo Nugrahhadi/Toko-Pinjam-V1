@@ -16,13 +16,13 @@
                     </p>
                     <div class="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
                         <button class="px-6 py-2.5 bg-[#433592] text-white rounded-lg font-semibold hover:bg-[#3A2B7A] transition-colors text-sm" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                            Buat Akun
+                            Register
                         </button>
                         <span class="text-gray-600 text-sm" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                             atau
                         </span>
                         <button class="px-6 py-2.5 border-2 border-[#433592] text-[#433592] rounded-lg font-semibold hover:bg-[#433592] hover:text-white transition-colors text-sm" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                            Masuk
+                            Login
                         </button>
                     </div>
                 </div>

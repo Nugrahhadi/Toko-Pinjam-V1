@@ -18,7 +18,7 @@
     <livewire:components.cheapest-price />
     
     <!-- Items Section -->
-    <livewire:components.items-section />
+    {{-- <livewire:components.items-section /> --}}
 
     <!-- Why Rent Section -->
     <livewire:components.kenapa-pinjam />
@@ -27,7 +27,7 @@
     <livewire:components.perubahan-nyata />
     
     <!-- Testimonials Section -->
-    <livewire:components.testimonials-section />
+    {{-- <livewire:components.testimonials-section /> --}}
     
     <!-- Cannot Donate Yet Section -->
     <livewire:components.cannot-donate-yet />
