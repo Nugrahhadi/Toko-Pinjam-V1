@@ -36,6 +36,7 @@
                     <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Blog</a></li>
                     <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">FAQ</a></li>
                     <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Kontak</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Acknowledgement of AI Usage</a></li>
                 </ul>
             </div>
 

@@ -19,10 +19,10 @@
                         1
                     </div>
                 </div>
-                <h3 class="text-xl font-bold mt-9 text-gray-900" style="color: #433592; font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                <h3 class="text-xl font-bold mt-9 text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                     Buat akun
                 </h3>
-                <p class="text-gray-600 mt-3 text-base leading-relaxed max-w-xs" style="color: #433592;">
+                <p class="text-gray-600 mt-3 text-base leading-relaxed max-w-xs">
                     Isi formulir singkat untuk bergabung dalam sebuah lifestyle baru yang sehat untuk kamu, dan dompetmu. Konfirmasi akun kamu akan dikirim via WhatsApp dalam 24 jam setelah pengajuan.
                 </p>
             </div>
