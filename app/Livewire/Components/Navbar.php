@@ -9,13 +9,6 @@ class Navbar extends Component
 {
     public $isMenuOpen = false;
     public $search = '';
-    public $cartCount = 0;
-
-    public function mount()
-    {
-        // Initialize cart count from session or database
-        $this->cartCount = session('cart_count', 0);
-    }
 
     public function toggleMenu()
     {
@@ -32,13 +25,6 @@ class Navbar extends Component
     public function clearSearchInput()
     {
         $this->search = '';
-    }
-
-    #[On('cartUpdated')]
-    public function updateCartCount($count)
-    {
-        $this->cartCount = $count;
-        session(['cart_count' => $count]);
     }
 
     public function render()

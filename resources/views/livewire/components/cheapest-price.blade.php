@@ -51,12 +51,12 @@
 
         <!-- Call to Action -->
         <div class="text-center mt-12">
-            <button wire:click="toggleShowAll" class="inline-flex items-center px-8 py-4 bg-[#433592] text-white font-semibold rounded-lg hover:bg-[#3A2B7A] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                {{ $showAll ? 'Lihat Lebih Sedikit' : 'Lihat Semua Barang' }}
-                <svg class="ml-2 w-5 h-5 {{ $showAll ? 'rotate-180' : '' }} transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <a href="{{ route('all-items') }}" class="inline-flex items-center px-8 py-4 bg-[#433592] text-white font-semibold rounded-lg hover:bg-[#3A2B7A] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                Lihat Semua Barang
+                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                 </svg>
-            </button>
+            </a>
         </div>
     </div>
 </section>

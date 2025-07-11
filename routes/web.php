@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Livewire\LandingPage;
+use App\Livewire\AllItemsPage;
 
 Route::get('/', LandingPage::class)->name('home');
+Route::get('/semua-barang', AllItemsPage::class)->name('all-items');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

@@ -15,12 +15,12 @@
 
             <!-- Cara Meminjam -->
             <div>
-                <h4 class="font-semibold mb-4 text-white" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Cara Meminjam</h4>
+                <h4 class="font-semibold mb-4 text-white" style="font-family: 'Google Sans', 'Product Sans', sans-serif;"></h4>
                 <ul class="space-y-2 text-sm text-white/80">
-                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Browse & Select</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Book & Reserve</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Enjoy & Return</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Panduan Lengkap</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Peraturan Meminjam</a></li>
+                    <li><a href="javascript:void(0)" onclick="scrollToHowItWorks()" class="hover:text-white transition-colors cursor-pointer" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Cara Meminjam</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Hubungi Kami</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Misi dan Tujuan Kami</a></li>
                 </ul>
             </div>
 
@@ -28,11 +28,14 @@
             <div>
                 <h4 class="font-semibold mb-4 text-white" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Tentang Kami</h4>
                 <ul class="space-y-2 text-sm text-white/80">
-                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Kenapa mending pinjam?</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Tim kami</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Misi dan tujuan kami</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">FAQ</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Tujuan dan Visi</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Kenapa Mending Pinjam?</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Peraturan Meminjam</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">The Super Team</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Laporan Keuangan</a></li>
                     <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Blog</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">FAQ</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Kontak</a></li>
                 </ul>
             </div>
 

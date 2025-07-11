@@ -63,16 +63,9 @@ class CheapestPrice extends Component
         ]
     ];
 
-    public $showAll = false;
-
-    public function toggleShowAll()
-    {
-        $this->showAll = !$this->showAll;
-    }
-
     public function getDisplayedItems()
     {
-        return $this->showAll ? $this->items : array_slice($this->items, 0, 5);
+        return array_slice($this->items, 0, 5);
     }
 
     public function viewItemDetail($itemName)

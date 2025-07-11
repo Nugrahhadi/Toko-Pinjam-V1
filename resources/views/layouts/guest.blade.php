@@ -39,5 +39,30 @@
         </div>
 
         @livewireScripts
+        
+        <!-- Scroll to How It Works Script -->
+        <script>
+            function scrollToHowItWorks() {
+                const howItWorksSection = document.getElementById('how-it-works');
+                if (howItWorksSection) {
+                    howItWorksSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                } else {
+                    // If not on the landing page, redirect to home and then scroll
+                    window.location.href = '/#how-it-works';
+                }
+            }
+            
+            // Check if there's a hash in the URL when page loads
+            document.addEventListener('DOMContentLoaded', function() {
+                if (window.location.hash === '#how-it-works') {
+                    setTimeout(() => {
+                        scrollToHowItWorks();
+                    }, 500); // Wait for page to load
+                }
+            });
+        </script>
     </body>
 </html>

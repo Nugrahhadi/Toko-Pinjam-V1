@@ -1,4 +1,4 @@
-<section class="py-16 bg-white">
+<section id="how-it-works" class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <h2 class="text-3xl lg:text-4xl text-gray-900 mb-4 font-extrabold" style="color: #433592; font-family: 'Google Sans', 'Product Sans', sans-serif;">
