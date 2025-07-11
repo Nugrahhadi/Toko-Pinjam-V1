@@ -1,10 +1,10 @@
 <section class="py-12 bg-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Card -->
         <div class="rounded-3xl overflow-hidden shadow-xl" style="background-color: #FDF2EB;">
             <div class="grid lg:grid-cols-2 items-center min-h-[280px]">
                 <!-- Text Content -->
-                <div class="lg:col-span-1 lg:order-1 p-6 lg:p-8 flex flex-col justify-center">
+                <div class="lg:col-span-1 lg:order-1 p-8 lg:p-8 flex flex-col justify-center">
                     <h2 class="text-3xl lg:text-4xl mb-1" style="font-weight: 800; font-family: 'Google Sans', 'Product Sans', sans-serif; color: #583636;">
                         Belum Bisa Berdonasi?
                     </h2>

@@ -1,7 +1,28 @@
 <nav class="shadow-sm" style="background-color: #fffaf7;">
+    <!-- Top notification bar -->
+    <div class="px-4 py-2" style="background-color: #FFC131; color: #433592;">
+        <div class="max-w-7xl mx-auto flex items-center justify-between text-sm">
+            <div class="flex items-center">
+                <span class="mr-2">💡</span>
+                <span class="font-semibold">Untuk dompetmu, lingkunganmu, dan kamu</span>
+            </div>
+            <div class="flex items-center">
+                <div class="relative">
+                    <input type="text" 
+                           wire:model.live.debounce.300ms="search"
+                           placeholder="Mau cari apa?" 
+                           class="pl-8 pr-4 py-1 text-sm border border-gray-300 rounded-md focus:outline-none bg-white text-gray-900 placeholder-gray-500"
+                           style="--tw-ring-color: #433592; border-color: #433592;">
+                    <svg class="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Main navbar -->
-    <div class="max-w-7xl mx-auto px-4 pt-6 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 mt-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
             <!-- Logo -->
             <div class="flex items-center">
@@ -55,7 +76,7 @@
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FDF2EB] hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Blog</a>
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FDF2EB] hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">FAQ</a>
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FDF2EB] hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Kontak</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FDF2EB] hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Acknowledgement of AI Usage</a>
+                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FDF2EB] hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Acknowledgement of AI Usage</a>
                             </div>
                         </div>
                     </div>
