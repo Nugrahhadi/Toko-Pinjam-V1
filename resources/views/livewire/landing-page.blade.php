@@ -25,6 +25,9 @@
 
     <!-- Impact Section -->
     <livewire:components.perubahan-nyata />
+
+    <!-- Butuh Bantuan Section -->
+    <livewire:components.butuh-bantuan />
     
     <!-- Testimonials Section -->
     {{-- <livewire:components.testimonials-section /> --}}

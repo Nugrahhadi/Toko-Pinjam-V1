@@ -4,7 +4,7 @@
             <!-- Logo and description -->
             <div class="md:col-span-1">
                 <a href="/" class="flex items-center hover:opacity-80 transition-opacity mb-4">
-                    <img src="{{ asset('images/logo-toko-pinjam.png') }}" 
+                    <img src="{{ asset('images/footerlogo.png') }}" 
                          alt="Toko Pinjam" 
                          class="h-16 w-auto max-w-[160px] object-contain">
                 </a>
