@@ -30,7 +30,7 @@
                 <ul class="space-y-2 text-sm text-white/80">
                     <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Tujuan dan Visi</a></li>
                     <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Peraturan Meminjam</a></li>
-        
+                    <li><a href="{{ route('super-team') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">The Super Team</a></li>
                     <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Laporan Keuangan</a></li>
                     <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">FAQ</a></li>
                     <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Acknowledgement of AI Usage</a></li>
