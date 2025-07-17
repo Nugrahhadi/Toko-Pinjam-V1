@@ -8,15 +8,15 @@ use Livewire\WithPagination;
 class AllItemsPage extends Component
 {
     use WithPagination;
-    
+
     public $selectedCategory = 'all';
-    
+
     public function filterByCategory($category)
     {
         $this->selectedCategory = $category;
         $this->resetPage();
     }
-    
+
     public function render()
     {
         $categories = collect([
@@ -25,7 +25,7 @@ class AllItemsPage extends Component
             (object)['name' => 'Buku', 'slug' => 'buku'],
             (object)['name' => 'Alat Musik', 'slug' => 'alat-musik'],
         ]);
-        
+
         $allItems = collect([
             [
                 'id' => 1,
@@ -127,19 +127,19 @@ class AllItemsPage extends Component
                 'available' => true,
             ],
         ]);
-        
+
         // Filter items based on selected category
         if ($this->selectedCategory !== 'all') {
             $allItems = $allItems->filter(function ($item) {
                 return $item['category_slug'] === $this->selectedCategory;
             });
         }
-        
+
         // Paginate items (simulated pagination)
         $perPage = 12;
         $currentPage = $this->getPage();
         $items = $allItems->forPage($currentPage, $perPage);
-        
+
         // Create a simple paginator
         $paginator = new \Illuminate\Pagination\LengthAwarePaginator(
             $items,
@@ -148,7 +148,7 @@ class AllItemsPage extends Component
             $currentPage,
             ['path' => request()->url()]
         );
-        
+
         return view('livewire.all-items-page', [
             'items' => $paginator,
             'categories' => $categories,

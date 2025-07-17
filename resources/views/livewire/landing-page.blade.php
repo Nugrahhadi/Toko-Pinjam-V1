@@ -5,6 +5,9 @@
     <!-- Hero Section -->
     <livewire:components.hero-section />
     
+    <!-- Today's Offer Section -->
+    <livewire:components.todays-offer />
+    
     <!-- How It Works Section -->
     <livewire:components.how-it-works />
     
