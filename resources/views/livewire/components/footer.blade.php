@@ -19,8 +19,8 @@
                 <ul class="space-y-2 text-sm text-white/80">
                     <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Peraturan Meminjam</a></li>
                     <li><a href="javascript:void(0)" onclick="scrollToHowItWorks()" class="hover:text-white transition-colors cursor-pointer" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Cara Meminjam</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Hubungi Kami</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Misi dan Tujuan Kami</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Kontak</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Acknowledgement of AI Usage</a></li>
                 </ul>
             </div>
 
@@ -33,7 +33,7 @@
                     <li><a href="{{ route('super-team') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">The Super Team</a></li>
                     <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Laporan Keuangan</a></li>
                     <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">FAQ</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Acknowledgement of AI Usage</a></li>
+                    
                 </ul>
             </div>
 
@@ -44,7 +44,7 @@
                     <h4 class="font-semibold mb-3 text-white" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Terhubung dengan Kami</h4>
                     <div class="flex space-x-4">
                         <!-- WhatsApp -->
-                        <a href="#" class="text-white/80 hover:text-white transition-colors">
+                        <a href="https://wa.me/6285128050500" class="text-white/80 hover:text-white transition-colors">
                             <span class="[&>svg]:h-7 [&>svg]:w-7">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +58,7 @@
                         </a>
                         
                         <!-- Instagram -->
-                        <a href="#" class="text-white/80 hover:text-white transition-colors">
+                        <a href="https://www.instagram.com/tokopinjam/" class="text-white/80 hover:text-white transition-colors">
                             <span class="[&>svg]:h-7 [&>svg]:w-7">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +72,7 @@
                         </a>
 
                         <!-- YouTube -->
-                        <a href="#" class="text-white/80 hover:text-white transition-colors">
+                        <a href="https://www.youtube.com/channel/UCSQL7JClXeiOSHygskqo8iQ" class="text-white/80 hover:text-white transition-colors">
                             <span class="[&>svg]:h-7 [&>svg]:w-7">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
