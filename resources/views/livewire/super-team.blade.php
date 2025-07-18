@@ -9,7 +9,7 @@
                 Gagasan Kami Menembus<br>Ruang Kelas
             </h1>
             <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                Seluruh anggota tim kami adalah mahasiswa dengan keahlian di bidang masing-masing. Gagasan kami tumbuh di dalam kelas dan termanifestasi di bawah terik matahari. Kami bekerja bersama lintas lintas benua dan zona waktu untuk mempersembahkan karya kami, Toko Pinjam.
+                Seluruh anggota tim kami adalah mahasiswa dengan keahlian di bidang masing-masing. Gagasan kami tumbuh di dalam kelas dan termanifestasi di bawah terik matahari. Kami bekerja bersama lintas benua dan zona waktu untuk mempersembahkan karya kami, Toko Pinjam.
             </p>
         </div>
     </section>
@@ -106,27 +106,26 @@
 
     <!-- Join Team Section -->
     <section class="py-16 bg-gray-50">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto px-2 sm:px-4 lg:px-6">
             <div class="bg-[#faf0eb] rounded-2xl shadow-xl overflow-hidden">
-                <div class="grid lg:grid-cols-2 items-center">
+                <div class="grid lg:grid-cols-2 items-center gap-0">
                     <!-- Left Content -->
-                    <div class="p-8 lg:p-12">
-                        <h2 class="text-3xl lg:text-4xl font-extrabold text-[#433592] mb-6" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                    <div class="pl-8 pr-2 py-4">
+                        <h2 class="text-4xl lg:text-5xl font-extrabold text-[#433592] mb-4" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                             Ingin Jadi Bagian dari<br>the Super Team?
                         </h2>
-                        <p class="text-gray-700 mb-6 leading-relaxed" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                        <p class="text-gray-700 text-base lg:text-lg mb-4 leading-relaxed" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                             Kami selalu membuka kesempatan untuk siapapun yang tertarik bergabung bersama the Super Team. Daftarkan dirimu sekarang!
                         </p>
-                        <button class="bg-[#433592] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#3A2B7A] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                        <button class="bg-[#433592] text-white px-6 py-2 rounded-lg font-bold hover:bg-[#3A2B7A] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                             Daftar Sekarang
                         </button>
                     </div>
-                    
                     <!-- Right Image -->
-                    <div class="p-8 lg:p-12 flex justify-center">
+                    <div class="pl-2 pr-2=4 flex justify-end items-center">
                         <img src="{{ asset('images/team/bangunBumi.png') }}" 
                              alt="Join Super Team" 
-                             class="w-[280px] h-auto object-contain">
+                             class="max-w-sm h-auto object-contain">
                     </div>
                 </div>
             </div>
@@ -147,8 +146,8 @@
                 <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 z-20">
                     <div class="bg-[#ffc131] text-[#433592] px-8 py-3 rounded-md shadow-lg">
                         <div class="flex items-center gap-2">
-                            <h2 class="text-xl lg:text-2xl font-bold" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                                APA YANG KAMI PERCAYA
+                            <h2 class="text-2xl lg:text-4xl font-bold" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                                Apa Yang Kami Percaya
                             </h2>
                         </div>
                     </div>
