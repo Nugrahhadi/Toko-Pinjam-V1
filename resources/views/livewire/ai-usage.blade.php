@@ -41,7 +41,7 @@
       </p>
       <p>
         Namun demikian, kami merasa bertanggung jawab dalam melaporkan hal ini untuk menjaga integritas kami sebagai sebuah organisasi. Di luar dari yang telah disebutkan, semua dikerjakan oleh
-        <a href="#" class="text-[#413291] font-semibold underline hover:text-[#332066]">the Super Team</a> 
+        <a href="{{ route('super-team') }}" class="text-[#413291] font-semibold underline hover:text-[#332066]">the Super Team</a> 
         yang tak kenal waktu menghadirkan ke dunia nyata, Toko Pinjam.
       </p>
     </div>

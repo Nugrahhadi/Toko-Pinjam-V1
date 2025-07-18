@@ -19,8 +19,8 @@
                 <ul class="space-y-2 text-sm text-white/80">
                     <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Peraturan Meminjam</a></li>
                     <li><a href="javascript:void(0)" onclick="scrollToHowItWorks()" class="hover:text-white transition-colors cursor-pointer" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Cara Meminjam</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Kontak</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Acknowledgement of AI Usage</a></li>
+                    <li><a href="{{ route('kontak') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Kontak</a></li>
+                    <li><a href="{{ route('ai-usage') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Acknowledgement of AI Usage</a></li>
                 </ul>
             </div>
 
@@ -32,7 +32,7 @@
                     <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Peraturan Meminjam</a></li>
                     <li><a href="{{ route('super-team') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">The Super Team</a></li>
                     <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Laporan Keuangan</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">FAQ</a></li>
+                    <li><a href="{{ route('faq') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">FAQ</a></li>
                     
                 </ul>
             </div>
