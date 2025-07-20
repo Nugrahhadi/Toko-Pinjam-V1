@@ -1,4 +1,6 @@
 <div>
+    @section('title', 'Bergabung dengan Super Team')
+    
     <!-- Navbar -->
     <livewire:components.navbar />
     
@@ -191,7 +193,9 @@
             
             <!-- Call to Action Button -->
             <div class="text-center">
-                <a href="mailto:tokopinjamindonesia@gmail.com?subject=Karir - [Nama Lengkap] - [Posisi]&body=Halo Tim Toko Pinjam,%0D%0A%0D%0ASaya tertarik untuk bergabung dengan the Super Team sebagai [Posisi yang diinginkan].%0D%0A%0D%0ATerlampir dokumen-dokumen yang diperlukan:%0D%0A- CV%0D%0A- Cover Letter%0D%0A- Portofolio (jika ada)%0D%0A%0D%0ATerima kasih atas kesempatannya.%0D%0A%0D%0ASalam,%0D%0A[Nama Lengkap]" 
+                <a href="https://mail.google.com/mail/?view=cm&to=tokopinjamindonesia@gmail.com&su=Karir - [Nama Lengkap] - [Posisi]&body=Halo Tim Toko Pinjam,%0D%0A%0D%0ASaya tertarik untuk bergabung dengan the Super Team sebagai [Posisi yang diinginkan].%0D%0A%0D%0ATerlampir dokumen-dokumen yang diperlukan:%0D%0A- CV%0D%0A- Cover Letter%0D%0A- Portofolio (jika ada)%0D%0A%0D%0ATerima kasih atas kesempatannya.%0D%0A%0D%0ASalam,%0D%0A[Nama Lengkap]" 
+                   target="_blank"
+                   rel="noopener noreferrer"
                    class="inline-block bg-[#FFC131] text-[#433592] font-bold px-8 py-4 rounded-lg text-lg hover:bg-yellow-300 transition-all duration-300 shadow-lg" 
                    style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                     Saya mau gabung

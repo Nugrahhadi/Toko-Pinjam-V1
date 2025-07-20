@@ -1,4 +1,6 @@
 <div>
+    @section('title', 'Laporan Keuangan')
+    
     <!-- Navbar -->
     <livewire:components.navbar />
     

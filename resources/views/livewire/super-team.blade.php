@@ -1,4 +1,6 @@
 <div>
+    @section('title', 'Super Team')
+    
     <!-- Navbar -->
     <livewire:components.navbar />
     

@@ -1,4 +1,6 @@
 <div>
+    @section('title', 'FAQ - Frequently Asked Questions')
+    
     <livewire:components.navbar />
 
     <div class="min-h-screen bg-gray-50 py-8">
