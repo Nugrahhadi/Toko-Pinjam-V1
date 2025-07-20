@@ -63,9 +63,9 @@
                             Kami selalu membuka kesempatan untuk siapapun yang tertarik bergabung bersama the Super Team. <br>Daftarkan dirimu sekarang!
                         </p>
 
-                        <button class="bg-[#413291] text-xl text-white px-4 py-2 rounded-lg font-bold hover:bg-[#332066] transition duration-200">
+                        <a href="{{ route('bergabung-super-team') }}" class="inline-block bg-[#413291] text-xl text-white px-4 py-2 rounded-lg font-bold hover:bg-[#332066] transition duration-200">
                             Daftar Sekarang
-                        </button>
+                        </a>
                     </div>
 
                     <!-- Illustration -->

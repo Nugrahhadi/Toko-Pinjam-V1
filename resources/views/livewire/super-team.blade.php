@@ -82,7 +82,7 @@
                     </p>
                 </div>
 
-                <!-- Ailin Alya Yasmin -->
+                <!-- Allin Alya Yasmin -->
                 <div class="text-center">
                     <div class="relative mb-4">
                         <img src="{{ asset('images/team/Alin.png') }}" 
@@ -90,7 +90,7 @@
                              class="w-42 h-42 rounded-full mx-auto object-cover shadow-lg">
                     </div>
                     <h3 class="text-xl font-bold text-[#433592] mb-1" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                        Ailin Alya Yasmin
+                        Allin Alya Yasmin
                     </h3>
                     <p class="text-[#433592] font-semibold mb-1" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                         Sustainability Specialist
@@ -117,9 +117,9 @@
                         <p class="text-gray-700 text-base lg:text-lg mb-4 leading-relaxed" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                             Kami selalu membuka kesempatan untuk siapapun yang tertarik bergabung bersama the Super Team. Daftarkan dirimu sekarang!
                         </p>
-                        <button class="bg-[#433592] text-white px-6 py-2 rounded-lg font-bold hover:bg-[#3A2B7A] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                        <a href="{{ route('bergabung-super-team') }}" class="inline-block bg-[#433592] text-white px-6 py-2 rounded-lg font-bold hover:bg-[#3A2B7A] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                             Daftar Sekarang
-                        </button>
+                        </a>
                     </div>
                     <!-- Right Image -->
                     <div class="pl-2 pr-2=4 flex justify-end items-center">
