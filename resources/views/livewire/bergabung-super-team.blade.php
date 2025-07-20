@@ -13,7 +13,7 @@
                     </h1>
                 </div>
                 
-                <!-- Right Image -->
+                <!-- Right content -->
                 <div class="flex-shrink-0 ml-8">
                     <img src="{{ asset('images/bumiGab.png') }}" 
                          alt="Join Super Team" 
@@ -27,7 +27,7 @@
         </div>
     </section>
 
-    <!-- Job Positions Section -->
+    <!-- Job Dibutuhkan Section -->
     <section class="pb-10 bg-white">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -36,7 +36,7 @@
             </h2>
 
             <div class="grid md:grid-cols-2 gap-8">
-                <!-- Kiri: Kreatif (kotak besar) -->
+                <!-- Job kreatif -->
                 <div class="bg-[#faf0eb] shadow-lg border border-gray-100">
                     <div class="bg-[#413291] text-white px-6 py-3 rounded-t-xl" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                         <h3 class="text-xl font-bold">Kreatif</h3>

@@ -6,14 +6,14 @@
     <section class="py-16 bg-white">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between">
-                <!-- Left Content -->
+                <!-- Left content -->
                 <div class="flex-1">
                     <h1 class="text-5xl lg:text-6xl font-extrabold text-[#433592] mb-6" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                         Laporan<br>Keuangan
                     </h1>
                 </div>
                 
-                <!-- Right Image -->
+                <!-- Right content -->
                 <div class="flex-shrink-0 ml-8">
                     <img src="{{ asset('images/keu.png') }}" 
                          alt="Join Super Team" 
@@ -27,7 +27,7 @@
         </div>
     </section>
 
-    <!-- Donation Breakdown Section -->
+    <!-- Rekapitulasi donasi section -->
     <section class="py-16 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl lg:text-4xl font-extrabold text-[#433592] mb-8 text-center" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
@@ -224,7 +224,7 @@
     <!-- Footer -->
     <livewire:components.footer />
 
-    <!-- Chart.js Script -->
+    <!-- Pie Chart Script -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
