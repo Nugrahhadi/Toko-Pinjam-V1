@@ -7,6 +7,8 @@ use App\Livewire\AiUsage;
 use App\Livewire\ContactPage;
 use App\Livewire\SuperTeam;
 use App\Livewire\FaqPage;
+use App\Livewire\LaporanKeuangan;
+use App\Livewire\BergabungSuperTeam;
 
 Route::get('/', LandingPage::class)->name('home');
 Route::get('/semua-barang', AllItemsPage::class)->name('all-items');
@@ -14,6 +16,8 @@ Route::get('/ai-usage', AiUsage::class)->name('ai-usage');
 Route::get('/kontak', ContactPage::class)->name('kontak');
 Route::get('/super-team', SuperTeam::class)->name('super-team');
 Route::get('/faq', FaqPage::class)->name('faq');
+Route::get('/laporan-keuangan', LaporanKeuangan::class)->name('laporan-keuangan');
+Route::get('/bergabung-super-team', BergabungSuperTeam::class)->name('bergabung-super-team');
 Route::view('/acknowledgement', 'livewire.acknowledgement')->name('acknowledgement');
 
 Route::view('dashboard', 'dashboard')

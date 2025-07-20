@@ -1,4 +1,6 @@
 <div>
+    @section('title', 'Hubungi Kami')
+    
     <livewire:components.navbar />
 
     <div class="max-w-5xl mx-auto px-6 lg:px-16 py-16">

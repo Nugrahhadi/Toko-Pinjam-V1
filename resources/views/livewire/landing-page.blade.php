@@ -1,4 +1,6 @@
 <div>
+    @section('title', 'Beranda')
+    
     <!-- Navbar -->
     <livewire:components.navbar />
     
