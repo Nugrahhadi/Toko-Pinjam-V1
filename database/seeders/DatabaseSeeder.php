@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
             ItemSeeder::class,
             TestimonialSeeder::class,
         ]);
+        $this->call(PostSeeder::class);
     }
 }

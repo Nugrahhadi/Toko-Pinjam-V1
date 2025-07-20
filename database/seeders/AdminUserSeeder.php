@@ -14,6 +14,7 @@ class AdminUserSeeder extends Seeder
      */
     public function run(): void
     {
+        if (!User::where('email', 'admin@tokopinjam.com')->exists()) {
         User::create([
             'name' => 'Admin Toko Pinjam',
             'email' => 'admin@tokopinjam.com',
@@ -44,5 +45,6 @@ class AdminUserSeeder extends Seeder
             'address' => 'Jl. User No. 3, Bandung',
             'email_verified_at' => now(),
         ]);
+    }
     }
 }

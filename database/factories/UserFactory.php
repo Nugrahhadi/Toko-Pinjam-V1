@@ -5,6 +5,8 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use App\Models\Post;
+
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -40,5 +42,21 @@ class UserFactory extends Factory
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
         ]);
+    }
+}
+
+class PostFactory extends Factory
+{
+    protected $model = Post::class;
+
+    public function definition()
+    {
+        return [
+            'title' => fake()->sentence(6),
+            'image' => fake()->imageUrl(300, 200),
+            'category' => fake()->randomElement(['Pengumuman', 'Siaran Pers', 'Berita']),
+            'author' => fake()->name(),
+            'likes' => fake()->numberBetween(0, 100),
+        ];
     }
 }

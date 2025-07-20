@@ -9,6 +9,8 @@ use App\Livewire\SuperTeam;
 use App\Livewire\FaqPage;
 use App\Livewire\LaporanKeuangan;
 use App\Livewire\BergabungSuperTeam;
+use App\Livewire\Blog;
+use App\Http\Controllers\BlogController;
 
 Route::get('/', LandingPage::class)->name('home');
 Route::get('/semua-barang', AllItemsPage::class)->name('all-items');
@@ -19,6 +21,7 @@ Route::get('/faq', FaqPage::class)->name('faq');
 Route::get('/laporan-keuangan', LaporanKeuangan::class)->name('laporan-keuangan');
 Route::get('/bergabung-super-team', BergabungSuperTeam::class)->name('bergabung-super-team');
 Route::view('/acknowledgement', 'livewire.acknowledgement')->name('acknowledgement');
+Route::get('/blog', Blog::class)->name('blog');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
