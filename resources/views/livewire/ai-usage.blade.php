@@ -59,11 +59,11 @@
                             the Super Team?
                         </h3>
 
-                        <p class="text-gray-700 text-sm mb-6">
+                        <p class="text-gray-700 text-md mb-6">
                             Kami selalu membuka kesempatan untuk siapapun yang tertarik bergabung bersama the Super Team. <br>Daftarkan dirimu sekarang!
                         </p>
 
-                        <button class="bg-[#413291] text-xl text-white px-4 py-2 rounded-lg font-bold hover:bg-[#332066] transition duration-200">
+                        <button class="bg-[#413291] text-md text-white px-4 py-2 rounded-lg font-medium hover:bg-[#332066] transition duration-200">
                             Daftar Sekarang
                         </button>
                     </div>
@@ -81,6 +81,8 @@
 
         </div>
     </section>
+
+    
 
     <!-- Butuh Bantuan Section -->
     <section class="bg-white py-12 w-full">
