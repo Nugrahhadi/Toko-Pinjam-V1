@@ -4,14 +4,19 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\ItemRequest as RequestedItem;
 
 class PinjamSekarang extends Component
 {
     use WithPagination;
 
     public $selectedCategory = 'all';
-      public $requestItem = '';
+    public $requestItem = '';
+    public $search = ''; // pencarian
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
 
     public function filterByCategory($category)
     {
@@ -19,14 +24,10 @@ class PinjamSekarang extends Component
         $this->resetPage();
     }
 
-     public function submitRequest()
+    public function submitRequest()
     {
         $this->validate([
             'requestItem' => 'required|string|max:255',
-        ]);
-
-        RequestedItem::create([
-            'name' => $this->requestItem,
         ]);
 
         $this->requestItem = '';
@@ -144,19 +145,27 @@ class PinjamSekarang extends Component
             ],
         ]);
 
-        // Filter items based on selected category
+        // Filter kategori
         if ($this->selectedCategory !== 'all') {
-            $allItems = $allItems->filter(function ($item) {
-                return $item['category_slug'] === $this->selectedCategory;
-            });
+            $allItems = $allItems->filter(fn($item) =>
+                $item['category_slug'] === $this->selectedCategory
+            );
         }
 
-        // Paginate items (simulated pagination)
+        // Filter pencarian
+        if (!empty($this->search)) {
+            $searchTerm = strtolower($this->search);
+            $allItems = $allItems->filter(fn($item) =>
+                str_contains(strtolower($item['name']), $searchTerm) ||
+                str_contains(strtolower($item['description']), $searchTerm)
+            );
+        }
+
+        // Pagination
         $perPage = 12;
         $currentPage = $this->getPage();
         $items = $allItems->forPage($currentPage, $perPage);
 
-        // Create a simple paginator
         $paginator = new \Illuminate\Pagination\LengthAwarePaginator(
             $items,
             $allItems->count(),
@@ -171,4 +180,3 @@ class PinjamSekarang extends Component
         ])->layout('layouts.guest');
     }
 }
-

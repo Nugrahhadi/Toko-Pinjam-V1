@@ -12,6 +12,7 @@
             class="sticky left-0 w-72 bg-[#fdf3f0] text-[#3a2882] text-sm z-30 overflow-y-auto shadow-md transition-all duration-300 ease-in-out"
         >
             <div class="p-4 space-y-6">
+
                 {{-- Input Search --}}
                 <div class="relative mt-4">
                     <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -19,9 +20,10 @@
                             <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
                         </svg>
                     </span>
-                    <input type="text"
-                        placeholder="Cari kata kunci"
-                        class="w-full pl-10 pr-3 py-2 bg-[#A79C97] text-white placeholder-white rounded focus:outline-none text-sm" />
+                    <input type="text" 
+                           wire:model.debounce.300ms="search"
+                           placeholder="Cari kata kunci"
+                           class="w-full pl-10 pr-3 py-2 bg-[#A79C97] text-white placeholder-white rounded focus:outline-none text-sm" />
                 </div>
 
                 {{-- Kategori --}}
@@ -30,16 +32,20 @@
                     <ul class="space-y-2">
                         <li>
                             <label class="inline-flex items-center">
-                                <input type="radio" wire:click="filterByCategory('all')" name="category"
-                                       class="form-radio text-[#3a2882]" {{ $selectedCategory === 'all' ? 'checked' : '' }}>
+                                <input type="radio" wire:click="filterByCategory('all')" 
+                                       name="category" 
+                                       class="form-radio text-[#3a2882]" 
+                                       {{ $selectedCategory === 'all' ? 'checked' : '' }}>
                                 <span class="ml-2">Semua</span>
                             </label>
                         </li>
                         @foreach($categories as $category)
                             <li>
                                 <label class="inline-flex items-center">
-                                    <input type="radio" wire:click="filterByCategory('{{ $category->slug }}')" name="category"
-                                           class="form-radio text-[#3a2882]" {{ $selectedCategory === $category->slug ? 'checked' : '' }}>
+                                    <input type="radio" wire:click="filterByCategory('{{ $category->slug }}')" 
+                                           name="category" 
+                                           class="form-radio text-[#3a2882]" 
+                                           {{ $selectedCategory === $category->slug ? 'checked' : '' }}>
                                     <span class="ml-2">{{ $category->name }}</span>
                                 </label>
                             </li>
@@ -74,7 +80,7 @@
 
         {{-- KONTEN --}}
         <main class="pl-10 w-full py-10 px-6 bg-white">
-            <h1 class="text-3xl font-bold text-[#3a2882] mb-8 text-center">Semua yang Perlu Kamu Tahu</h1>
+            <h1 class="text-3xl font-bold text-[#3a2882] mb-8 text-center">Mau Pinjam Apa Hari Ini?</h1>
 
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
                 @forelse($items as $item)
