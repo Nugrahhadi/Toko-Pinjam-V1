@@ -34,7 +34,7 @@
 
                 <div class="hidden md:flex items-center space-x-8">
                     <!-- Nav Pinjam Sekarang -->
-                    <a href="#" class="text-gray-700 font-medium hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Pinjam Sekarang</a>
+                    <a href="{{ route('pinjam-sekarang') }}" class="text-gray-700 font-medium hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Pinjam Sekarang</a>
                     
                     <!-- Dropdown Lokasi -->
                     <div class="relative group">
