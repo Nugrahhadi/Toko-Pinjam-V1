@@ -48,7 +48,7 @@
                 {{-- CTA --}}
                 <div class="text-center space-y-4 pt-2">
                     <p class="font-bold text-[#3a2882] text-2xl leading-snug">Tulisanmu<br>Bisa Terbit!</p>
-                    <a href="#"
+                    <a href="{{ route('create-post') }}"
                         class="inline-block bg-[#4b2ba3] text-white font-semibold px-6 py-2 text-lg rounded shadow hover:bg-[#3a2882] transition">
                         Mulai Menulis
                     </a>

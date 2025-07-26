@@ -10,6 +10,7 @@ use App\Livewire\FaqPage;
 use App\Livewire\LaporanKeuangan;
 use App\Livewire\BergabungSuperTeam;
 use App\Livewire\Blog;
+use App\Livewire\CreatePost;
 use App\Http\Controllers\BlogController;
 
 Route::get('/', LandingPage::class)->name('home');
@@ -22,6 +23,7 @@ Route::get('/laporan-keuangan', LaporanKeuangan::class)->name('laporan-keuangan'
 Route::get('/bergabung-super-team', BergabungSuperTeam::class)->name('bergabung-super-team');
 Route::view('/acknowledgement', 'livewire.acknowledgement')->name('acknowledgement');
 Route::get('/blog', Blog::class)->name('blog');
+Route::view('/tulis-artikel', 'create-post')->name('create-post');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
