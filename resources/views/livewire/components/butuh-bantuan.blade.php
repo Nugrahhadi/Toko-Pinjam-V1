@@ -74,16 +74,12 @@
             </h3>
             <a href="https://www.tokopinjam.com/laporan-keuangan" target="_blank"
                class="inline-block bg-[#413291] text-white font-semibold px-6 py-3 rounded hover:bg-[#2e2367] transition">
-              Lihat Laporan Keuangan Kami
+              Laporan Keuangan
             </a>
           </div>
         </div>
         
-        <!-- Gambar absolute bottom right -->
-        <img src="{{ asset('images/butuhbantuan/laporankeuangan.png') }}"
-             alt="Laporan Keuangan"
-             class="hidden md:block absolute bottom-0 right-0 h-30 md:h-36 w-auto object-contain">
-        
+       
       </div>
       
     </div>

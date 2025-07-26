@@ -1,5 +1,5 @@
 <!-- HERO PERUBAHAN -->
-<section id="hero-impact" class="bg-green-300 py-12">
+<section id="hero-impact" class="bg-[#ddf9ef] py-12">
   <div class="max-w-5xl mx-auto text-center px-4">
     <h2 class="text-3xl md:text-4xl font-extrabold text-purple-900 mb-2" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
       Perubahan Itu Nyata
