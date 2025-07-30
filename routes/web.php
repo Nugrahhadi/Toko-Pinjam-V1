@@ -12,6 +12,7 @@ use App\Livewire\BergabungSuperTeam;
 use App\Livewire\Blog;
 use App\Livewire\CreatePost;
 use App\Livewire\PinjamSekarang;
+use App\Livewire\ChapterPurwokerto;
 use App\Http\Controllers\BlogController;
 use App\Livewire\SyaratKetentuan;
 
@@ -28,6 +29,7 @@ Route::get('/blog', Blog::class)->name('blog');
 Route::view('/tulis-artikel', 'create-post')->name('create-post');
 Route::get('/pinjam-sekarang', PinjamSekarang::class)->name('pinjam-sekarang');
 Route::get('/syarat-ketentuan', SyaratKetentuan::class)->name('syarat-ketentuan');
+Route::get('/chapter-purwokerto', ChapterPurwokerto::class)->name('chapter-purwokerto');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
