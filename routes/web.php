@@ -11,7 +11,9 @@ use App\Livewire\LaporanKeuangan;
 use App\Livewire\BergabungSuperTeam;
 use App\Livewire\Blog;
 use App\Livewire\CreatePost;
+use App\Livewire\PinjamSekarang;
 use App\Http\Controllers\BlogController;
+use App\Livewire\SyaratKetentuan;
 
 Route::get('/', LandingPage::class)->name('home');
 Route::get('/semua-barang', AllItemsPage::class)->name('all-items');
@@ -24,6 +26,8 @@ Route::get('/bergabung-super-team', BergabungSuperTeam::class)->name('bergabung-
 Route::view('/acknowledgement', 'livewire.acknowledgement')->name('acknowledgement');
 Route::get('/blog', Blog::class)->name('blog');
 Route::view('/tulis-artikel', 'create-post')->name('create-post');
+Route::get('/pinjam-sekarang', PinjamSekarang::class)->name('pinjam-sekarang');
+Route::get('/syarat-ketentuan', SyaratKetentuan::class)->name('syarat-ketentuan');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

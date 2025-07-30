@@ -88,7 +88,7 @@
                 <div class="text-center">
                     <div class="relative mb-4">
                         <img src="{{ asset('images/team/Alin.png') }}" 
-                             alt="Ailin Alya Yasmin" 
+                             alt="Allin Alya Yasmin" 
                              class="w-42 h-42 rounded-full mx-auto object-cover shadow-lg">
                     </div>
                     <h3 class="text-xl font-bold text-[#433592] mb-1" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">

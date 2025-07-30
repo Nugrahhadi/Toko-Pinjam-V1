@@ -68,7 +68,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         const animatedText = document.getElementById('animated-text');
         if (animatedText) {
-            const words = ['pinjam', 'berbagi', 'berhemat', 'berdonasi'];
+            const words = ['pinjam', 'berbagi', 'hemat', 'donasi'];
             let currentIndex = 0;
             
             function changeWord() {

@@ -25,17 +25,18 @@
     <!-- Items Section -->
     {{-- <livewire:components.items-section /> --}}
 
-    <!-- Why Rent Section -->
-    <livewire:components.kenapa-pinjam />
+<!-- Manfaat Pinjam Section -->
+    <livewire:components.manfaat-pinjam />
 
     <!-- Impact Section -->
     <livewire:components.perubahan-nyata />
 
     <!-- Butuh Bantuan Section -->
     <livewire:components.butuh-bantuan />
+
     
     <!-- Testimonials Section -->
-    {{-- <livewire:components.testimonials-section /> --}}
+   <livewire:components.testimonials-section />
     
     <!-- Cannot Donate Yet Section -->
     <livewire:components.cannot-donate-yet />
