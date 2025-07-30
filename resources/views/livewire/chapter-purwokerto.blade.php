@@ -46,9 +46,9 @@
                     </div>
 
                     <!-- Alamat: dibungkus agar tetap bisa diklik & selectable -->
-                    <p class="text-base md:text-lg mb-6 max-w-xl pointer-events-auto">
+                    {{-- <p class="text-base md:text-lg mb-6 max-w-xl pointer-events-auto">
                         📍 Jl. Raya Klapasawit No.18, Dusun 2, Kalimanah Kulon, Kec. Kalimanah, Kabupaten Purbalingga, Jawa Tengah 53371
-                    </p>
+                    </p> --}}
 
                     <!-- Berkolaborasi dengan -->
                     <div class="pointer-events-auto">
@@ -65,7 +65,7 @@
     </div>
 
     <!-- FAKTA MENARIK SECTION -->
-    <section class="bg-[#faf0eb] py-12">
+    <section class="bg-white py-12">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h3 class="text-lg text-[#433592] mb-4" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                 Fakta menarik:
@@ -80,7 +80,7 @@
     </section>
 
     <!-- LOKASI & JAM BUKA SECTION -->
-    <section class="py-16 bg-white">
+    <section class="py-16 bg-[#faf0eb]">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Tab Navigation -->
             <div class="flex justify-center mb-12">
@@ -189,7 +189,9 @@
                         </p>
                     </div>
                     <div class="flex justify-center">
-                        <img src="{{ asset('images/landmark-sectionpwt.JPG') }}" alt="Landmark Purwokerto" class="rounded-2xl shadow-xl max-w-full h-auto">
+                        <div class="w-64 h-80 overflow-hidden rounded-2xl shadow-xl">
+                            <img src="{{ asset('images/landmark-sectionpwt.JPG') }}" alt="Landmark Purwokerto" class="w-full h-full object-cover">
+                        </div>
                     </div>
                 </div>
                 @endif
@@ -198,7 +200,7 @@
     </section>
 
     <!-- DARI KAMI SECTION -->
-    <section class="py-16 bg-[#faf0eb]">
+    <section class="py-16 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>

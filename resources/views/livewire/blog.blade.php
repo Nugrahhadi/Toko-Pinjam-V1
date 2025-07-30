@@ -62,12 +62,22 @@
 
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
                 @foreach ($posts as $post)
-                    <div class="bg-white overflow-hidden">
-                        <img src="{{ $post->thumbnail ?? 'https://source.unsplash.com/300x200/?random&' . $loop->index }}"
-                             alt="{{ $post->title }}" class="w-full h-64 object-cover">
-                        <div class="p-2 text-lg text-left font-semibold text-[#3a2882]">
-                            {{ $post->title }}
-                        </div>
+                    <div class="bg-white overflow-hidden group hover:shadow-lg transition-shadow duration-300">
+                        <a href="{{ route('blog.detail', $post->slug ?? $post->id) }}" class="block">
+                            <img src="{{ $post->featured_image ? asset('storage/' . $post->featured_image) : 'https://source.unsplash.com/300x200/?random&' . $loop->index }}"
+                                 alt="{{ $post->title }}" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="p-2 text-lg text-left font-semibold text-[#3a2882] group-hover:text-[#4b2ba3] transition-colors">
+                                {{ $post->title }}
+                            </div>
+                            @if($post->description)
+                            <div class="px-2 pb-2 text-sm text-gray-600 line-clamp-2">
+                                {{ $post->description }}
+                            </div>
+                            @endif
+                            <div class="px-2 pb-2 text-xs text-gray-500">
+                                {{ $post->created_at->format('d M Y') }} • {{ $post->views ?? 0 }} views
+                            </div>
+                        </a>
                     </div>
                 @endforeach
             </div>
