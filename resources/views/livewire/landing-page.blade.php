@@ -36,7 +36,7 @@
 
     
     <!-- Testimonials Section -->
-   <livewire:components.testimonials-section />
+   {{-- <livewire:components.testimonials-section /> --}}
     
     <!-- Cannot Donate Yet Section -->
     <livewire:components.cannot-donate-yet />
