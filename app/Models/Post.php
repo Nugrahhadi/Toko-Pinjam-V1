@@ -18,6 +18,7 @@ class Post extends Model
         'category',
         'author',
         'author_phone',
+        'author_email',
         'content',
         'likes',
         'views',

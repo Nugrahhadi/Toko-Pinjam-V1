@@ -152,9 +152,6 @@
             <!-- Header -->
             <div class="text-center mb-8">
                 <div class="flex justify-center mb-4">
-                    {{-- <div class="w-20 h-20 bg-[#433592] rounded-2xl flex items-center justify-center">
-                        <span class="text-white font-bold text-xl" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">TP</span>
-                    </div> --}}
                 </div>
                 <h1 class="text-3xl font-bold text-[#433592]" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                     Tulis Artikel
@@ -194,6 +191,40 @@
                     @enderror
                 </div>
 
+                <!-- Featured Image -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                        Gambar Unggulan (Featured Image):
+                    </label>
+                    <div class="relative">
+                        <input type="file" 
+                               wire:model="featured_image" 
+                               accept="image/*"
+                               class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#433592] focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-[#433592] file:text-white hover:file:bg-[#3a2882] @error('featured_image') border-red-500 bg-red-50 @enderror"
+                               style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                        
+                        @if($featured_image)
+                            <div class="mt-3 p-3 bg-green-50 border border-green-200 rounded-lg">
+                                <div class="flex items-center gap-3">
+                                    <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-green-700">{{ $featured_image->getClientOriginalName() }}</span>
+                                    <button type="button" wire:click="removeFeaturedImage" class="ml-auto text-red-600 hover:text-red-800">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                    @error('featured_image')
+                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                    @enderror
+                    <p class="text-xs text-gray-500 mt-1">Format yang didukung: JPG, PNG, WEBP. Maksimal 5MB. Gambar akan dikompres otomatis.</p>
+                </div>
+
                 <!-- Penulis -->
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
@@ -217,6 +248,20 @@
                            placeholder="Nomor telepon penulis"
                            class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#433592] focus:outline-none"
                            style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                </div>
+
+                <!-- Email Penulis -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                        Email penulis:
+                    </label>
+                    <input type="email" wire:model="author_email" 
+                           placeholder="Email penulis"
+                           class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#433592] focus:outline-none @error('author_email') border-red-500 bg-red-50 @enderror"
+                           style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                    @error('author_email')
+                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <!-- Isi Artikel -->
@@ -254,6 +299,8 @@
                                             <path d="M8.5,13.5L11,16.5L14.5,12L19,18H5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19Z"/>
                                         </svg>
                                     </button>
+                                    <!-- Hidden file input for content images -->
+                                    <input type="file" id="content-image-input" accept="image/*" style="display: none;" onchange="handleContentImageUpload(this)">
                                     <button type="button" class="toolbar-btn" onclick="insertTable()" title="Insert Table">
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                                             <path d="M5,4H19A2,2 0 0,1 21,6V18A2,2 0 0,1 19,20H5A2,2 0 0,1 3,18V6A2,2 0 0,1 5,4M5,8V12H11V8H5M13,8V12H19V8H13M5,14V18H11V14H5M13,14V18H19V14H13Z"/>
@@ -487,11 +534,75 @@
         }
         
         function insertImage() {
-            const url = prompt('Masukkan URL gambar:');
-            if (url) {
+            const fileInput = document.getElementById('content-image-input');
+            fileInput.click();
+        }
+        
+        function handleContentImageUpload(input) {
+            if (input.files && input.files[0]) {
+                const file = input.files[0];
+                
+                // Validasi tipe file
+                if (!file.type.startsWith('image/')) {
+                    alert('Please select a valid image file.');
+                    return;
+                }
+                
+                // Validasi ukuran file (5MB)
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('File size must be less than 5MB.');
+                    return;
+                }
+                
+                // Create FormData for upload
+                const formData = new FormData();
+                formData.append('image', file);
+                formData.append('_token', document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
+                
+                // Show loading indicator
+                const loadingHtml = '<div class="inline-block p-2 bg-gray-100 rounded" id="image-loading">📤 Uploading image...</div>';
                 editor.focus();
-                document.execCommand('insertImage', false, url);
+                document.execCommand('insertHTML', false, loadingHtml);
                 updateLivewireContent();
+                
+                // Upload image via fetch
+                fetch('/upload-content-image', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Remove loading indicator
+                    const loadingElement = document.getElementById('image-loading');
+                    if (loadingElement) {
+                        loadingElement.remove();
+                    }
+                    
+                    if (data.success) {
+                        // Insert the uploaded image
+                        const imageHtml = `<img src="${data.url}" alt="Content Image" style="max-width: 100%; height: auto; margin: 10px 0;">`;
+                        editor.focus();
+                        document.execCommand('insertHTML', false, imageHtml);
+                        updateLivewireContent();
+                    } else {
+                        alert('Failed to upload image: ' + (data.message || 'Unknown error'));
+                    }
+                })
+                .catch(error => {
+                    // Remove loading indicator
+                    const loadingElement = document.getElementById('image-loading');
+                    if (loadingElement) {
+                        loadingElement.remove();
+                    }
+                    console.error('Error:', error);
+                    alert('Failed to upload image. Please try again.');
+                });
+                
+                // Reset file input
+                input.value = '';
             }
         }
         

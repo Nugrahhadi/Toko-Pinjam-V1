@@ -131,9 +131,9 @@
                                 <span class="text-lg text-gray-600">Bandung - Segera Hadir</span>
                             </div>
                         </div>
-                        <p class="text-gray-600 mt-6" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                        {{-- <p class="text-gray-600 mt-6" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                             Kamu harus mengajukan peminjaman melalui website ini, lalu mengambil dan mengembalikan barang di jam berikut:
-                        </p>
+                        </p> --}}
                     </div>
                     <div class="flex justify-center">
                         <div class="bg-gradient-to-br from-[#433592] to-[#6B46C1] p-8 rounded-2xl shadow-xl text-white text-center">
@@ -189,7 +189,7 @@
                         </p>
                     </div>
                     <div class="flex justify-center">
-                        <div class="w-64 h-80 overflow-hidden rounded-2xl shadow-xl">
+                        <div class="w-80 h-96 overflow-hidden rounded-2xl shadow-xl">
                             <img src="{{ asset('images/landmark-sectionpwt.JPG') }}" alt="Landmark Purwokerto" class="w-full h-full object-cover">
                         </div>
                     </div>

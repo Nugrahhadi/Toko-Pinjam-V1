@@ -63,7 +63,7 @@
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
                 @foreach ($posts as $post)
                     <div class="bg-white overflow-hidden group hover:shadow-lg transition-shadow duration-300">
-                        <a href="{{ route('blog.detail', $post->slug ?? $post->id) }}" class="block">
+                        <a href="{{ route('blog.detail', ['slug' => $post->slug ?: $post->id]) }}" class="block">
                             <img src="{{ $post->featured_image ? asset('storage/' . $post->featured_image) : 'https://source.unsplash.com/300x200/?random&' . $loop->index }}"
                                  alt="{{ $post->title }}" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
                             <div class="p-2 text-lg text-left font-semibold text-[#3a2882] group-hover:text-[#4b2ba3] transition-colors">

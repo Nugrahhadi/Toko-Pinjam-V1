@@ -13,8 +13,8 @@ class Blog extends Component
     public function render()
     {
         $posts = Post::where('status', 'published')
-                    ->latest()
-                    ->get();
+            ->latest()
+            ->get();
 
         return view('livewire.blog', [
             'posts' => $posts,

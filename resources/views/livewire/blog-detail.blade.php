@@ -63,47 +63,20 @@
 
                     <!-- Author & Editor Info -->
                     <div class="border-t pt-8">
-                        <h3 class="text-xl font-bold text-gray-900 mb-6" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                            Tim Penulis
-                        </h3>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <!-- Author -->
-                            <div class="bg-gray-50 rounded-lg p-6">
-                                <h4 class="font-semibold text-gray-900 mb-2">Penulis:</h4>
-                                <div class="flex items-start gap-3">
-                                    <div class="w-12 h-12 bg-[#433592] rounded-full flex items-center justify-center text-white font-bold">
-                                        {{ strtoupper(substr($post->author, 0, 1)) }}
-                                    </div>
-                                    <div>
-                                        <p class="font-medium text-gray-900">{{ $post->author }}</p>
-                                        @if($post->user && $post->user->email)
-                                        <a href="mailto:{{ $post->user->email }}" class="text-[#433592] hover:underline text-sm">
-                                            {{ $post->user->email }}
-                                        </a>
-                                        @endif
-                                        @if($post->author_phone)
-                                        <p class="text-gray-600 text-sm">{{ $post->author_phone }}</p>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Editor -->
-                            <div class="bg-gray-50 rounded-lg p-6">
-                                <h4 class="font-semibold text-gray-900 mb-2">Editor:</h4>
-                                <div class="flex items-start gap-3">
-                                    <div class="w-12 h-12 bg-gray-400 rounded-full flex items-center justify-center text-white font-bold">
-                                        TP
-                                    </div>
-                                    <div>
-                                        <p class="font-medium text-gray-900">Tim Toko Pinjam</p>
-                                        <a href="mailto:admin@tokopinjam.com" class="text-[#433592] hover:underline text-sm">
-                                            admin@tokopinjam.com
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="prose prose-lg max-w-none" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                            <p class="text-gray-600">
+                                <strong>Penulis:</strong> {{ $post->author }} - 
+                                @if($post->author_email)
+                                    <a href="mailto:{{ $post->author_email }}" class="text-[#433592] hover:underline">
+                                        {{ $post->author_email }}
+                                    </a>
+                                @else
+                                    <span class="text-gray-500">Email tidak tersedia</span>
+                                @endif
+                            </p>
+                            <p class="text-gray-600 mt-2">
+                                <strong>Editor:</strong> Allin Alya
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -139,8 +112,8 @@
                                     <div class="flex-shrink-0">
                                         <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold
                                                     {{ $index === 0 ? 'bg-yellow-500 text-white' : 
-                                                       $index === 1 ? 'bg-gray-400 text-white' : 
-                                                       $index === 2 ? 'bg-orange-400 text-white' : 'bg-gray-300 text-gray-600' }}">
+                                                       ($index === 1 ? 'bg-gray-400 text-white' : 
+                                                       ($index === 2 ? 'bg-orange-400 text-white' : 'bg-gray-300 text-gray-600')) }}">
                                             {{ $index + 1 }}
                                         </div>
                                     </div>
@@ -171,7 +144,7 @@
                             <div class="space-y-4">
                                 @foreach($this->getRecentPosts() as $recentPost)
                                 <div class="group">
-                                    <a href="{{ route('blog.detail', $recentPost->slug) }}" class="block">
+                                    <a href="{{ route('blog.detail', ['slug' => $recentPost->slug ?: $recentPost->id]) }}" class="block">
                                         <div class="flex gap-3">
                                             @if($recentPost->featured_image)
                                             <div class="w-16 h-16 flex-shrink-0 overflow-hidden rounded-lg">
@@ -206,41 +179,34 @@
                                 Bagikan Artikel
                             </h3>
                             <div class="flex gap-3">
+                                <!-- Instagram -->
+                                <a href="https://www.instagram.com/" 
+                                   target="_blank"
+                                   class="flex-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-2 rounded-lg text-center text-sm hover:from-purple-600 hover:to-pink-600 transition flex items-center justify-center gap-2">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm8.75 2.25a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-1.5 0v-.008a.75.75 0 0 1 .75-.75ZM12 7a5 5 0 1 1 0 10a5 5 0 0 1 0-10Zm0 1.5a3.5 3.5 0 1 0 0 7a3.5 3.5 0 0 0 0-7Z"/>
+                                    </svg>
+                                    Instagram
+                                </a>
+                                <!-- Facebook -->
                                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->fullUrl()) }}" 
                                    target="_blank"
-                                   class="flex-1 bg-blue-600 text-white px-3 py-2 rounded-lg text-center text-sm hover:bg-blue-700 transition">
+                                   class="flex-1 bg-blue-600 text-white px-3 py-2 rounded-lg text-center text-sm hover:bg-blue-700 transition flex items-center justify-center gap-2">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z"/>
+                                    </svg>
                                     Facebook
                                 </a>
-                                <a href="https://twitter.com/intent/tweet?url={{ urlencode(request()->fullUrl()) }}&text={{ urlencode($post->title) }}" 
-                                   target="_blank"
-                                   class="flex-1 bg-sky-500 text-white px-3 py-2 rounded-lg text-center text-sm hover:bg-sky-600 transition">
-                                    Twitter
-                                </a>
+                                <!-- WhatsApp -->
                                 <a href="https://wa.me/?text={{ urlencode($post->title . ' ' . request()->fullUrl()) }}" 
                                    target="_blank"
-                                   class="flex-1 bg-green-600 text-white px-3 py-2 rounded-lg text-center text-sm hover:bg-green-700 transition">
+                                   class="flex-1 bg-green-600 text-white px-3 py-2 rounded-lg text-center text-sm hover:bg-green-700 transition flex items-center justify-center gap-2">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                                    </svg>
                                     WhatsApp
                                 </a>
                             </div>
-                        </div>
-
-                        <!-- Newsletter Subscription -->
-                        <div class="bg-gradient-to-br from-[#FDF2EB] to-[#FEF7F0] border border-[#433592]/20 rounded-xl p-6">
-                            <h3 class="text-lg font-bold text-[#433592] mb-2" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                                📧 Newsletter
-                            </h3>
-                            <p class="text-sm text-gray-600 mb-4">
-                                Dapatkan update artikel terbaru dan promo menarik langsung di email kamu!
-                            </p>
-                            <form class="space-y-3">
-                                <input type="email" 
-                                       placeholder="Alamat email kamu"
-                                       class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-[#433592] focus:outline-none">
-                                <button type="submit" 
-                                        class="w-full bg-[#433592] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#3A2B7A] transition">
-                                    Berlangganan
-                                </button>
-                            </form>
                         </div>
 
                     </div>

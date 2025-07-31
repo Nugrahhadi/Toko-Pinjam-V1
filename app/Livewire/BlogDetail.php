@@ -10,12 +10,17 @@ class BlogDetail extends Component
 {
     public $post;
     public $slug;
-    
+
     public function mount($slug)
     {
         $this->slug = $slug;
-        $this->post = Post::where('slug', $slug)->firstOrFail();
-        
+
+        // Try to find by slug first, then by ID if slug not found
+        $this->post = Post::where('slug', $slug)
+            ->orWhere('id', $slug)
+            ->where('status', 'published')
+            ->firstOrFail();
+
         // Increment view count
         $this->post->increment('views');
     }
@@ -35,10 +40,10 @@ class BlogDetail extends Component
     public function getRecentPosts()
     {
         return Post::where('id', '!=', $this->post->id)
-                   ->where('status', 'published')
-                   ->orderBy('created_at', 'desc')
-                   ->take(5)
-                   ->get();
+            ->where('status', 'published')
+            ->orderBy('created_at', 'desc')
+            ->take(5)
+            ->get();
     }
 
     public function render()

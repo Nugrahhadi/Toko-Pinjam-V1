@@ -29,6 +29,7 @@ Route::view('/acknowledgement', 'livewire.acknowledgement')->name('acknowledgeme
 Route::get('/blog', Blog::class)->name('blog');
 Route::get('/blog/{slug}', BlogDetail::class)->name('blog.detail');
 Route::view('/tulis-artikel', 'create-post')->name('create-post');
+Route::post('/upload-content-image', [BlogController::class, 'uploadContentImage'])->name('upload-content-image');
 Route::get('/pinjam-sekarang', PinjamSekarang::class)->name('pinjam-sekarang');
 Route::get('/syarat-ketentuan', SyaratKetentuan::class)->name('syarat-ketentuan');
 Route::get('/chapter-purwokerto', ChapterPurwokerto::class)->name('chapter-purwokerto');
