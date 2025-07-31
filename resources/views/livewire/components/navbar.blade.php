@@ -99,8 +99,8 @@
                         </button>
                     </div>
                 @else
-                    <a href="/login" class="text-gray-700 font-medium" style="color: #433592;" onmouseover="this.style.color='#433592'" onmouseout="this.style.color='#6B7280'">Login</a>
-                    <a href="/register" class="text-white px-6 py-2 rounded-md font-medium transition-colors" style="background-color: #433592;" onmouseover="this.style.backgroundColor='#3A2B7A'" onmouseout="this.style.backgroundColor='#433592'">
+                    <a href="{{ route('login-custom') }}" class="text-gray-700 font-medium" style="color: #433592;" onmouseover="this.style.color='#433592'" onmouseout="this.style.color='#6B7280'">Login</a>
+                    <a href="{{ route('register-custom') }}" class="text-white px-6 py-2 rounded-md font-medium transition-colors" style="background-color: #433592;" onmouseover="this.style.backgroundColor='#3A2B7A'" onmouseout="this.style.backgroundColor='#433592'">
                         Register
                     </a>
                 @endauth
@@ -146,8 +146,8 @@
                 @auth
                     <a href="#" class="block px-3 py-2 text-gray-700 font-medium hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ auth()->user()->name }}</a>
                 @else
-                    <a href="/login" class="block px-3 py-2 text-gray-700 font-medium hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Masuk</a>
-                    <a href="/register" class="block px-3 py-2 text-white rounded-md font-medium text-center bg-[#433592] hover:bg-[#3A2B7A] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Buat Akun</a>
+                    <a href="{{ route('login-custom') }}" class="block px-3 py-2 text-gray-700 font-medium hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Masuk</a>
+                    <a href="{{ route('register-custom') }}" class="block px-3 py-2 text-white rounded-md font-medium text-center bg-[#433592] hover:bg-[#3A2B7A] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Buat Akun</a>
                 @endauth
                 
                 <!-- Mobile Donasi Button -->

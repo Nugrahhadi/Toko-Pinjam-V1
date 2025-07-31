@@ -16,6 +16,8 @@ use App\Livewire\ChapterPurwokerto;
 use App\Livewire\BlogDetail;
 use App\Http\Controllers\BlogController;
 use App\Livewire\SyaratKetentuan;
+use App\Livewire\RegisterForm;
+use App\Livewire\LoginForm;
 
 Route::get('/', LandingPage::class)->name('home');
 Route::get('/semua-barang', AllItemsPage::class)->name('all-items');
@@ -33,6 +35,12 @@ Route::post('/upload-content-image', [BlogController::class, 'uploadContentImage
 Route::get('/pinjam-sekarang', PinjamSekarang::class)->name('pinjam-sekarang');
 Route::get('/syarat-ketentuan', SyaratKetentuan::class)->name('syarat-ketentuan');
 Route::get('/chapter-purwokerto', ChapterPurwokerto::class)->name('chapter-purwokerto');
+
+// Custom Auth Routes
+Route::middleware('guest')->group(function () {
+    Route::view('/register-custom', 'register')->name('register-custom');
+    Route::view('/login-custom', 'login')->name('login-custom');
+});
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
