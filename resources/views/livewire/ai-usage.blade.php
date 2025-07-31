@@ -34,7 +34,7 @@
                         Mohon diingat bahwa kami adalah sebuah <em>nonprofit organization</em> yang menyediakan peminjaman barang-barang kebutuhan dengan harga sangat murah. Setiap operasional kami tidak melalui perhitungan bisnis dan bersifat sukarela. Maka dari itu, menggunakan <em>AI</em> sebagai alat bantu menjadi opsi yang realistis bagi kami untuk menghadirkan produk yang berkualitas dengan tetap menekan biaya produksi.
                       </p>
                       <p>
-                        Tentu kami sadar bahwa penggunaan <em>AI</em> mengonsumsi listrik yang tidak sedikit dan hal ini merupakan sebuah <em>concern</em> untuk lingkungan kita. Maka dari itu, kami berkomitmen untuk melakukan transisi ke arah yang lebih <em>environmentally friendly</em> dengan memberdayakan sahabat-sahabat kami.
+                        Tentu kami sadar bahwa penggunaan <em>AI</em> mengonsumsi listrik yang tidak sedikit dan hal ini merupakan sebuah <em>concern</em> untuk lingkungan kita. Maka dari itu, kami berkomitmen untuk melakukan transisi ke arah yang lebih <em>environmentaly friendly</em> dengan memberdayakan sahabat-sahabat kami.
                       </p>
                       <p>
                         Namun demikian, kami merasa bertanggung jawab dalam melaporkan hal ini untuk menjaga integritas kami sebagai sebuah organisasi. Di luar dari yang telah disebutkan, semua dikerjakan oleh
@@ -46,7 +46,7 @@
             </section>
 
             <!-- Super Team Section -->
-            <div class="bg-[#FDF5F2] rounded-lg shadow-md p-8">
+            <div class="bg-[#FDF5F2] rounded-lg shadow-md p-8 mb-4">
                 <div class="flex items-center justify-between">
                     <div class="flex-1">
                         <h3 class="text-5xl font-extrabold text-[#413291] mb-4" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
@@ -76,7 +76,7 @@
     </section>
 
     <!-- Butuh Bantuan Section -->
-    <section class="bg-white py-12 w-full">
+    <section class="bg-white py-2 mb-12 w-full">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-[#FDF5F2] rounded-lg shadow-md p-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
@@ -92,16 +92,14 @@
                         <p class="text-gray-700 mb-6 text-base md:text-lg leading-relaxed">
                             Kami mengajak kamu untuk ikut bergerak bersama dalam gerakan ini dengan memberikan donasi dalam jumlah berapapun dan bentuk apapun!
                         </p>
-                        <div class="flex flex-wrap gap-4">
-                            <a href="https://www.tokopinjam.com/donasi" target="_blank"
-                               class="inline-block bg-[#413291] text-white font-semibold px-5 py-2 rounded hover:bg-[#2e2367] transition">
-                                Donasi Sekarang
-                            </a>
-                            <a href="https://www.tokopinjam.com/daftar-donatur" target="_blank"
-                               class="inline-block bg-[#413291] text-white font-semibold px-5 py-2 rounded hover:bg-[#2e2367] transition">
-                                Daftar Donatur Kami
-                            </a>
-                        </div>
+                       <div class="flex flex-wrap gap-4">
+               <button class="w-[200px] flex items-center justify-center px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-blue-700 transition-all duration-200" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+    </svg>
+    Donasi
+</button>
+            </div>
                     </div>
 
                     <!-- Right Content Grid -->
