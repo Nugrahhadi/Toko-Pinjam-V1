@@ -12,11 +12,21 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->string('slug')->unique()->after('title');
-            $table->text('description')->nullable()->after('slug');
-            $table->string('featured_image')->nullable()->after('description');
-            $table->integer('views')->default(0)->after('featured_image');
-            $table->foreignId('user_id')->nullable()->constrained()->after('author_phone');
+            if (!Schema::hasColumn('posts', 'slug')) {
+                $table->string('slug')->unique()->after('title');
+            }
+            if (!Schema::hasColumn('posts', 'description')) {
+                $table->text('description')->nullable()->after('slug');
+            }
+            if (!Schema::hasColumn('posts', 'featured_image')) {
+                $table->string('featured_image')->nullable()->after('description');
+            }
+            if (!Schema::hasColumn('posts', 'views')) {
+                $table->integer('views')->default(0)->after('featured_image');
+            }
+            if (!Schema::hasColumn('posts', 'user_id')) {
+                $table->foreignId('user_id')->nullable()->constrained()->after('author_phone');
+            }
         });
     }
 
@@ -26,9 +36,22 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropColumn(['slug', 'description', 'featured_image', 'views']);
-            $table->dropForeign(['user_id']);
-            $table->dropColumn('user_id');
+            if (Schema::hasColumn('posts', 'slug')) {
+                $table->dropColumn('slug');
+            }
+            if (Schema::hasColumn('posts', 'description')) {
+                $table->dropColumn('description');
+            }
+            if (Schema::hasColumn('posts', 'featured_image')) {
+                $table->dropColumn('featured_image');
+            }
+            if (Schema::hasColumn('posts', 'views')) {
+                $table->dropColumn('views');
+            }
+            if (Schema::hasColumn('posts', 'user_id')) {
+                $table->dropForeign(['user_id']);
+                $table->dropColumn('user_id');
+            }
         });
     }
 };

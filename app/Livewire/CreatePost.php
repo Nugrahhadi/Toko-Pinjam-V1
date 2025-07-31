@@ -56,7 +56,7 @@ class CreatePost extends Component
         $this->validate();
 
         $featuredImagePath = null;
-        
+
         // Upload featured image if provided
         if ($this->featured_image) {
             $featuredImagePath = $this->imageService->uploadFeaturedImage($this->featured_image);
@@ -66,7 +66,7 @@ class CreatePost extends Component
         $slug = Str::slug($this->title);
         $originalSlug = $slug;
         $counter = 1;
-        
+
         // Ensure unique slug
         while (Post::where('slug', $slug)->exists()) {
             $slug = $originalSlug . '-' . $counter;

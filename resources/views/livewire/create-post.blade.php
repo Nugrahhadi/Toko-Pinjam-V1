@@ -1,6 +1,4 @@
 <div>
-    @section('title', 'Tulis Artikel')
-    
     <!-- Custom Rich Text Editor Styles -->
     <style>
         .custom-editor {
@@ -115,39 +113,39 @@
         .editor-content th, .editor-content td { border: 1px solid #e5e7eb; padding: 0.5rem; text-align: left; }
         .editor-content th { background: #f9fafb; font-weight: bold; }
     </style>
-    
-    <!-- Success Alert Modal -->
-    @if($showSuccessAlert)
-    <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" wire:click="closeAlert">
-        <div class="bg-[#faf0eb] rounded-3xl p-8 mx-4 max-w-md w-full text-center shadow-2xl" onclick="event.stopPropagation();">
-            <div class="mb-6">
-                <div class="w-20 h-20 bg-[#433592] rounded-2xl mx-auto flex items-center justify-center mb-4">
-                    <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                    </svg>
-                </div>
-                <h3 class="text-2xl font-bold text-[#433592] mb-2" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                    Artikel sudah terkirim!
-                </h3>
-            </div>
-            <button wire:click="closeAlert" class="bg-[#433592] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#3a2882] transition-all">
-                Tutup
-            </button>
-        </div>
-    </div>
-    
-    <script>
-        // Auto-close the alert after 3 seconds
-        setTimeout(function() {
-            if (@json($showSuccessAlert)) {
-                @this.call('closeAlert');
-            }
-        }, 3000);
-    </script>
-    @endif
 
     <!-- Main Content -->
     <section class="py-8 bg-white min-h-screen">
+        <!-- Success Alert Modal -->
+        @if($showSuccessAlert)
+        <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" wire:click="closeAlert">
+            <div class="bg-[#faf0eb] rounded-3xl p-8 mx-4 max-w-md w-full text-center shadow-2xl" onclick="event.stopPropagation();">
+                <div class="mb-6">
+                    <div class="w-20 h-20 bg-[#433592] rounded-2xl mx-auto flex items-center justify-center mb-4">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#433592] mb-2" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                        Artikel sudah terkirim!
+                    </h3>
+                </div>
+                <button wire:click="closeAlert" class="bg-[#433592] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#3a2882] transition-all">
+                    Tutup
+                </button>
+            </div>
+        </div>
+        
+        <script>
+            // Auto-close the alert after 3 seconds
+            setTimeout(function() {
+                if (@json($showSuccessAlert)) {
+                    @this.call('closeAlert');
+                }
+            }, 3000);
+        </script>
+        @endif
+
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Header -->
             <div class="text-center mb-8">
