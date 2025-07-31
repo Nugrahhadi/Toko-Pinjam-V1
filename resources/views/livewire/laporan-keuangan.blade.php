@@ -49,41 +49,49 @@
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">
                             <div class="w-4 h-4 bg-orange-500 rounded-full mr-3"></div>
-                            <span class="text-lg font-medium text-gray-700" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Events</span>
+                            <span class="text-lg font-medium text-gray-700" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Operasional</span>
                         </div>
-                        <span class="text-lg font-bold text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">$773,000</span>
+                        <span class="text-lg font-bold text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Rp 0</span>
                     </div>
                     
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">
                             <div class="w-4 h-4 bg-red-500 rounded-full mr-3"></div>
-                            <span class="text-lg font-medium text-gray-700" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Foundations</span>
+                            <span class="text-lg font-medium text-gray-700" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Beli Barang</span>
                         </div>
-                        <span class="text-lg font-bold text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">$6,019,000</span>
+                        <span class="text-lg font-bold text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Rp 0</span>
                     </div>
                     
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">
                             <div class="w-4 h-4 bg-blue-500 rounded-full mr-3"></div>
-                            <span class="text-lg font-medium text-gray-700" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Individuals</span>
+                            <span class="text-lg font-medium text-gray-700" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Event</span>
                         </div>
-                        <span class="text-lg font-bold text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">$9,088,549</span>
+                        <span class="text-lg font-bold text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Rp 0</span>
                     </div>
                     
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">
                             <div class="w-4 h-4 bg-green-600 rounded-full mr-3"></div>
-                            <span class="text-lg font-medium text-gray-700" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Inkind & Misc</span>
+                            <span class="text-lg font-medium text-gray-700" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Promosi</span>
                         </div>
-                        <span class="text-lg font-bold text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">$1,222,155</span>
+                        <span class="text-lg font-bold text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Rp 0</span>
                     </div>
                     
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">
-                            <div class="w-4 h-4 bg-purple-600 rounded-full mr-3"></div>
-                            <span class="text-lg font-medium text-gray-700" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Licensing & Consulting</span>
+                            <div class="w-4 h-4 bg-gray-500 rounded-full mr-3"></div>
+                            <span class="text-lg font-medium text-gray-700" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Maintenance</span>
                         </div>
-                        <span class="text-lg font-bold text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">$1,509,771</span>
+                        <span class="text-lg font-bold text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Rp 0</span>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-purple-600 rounded-full mr-3"></div>
+                            <span class="text-lg font-medium text-gray-700" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Lainnya</span>
+                        </div>
+                        <span class="text-lg font-bold text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Rp 0</span>
                     </div>
                     
                     <hr class="my-4 border-gray-300">
@@ -92,7 +100,7 @@
                         <div class="flex items-center">
                             <span class="text-xl font-bold text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Total</span>
                         </div>
-                        <span class="text-xl font-bold text-[#433592]" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">$18,612,845</span>
+                        <span class="text-xl font-bold text-[#433592]" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Rp 0</span>
                     </div>
                 </div>
             </div>
@@ -120,44 +128,28 @@
                     <tbody>
                         <tr class="border-b-2 border-[#c4bbf4]">
                             <td class="px-6 py-4 text-[#413291] font-medium" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">I (Jan-Mar)</td>
-                            <td class="px-6 py-4 text-center">
-                                <a href="/documents/FR25-I.pdf" target="_blank" class="text-[#433592] hover:text-[#3A2B7A] font-semibold underline" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                                    FR25-I
-                                </a>
-                            </td>
+                            <td class="px-6 py-4 text-center text-gray-400">-</td>
                             <td class="px-6 py-4 text-center text-gray-400">-</td>
                             <td class="px-6 py-4 text-center text-gray-400">-</td>
                             <td class="px-6 py-4 text-center text-gray-400">-</td>
                         </tr>
                         <tr class="border-b-2 border-[#c4bbf4]">
                             <td class="px-6 py-4 text-[#413291] font-medium" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">II (Apr-Jun)</td>
-                            <td class="px-6 py-4 text-center">
-                                <a href="/documents/FR25-II.pdf" target="_blank" class="text-[#433592] hover:text-[#3A2B7A] font-semibold underline" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                                    FR25-II
-                                </a>
-                            </td>
+                            <td class="px-6 py-4 text-center text-gray-400">-</td>
                             <td class="px-6 py-4 text-center text-gray-400">-</td>
                             <td class="px-6 py-4 text-center text-gray-400">-</td>
                             <td class="px-6 py-4 text-center text-gray-400">-</td>
                         </tr>
                         <tr class="border-b-2 border-[#c4bbf4]">
                             <td class="px-6 py-4 text-[#413291] font-medium" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">III (Jul-Sept)</td>
-                            <td class="px-6 py-4 text-center">
-                                <a href="/documents/FR25-III.pdf" target="_blank" class="text-[#433592] hover:text-[#3A2B7A] font-semibold underline" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                                    FR25-III
-                                </a>
-                            </td>
+                            <td class="px-6 py-4 text-center text-gray-400">-</td>
                             <td class="px-6 py-4 text-center text-gray-400">-</td>
                             <td class="px-6 py-4 text-center text-gray-400">-</td>
                             <td class="px-6 py-4 text-center text-gray-400">-</td>
                         </tr>
                         <tr class="border-b-2 border-[#433592]">
                             <td class="px-6 py-4 text-[#413291] font-medium" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">IV (Okt-Des)</td>
-                            <td class="px-6 py-4 text-center">
-                                <a href="/documents/FR25-IV.pdf" target="_blank" class="text-[#433592] hover:text-[#3A2B7A] font-semibold underline" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                                    FR25-IV
-                                </a>
-                            </td>
+                            <td class="px-6 py-4 text-center text-gray-400">-</td>
                             <td class="px-6 py-4 text-center text-gray-400">-</td>
                             <td class="px-6 py-4 text-center text-gray-400">-</td>
                             <td class="px-6 py-4 text-center text-gray-400">-</td>
@@ -234,15 +226,16 @@
             const chart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
-                    labels: ['Events', 'Foundations', 'Individuals', 'Inkind & Misc', 'Licensing & Consulting'],
+                    labels: ['Operasional', 'Beli Barang', 'Event', 'Promosi', 'Maintenance', 'Lainnya'],
                     datasets: [{
-                        data: [773000, 6019000, 9088549, 1222155, 1509771],
+                        data: [0, 0, 0, 0, 0, 0],
                         backgroundColor: [
                             '#F97316', // Oren-500
                             '#EF4444', // Red-500  
                             '#3B82F6', // Biru-500
                             '#16A34A', // Hijau-600
-                            '#9333EA'  // Ungu-600
+                            '#9333EA', // Ungu-600
+                            '#6B7280'  // Abu-500
                         ],
                         borderWidth: 0,
                         cutout: '40%'
