@@ -50,21 +50,21 @@
           animated = true;
 
           // Rupiah
-          const money = new countUp.CountUp('count-money', 30000000, {
+          const money = new countUp.CountUp('count-money', 0, {
             prefix: 'Rp ',
             separator: '.'
           });
           money.start();
 
           // CO2
-          const co2 = new countUp.CountUp('count-co2', 1129000, {
+          const co2 = new countUp.CountUp('count-co2', 0, {
             separator: '.',
             suffix: ' kg'
           });
           co2.start();
 
           // Waste
-          const waste = new countUp.CountUp('count-waste', 1129000, {
+          const waste = new countUp.CountUp('count-waste', 0, {
             separator: '.',
             suffix: ' kg'
           });
