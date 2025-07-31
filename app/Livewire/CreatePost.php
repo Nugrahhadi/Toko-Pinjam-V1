@@ -111,6 +111,6 @@ class CreatePost extends Component
 
     public function render()
     {
-        return view('livewire.create-post');
+        return view('livewire.create-post')->layout('layouts.guest');
     }
 }

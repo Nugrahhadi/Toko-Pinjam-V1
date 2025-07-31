@@ -1,119 +1,120 @@
-<div>
-    <!-- Custom Rich Text Editor Styles -->
-    <style>
-        .custom-editor {
-            border: 1px solid #d1d5db;
-            border-radius: 0.5rem;
-            overflow: hidden;
-            background: white;
-        }
-        
-        .editor-toolbar {
-            background: #f9fafb;
-            border-bottom: 1px solid #e5e7eb;
-            padding: 0.75rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            align-items: center;
-        }
-        
-        .toolbar-group {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-            padding: 0.25rem 0.5rem;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.375rem;
-            background: white;
-        }
-        
-        .toolbar-separator {
-            width: 1px;
-            height: 2rem;
-            background: #d1d5db;
-            margin: 0 0.5rem;
-        }
-        
-        .toolbar-btn {
-            padding: 0.5rem;
-            border: none;
-            background: transparent;
-            border-radius: 0.25rem;
-            cursor: pointer;
-            font-weight: 500;
-            font-size: 0.875rem;
-            color: #374151;
-            transition: all 0.15s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 2rem;
-            height: 2rem;
-        }
-        
-        .toolbar-btn:hover {
-            background: #f3f4f6;
-            color: #111827;
-        }
-        
-        .toolbar-btn.active {
-            background: #3b82f6;
-            color: white;
-        }
-        
-        .toolbar-select {
-            padding: 0.5rem 0.75rem;
-            border: none;
-            border-radius: 0.25rem;
-            background: transparent;
-            font-size: 0.875rem;
-            cursor: pointer;
-            color: #374151;
-            min-width: 120px;
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
-            background-position: right 0.5rem center;
-            background-repeat: no-repeat;
-            background-size: 1.5em 1.5em;
-            padding-right: 2.5rem;
-        }
-        
-        .editor-content {
-            min-height: 300px;
-            padding: 1rem;
-            outline: none;
-            line-height: 1.6;
-            font-family: 'Google Sans', 'Product Sans', sans-serif;
-            overflow-y: auto;
-            max-height: 500px;
-        }
-        
-        .editor-content:focus {
-            outline: none;
-        }
-        
-        .editor-content:empty:before {
-            content: "Mulai menulis artikel Anda di sini...";
-            color: #9ca3af;
-            pointer-events: none;
-        }
-        
-        /* Styling untuk konten dalam editor */
-        .editor-content h1 { font-size: 2rem; font-weight: bold; margin: 1rem 0; }
-        .editor-content h2 { font-size: 1.5rem; font-weight: bold; margin: 0.75rem 0; }
-        .editor-content h3 { font-size: 1.25rem; font-weight: bold; margin: 0.5rem 0; }
-        .editor-content p { margin: 0.5rem 0; }
-        .editor-content ul, .editor-content ol { margin: 0.5rem 0; padding-left: 2rem; }
-        .editor-content blockquote { border-left: 4px solid #e5e7eb; padding-left: 1rem; margin: 1rem 0; font-style: italic; }
-        .editor-content code { background: #f3f4f6; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-family: monospace; }
-        .editor-content a { color: #3b82f6; text-decoration: underline; }
-        .editor-content img { max-width: 100%; height: auto; }
-        .editor-content table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
-        .editor-content th, .editor-content td { border: 1px solid #e5e7eb; padding: 0.5rem; text-align: left; }
-        .editor-content th { background: #f9fafb; font-weight: bold; }
-    </style>
+@push('styles')
+<style>
+    .custom-editor {
+        border: 1px solid #d1d5db;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        background: white;
+    }
+    
+    .editor-toolbar {
+        background: #f9fafb;
+        border-bottom: 1px solid #e5e7eb;
+        padding: 0.75rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: center;
+    }
+    
+    .toolbar-group {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.25rem 0.5rem;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.375rem;
+        background: white;
+    }
+    
+    .toolbar-separator {
+        width: 1px;
+        height: 2rem;
+        background: #d1d5db;
+        margin: 0 0.5rem;
+    }
+    
+    .toolbar-btn {
+        padding: 0.5rem;
+        border: none;
+        background: transparent;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 0.875rem;
+        color: #374151;
+        transition: all 0.15s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 2rem;
+        height: 2rem;
+    }
+    
+    .toolbar-btn:hover {
+        background: #f3f4f6;
+        color: #111827;
+    }
+    
+    .toolbar-btn.active {
+        background: #3b82f6;
+        color: white;
+    }
+    
+    .toolbar-select {
+        padding: 0.5rem 0.75rem;
+        border: none;
+        border-radius: 0.25rem;
+        background: transparent;
+        font-size: 0.875rem;
+        cursor: pointer;
+        color: #374151;
+        min-width: 120px;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 0.5rem center;
+        background-repeat: no-repeat;
+        background-size: 1.5em 1.5em;
+        padding-right: 2.5rem;
+    }
+    
+    .editor-content {
+        min-height: 300px;
+        padding: 1rem;
+        outline: none;
+        line-height: 1.6;
+        font-family: 'Google Sans', 'Product Sans', sans-serif;
+        overflow-y: auto;
+        max-height: 500px;
+    }
+    
+    .editor-content:focus {
+        outline: none;
+    }
+    
+    .editor-content:empty:before {
+        content: "Mulai menulis artikel Anda di sini...";
+        color: #9ca3af;
+        pointer-events: none;
+    }
+    
+    /* Styling untuk konten dalam editor */
+    .editor-content h1 { font-size: 2rem; font-weight: bold; margin: 1rem 0; }
+    .editor-content h2 { font-size: 1.5rem; font-weight: bold; margin: 0.75rem 0; }
+    .editor-content h3 { font-size: 1.25rem; font-weight: bold; margin: 0.5rem 0; }
+    .editor-content p { margin: 0.5rem 0; }
+    .editor-content ul, .editor-content ol { margin: 0.5rem 0; padding-left: 2rem; }
+    .editor-content blockquote { border-left: 4px solid #e5e7eb; padding-left: 1rem; margin: 1rem 0; font-style: italic; }
+    .editor-content code { background: #f3f4f6; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-family: monospace; }
+    .editor-content a { color: #3b82f6; text-decoration: underline; }
+    .editor-content img { max-width: 100%; height: auto; }
+    .editor-content table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+    .editor-content th, .editor-content td { border: 1px solid #e5e7eb; padding: 0.5rem; text-align: left; }
+    .editor-content th { background: #f9fafb; font-weight: bold; }
+</style>
+@endpush
 
+<div>
     <!-- Main Content -->
     <section class="py-8 bg-white min-h-screen">
         <!-- Success Alert Modal -->
