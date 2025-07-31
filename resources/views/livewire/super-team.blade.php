@@ -134,10 +134,8 @@
         </div>
     </section>
 
-    <!-- Kenapa lebih baik pinjam section -->
-    <section class="py-16 bg-[#433592]">
-           <livewire:components.kenapa-pinjam />
-    </section>
+    <!-- Manfaat Pinjam Section -->
+    <livewire:components.manfaat-pinjam />
 
     
 
