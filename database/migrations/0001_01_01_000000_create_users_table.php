@@ -17,6 +17,19 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('role')->default('user'); // admin, user
+            $table->string('full_name');
+            $table->date('birth_date');
+            $table->text('address');
+            $table->string('whatsapp_number');
+            $table->enum('gender', ['Laki-laki', 'Perempuan']);
+            $table->enum('education_level', ['D3', 'D4', 'S1', 'S2', 'S3']);
+            $table->string('university_name');
+            $table->string('nim')->unique();
+            $table->string('student_id_card');
+            $table->string('organization_origin');
+            $table->boolean('is_verified')->default(false);
+            $table->timestamp('last_login')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

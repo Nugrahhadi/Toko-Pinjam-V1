@@ -14,6 +14,7 @@ class LoginForm extends Component
     public $password = '';
     public $remember = false;
     public $showPassword = false;
+    public $isSubmitting = false;
 
     protected $rules = [
         'email' => 'required|email',
@@ -28,26 +29,36 @@ class LoginForm extends Component
 
     public function login()
     {
-        $this->validate();
+        $this->isSubmitting = true;
 
-        $this->ensureIsNotRateLimited();
+        try {
+            $this->validate();
 
-        if (! Auth::attempt($this->only(['email', 'password'], $this->remember))) {
-            RateLimiter::hit($this->throttleKey());
+            $this->ensureIsNotRateLimited();
 
-            throw ValidationException::withMessages([
-                'email' => 'Email atau password salah.',
-            ]);
+            if (! Auth::attempt($this->only(['email', 'password']), $this->remember)) {
+                RateLimiter::hit($this->throttleKey());
+
+                throw ValidationException::withMessages([
+                    'email' => 'Email atau password salah.',
+                ]);
+            }
+
+            RateLimiter::clear($this->throttleKey());
+
+            session()->regenerate();
+
+            return redirect()->intended(route('home', absolute: false));
+        } catch (ValidationException $e) {
+            $this->isSubmitting = false;
+            throw $e;
+        } catch (\Exception $e) {
+            $this->isSubmitting = false;
+            $this->addError('general', 'Terjadi kesalahan saat login. Silakan coba lagi.');
         }
-
-        RateLimiter::clear($this->throttleKey());
-
-        session()->regenerate();
-
-        return redirect()->intended(route('dashboard', absolute: false));
     }
 
-    public function togglePasswordVisibility()
+    public function togglePassword()
     {
         $this->showPassword = !$this->showPassword;
     }
@@ -70,7 +81,7 @@ class LoginForm extends Component
 
     protected function throttleKey(): string
     {
-        return Str::transliterate(Str::lower($this->email).'|'.request()->ip());
+        return Str::transliterate(Str::lower($this->email) . '|' . request()->ip());
     }
 
     public function render()

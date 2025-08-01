@@ -1,191 +1,48 @@
-@push('styles')
-<style>
-    .login-container {
-        min-height: 100vh;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-    
-    .login-left {
-        background: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 3rem;
-    }
-    
-    .login-right {
-        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 3rem;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .login-card {
-        width: 100%;
-        max-width: 400px;
-    }
-    
-    .economy-card {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        border-radius: 1.5rem;
-        padding: 2.5rem;
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        max-width: 450px;
-        width: 100%;
-    }
-    
-    .form-group {
-        margin-bottom: 1.5rem;
-    }
-    
-    .form-input {
-        width: 100%;
-        padding: 0.875rem 1rem;
-        border: 2px solid #e5e7eb;
-        border-radius: 0.5rem;
-        font-size: 1rem;
-        transition: all 0.3s;
-        background: #f9fafb;
-    }
-    
-    .form-input:focus {
-        outline: none;
-        border-color: #6366f1;
-        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-        background: white;
-    }
-    
-    .form-label {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: 600;
-        color: #374151;
-        font-size: 1rem;
-    }
-    
-    .btn-primary {
-        background: #6366f1;
-        color: white;
-        padding: 0.875rem 2rem;
-        border-radius: 0.5rem;
-        border: none;
-        font-weight: 600;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: all 0.3s;
-        width: 100%;
-    }
-    
-    .btn-primary:hover {
-        background: #4f46e5;
-        transform: translateY(-1px);
-    }
-    
-    .password-field {
-        position: relative;
-    }
-    
-    .password-toggle {
-        position: absolute;
-        right: 1rem;
-        top: 50%;
-        transform: translateY(-50%);
-        cursor: pointer;
-        color: #6b7280;
-        padding: 0.25rem;
-    }
-    
-    .password-toggle:hover {
-        color: #374151;
-    }
-    
-    .error-message {
-        color: #ef4444;
-        font-size: 0.875rem;
-        margin-top: 0.25rem;
-    }
-    
-    .economy-icon {
-        width: 3rem;
-        height: 3rem;
-        margin: 0 auto 1rem;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        border-radius: 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 1.5rem;
-    }
-    
-    .link-style {
-        color: #6366f1;
-        text-decoration: underline;
-        font-weight: 500;
-        transition: color 0.3s;
-    }
-    
-    .link-style:hover {
-        color: #4f46e5;
-    }
-    
-    @media (max-width: 768px) {
-        .login-container {
-            grid-template-columns: 1fr;
-        }
-        
-        .login-right {
-            order: -1;
-            min-height: 40vh;
-        }
-        
-        .login-left {
-            padding: 2rem 1rem;
-        }
-        
-        .economy-card {
-            padding: 2rem;
-        }
-    }
-</style>
-@endpush
+<div class="min-h-screen grid grid-cols-1 lg:grid-cols-2 relative">
+    {{-- Back Button --}}
+    <button type="button"
+            x-data
+            @click="window.history.back()"
+            title="Kembali ke halaman sebelumnya"
+            aria-label="Kembali ke halaman sebelumnya"
+            class="absolute top-4 left-4 z-10 w-10 h-10 bg-white/80 backdrop-blur-sm border border-gray-300 rounded-full flex items-center justify-center hover:bg-white hover:shadow-lg transition-all duration-200">
+        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+    </button>
 
-<div class="login-container">
-    <!-- Left Side - Login Form -->
-    <div class="login-left">
-        <div class="login-card">
-            <div class="mb-8">
-                <h1 class="text-3xl font-bold text-gray-800 mb-2">Login</h1>
+    {{-- Left Side - Login Form --}}
+    <div class="bg-white flex items-center justify-center p-8">
+        <div class="w-full max-w-md">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold text-[#433592] mb-2">Login</h1>
+                <p class="text-sm text-gray-500">Masuk ke akun Toko Pinjam Anda</p>
             </div>
 
-            <form wire:submit.prevent="login">
-                <div class="form-group">
-                    <label class="form-label">Email</label>
-                    <input 
-                        type="email" 
-                        wire:model="email" 
-                        class="form-input"
-                        required
-                    >
-                    @error('email') <div class="error-message">{{ $message }}</div> @enderror
+            <form wire:submit="login" class="space-y-6">
+                {{-- Email Field --}}
+                <div>
+                    <label for="email" class="block text-sm font-medium text-[#433592] mb-2">Email</label>
+                    <input type="email" 
+                           id="email"
+                           wire:model="email" 
+                           placeholder="Masukkan email Anda" 
+                           class="w-full px-4 py-3.5 border-2 border-[#433592] rounded-lg text-sm transition-all duration-200 focus:border-purple-600 focus:ring-2 focus:ring-purple-100 focus:outline-none">
+                    @error('email') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                 </div>
 
-                <div class="form-group">
-                    <label class="form-label">Password</label>
-                    <div class="password-field">
-                        <input 
-                            type="{{ $showPassword ? 'text' : 'password' }}" 
-                            wire:model="password" 
-                            class="form-input"
-                            required
-                        >
-                        <div class="password-toggle" wire:click="togglePasswordVisibility">
+                {{-- Password Field --}}
+                <div>
+                    <label for="password" class="block text-sm font-medium text-[#433592] mb-2">Password</label>
+                    <div class="relative">
+                        <input type="{{ $showPassword ? 'text' : 'password' }}" 
+                               id="password"
+                               wire:model="password" 
+                               placeholder="Masukkan password Anda" 
+                               class="w-full px-4 py-3.5 pr-12 border-2 border-[#433592] rounded-lg text-sm transition-all duration-200 focus:border-purple-600 focus:ring-2 focus:ring-purple-100 focus:outline-none">
+                        <button type="button" 
+                                wire:click="togglePassword"
+                                class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors">
                             @if($showPassword)
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"></path>
@@ -196,74 +53,84 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                                 </svg>
                             @endif
-                        </div>
+                        </button>
                     </div>
-                    @error('password') <div class="error-message">{{ $message }}</div> @enderror
+                    @error('password') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                 </div>
 
-                <div class="form-group">
-                    <button type="submit" class="btn-primary">
-                        Login
-                    </button>
-                </div>
-
-                <div class="text-center space-y-3">
-                    <div>
-                        <a href="https://wa.me/6285128050500?text=Halo%20Admin%2C%20saya%20lupa%20password%20akun%20saya.%20Mohon%20bantuannya." class="link-style" target="_blank">
-                            Lupa password? hubungi kami
+                {{-- Forgot Password Link --}}
+                <div class="text-center">
+                    <p class="text-sm text-gray-600">
+                        Lupa password? 
+                        <a href="https://wa.me/6285128050500?text=Halo%20admin%2C%20saya%20lupa%20password%20untuk%20login%20ke%20akun%20Toko%20Pinjam." 
+                           target="_blank"
+                           class="text-purple-600 hover:text-purple-700 font-medium underline">
+                            Hubungi kami
                         </a>
-                    </div>
-                    <div>
-                        <span class="text-gray-600">Belum punya akun? </span>
-                        <a href="{{ route('register-custom') }}" class="link-style">
+                    </p>
+                </div>
+
+                {{-- Register Link --}}
+                <div class="text-center">
+                    <p class="text-sm text-gray-600">
+                        Belum punya akun? 
+                        <a href="{{ route('register.custom') }}" 
+                           class="text-purple-600 hover:text-purple-700 font-medium underline">
                             Register
                         </a>
-                    </div>
+                    </p>
                 </div>
+
+                {{-- Submit Button --}}
+                <button type="submit" 
+                        class="w-full bg-[#433592] text-white py-3.5 px-6 rounded-lg font-semibold text-sm border-2 transition-all duration-200 hover:bg-purple-600 hover:text-white hover:-translate-y-0.5 hover:shadow-lg flex items-center justify-center">
+                    @if($isSubmitting)
+                        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Login...
+                    @else
+                        Login
+                    @endif
+                </button>
             </form>
         </div>
     </div>
 
-    <!-- Right Side - Economy Card -->
-    <div class="login-right">
-        <div class="economy-card">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8">In this economy?</h2>
+    {{-- Right Side - "In this economy?" Section --}}
+    <div class="bg-gradient-to-br from-purple-400 via-pink-400 to-blue-400 flex items-center justify-center p-8 relative overflow-hidden">
+        <div class="bg-white/95 backdrop-blur-sm rounded-3xl p-10 text-center max-w-md relative z-10 shadow-2xl">
+            <h2 class="text-4xl font-bold text-[#433592] mb-6">In this economy?</h2>
             
-            <div class="space-y-6 text-left">
-                <div class="flex items-start gap-4">
-                    <div class="economy-icon">
-                        💰
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-gray-800 mb-1">Hidup hemat, nabung, biar ada uang untuk investasi</h3>
-                    </div>
+            <div class="space-y-4 text-left text-gray-700 mb-6">
+                <div class="flex items-start gap-3">
+                    <span class="text-2xl">💰</span>
+                    <p>Hidup hemat, nabung, biar ada uang untuk investasi</p>
                 </div>
-
-                <div class="flex items-start gap-4">
-                    <div class="economy-icon">
-                        🌍
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-gray-800 mb-1">Lindungi bumi, supaya engga kepanasan setiap hari</h3>
-                    </div>
+                <div class="flex items-start gap-3">
+                    <span class="text-2xl">🌎</span>
+                    <p>Lindungi bumi, supaya engga kepanasan setiap hari</p>
                 </div>
-
-                <div class="flex items-start gap-4">
-                    <div class="economy-icon">
-                        🤝
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-gray-800 mb-1">Saling menguatkan sesama,</h3>
-                        <p class="text-gray-600 italic">Together Apes Strong!</p>
-                    </div>
+                <div class="flex items-start gap-3">
+                    <span class="text-2xl">🫴</span>
+                    <p>Saling menguatkan sesama, <i>Together Apes Strong!</i></p>
                 </div>
             </div>
 
-            <div class="mt-8 pt-6 border-t border-gray-200">
-                <h3 class="text-xl font-bold text-gray-800">
-                    Toko Pinjam hadir untuk itu, untuk kamu.
-                </h3>
+            <h3 class="text-2xl font-bold text-[#433592] mb-4">Toko pinjam hadir untuk itu, untuk kamu</h3>
+            
+            <div class="flex justify-center space-x-2">
+                <div class="w-3 h-3 bg-purple-400 rounded-full animate-bounce"></div>
+                <div class="w-3 h-3 bg-pink-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                <div class="w-3 h-3 bg-blue-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
             </div>
         </div>
+        
+        {{-- Background decorations --}}
+        <div class="absolute top-10 left-10 w-20 h-20 bg-white/20 rounded-full blur-xl"></div>
+        <div class="absolute bottom-10 right-10 w-32 h-32 bg-purple-200/30 rounded-full blur-2xl"></div>
+        <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-pink-200/40 rounded-full blur-lg"></div>
     </div>
 </div>
+

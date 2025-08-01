@@ -31,9 +31,52 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @livewireStyles
+        
+        <!-- Additional Styles for Register -->
+        <style>
+            /* Override Tailwind with higher specificity */
+            body.register-page {
+                margin: 0 !important;
+                padding: 0 !important;
+                background: #f8fafc !important;
+            }
+            
+            .register-container {
+                background: #f8fafc !important;
+                min-height: 100vh !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                padding: 2rem !important;
+            }
+            
+            .register-card {
+                background: white !important;
+                border-radius: 12px !important;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+                max-width: 650px !important;
+                width: 100% !important;
+                padding: 3rem !important;
+                border: 1px solid #e5e7eb !important;
+            }
+            
+            .form-input, .form-select {
+                width: 100% !important;
+                padding: 0.875rem 1rem !important;
+                border: 2px solid #6366f1 !important;
+                border-radius: 8px !important;
+                font-size: 0.875rem !important;
+                transition: all 0.2s !important;
+                background: white !important;
+                color: #374151 !important;
+                min-height: 48px !important;
+                box-sizing: border-box !important;
+            }
+        </style>
+        
         @stack('styles')
     </head>
-    <body class="font-sans text-gray-900 antialiased">
+    <body class="font-sans text-gray-900 antialiased custom-register-page">
         <livewire:register-form />
         
         @livewireScripts

@@ -31,9 +31,55 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @livewireStyles
+        
+        <!-- Additional Styles for Login -->
+        <style>
+            /* Override Tailwind with higher specificity */
+            body.login-page {
+                margin: 0 !important;
+                padding: 0 !important;
+                background: white !important;
+            }
+            
+            .login-container {
+                min-height: 100vh !important;
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+            }
+            
+            .login-left {
+                background: white !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                padding: 3rem !important;
+            }
+            
+            .login-right {
+                background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%) !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                padding: 3rem !important;
+                position: relative !important;
+                overflow: hidden !important;
+            }
+            
+            .form-input {
+                width: 100% !important;
+                padding: 0.875rem 1rem !important;
+                border: 2px solid #e5e7eb !important;
+                border-radius: 8px !important;
+                font-size: 0.875rem !important;
+                transition: all 0.2s !important;
+                background: white !important;
+                color: #374151 !important;
+            }
+        </style>
+        
         @stack('styles')
     </head>
-    <body class="font-sans text-gray-900 antialiased">
+    <body class="font-sans text-gray-900 antialiased custom-login-page">
         <livewire:login-form />
         
         @livewireScripts

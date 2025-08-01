@@ -38,9 +38,12 @@ Route::get('/chapter-purwokerto', ChapterPurwokerto::class)->name('chapter-purwo
 
 // Custom Auth Routes
 Route::middleware('guest')->group(function () {
-    Route::view('/register-custom', 'register')->name('register-custom');
-    Route::view('/login-custom', 'login')->name('login-custom');
+    Route::view('/register-custom', 'register')->name('register.custom');
+    Route::view('/login-custom', 'login')->name('login.custom');
 });
+
+// Syarat & Ketentuan
+Route::view('/syarat-ketentuan', 'syarat-ketentuan')->name('syarat-ketentuan');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
