@@ -10,7 +10,7 @@ use App\Livewire\FaqPage;
 use App\Livewire\LaporanKeuangan;
 use App\Livewire\BergabungSuperTeam;
 use App\Livewire\Blog;
-use App\Livewire\CreatePost;
+use App\Livewire\ArticleEditor;
 use App\Livewire\PinjamSekarang;
 use App\Livewire\ChapterPurwokerto;
 use App\Livewire\BlogDetail;
@@ -30,7 +30,8 @@ Route::get('/bergabung-super-team', BergabungSuperTeam::class)->name('bergabung-
 Route::view('/acknowledgement', 'livewire.acknowledgement')->name('acknowledgement');
 Route::get('/blog', Blog::class)->name('blog');
 Route::get('/blog/{slug}', BlogDetail::class)->name('blog.detail');
-Route::get('/tulis-artikel', CreatePost::class)->name('create-post');
+Route::view('/tulis-artikel', 'write-article')->name('write-article');
+Route::view('/write-article', 'write-article')->name('create-post'); // Alias untuk backward compatibility
 Route::post('/upload-content-image', [BlogController::class, 'uploadContentImage'])->name('upload-content-image');
 Route::get('/pinjam-sekarang', PinjamSekarang::class)->name('pinjam-sekarang');
 Route::get('/syarat-ketentuan', SyaratKetentuan::class)->name('syarat-ketentuan');
