@@ -30,10 +30,10 @@
 
                     <!-- Tombol Register, Login, dan Instagram -->
                     <div class="flex flex-wrap gap-4 justify-center md:justify-start mb-6 pointer-events-auto">
-                        <a href="#" class="inline-flex items-center gap-2 bg-white text-purple-900 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition">
+                        <a href="{{ route('register.custom') }}" class="inline-flex items-center gap-2 bg-white text-purple-900 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition">
                             Register
                         </a>
-                        <a href="#" class="inline-flex items-center gap-2 bg-transparent border-2 border-white text-white font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-purple-900 transition">
+                        <a href="{{ route('login.custom') }}" class="inline-flex items-center gap-2 bg-transparent border-2 border-white text-white font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-purple-900 transition">
                             Login
                         </a>
                         <a href="https://www.instagram.com/tokopinjam.purwokerto/" target="_blank"

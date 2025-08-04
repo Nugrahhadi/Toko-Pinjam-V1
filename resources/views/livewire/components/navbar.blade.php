@@ -254,8 +254,8 @@
                         </div>
                     </div>
                 @else
-                    <a href="{{ route('login.custom') }}" class="block px-3 py-2 text-gray-700 font-medium hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Masuk</a>
-                    <a href="{{ route('register.custom') }}" class="block px-3 py-2 text-white rounded-md font-medium text-center bg-[#433592] hover:bg-[#3A2B7A] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Buat Akun</a>
+                    <a href="{{ route('login.custom') }}" class="block px-3 py-2 text-gray-700 font-medium hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Login</a>
+                    <a href="{{ route('register.custom') }}" class="block px-3 py-2 text-white rounded-md font-medium text-center bg-[#433592] hover:bg-[#3A2B7A] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Register</a>
                 @endauth
                 
                 <!-- Mobile Donasi Button -->
