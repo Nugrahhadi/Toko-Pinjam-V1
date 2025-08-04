@@ -18,6 +18,10 @@ use App\Http\Controllers\BlogController;
 use App\Livewire\SyaratKetentuan;
 use App\Livewire\RegisterForm;
 use App\Livewire\LoginForm;
+use App\Http\Controllers\DonasiController;
+use App\Livewire\HalamanDonasi;
+use App\Livewire\UserProfile;
+
 
 Route::get('/', LandingPage::class)->name('home');
 Route::get('/semua-barang', AllItemsPage::class)->name('all-items');
@@ -36,6 +40,8 @@ Route::post('/upload-content-image', [BlogController::class, 'uploadContentImage
 Route::get('/pinjam-sekarang', PinjamSekarang::class)->name('pinjam-sekarang');
 Route::get('/syarat-ketentuan', SyaratKetentuan::class)->name('syarat-ketentuan');
 Route::get('/chapter-purwokerto', ChapterPurwokerto::class)->name('chapter-purwokerto');
+Route::get('/donasi', HalamanDonasi::class)->name('donasi');
+Route::get('/profile', UserProfile::class)->name('user.profile');
 
 // Custom Auth Routes
 Route::middleware('guest')->group(function () {
@@ -50,8 +56,8 @@ Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
-Route::view('profile', 'profile')
-    ->middleware(['auth'])
-    ->name('profile');
+Route::get('/profil', function () {
+    return view('profil');
+})->name('profil');
 
 require __DIR__ . '/auth.php';
