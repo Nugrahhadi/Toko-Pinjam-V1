@@ -37,6 +37,7 @@ new class extends Component
             </div>
 
             <!-- Settings Dropdown -->
+            @auth
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
@@ -65,6 +66,12 @@ new class extends Component
                     </x-slot>
                 </x-dropdown>
             </div>
+            @else
+            <div class="hidden sm:flex sm:items-center sm:ms-6 space-x-4">
+                <a href="{{ route('login.custom') }}" class="text-gray-700 font-medium hover:text-gray-900 transition-colors">Login</a>
+                <a href="{{ route('register.custom') }}" class="bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition-colors">Register</a>
+            </div>
+            @endauth
 
             <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden">
@@ -87,6 +94,7 @@ new class extends Component
         </div>
 
         <!-- Responsive Settings Options -->
+        @auth
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
                 <div class="font-medium text-base text-gray-800" x-data="{{ json_encode(['name' => auth()->user()->name]) }}" x-text="name" x-on:profile-updated.window="name = $event.detail.name"></div>
@@ -106,5 +114,17 @@ new class extends Component
                 </button>
             </div>
         </div>
+        @else
+        <div class="pt-4 pb-1 border-t border-gray-200">
+            <div class="mt-3 space-y-1">
+                <x-responsive-nav-link :href="route('login.custom')">
+                    {{ __('Login') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('register.custom')">
+                    {{ __('Register') }}
+                </x-responsive-nav-link>
+            </div>
+        </div>
+        @endauth
     </div>
 </nav>

@@ -157,7 +157,7 @@
                         Isi:
                     </label>
                     <div class="@error('content') border-2 border-red-500 rounded-lg @endif">
-                        <!-- Custom Text Editor dengan Pure Tailwind CSS -->
+                        <!-- Custom Text Editor -->
                         <div class="border border-gray-300 rounded-lg overflow-hidden bg-white">
                             <!-- Toolbar -->
                             <div class="bg-gray-50 border-b border-gray-200 p-3 flex flex-wrap gap-2 items-center">
@@ -388,7 +388,10 @@
         </div>
     </section>
 
-    <!-- Rich Text Editor Script dengan Alpine.js Integration -->
+    
+</div>
+
+<!-- Rich Text Editor Script dengan Alpine.js Integration -->
     <script>
         document.addEventListener('alpine:init', () => {
             Alpine.data('richEditor', () => ({
@@ -731,4 +734,3 @@
             }
         });
     </script>
-</div>
