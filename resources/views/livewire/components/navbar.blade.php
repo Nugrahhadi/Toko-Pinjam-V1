@@ -91,7 +91,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
                     </svg>
                     Donasi
-                </button>
+                </a>
                 
                 @auth
                     <div class="relative" x-data="{ open: false }">
@@ -106,41 +106,33 @@
                         </button>
                         
                         <!-- Dropdown Menu -->
-                        <div x-show="open" @click.away="open = false" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 z-50">
+                        <div x-show="open" @click.away="open = false" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg z-50">
                             <div class="py-1">
                                 <!-- User Info -->
-                                <div class="px-4 py-3 border-b border-gray-100">
+                                <div class="px-4 py-3">
                                     <p class="text-sm font-medium text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ auth()->user()->name }}</p>
                                     <p class="text-sm text-gray-500" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ auth()->user()->email }}</p>
                                     <span class="inline-flex items-center px-2 py-1 mt-1 text-xs font-medium text-green-700 bg-green-100 rounded-full">
-                                        {{ ucfirst(auth()->user()->role) }}
+                                        {{ ucfirst(auth()->user()->role ?? 'user') }}
                                     </span>
                                 </div>
                                 
                                 <!-- Menu Items -->
-                                {{-- <a href="{{ route('dashboard') }}" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                                    <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5a2 2 0 012-2h4a2 2 0 012 2v2H8V5z"></path>
-                                    </svg>
-                                    Dashboard
-                                </a> --}}
-                                
-                                <a href="{{ route('profile') }}" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                                <a href="{{ route('profile') }}" @click="open = false" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                                     <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                                     </svg>
                                     Profil Saya
                                 </a>
                                 
-                                <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                                <a href="#" @click="open = false" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                                     <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                                     </svg>
                                     Riwayat Pinjaman
                                 </a>
                                 
-                                <div class="border-t border-gray-100 my-1"></div>
+                                <hr class="my-1 border-gray-200">
                                 
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
@@ -201,9 +193,9 @@
                 
                 @auth
                     <!-- Mobile Auth Menu -->
-                    <div class="border-t border-gray-200 pt-3">
+                    <div class="pt-3">
                         <!-- User Info -->
-                        <div class="px-3 py-2 border-b border-gray-100 mb-2">
+                        <div class="px-3 py-2 mb-2">
                             <div class="flex items-center space-x-3">
                                 <div class="w-10 h-10 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center text-white font-semibold">
                                     {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
@@ -212,46 +204,38 @@
                                     <p class="text-sm font-medium text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ auth()->user()->name }}</p>
                                     <p class="text-xs text-gray-500" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ auth()->user()->email }}</p>
                                     <span class="inline-flex items-center px-2 py-0.5 mt-1 text-xs font-medium text-green-700 bg-green-100 rounded-full">
-                                        {{ ucfirst(auth()->user()->role) }}
+                                        {{ ucfirst(auth()->user()->role ?? 'user') }}
                                     </span>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Menu Items -->
-                        {{-- <a href="{{ route('dashboard') }}" class="flex items-center px-3 py-2 text-gray-700 font-medium hover:text-[#433592] hover:bg-gray-50 transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                            <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5a2 2 0 012-2h4a2 2 0 012 2v2H8V5z"></path>
-                            </svg>
-                            Dashboard
-                        </a> --}}
-                        
-                        <a href="{{ route('profile') }}" class="flex items-center px-3 py-2 text-gray-700 font-medium hover:text-[#433592] hover:bg-gray-50 transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                        <a href="{{ route('profile') }}" @click="mobileMenuOpen = false" class="flex items-center px-3 py-2 text-gray-700 font-medium hover:text-[#433592] hover:bg-gray-50 transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                             <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                             </svg>
                             Profil Saya
                         </a>
                         
-                        <a href="#" class="flex items-center px-3 py-2 text-gray-700 font-medium hover:text-[#433592] hover:bg-gray-50 transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                        <a href="#" @click="mobileMenuOpen = false" class="flex items-center px-3 py-2 text-gray-700 font-medium hover:text-[#433592] hover:bg-gray-50 transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                             <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                             </svg>
                             Riwayat Pinjaman
                         </a>
                         
-                        <div class="border-t border-gray-100 mt-2 pt-2">
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <button type="submit" class="flex items-center w-full px-3 py-2 text-red-600 font-medium hover:text-red-700 hover:bg-red-50 transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                                    <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
-                                    </svg>
-                                    Keluar
-                                </button>
-                            </form>
-                        </div>
+                        <hr class="my-2 border-gray-200">
+                        
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="flex items-center w-full px-3 py-2 text-red-600 font-medium hover:text-red-700 hover:bg-red-50 transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                                <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                                </svg>
+                                Keluar
+                            </button>
+                        </form>
                     </div>
                 @else
                     <a href="{{ route('login.custom') }}" class="block px-3 py-2 text-gray-700 font-medium hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Login</a>
@@ -260,12 +244,12 @@
                 
                 <!-- Mobile Donasi Button -->
                 <div class="px-3 py-2">
-                    <button class="w-full flex items-center justify-center px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-blue-700 transition-all duration-200" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                    <a href="{{ route('donasi') }}" class="w-full flex items-center justify-center px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-blue-700 transition-all duration-200" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
                         </svg>
                         Donasi
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>

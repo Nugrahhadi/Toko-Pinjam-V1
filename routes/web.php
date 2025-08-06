@@ -41,7 +41,7 @@ Route::get('/pinjam-sekarang', PinjamSekarang::class)->name('pinjam-sekarang');
 Route::get('/syarat-ketentuan', SyaratKetentuan::class)->name('syarat-ketentuan');
 Route::get('/chapter-purwokerto', ChapterPurwokerto::class)->name('chapter-purwokerto');
 Route::get('/donasi', HalamanDonasi::class)->name('donasi');
-Route::get('/profile', UserProfile::class)->name('user.profile');
+Route::get('/profile', UserProfile::class)->name('profile');
 
 // Custom Auth Routes
 Route::middleware('guest')->group(function () {
