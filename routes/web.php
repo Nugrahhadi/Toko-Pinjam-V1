@@ -41,7 +41,11 @@ Route::get('/pinjam-sekarang', PinjamSekarang::class)->name('pinjam-sekarang');
 Route::get('/syarat-ketentuan', SyaratKetentuan::class)->name('syarat-ketentuan');
 Route::get('/chapter-purwokerto', ChapterPurwokerto::class)->name('chapter-purwokerto');
 Route::get('/donasi', HalamanDonasi::class)->name('donasi');
-Route::get('/profile', UserProfile::class)->name('profile');
+
+// User Profile Routes
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', UserProfile::class)->name('profile');
+});
 
 // Custom Auth Routes
 Route::middleware('guest')->group(function () {
@@ -49,15 +53,16 @@ Route::middleware('guest')->group(function () {
     Route::view('/login-custom', 'login')->name('login.custom');
 });
 
-// Syarat & Ketentuan
-Route::view('/syarat-ketentuan', 'syarat-ketentuan')->name('syarat-ketentuan');
+// Admin Routes - Protected by admin middleware
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', function () {
+        return view('admin.dashboard');
+    })->name('dashboard');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
-
-Route::get('/profil', function () {
-    return view('profil');
-})->name('profil');
+    // Blog Management Routes
+    Route::get('/blog', App\Livewire\Admin\BlogManagement::class)->name('blog');
+    Route::get('/blog/create', App\Livewire\Admin\BlogEditor::class)->name('blog.create');
+    Route::get('/blog/{postId}/edit', App\Livewire\Admin\BlogEditor::class)->name('blog.edit');
+});
 
 require __DIR__ . '/auth.php';
