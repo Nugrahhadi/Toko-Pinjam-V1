@@ -22,7 +22,6 @@ use App\Http\Controllers\DonasiController;
 use App\Livewire\HalamanDonasi;
 use App\Livewire\UserProfile;
 
-
 Route::get('/', LandingPage::class)->name('home');
 Route::get('/semua-barang', AllItemsPage::class)->name('all-items');
 Route::get('/ai-usage', AiUsage::class)->name('ai-usage');
@@ -41,7 +40,11 @@ Route::get('/pinjam-sekarang', PinjamSekarang::class)->name('pinjam-sekarang');
 Route::get('/syarat-ketentuan', SyaratKetentuan::class)->name('syarat-ketentuan');
 Route::get('/chapter-purwokerto', ChapterPurwokerto::class)->name('chapter-purwokerto');
 Route::get('/donasi', HalamanDonasi::class)->name('donasi');
-Route::get('/profile', UserProfile::class)->name('profile');
+
+// User Profile Routes (protected)
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', UserProfile::class)->name('profile');
+});
 
 // Custom Auth Routes
 Route::middleware('guest')->group(function () {
@@ -49,15 +52,28 @@ Route::middleware('guest')->group(function () {
     Route::view('/login-custom', 'login')->name('login.custom');
 });
 
-// Syarat & Ketentuan
-Route::view('/syarat-ketentuan', 'syarat-ketentuan')->name('syarat-ketentuan');
+// Admin Routes - Protected by admin middleware
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', function () {
+        return view('admin.dashboard');
+    })->name('dashboard');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+    // Blog Management Routes
+    Route::get('/blog', App\Livewire\Admin\BlogManagement::class)->name('blog');
+    Route::get('/blog/create', App\Livewire\Admin\BlogEditor::class)->name('blog.create');
+    Route::get('/blog/{postId}/edit', App\Livewire\Admin\BlogEditor::class)->name('blog.edit');
 
-Route::get('/profil', function () {
-    return view('profil');
-})->name('profil');
+    // Items Management Routes
+Route::get('/items', App\Livewire\Admin\ItemManagement::class)->name('items');
+Route::get('/items/create', App\Livewire\Admin\ItemEditor::class)->name('items.create');
+Route::get('/items/{itemId}/edit', App\Livewire\Admin\ItemEditor::class)->name('items.edit');
+Route::get('/rentals/create', App\Livewire\Admin\RentalCreate::class)->name('rentals.create');
+// User Management Routes
+Route::get('/users', App\Livewire\Admin\UserManagement::class)->name('users');
+Route::get('/users/create', App\Livewire\Admin\UserEditor::class)->name('users.create');
+Route::get('/users/{userId}/edit', App\Livewire\Admin\UserEditor::class)->name('users.edit');
+
+
+});
 
 require __DIR__ . '/auth.php';

@@ -33,7 +33,6 @@ class User extends Authenticatable
         'organization_origin',
         'is_verified',
         'role',
-        'phone',
         'avatar',
         'last_login',
     ];
@@ -71,6 +70,11 @@ class User extends Authenticatable
     {
         return $this->role === 'admin';
     }
+    
+public function rentals()
+{
+    return $this->hasMany(\App\Models\Rental::class);
+}
 
     /**
      * Check if user is regular user

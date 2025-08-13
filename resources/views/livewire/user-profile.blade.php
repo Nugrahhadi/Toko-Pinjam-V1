@@ -1,77 +1,75 @@
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+{{-- TIDAK menambah script Alpine di sini jika sudah dimuat dari layout --}}
 
 <div x-data="{
     activeTab: 'info',
-    switchTab(tab) {
-        this.activeTab = tab;
-    },
+    switchTab(tab) { this.activeTab = tab },
     counts: { savings: 0, environment: 0, shared: 0 },
-    formatNumber(num) {
-        return new Intl.NumberFormat('id-ID').format(num);
+    targets: {
+        savings: {{ (int)($stats['savings'] ?? 0) }},
+        environment: {{ (int)($stats['environment'] ?? 0) }},
+        shared: {{ (int)($stats['shared'] ?? 0) }},
     },
+    formatNumber(num) { return new Intl.NumberFormat('id-ID').format(num) },
     startCounting() {
-        this.animateCount('savings', 100000);
-        this.animateCount('environment', 100);
-        this.animateCount('shared', 30);
+        this.animateCount('savings', this.targets.savings);
+        this.animateCount('environment', this.targets.environment);
+        this.animateCount('shared', this.targets.shared);
     },
     animateCount(key, target) {
-        const duration = 2000;
-        const frameRate = 60;
-        const totalFrames = Math.round(duration / (1000 / frameRate));
+        const duration = 2000, frameRate = 60, totalFrames = Math.round(duration / (1000 / frameRate));
         let currentFrame = 0;
-
         const counter = setInterval(() => {
             currentFrame++;
             const progress = currentFrame / totalFrames;
             this.counts[key] = Math.round(target * progress);
-            if (currentFrame >= totalFrames) {
-                this.counts[key] = target;
-                clearInterval(counter);
-            }
+            if (currentFrame >= totalFrames) { this.counts[key] = target; clearInterval(counter); }
         }, 1000 / frameRate);
     }
 }">
-
     @section('title', 'Profil Pengguna')
     <livewire:components.navbar />
 
     <div class="bg-white min-h-screen py-10">
         <div class="max-w-4xl mx-auto px-4">
             <h2 class="text-center text-lg font-medium mb-4 text-gray-800">
-                Halo, Rafiif Nur Tahta Bagaskara
+                Halo, {{ $user->full_name ?: $user->name }}
             </h2>
 
             <!-- Tabs -->
             <div class="flex justify-center mb-8 space-x-10 border-b border-purple-700">
                 <button @click="switchTab('info')"
-                    :class="activeTab === 'info' ? 'text-purple-700 border-b-4 border-purple-700' : 'text-gray-500 border-b-4 border-transparent hover:text-purple-700'"
-                    class="pb-2 text-lg font-semibold">
+                        :class="activeTab === 'info' ? 'text-purple-700 border-b-4 border-purple-700' : 'text-gray-500 border-b-4 border-transparent hover:text-purple-700'"
+                        class="pb-2 text-lg font-semibold">
                     Informasi profil
                 </button>
                 <button @click="switchTab('riwayat')"
-                    :class="activeTab === 'riwayat' ? 'text-purple-700 border-b-4 border-purple-700' : 'text-gray-500 border-b-4 border-transparent hover:text-purple-700'"
-                    class="pb-2 text-lg font-semibold">
+                        :class="activeTab === 'riwayat' ? 'text-purple-700 border-b-4 border-purple-700' : 'text-gray-500 border-b-4 border-transparent hover:text-purple-700'"
+                        class="pb-2 text-lg font-semibold">
                     Riwayat peminjaman
                 </button>
             </div>
 
             <!-- Informasi Profil -->
             <div x-show="activeTab === 'info'" x-transition>
-                @foreach([
-                    'Nama' => 'Rafiif Nur Tahta Bagaskara',
-                    'Jenis Kelamin' => 'Laki-laki',
-                    'Tanggal lahir' => '18 November 2004',
-                    'Alamat lengkap' => '282 Parliament Street, Toronto',
-                    'No. WhatsApp' => '082122270150',
-                    'Jenjang Pendidikan' => 'S1',
-                    'Universitas' => 'University of Toronto',
-                    'Nomor Induk Mahasiswa (NIM)' => '1010121093',
-                    'Asal Organisasi' => 'Permika Toronto'
-                ] as $label => $value)
+                @php
+                    $fields = [
+                        'Nama' => $user->full_name ?: $user->name,
+                        'Jenis Kelamin' => $user->gender,
+                        'Tanggal lahir' => optional($user->birth_date)->format('d F Y'),
+                        'Alamat lengkap' => $user->address,
+                        'No. WhatsApp' => $user->whatsapp_number,
+                        'Jenjang Pendidikan' => $user->education_level,
+                        'Universitas' => $user->university_name,
+                        'Nomor Induk Mahasiswa (NIM)' => $user->nim,
+                        'Asal Organisasi' => $user->organization_origin,
+                    ];
+                @endphp
+
+                @foreach($fields as $label => $value)
                     <div class="mb-2">
                         <label class="block text-sm font-medium text-gray-700">{{ $label }}</label>
-                        <input type="text" readonly value="{{ $value }}"
-                            class="w-full bg-gray-300 text-gray-700 px-4 py-2 rounded" />
+                        <input type="text" readonly value="{{ $value ?: '-' }}"
+                               class="w-full bg-gray-300 text-gray-700 px-4 py-2 rounded" />
                     </div>
                 @endforeach
 
@@ -97,21 +95,32 @@
                 </div>
 
                 <div class="space-y-4">
-                    @foreach(range(1, 5) as $i)
+                    @forelse($rentals as $rental)
+                        @php
+                            $first = is_array($rental->item->images ?? null) ? ($rental->item->images[0] ?? null) : null;
+                            $img = $first
+                                ? (Str::startsWith($first, ['http://','https://','/']) ? $first : asset('storage/'.$first))
+                                : asset('images/barang/micTakara.png');
+                        @endphp
                         <div class="bg-[#A5EBF8] p-4 rounded-lg flex items-center space-x-4">
-                            <img src="{{ asset('images/barang/micTakara.png') }}" class="w-16 h-16 object-cover" alt="Mic">
+                            <img src="{{ $img }}" class="w-16 h-16 object-cover" alt="{{ $rental->item->name }}">
                             <div>
-                                <div class="font-bold text-purple-700">Microphone Wireless Takara</div>
-                                <div class="text-sm text-gray-700">25 Agustus 2025 - 27 Agustus 2025</div>
+                                <div class="font-bold text-purple-700">{{ $rental->item->name }}</div>
+                                <div class="text-sm text-gray-700">
+                                    {{ \Carbon\Carbon::parse($rental->start_date)->format('d F Y') }}
+                                    - {{ \Carbon\Carbon::parse($rental->end_date)->format('d F Y') }}
+                                </div>
                             </div>
                         </div>
-                    @endforeach
+                    @empty
+                        <div class="text-center text-gray-500">Kamu belum punya riwayat peminjaman.</div>
+                    @endforelse
                 </div>
 
                 <div class="text-center mt-6">
-                    <button class="bg-purple-700 text-white px-6 py-2 rounded hover:bg-purple-800">
+                    <a href="{{ route('pinjam-sekarang') }}" class="bg-purple-700 text-white px-6 py-2 rounded hover:bg-purple-800">
                         Pinjam sekarang
-                    </button>
+                    </a>
                 </div>
 
                 <!-- Dampak Section -->
@@ -141,9 +150,9 @@
 
                     <div class="text-center mt-6">
                         <p class="text-purple-700 font-medium">Buat lebih besar dampak</p>
-                        <button class="mt-2 bg-purple-700 text-white px-6 py-2 rounded hover:bg-purple-800">
+                        <a href="{{ route('pinjam-sekarang') }}" class="mt-2 inline-block bg-purple-700 text-white px-6 py-2 rounded hover:bg-purple-800">
                             Pinjam sekarang
-                        </button>
+                        </a>
                     </div>
                 </section>
             </div>

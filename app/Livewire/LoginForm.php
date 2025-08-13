@@ -48,7 +48,13 @@ class LoginForm extends Component
 
             session()->regenerate();
 
-            return redirect()->intended(route('home', absolute: false));
+            // Redirect berdasarkan role
+            $user = Auth::user();
+            if ($user->role === 'admin') {
+                return redirect()->intended(route('admin.dashboard'));
+            } else {
+                return redirect()->intended(route('home'));
+            }
         } catch (ValidationException $e) {
             $this->isSubmitting = false;
             throw $e;
