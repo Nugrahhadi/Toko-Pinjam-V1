@@ -8,9 +8,11 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->string('author_email')->nullable(); // hindari after jika tidak yakin kolomnya ada
-        });
+         Schema::table('posts', function (Blueprint $table) {
+        if (!Schema::hasColumn('posts', 'author_email')) {
+            $table->string('author_email')->nullable();
+        }
+    });
     }
 
     public function down(): void
