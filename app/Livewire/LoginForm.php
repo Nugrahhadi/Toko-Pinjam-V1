@@ -31,6 +31,9 @@ class LoginForm extends Component
     {
         $this->isSubmitting = true;
 
+        // Dispatch loading event untuk Sweet Alert
+        $this->dispatch('show-loading-login');
+
         try {
             $this->validate();
 
@@ -38,6 +41,8 @@ class LoginForm extends Component
 
             if (! Auth::attempt($this->only(['email', 'password']), $this->remember)) {
                 RateLimiter::hit($this->throttleKey());
+
+                $this->dispatch('hide-loading-login');
 
                 throw ValidationException::withMessages([
                     'email' => 'Email atau password salah.',
@@ -48,6 +53,9 @@ class LoginForm extends Component
 
             session()->regenerate();
 
+            // Set success message for sweet alert
+            session()->flash('login_success', 'Login berhasil! Selamat datang kembali.');
+
             // Redirect berdasarkan role
             $user = Auth::user();
             if ($user->role === 'admin') {
@@ -57,9 +65,11 @@ class LoginForm extends Component
             }
         } catch (ValidationException $e) {
             $this->isSubmitting = false;
+            $this->dispatch('hide-loading-login');
             throw $e;
         } catch (\Exception $e) {
             $this->isSubmitting = false;
+            $this->dispatch('hide-loading-login');
             $this->addError('general', 'Terjadi kesalahan saat login. Silakan coba lagi.');
         }
     }

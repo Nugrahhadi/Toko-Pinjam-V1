@@ -30,6 +30,13 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        
+        <!-- Sweet Alert 2 CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        
+        <!-- Trix Editor CDN -->
+        <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
+        <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
         @livewireStyles
         @stack('styles')
     </head>
@@ -65,5 +72,27 @@
                 }
             });
         </script>
+        
+        <!-- Sweet Alert untuk Login Success -->
+        @if(session('login_success'))
+            <script>
+                Swal.fire({
+                    title: 'Berhasil!',
+                    text: '{{ session('login_success') }}',
+                    icon: 'success',
+                    timer: 3000,
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                    position: 'center',
+                    toast: false,
+                    background: '#fff',
+                    customClass: {
+                        popup: 'swal2-center-popup'
+                    }
+                });
+            </script>
+        @endif
+        
+        @stack('scripts')
     </body>
 </html>

@@ -57,7 +57,7 @@
                     @endif
 
                     <!-- Blog Content -->
-                    <div class="prose prose-lg max-w-none mb-12" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                    <div class="prose prose-lg max-w-none mb-12 trix-content" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                         {!! $post->content !!}
                     </div>
 
@@ -182,29 +182,26 @@
                                 <!-- Instagram -->
                                 <a href="https://www.instagram.com/" 
                                    target="_blank"
-                                   class="flex-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-2 rounded-lg text-center text-sm hover:from-purple-600 hover:to-pink-600 transition flex items-center justify-center gap-2">
+                                   class="flex-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-0 py-2 rounded-lg text-center text-sm hover:from-purple-600 hover:to-pink-600 transition flex items-center justify-center gap-2">
                                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm8.75 2.25a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-1.5 0v-.008a.75.75 0 0 1 .75-.75ZM12 7a5 5 0 1 1 0 10a5 5 0 0 1 0-10Zm0 1.5a3.5 3.5 0 1 0 0 7a3.5 3.5 0 0 0 0-7Z"/>
                                     </svg>
-                                    Instagram
                                 </a>
                                 <!-- Facebook -->
                                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->fullUrl()) }}" 
                                    target="_blank"
-                                   class="flex-1 bg-blue-600 text-white px-3 py-2 rounded-lg text-center text-sm hover:bg-blue-700 transition flex items-center justify-center gap-2">
+                                   class="flex-1 bg-blue-600 text-white px-0 py-2 rounded-lg text-center text-sm hover:bg-blue-700 transition flex items-center justify-center gap-2">
                                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z"/>
                                     </svg>
-                                    Facebook
                                 </a>
                                 <!-- WhatsApp -->
                                 <a href="https://wa.me/?text={{ urlencode($post->title . ' ' . request()->fullUrl()) }}" 
                                    target="_blank"
-                                   class="flex-1 bg-green-600 text-white px-3 py-2 rounded-lg text-center text-sm hover:bg-green-700 transition flex items-center justify-center gap-2">
+                                   class="flex-1 bg-green-600 text-white px-0 py-2 rounded-lg text-center text-sm hover:bg-green-700 transition flex items-center justify-center gap-2">
                                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
                                     </svg>
-                                    WhatsApp
                                 </a>
                             </div>
                         </div>
@@ -217,4 +214,122 @@
 
     <!-- Footer -->
     @livewire('components.footer')
+
+    <!-- Trix Content Styling -->
+    <style>
+        .trix-content h1 {
+            font-size: 2.25rem !important;
+            font-weight: 700 !important;
+            margin-top: 2rem !important;
+            margin-bottom: 1rem !important;
+            color: #1f2937 !important;
+            border-bottom: 2px solid #e5e7eb !important;
+            padding-bottom: 0.5rem !important;
+            line-height: 1.2 !important;
+        }
+        
+        .trix-content h2 {
+            font-size: 1.875rem !important;
+            font-weight: 600 !important;
+            margin-top: 1.75rem !important;
+            margin-bottom: 0.875rem !important;
+            color: #374151 !important;
+            line-height: 1.3 !important;
+        }
+        
+        .trix-content h3 {
+            font-size: 1.5rem !important;
+            font-weight: 600 !important;
+            margin-top: 1.5rem !important;
+            margin-bottom: 0.75rem !important;
+            color: #4b5563 !important;
+            line-height: 1.4 !important;
+        }
+        
+        .trix-content h4 {
+            font-size: 1.25rem !important;
+            font-weight: 500 !important;
+            margin-top: 1.25rem !important;
+            margin-bottom: 0.625rem !important;
+            color: #6b7280 !important;
+            line-height: 1.4 !important;
+        }
+
+        .trix-content p {
+            margin-bottom: 1rem !important;
+            line-height: 1.7 !important;
+            color: #374151 !important;
+        }
+
+        .trix-content ul, .trix-content ol {
+            margin: 1rem 0 !important;
+            padding-left: 1.5rem !important;
+        }
+
+        .trix-content li {
+            margin-bottom: 0.5rem !important;
+            line-height: 1.6 !important;
+        }
+
+        .trix-content strong {
+            font-weight: 600 !important;
+            color: #1f2937 !important;
+        }
+
+        .trix-content em {
+            font-style: italic !important;
+        }
+
+        .trix-content a {
+            color: #433592 !important;
+            text-decoration: underline !important;
+        }
+
+        .trix-content a:hover {
+            color: #5b4acc !important;
+        }
+
+        .trix-content img {
+            max-width: 100% !important;
+            height: auto !important;
+            margin: 1.5rem 0 !important;
+            border-radius: 0.5rem !important;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .trix-content blockquote {
+            border-left: 4px solid #433592 !important;
+            padding-left: 1rem !important;
+            margin: 1.5rem 0 !important;
+            font-style: italic !important;
+            color: #6b7280 !important;
+            background-color: #f8fafc !important;
+            padding: 1rem !important;
+            border-radius: 0.25rem !important;
+        }
+
+        .trix-content code {
+            background-color: #f1f5f9 !important;
+            padding: 0.25rem 0.5rem !important;
+            border-radius: 0.25rem !important;
+            font-family: 'Courier New', monospace !important;
+            font-size: 0.9em !important;
+            color: #e11d48 !important;
+        }
+
+        .trix-content pre {
+            background-color: #1e293b !important;
+            color: #f1f5f9 !important;
+            padding: 1rem !important;
+            border-radius: 0.5rem !important;
+            overflow-x: auto !important;
+            margin: 1.5rem 0 !important;
+        }
+
+        .trix-content pre code {
+            background-color: transparent !important;
+            padding: 0 !important;
+            color: inherit !important;
+        }
+    </style>
 </div>

@@ -83,6 +83,9 @@ class RegisterForm extends Component
     {
         $this->isSubmitting = true;
 
+        // Dispatch loading event untuk Sweet Alert
+        $this->dispatch('show-loading-register');
+
         try {
             // Set terms_accepted from agreeTerms for compatibility
             $this->terms_accepted = $this->agreeTerms;
@@ -117,10 +120,15 @@ class RegisterForm extends Component
             event(new Registered($user));
 
             $this->resetForm();
-            $this->showSuccessAlert = true; // Set after resetForm to prevent reset
+
+            // Hide loading and show success
+            $this->dispatch('hide-loading-register');
+            $this->dispatch('show-register-success');
         } catch (\Illuminate\Validation\ValidationException $e) {
+            $this->dispatch('hide-loading-register');
             throw $e; // Re-throw validation exceptions to show field-specific errors
         } catch (\Exception $e) {
+            $this->dispatch('hide-loading-register');
             \Log::error('Registration error: ' . $e->getMessage(), [
                 'trace' => $e->getTraceAsString(),
                 'email' => $this->email,

@@ -29,7 +29,7 @@
             <div>
                 <h4 class="font-semibold mb-4 text-white" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Tentang Kami</h4>
                 <ul class="space-y-2 text-sm text-white/80">
-                    <li><a href="#" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Tujuan dan Visi</a></li>
+                    <li><a href="{{ route('tujuan-dan-visi') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Tujuan dan Visi</a></li>
                     <li><a href="{{ route('super-team') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">The Super Team</a></li>
                     <li><a href="{{ route('laporan-keuangan') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Laporan Keuangan</a></li>
                     <li><a href="{{ route('faq') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">FAQ</a></li>

@@ -31,29 +31,36 @@ class BlogController extends Controller
     public function uploadContentImage(Request $request): JsonResponse
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:5120', // 5MB max
+            'upload' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:5120', // 5MB max
         ]);
 
         try {
-            $file = $request->file('image');
+            $file = $request->file('upload');
             $path = $this->imageService->uploadContentImage($file);
 
             if ($path) {
+                $url = asset('storage/' . $path);
+
+                // Return format expected by CKEditor
                 return response()->json([
-                    'success' => true,
-                    'url' => asset('storage/' . $path),
-                    'path' => $path
+                    'uploaded' => true,
+                    'url' => $url,
+                    'fileName' => basename($path)
                 ]);
             } else {
                 return response()->json([
-                    'success' => false,
-                    'message' => 'Failed to upload image'
+                    'uploaded' => false,
+                    'error' => [
+                        'message' => 'Failed to upload image'
+                    ]
                 ], 500);
             }
         } catch (\Exception $e) {
             return response()->json([
-                'success' => false,
-                'message' => 'Upload failed: ' . $e->getMessage()
+                'uploaded' => false,
+                'error' => [
+                    'message' => 'Upload failed: ' . $e->getMessage()
+                ]
             ], 500);
         }
     }

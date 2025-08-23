@@ -103,7 +103,7 @@ class BlogManagement extends Component
 
     public function getPostsProperty()
     {
-        $query = Post::with(['user', 'editor'])
+        $query = Post::with(['user'])
             ->when($this->search, function ($query) {
                 $query->where(function ($q) {
                     $q->where('title', 'like', '%' . $this->search . '%')

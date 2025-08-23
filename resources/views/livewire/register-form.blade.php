@@ -259,3 +259,43 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Listen for loading and success events
+    document.addEventListener('livewire:init', () => {
+        Livewire.on('show-loading-register', () => {
+            Swal.fire({
+                title: 'Sedang Mendaftar...',
+                html: 'Mohon tunggu, kami sedang memproses data Anda',
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading();
+                },
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                showConfirmButton: false
+            });
+        });
+
+        Livewire.on('hide-loading-register', () => {
+            Swal.close();
+        });
+
+        Livewire.on('show-register-success', () => {
+            Swal.fire({
+                title: 'Pendaftaran Berhasil!',
+                html: 'Tim kami akan memverifikasi data Anda dan menginformasikan via WhatsApp dalam 48 jam.<br><br>Anda akan diarahkan ke halaman login.',
+                icon: 'success',
+                timer: 5000,
+                timerProgressBar: true,
+                showConfirmButton: true,
+                confirmButtonText: 'Login Sekarang',
+                confirmButtonColor: '#433592',
+                allowOutsideClick: false
+            }).then((result) => {
+                // Redirect to login page
+                window.location.href = '{{ route("login.custom") }}';
+            });
+        });
+    });
+</script>

@@ -3,12 +3,15 @@
 namespace App\Livewire\Admin;
 
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use App\Models\Post;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class BlogEditor extends Component
 {
+    use WithFileUploads;
     public $postId = null;
     public $title = '';
     public $slug = '';
@@ -16,12 +19,15 @@ class BlogEditor extends Component
     public $content = '';
     public $status = 'draft';
     public $isEditing = false;
+    public $current_featured_image = null;
+    public $featured_image = null;
 
     protected $rules = [
         'title' => 'required|min:5|max:255',
         'description' => 'nullable|max:500',
         'content' => 'required|min:50',
-        'status' => 'in:draft,published'
+        'status' => 'in:draft,published',
+        'featured_image' => 'nullable|image|max:2048'
     ];
 
     protected $messages = [
@@ -31,6 +37,8 @@ class BlogEditor extends Component
         'description.max' => 'Deskripsi maksimal 500 karakter.',
         'content.required' => 'Konten artikel wajib diisi.',
         'content.min' => 'Konten artikel minimal 50 karakter.',
+        'featured_image.image' => 'File harus berupa gambar.',
+        'featured_image.max' => 'Ukuran gambar maksimal 2MB.'
     ];
 
     public function mount($postId = null)
@@ -51,6 +59,7 @@ class BlogEditor extends Component
         $this->description = $post->description;
         $this->content = $post->content;
         $this->status = $post->status;
+        $this->current_featured_image = $post->featured_image;
     }
 
     public function updatedTitle()
@@ -101,6 +110,18 @@ class BlogEditor extends Component
             'status' => $this->status,
             'editor_id' => Auth::id(),
         ];
+
+        // Handle featured image upload
+        if ($this->featured_image) {
+            // Delete old image if editing
+            if ($this->isEditing && $this->current_featured_image) {
+                Storage::disk('public')->delete($this->current_featured_image);
+            }
+
+            // Store new image
+            $path = $this->featured_image->store('blog-images', 'public');
+            $data['featured_image'] = $path;
+        }
 
         if ($this->status === 'published') {
             $data['published_at'] = now();

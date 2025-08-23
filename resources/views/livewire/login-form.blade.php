@@ -134,3 +134,26 @@
     </div>
 </div>
 
+<script>
+    // Listen for loading events
+    document.addEventListener('livewire:init', () => {
+        Livewire.on('show-loading-login', () => {
+            Swal.fire({
+                title: 'Sedang Login...',
+                html: 'Mohon tunggu sebentar',
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading();
+                },
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                showConfirmButton: false
+            });
+        });
+
+        Livewire.on('hide-loading-login', () => {
+            Swal.close();
+        });
+    });
+</script>
+

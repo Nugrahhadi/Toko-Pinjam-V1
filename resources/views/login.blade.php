@@ -32,6 +32,9 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @livewireStyles
         
+        <!-- Sweet Alert 2 CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        
         <!-- Additional Styles for Login -->
         <style>
             /* Override Tailwind with higher specificity */
