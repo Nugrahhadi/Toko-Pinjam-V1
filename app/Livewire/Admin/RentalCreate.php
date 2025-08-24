@@ -9,16 +9,19 @@ use Illuminate\Validation\Rule;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use App\Models\User;
 
 class RentalCreate extends Component
 {
     public $item_id = null;
+    public $user_id = null;
     public $quantity = 1;
     public $start_date;
     public $end_date;
     public $note = '';
 
     public $items = [];
+    public $users = []; 
     public $available = null; // <— untuk ditampilkan di view
 
     public function mount(): void
@@ -29,6 +32,7 @@ class RentalCreate extends Component
 
         // Ambil semua item (stok saat ini sudah merefleksikan booking sebelumnya)
         $this->items = Item::orderBy('name')->get(['id','name','stock']);
+        $this->users = User::orderBy('name')->get(['id','name','email']);
     }
 
     /** Recompute ketersediaan berdasarkan stok saat ini */
@@ -51,6 +55,7 @@ class RentalCreate extends Component
         try {
             $this->validate([
                 'item_id'    => ['required', Rule::exists('items','id')],
+                'user_id'    => ['required', Rule::exists('users','id')],
                 'quantity'   => ['required','integer','min:1'],
                 'start_date' => ['required','date'],
                 'end_date'   => ['required','date','after:start_date'],
@@ -71,7 +76,7 @@ class RentalCreate extends Component
                 // Buat rental berstatus booked
                 Rental::create([
                     'item_id'    => $item->id,
-                    'user_id'    => null,
+                    'user_id'    => $this->user_id,
                     'quantity'   => (int)$this->quantity,
                     'start_date' => $this->start_date,
                     'end_date'   => $this->end_date,

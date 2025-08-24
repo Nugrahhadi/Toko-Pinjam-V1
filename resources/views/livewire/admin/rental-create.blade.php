@@ -15,6 +15,16 @@
 
     <form wire:submit.prevent="save" class="space-y-6">
         <div>
+    <label class="block text-sm font-medium text-gray-700">Pilih User</label>
+    <select id="user-select" wire:model="user_id" class="mt-1 w-full border rounded-md p-2">
+        <option value="">Cari / pilih user</option>
+        @foreach($users as $u)
+            <option value="{{ $u->id }}">{{ $u->name }} - {{ $u->email }}</option>
+        @endforeach
+    </select>
+    @error('user_id') <p class="text-red-600 text-sm">{{ $message }}</p> @enderror
+</div>
+        <div>
             <label class="block text-sm font-medium text-gray-700">Barang</label>
             <select wire:model="item_id" class="mt-1 w-full border rounded-md p-2">
                 <option value="">Pilih barang</option>

@@ -41,6 +41,7 @@
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                     <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">User</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Barang</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Jumlah</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Tanggal</th>
@@ -56,6 +57,7 @@
                                 {{ \Carbon\Carbon::parse($r->start_date)->format('d M Y') }} –
                                 {{ \Carbon\Carbon::parse($r->end_date)->format('d M Y') }}
                             </td>
+                            <td class="px-6 py-4">{{ $r->user->name ?? '-' }}</td>
                             <td class="px-6 py-4 text-right">
                                 <button
                                     wire:click="markReturned({{ $r->id }})"
@@ -92,6 +94,7 @@
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                     <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">User</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Barang</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Jumlah</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Tanggal</th>
@@ -102,12 +105,14 @@
                 <tbody class="bg-white divide-y divide-gray-200">
                     @forelse($bookedRentals as $r)
                         <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-4">{{ $r->user->name ?? '-' }}</td>
                             <td class="px-6 py-4">{{ $r->item->name ?? '-' }}</td>
                             <td class="px-6 py-4">{{ $r->quantity }}</td>
                             <td class="px-6 py-4">
                                 {{ \Carbon\Carbon::parse($r->start_date)->format('d M Y') }} –
                                 {{ \Carbon\Carbon::parse($r->end_date)->format('d M Y') }}
                             </td>
+                            
                             <td class="px-6 py-4">
                                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
                                     Booked

@@ -14,7 +14,9 @@
     <!-- TailwindCSS -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    
+    <!-- Tom Select CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet">
+
     @stack('styles')
     @livewireStyles
 </head>
@@ -58,9 +60,9 @@
                                 <li>
                                     <a href="{{ route('admin.users') }}" 
                                        class="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold {{ request()->routeIs('admin.users*') ? 'bg-white/10 text-white' : 'text-gray-200 hover:text-white hover:bg-white/10' }} transition-all duration-200">
-                                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-8.5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
-                        </svg>
+                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-8.5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                                        </svg>
                                         Kelola Member
                                     </a>
                                 </li>
@@ -68,8 +70,8 @@
                                     <a href="{{ route('admin.items') }}" 
                                        class="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold {{ request()->routeIs('admin.items*') ? 'bg-white/10 text-white' : 'text-gray-200 hover:text-white hover:bg-white/10' }} transition-all duration-200">
                                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M9 9l3-3 3 3"></path>
-                        </svg>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M9 9l3-3 3 3"></path>
+                                        </svg>
                                         Kelola Barang
                                     </a>
                                 </li>
@@ -119,59 +121,6 @@
             </div>
         </div>
 
-        <!-- Mobile sidebar -->
-        <div x-show="sidebarOpen" class="relative z-50 lg:hidden" x-cloak>
-            <div x-show="sidebarOpen" x-transition:enter="transition-opacity ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 bg-gray-900/80"></div>
-
-            <div class="fixed inset-0 flex">
-                <div x-show="sidebarOpen" x-transition:enter="transition ease-in-out duration-300 transform" x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in-out duration-300 transform" x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full" class="relative mr-16 flex w-full max-w-xs flex-1">
-                    <div x-show="sidebarOpen" x-transition:enter="transition ease-in-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in-out duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="absolute left-full top-0 flex w-16 justify-center pt-5">
-                        <button @click="sidebarOpen = false" class="-m-2.5 p-2.5">
-                            <span class="sr-only">Close sidebar</span>
-                            <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                    </div>
-
-                    <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-gradient-to-b from-[#433592] to-[#5B4B8A] px-6 pb-4">
-                        <!-- Mobile Logo -->
-                        <div class="flex h-20 shrink-0 items-center justify-center border-b border-white/20">
-                            <img src="{{ asset('images/footerlogo.png') }}" alt="Toko Pinjam" class="h-12 w-auto">
-                        </div>
-                        <!-- Mobile Navigation - same as desktop -->
-                        <nav class="flex flex-1 flex-col">
-                            <ul role="list" class="flex flex-1 flex-col gap-y-7">
-                                <li>
-                                    <ul role="list" class="-mx-2 space-y-1">
-                                        <li>
-                                            <a href="{{ route('admin.dashboard') }}" 
-                                               class="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold {{ request()->routeIs('admin.dashboard') ? 'bg-white/10 text-white' : 'text-gray-200 hover:text-white hover:bg-white/10' }} transition-all duration-200">
-                                                <svg class="h-6 w-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z" />
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 5a2 2 0 012-2h4a2 2 0 012 2v2a2 2 0 01-2 2H10a2 2 0 01-2-2V5z" />
-                                                </svg>
-                                                Dashboard
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('admin.blog') }}" 
-                                               class="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold {{ request()->routeIs('admin.blog*') ? 'bg-white/10 text-white' : 'text-gray-200 hover:text-white hover:bg-white/10' }} transition-all duration-200">
-                                                <svg class="h-6 w-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-                                                </svg>
-                                                Kelola Blog
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- Main content -->
         <div class="lg:pl-72">
             <div class="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
@@ -209,8 +158,22 @@
     </div>
 
     @livewireScripts
+
+    <!-- Tom Select JS -->
+    <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+    <script>
+        document.addEventListener("livewire:navigated", () => {
+            let el = document.getElementById('user-select');
+            if(el && !el.tomselect){
+                new TomSelect(el, {
+                    create: false,
+                    sortField: {field: "text", direction: "asc"},
+                    placeholder: "Ketik untuk mencari user..."
+                });
+            }
+        });
+    </script>
+
     @stack('scripts')
 </body>
 </html>
-
-               

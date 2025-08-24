@@ -86,42 +86,68 @@
             </div>
 
             <!-- Riwayat Peminjaman -->
-            <div x-show="activeTab === 'riwayat'" x-transition>
-                <div class="mb-4">
-                    <span class="text-sm font-medium text-gray-700">Halaman:</span>
-                    <button class="bg-gray-300 px-2 py-1 rounded ml-2" disabled><</button>
-                    <span class="inline-block px-3 py-1 bg-gray-200 text-gray-800 rounded mx-1">1</span>
-                    <button class="bg-gray-300 px-2 py-1 rounded">></button>
-                </div>
+            <!-- Riwayat Peminjaman -->
+<div x-show="activeTab === 'riwayat'" x-transition>
+    <h3 class="text-lg font-semibold text-gray-800 mb-4">Riwayat Peminjaman</h3>
 
-                <div class="space-y-4">
-                    @forelse($rentals as $rental)
-                        @php
-                            $first = is_array($rental->item->images ?? null) ? ($rental->item->images[0] ?? null) : null;
-                            $img = $first
-                                ? (Str::startsWith($first, ['http://','https://','/']) ? $first : asset('storage/'.$first))
-                                : asset('images/barang/micTakara.png');
-                        @endphp
-                        <div class="bg-[#A5EBF8] p-4 rounded-lg flex items-center space-x-4">
-                            <img src="{{ $img }}" class="w-16 h-16 object-cover" alt="{{ $rental->item->name }}">
-                            <div>
-                                <div class="font-bold text-purple-700">{{ $rental->item->name }}</div>
-                                <div class="text-sm text-gray-700">
-                                    {{ \Carbon\Carbon::parse($rental->start_date)->format('d F Y') }}
-                                    - {{ \Carbon\Carbon::parse($rental->end_date)->format('d F Y') }}
-                                </div>
-                            </div>
-                        </div>
-                    @empty
-                        <div class="text-center text-gray-500">Kamu belum punya riwayat peminjaman.</div>
-                    @endforelse
-                </div>
+    <div class="overflow-x-auto bg-white rounded-lg shadow">
+        <table class="min-w-full table-auto border-collapse">
+            <thead class="bg-purple-700 text-white">
+                <tr>
+                    <th class="px-4 py-2 text-left">Nama Barang</th>
+                    <th class="px-4 py-2 text-left">Jumlah</th>
+                    <th class="px-4 py-2 text-left">Tanggal Pinjam</th>
+                    <th class="px-4 py-2 text-left">Tanggal Kembali</th>
+                    <th class="px-4 py-2 text-left">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse($rentals as $rental)
+                    <tr class="border-b hover:bg-gray-100">
+                        <td class="px-4 py-2 font-medium text-purple-700">
+                            {{ $rental->item->name ?? '-' }}
+                        </td>
+                        <td class="px-4 py-2">{{ $rental->quantity ?? 1 }}</td>
+                        <td class="px-4 py-2">
+                            {{ \Carbon\Carbon::parse($rental->start_date)->format('d M Y') }}
+                        </td>
+                        <td class="px-4 py-2">
+                            {{ \Carbon\Carbon::parse($rental->end_date)->format('d M Y') }}
+                        </td>
+                        <td class="px-4 py-2">
+                            @php
+                                $statusMap = [
+                                    'dibooking' => 'Dibooking',
+                                    'sedang_dipinjam' => 'Sedang Dipinjam',
+                                    'dikembalikan' => 'Dikembalikan',
+                                ];
+                            @endphp
+                            <span class="px-2 py-1 rounded text-sm
+                                {{ $rental->status == 'dibooking' ? 'bg-yellow-200 text-yellow-800' : '' }}
+                                {{ $rental->status == 'sedang_dipinjam' ? 'bg-blue-200 text-blue-800' : '' }}
+                                {{ $rental->status == 'dikembalikan' ? 'bg-green-200 text-green-800' : '' }}">
+                                {{ $statusMap[$rental->status] ?? ucfirst($rental->status) }}
+                            </span>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="5" class="px-4 py-6 text-center text-gray-500">
+                            Kamu belum punya riwayat peminjaman.
+                        </td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
 
-                <div class="text-center mt-6">
-                    <a href="{{ route('pinjam-sekarang') }}" class="bg-purple-700 text-white px-6 py-2 rounded hover:bg-purple-800">
-                        Pinjam sekarang
-                    </a>
-                </div>
+    <div class="text-center mt-6">
+        <a href="{{ route('pinjam-sekarang') }}"
+           class="bg-purple-700 text-white px-6 py-2 rounded hover:bg-purple-800">
+            Pinjam sekarang
+        </a>
+    </div>
+
 
                 <!-- Dampak Section -->
                 <section x-intersect.once="startCounting()" class="bg-[#FFF5F1] mt-10 py-8 px-6 rounded-lg">

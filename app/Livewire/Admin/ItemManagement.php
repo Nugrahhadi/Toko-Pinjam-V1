@@ -224,7 +224,7 @@ class ItemManagement extends Component
 
     public function getOngoingRentalsProperty()
     {
-        return Rental::with('item')
+        return Rental::with('item', 'user')
             ->where('status','ongoing')
             ->orderBy('start_date')
             ->paginate(10, ['*'], 'ongoing');
@@ -232,7 +232,7 @@ class ItemManagement extends Component
 
     public function getBookedRentalsProperty()
     {
-        return Rental::with('item')
+        return Rental::with('item', 'user')
             ->where('status','booked')
             ->orderBy('start_date')
             ->paginate(10, ['*'], 'booked');
