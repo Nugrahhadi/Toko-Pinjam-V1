@@ -19,28 +19,33 @@ class ItemEditor extends Component
     public $name, $slug, $description, $original_price, $donation_price;
     public $stock = 1;
     public $category_id, $location_id;
+    public $weight;
+    public $is_active = true;
 
     // Gambar
     public $existing_images = [];   // path yang sudah tersimpan (string[])
     public $image_files = [];       // file baru yang diupload (TemporaryUploadedFile[])
 
-    public function mount(?int $itemId = null): void
-    {
-        if ($itemId) {
-            $this->item = Item::findOrFail($itemId);
-            $this->fill([
-                'name'            => $this->item->name,
-                'slug'            => $this->item->slug,
-                'description'     => $this->item->description,
-                'original_price'  => $this->item->original_price,
-                'donation_price'  => $this->item->donation_price,
-                'stock'           => $this->item->stock,
-                'category_id'     => $this->item->category_id,
-                'location_id'     => $this->item->location_id,
-            ]);
-            $this->existing_images = $this->item->images ?: [];
-        }
+    public function mount(?string $itemId = null): void
+{
+    if ($itemId) {
+        $this->item = \App\Models\Item::findOrFail($itemId);
+
+        $this->fill([
+            'name'            => $this->item->name,
+            'slug'            => $this->item->slug,
+            'description'     => $this->item->description,
+            'original_price'  => $this->item->original_price,
+            'donation_price'  => $this->item->donation_price,
+            'stock'           => $this->item->stock,
+            'category_id'     => $this->item->category_id,
+            'location_id'     => $this->item->location_id,
+            'weight'          => $this->item->weight,
+            'is_active'       => $this->item->is_active,
+        ]);
+        $this->existing_images = $this->item->images ?: [];
     }
+}
 
     protected function rules(): array
     {
@@ -53,6 +58,8 @@ class ItemEditor extends Component
             'stock'          => ['required','integer','min:0'],
             'category_id'    => ['required','exists:categories,id'],
             'location_id'    => ['required','exists:locations,id'],
+            'weight'         => ['nullable','numeric','min:0'],
+            'is_active'      => ['required','boolean'],
 
             // Validasi file upload (boleh banyak)
             'image_files.*'  => ['image','mimes:jpg,jpeg,png,webp','max:4096'],
@@ -110,6 +117,8 @@ class ItemEditor extends Component
             'images'         => $images,
             'category_id'    => $this->category_id,
             'location_id'    => $this->location_id,
+            'weight'         => $this->weight,
+            'is_active'      => (bool) $this->is_active,
         ];
 
         if ($this->item) {

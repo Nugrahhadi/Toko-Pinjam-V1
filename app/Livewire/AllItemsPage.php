@@ -32,8 +32,7 @@ class AllItemsPage extends Component
             ->when($this->selectedCategory !== 'all', function ($q) {
                 $q->whereHas('category', fn($qq) => $qq->where('slug', $this->selectedCategory));
             })
-            ->orderByDesc('is_featured')
-            ->latest()
+            ->latest()        // urutkan dari yang terbaru
             ->paginate(12);
 
         return view('livewire.all-items-page', [

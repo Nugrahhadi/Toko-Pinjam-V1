@@ -66,11 +66,26 @@
                 @error('stock') <p class="text-red-600 text-sm">{{ $message }}</p> @enderror
             </div>
 
+            <div>
+    <label class="block text-sm font-medium text-gray-700">Berat (kg)</label>
+    <input type="number" step="0.01" min="0" wire:model.defer="weight"
+           class="mt-1 w-full border rounded-md p-2">
+    @error('weight') <p class="text-red-600 text-sm">{{ $message }}</p> @enderror
+</div>
+
             <div class="md:col-span-2">
                 <label class="block text-sm font-medium text-gray-700">Deskripsi</label>
                 <textarea rows="5" wire:model.defer="description" class="mt-1 w-full border rounded-md p-2"></textarea>
                 @error('description') <p class="text-red-600 text-sm">{{ $message }}</p> @enderror
             </div>
+            <div class="md:col-span-2">
+    <label class="inline-flex items-center space-x-2">
+        <input type="checkbox" wire:model.defer="is_active"
+               class="rounded border-gray-300 text-[#433592] focus:ring-[#433592]">
+        <span class="text-sm text-gray-700">Aktif (tampilkan ke publik)</span>
+    </label>
+    @error('is_active') <p class="text-red-600 text-sm">{{ $message }}</p> @enderror
+</div>
 
             {{-- Upload gambar dari komputer --}}
             <div class="md:col-span-2">
