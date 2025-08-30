@@ -1,0 +1,206 @@
+<div>
+    <livewire:components.navbar />
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Donasi - Toko Pinjam Indonesia</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <style>
+            /* Custom styles for slider buttons */
+            .swiper-button-next,
+            .swiper-button-prev {
+                color: #433592;
+                background: white;
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            }
+            
+            .swiper-button-next:after,
+            .swiper-button-prev:after {
+                font-size: 16px;
+                font-weight: bold;
+            }
+            
+            .swiper-button-next:hover,
+            .swiper-button-prev:hover {
+                background: #433592;
+                color: white;
+            }
+            
+            /* Testimonial slider specific styles */
+            .swiper-container-testimoni .swiper-slide {
+                display: flex;
+                justify-content: center;
+                height: auto;
+            }
+            
+            /* Fixed height for testimonial cards */
+            .testimonial-card {
+                height: 180px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+        </style>
+    </head>
+    <body>
+
+    <!-- Hero Donasi -->
+    <section class="py-16 bg-[#fef7f5]">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+            <div class="flex items-center gap-6">
+                <div class="w-28 h-28 rounded-full overflow-hidden">
+                    <img src="images/donasi/logo.png" alt="Toko Pinjam Indonesia Logo" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h1 class="text-4xl font-bold text-[#433592] mb-2">Toko Pinjam Indonesia</h1>
+                    <p class="text-gray-600 max-w-xl">Kami menghadirkan layanan pinjam murah untuk mahasiswa yang memberikan kabar gembira pada lingkungan.</p>
+                </div>
+            </div>
+            <button type="button" class="sb-donasi-btn mt-12 bg-[#433592] text-white px-6 py-2 rounded-xl hover:bg-[#3a2d7a] transition-colors">Donasi</button>
+        </div>
+    </section>
+
+    <!-- Donasi Progress -->
+    <section class="bg-white py-16">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <h2 class="text-4xl font-bold text-[#433592]">
+                <span id="donasiTotal">Rp0</span> telah terkumpul
+            </h2>
+            <div class="relative mt-6 h-4 bg-gray-200 rounded-full overflow-hidden">
+                <div id="donasiProgress" class="h-4 bg-[#433592] w-0 transition-all duration-1000 ease-in-out"></div>
+            </div>
+            <div class="flex justify-between text-sm text-gray-500 mt-1">
+                <span>Rp0</span>
+                <span>Rp1.000.000</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="bg-[#9be1eb] justify-center items-center">
+        <div class="pt-8 pb-8 text-center">
+            <h3 class="whitespace-nowrap text-2xl md:text-2xl font-extrabold text-[#413291] mb-8" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                Kamu berhak tahu untuk apa donasimu digunakan
+            </h3>
+            <a href="{{ route('laporan-keuangan') }}" target="_blank"
+               class="inline-block bg-[#413291] text-white font-semibold px-6 py-3 rounded hover:bg-[#2e2367] transition">
+                Laporan Keuangan
+            </a>
+        </div>
+    </div>
+
+    <!-- Slider Chapter -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="swiper-container chapter-slider relative">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide text-center">
+                        <h3 class="text-lg font-medium mb-4">Chapter I: Purwokerto</h3>
+                        <div class="bg-gray-200 rounded-lg shadow-md h-[400px] overflow-hidden">
+                            <img src="images/donasi/pwtt.jpg" alt="Chapter I Purwokerto" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="swiper-slide text-center">
+                        <h3 class="text-lg font-medium mb-4">Chapter II: ???</h3>
+                        <div class="bg-black text-white py-24 px-6 rounded-lg h-[400px] flex flex-col items-center justify-center">
+                            <p class="text-4xl mb-4">???</p>
+                            <p>Nantikan Toko Pinjam di Kota Kamu<br>Update di Instagram @tokopinjam</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insentif -->
+    <section class="bg-white py-16">
+        <div class="max-w-5xl mx-auto text-center px-4">
+            <h2 class="text-3xl font-bold text-[#433592] mb-10">Insentif Donasi</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-[#FFF0E1] shadow rounded-lg p-6 flex flex-col items-center">
+                    <div class="w-24 h-24 mb-4 overflow-hidden">
+                        <img src="images/donasi/1.png" alt="Insentif 1" class="w-full h-full">
+                    </div>
+                    <p class="text-lg text-gray-600">Total Donasi Minimum</p>
+                    <p class="text-5xl font-bold text-[#433592]">Rp100.000</p>
+                    <p class="text-xl text-[#433592] mt-2 font-semibold">Nama tercantum di list leaderboard</p>
+                </div>
+                <div class="bg-[#FFF0E1] shadow rounded-lg p-6 flex flex-col items-center">
+                    <div class="w-24 h-24 mb-4 overflow-hidden">
+                        <img src="images/donasi/2.png" alt="Insentif 2" class="w-full h-full">
+                    </div>
+                    <p class="text-lg text-gray-600">Total Donasi Minimum</p>
+                    <p class="text-5xl font-bold text-[#433592]">Rp50.000</p>
+                    <p class="text-xl text-[#433592] mt-2 font-semibold">Pesan tercantum di running text website</p>
+                </div>
+            </div>
+            <button type="button" class="sb-donasi-btn mt-6 bg-[#433592] text-white px-6 py-2 rounded-xl hover:bg-[#3a2d7a] transition-colors">Donasi</button>
+        </div>
+    </section>
+
+    <!-- Donatur Teratas -->
+    <section class="py-16 bg-[#FFF0E1]">
+        <div class="max-w-6xl mx-auto text-center px-4">
+            <h2 class="text-3xl font-bold text-[#433592] mb-10">Donatur Teratas</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <!-- Donatur List - Continue as per existing design -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimoni -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto text-center px-4">
+            <h2 class="text-3xl font-bold text-[#433592] mb-6">Apa Kata Mereka</h2>
+            <p class="text-sm text-gray-500 mb-8">(Diperbarui setiap 3 bulan)</p>
+            <div class="swiper-container-testimoni">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="bg-[#433592] text-white p-6 max-w-md mx-auto rounded-xl shadow testimonial-card">
+                            <p class="italic mb-4">"Testimonial example."</p>
+                            <p class="font-semibold mt-auto">Test Name</p>
+                        </div>
+                    </div>
+                    <!-- Continue with other testimonials as required -->
+                </div>
+            </div>
+            <button type="button" class="sb-donasi-btn mt-8 bg-[#433592] text-white px-6 py-2 rounded-xl hover:bg-[#3a2d7a] transition-colors">Donasi</button>
+        </div>
+    </section>
+
+    <!-- Sociabuzz Script Integration (Placed just before </body>) -->
+    <script type="text/javascript" src="https://storage.sociabuzz.com/storage/js/main/buttononwebsite/index.min.js"></script>
+    <script>
+        sbBoW.draw("tokopinjam", "RG9uYXNp", "position-top-middle", "#433592", "#FFFFFF");
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let targetAmount = 500000;
+            let current = 0;
+            let duration = 2000;
+            let step = targetAmount / (duration / 10);
+            const counter = document.getElementById('donasiTotal');
+            const progress = document.getElementById('donasiProgress');
+            const interval = setInterval(() => {
+                current += step;
+                if (current >= targetAmount) {
+                    current = targetAmount;
+                    clearInterval(interval);
+                }
+                counter.textContent = 'Rp' + Math.floor(current).toLocaleString();
+                progress.style.width = (current / 1000000 * 100) + '%';
+            }, 10);
+        });
+    </script>
+
+    </body>
+    <livewire:components.footer />
+</div>

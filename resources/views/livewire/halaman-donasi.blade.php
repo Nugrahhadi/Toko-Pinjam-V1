@@ -141,7 +141,7 @@
                 <p class="text-xl text-[#433592] mt-2 font-semibold">Pesan tercantum di running text website</p>
             </div>
         </div>
-        <button onclick="window.open('https://sociobuzz.com/tokopinjam', '_blank')" class="mt-6 bg-[#433592] text-white px-6 py-2 rounded-xl hover:bg-[#3a2d7a] transition-colors">Donasi</button>
+        
     </div>
 </section>
 
@@ -347,7 +347,7 @@
                 </div>
             </div>
         </div>
-        <button onclick="window.open('https://sociobuzz.com/tokopinjam', '_blank')" class="mt-8 bg-[#433592] text-white px-6 py-2 rounded-xl hover:bg-[#3a2d7a] transition-colors">Donasi</button>
+        
     </div>
 </section>
 

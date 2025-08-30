@@ -3,29 +3,52 @@
 <div x-data="{
     activeTab: 'info',
     switchTab(tab) { this.activeTab = tab },
-    counts: { savings: 0, environment: 0, shared: 0 },
+
+    // nilai berjalan (untuk animasi)
+    counts: { savings: 0, environment: 0.0, shared: 0 },
+
+    // target dari PHP (tanpa dibulatkan, environment boleh desimal)
     targets: {
-        savings: {{ (int)($stats['savings'] ?? 0) }},
-        environment: {{ (int)($stats['environment'] ?? 0) }},
+        savings: {{ (float)($stats['savings'] ?? 0) }},
+        environment: {{ number_format((float)($stats['environment'] ?? 0), 2, '.', '') }},
         shared: {{ (int)($stats['shared'] ?? 0) }},
     },
-    formatNumber(num) { return new Intl.NumberFormat('id-ID').format(num) },
+
+    // formatter: ID locale
+    formatNumber(num) { return new Intl.NumberFormat('id-ID', { maximumFractionDigits: 0 }).format(num || 0) },
+    formatKg(num) { return new Intl.NumberFormat('id-ID', { minimumFractionDigits: 1, maximumFractionDigits: 2 }).format(num || 0) },
+
     startCounting() {
         this.animateCount('savings', this.targets.savings);
         this.animateCount('environment', this.targets.environment);
         this.animateCount('shared', this.targets.shared);
     },
+
+    // animasi: integer utk savings/shared, desimal utk environment
     animateCount(key, target) {
-        const duration = 2000, frameRate = 60, totalFrames = Math.round(duration / (1000 / frameRate));
+        const duration = 2000, frameRate = 60;
+        const totalFrames = Math.round(duration / (1000 / frameRate));
         let currentFrame = 0;
+
         const counter = setInterval(() => {
             currentFrame++;
             const progress = currentFrame / totalFrames;
-            this.counts[key] = Math.round(target * progress);
-            if (currentFrame >= totalFrames) { this.counts[key] = target; clearInterval(counter); }
+            let value = target * progress;
+
+            if (key !== 'environment') {
+                value = Math.round(value); // savings & shared dibulatkan
+            }
+
+            this.counts[key] = value;
+
+            if (currentFrame >= totalFrames) {
+                this.counts[key] = target;
+                clearInterval(counter);
+            }
         }, 1000 / frameRate);
     }
 }">
+
     @section('title', 'Profil Pengguna')
     <livewire:components.navbar />
 
@@ -141,12 +164,7 @@
         </table>
     </div>
 
-    <div class="text-center mt-6">
-        <a href="{{ route('pinjam-sekarang') }}"
-           class="bg-purple-700 text-white px-6 py-2 rounded hover:bg-purple-800">
-            Pinjam sekarang
-        </a>
-    </div>
+
 
 
                 <!-- Dampak Section -->
@@ -163,7 +181,7 @@
                         <div class="bg-white rounded-lg p-4 text-left">
                             <div class="text-sm font-bold text-gray-700">Menjaga Lingkungan</div>
                             <div class="text-2xl font-bold">
-                                <span x-text="counts.environment"></span>kg
+                                <span x-text="formatKg(counts.environment)"></span>kg
                             </div>
                             <p class="text-sm text-gray-500 mt-1">Sampah dicegah untuk berakhir di Tempat Pembuangan Akhir</p>
                         </div>

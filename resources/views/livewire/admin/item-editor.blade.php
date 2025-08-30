@@ -73,11 +73,30 @@
     @error('weight') <p class="text-red-600 text-sm">{{ $message }}</p> @enderror
 </div>
 
+<div class="md:col-span-2">
+    <label class="block text-sm font-medium text-gray-700">Cara Pinjam</label>
+    <textarea rows="3" wire:model.defer="how_to_borrow"
+              class="mt-1 w-full border rounded-md p-2"
+              placeholder="Contoh: 1) Ajukan tanggal 2) Transfer donasi 3) Ambil di lokasi ..."></textarea>
+    @error('how_to_borrow') <p class="text-red-600 text-sm">{{ $message }}</p> @enderror
+</div>
+
             <div class="md:col-span-2">
                 <label class="block text-sm font-medium text-gray-700">Deskripsi</label>
                 <textarea rows="5" wire:model.defer="description" class="mt-1 w-full border rounded-md p-2"></textarea>
                 @error('description') <p class="text-red-600 text-sm">{{ $message }}</p> @enderror
             </div>
+            <div class="md:col-span-2">
+    <label class="block text-sm font-medium text-gray-700">Kelengkapan</label>
+    <textarea rows="3" wire:model.defer="completeness" class="mt-1 w-full border rounded-md p-2" placeholder="Contoh: 1x Unit Kamera, 2x Baterai, 1x Charger"></textarea>
+    @error('completeness') <p class="text-red-600 text-sm">{{ $message }}</p> @enderror
+</div>
+
+<div class="md:col-span-2">
+    <label class="block text-sm font-medium text-gray-700">Cara Pakai</label>
+    <textarea rows="3" wire:model.defer="how_to_use" class="mt-1 w-full border rounded-md p-2" placeholder="Langkah penggunaan singkat"></textarea>
+    @error('how_to_use') <p class="text-red-600 text-sm">{{ $message }}</p> @enderror
+</div>
             <div class="md:col-span-2">
     <label class="inline-flex items-center space-x-2">
         <input type="checkbox" wire:model.defer="is_active"

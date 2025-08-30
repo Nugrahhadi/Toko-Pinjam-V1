@@ -12,42 +12,62 @@
             </p>
         </div>
 
+        @php
+            /** Ambil 5 item terbaru yang aktif */
+            $latestItems = \App\Models\Item::with('category')
+                ->where('is_active', true)
+                ->latest()              // order by created_at desc
+                ->take(5)
+                ->get();
+        @endphp
+
         <!-- Items Grid -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 lg:gap-6">
-            @foreach($this->getDisplayedItems() as $index => $item)
-            <div class="group cursor-pointer transform hover:scale-105 transition-all duration-300" 
-                 wire:click="viewItemDetail('{{ $item['name'] }}')">
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                    <!-- Image rasio 1:1 -->
-                    <div class="aspect-square overflow-hidden bg-gray-50">
-                        <img src="{{ asset('images/barang/' . $item['image']) }}" 
-                             alt="{{ $item['name'] }}"
-                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 lg:gap-6 items-stretch">
+    @forelse($latestItems as $item)
+        @php
+            $first = $item->images[0] ?? null;
+            $img = $first
+                ? (\Illuminate\Support\Str::startsWith($first, ['http://','https://','/'])
+                    ? $first
+                    : asset('storage/'.$first))
+                : 'https://via.placeholder.com/640x640?text=No+Image';
+        @endphp
+
+        <a href="{{ route('items.show', $item->slug) }}"
+           class="group block transform hover:scale-105 transition-all duration-300 h-full">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+                <!-- Image rasio 1:1 -->
+                <div class="aspect-square overflow-hidden bg-gray-50">
+                    <img src="{{ $img }}"
+                         alt="{{ $item->name }}"
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                </div>
+
+                <!-- Content -->
+                <div class="p-3 lg:p-4 flex-1 flex flex-col">
+                    <div class="mb-2">
+                        <span class="inline-block px-2 py-1 text-xs font-medium text-[#433592] bg-[#FDF2EB] rounded-full">
+                            {{ $item->category->name ?? 'Tanpa Kategori' }}
+                        </span>
                     </div>
-                    
-                    <!-- Content -->
-                    <div class="p-3 lg:p-4">
-                        <div class="mb-2">
-                            <span class="inline-block px-2 py-1 text-xs font-medium text-[#433592] bg-[#FDF2EB] rounded-full" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                                {{ $item['category'] }}
-                            </span>
-                        </div>
-                        <h3 class="text-sm font-semibold text-gray-900 mb-2 line-clamp-2" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                            {{ $item['name'] }}
-                        </h3>
-                        <div class="flex items-center justify-between">
-                            <span class="text-base lg:text-lg font-bold text-[#433592]" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                                Rp {{ $item['price'] }}
-                            </span>
-                            <span class="text-xs text-gray-500" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                                per hari
-                            </span>
-                        </div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-2 line-clamp-2">
+                        {{ $item->name }}
+                    </h3>
+                    <div class="mt-auto flex items-center justify-between">
+                        <span class="text-base lg:text-lg font-bold text-[#433592]">
+                            Rp {{ number_format($item->donation_price) }}
+                        </span>
+                        <span class="text-xs text-gray-500">per hari</span>
                     </div>
                 </div>
             </div>
-            @endforeach
+        </a>
+    @empty
+        <div class="col-span-full text-center text-gray-500">
+            Belum ada barang untuk ditampilkan.
         </div>
+    @endforelse
+</div>
 
         <!-- Call to Action -->
         <div class="text-center mt-12">
