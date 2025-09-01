@@ -1,6 +1,7 @@
 <div>
     <!-- Stats Cards -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+
         <!-- Total Members -->
         <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 group hover:shadow-lg transition-all duration-300 cursor-pointer" 
              wire:click="$emit('redirectTo', 'admin.members')">
@@ -73,29 +74,34 @@
             </div>
         </div>
 
-        <!-- Total Published Blogs -->
-        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 group hover:shadow-lg transition-all duration-300 cursor-pointer"
-             wire:click="$emit('redirectTo', 'admin.blog')">
+        <!-- NEW: Total Donations -->
+        <a href="{{ route('admin.donation.index') }}" class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 group hover:shadow-lg transition-all duration-300 block">
             <div class="flex items-center justify-between">
                 <div>
-                    <p class="text-sm font-medium text-gray-600 mb-1">Blog Terbit</p>
-                    <p class="text-3xl font-bold text-gray-900">{{ number_format($totalBlogs) }}</p>
-                    <p class="text-xs text-green-600 mt-1">
+                    <p class="text-sm font-medium text-gray-600 mb-1">Total Donasi</p>
+                    <p class="text-3xl font-bold text-gray-900">Rp{{ number_format($totalDonations, 0, ',', '.') }}</p>
+
+                    @if($donationGoal > 0)
+                        <div class="mt-3">
+                            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                @php
+                                    $pct = min(100, $donationGoal > 0 ? round(($totalDonations / $donationGoal) * 100) : 0);
+                                @endphp
+                                <div class="h-2 bg-emerald-500" style="width: {{ $pct }}%"></div>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">Target: Rp{{ number_format($donationGoal, 0, ',', '.') }} ({{ $pct }}%)</p>
+                        </div>
+                    @endif
+
+                    <p class="text-xs text-emerald-600 mt-2">
                         <span class="inline-flex items-center">
-                            <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
-                            </svg>
-                            Published articles
+                            Kelola donasi & leaderboard
                         </span>
                     </p>
                 </div>
-                <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-                    </svg>
-                </div>
+            
             </div>
-        </div>
+        </a>
     </div>
 
     <!-- Quick Actions -->
@@ -148,7 +154,7 @@
         <!-- Quick Actions -->
         <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
             <h3 class="text-lg font-semibold text-gray-900 mb-4">Aksi Cepat</h3>
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <a href="{{ route('admin.blog') }}" 
                    class="flex flex-col items-center p-4 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg hover:from-blue-100 hover:to-blue-200 transition-all duration-200 group">
                     <div class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
@@ -175,9 +181,19 @@
                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M9 9l3-3 3 3"></path>
                         </svg>
+                    </div>
+                    <span class="text-sm font-medium text-gray-900 mt-2 text-center">Kelola Barang</span>
+                </a>
+
+                <!-- NEW: Pengaturan Donasi -->
+                <a href="{{ route('admin.donation.index') }}" 
+                   class="flex flex-col items-center p-4 bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-lg hover:from-emerald-100 hover:to-emerald-200 transition-all duration-200 group">
+                    <div class="w-10 h-10 bg-emerald-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 1.567-3 3.5S10.343 15 12 15s3-1.567 3-3.5S13.657 8 12 8zM12 5v3m0 7v4m7-7h3M2 12h3" />
                         </svg>
                     </div>
-                    <span class="text-sm font-medium text-gray-900 mt-2 text-center">Kelola barang</span>
+                    <span class="text-sm font-medium text-gray-900 mt-2 text-center">Pengaturan Donasi</span>
                 </a>
 
                 <a href="/" target="_blank"
@@ -233,11 +249,10 @@
 
 @push('scripts')
 <script>
-    // Handle click redirects
+    // Handle click redirects (tetap)
     window.addEventListener('redirectTo', event => {
         const route = event.detail;
         if (route === 'admin.members' || route === 'admin.items') {
-            // Show coming soon message
             alert('Feature coming soon!');
         } else if (route === 'admin.blog') {
             window.location.href = '{{ route("admin.blog") }}';
