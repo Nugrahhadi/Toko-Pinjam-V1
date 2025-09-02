@@ -87,7 +87,7 @@
             </div>
         </div>
 
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-[#f9fafb]">
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-4xl md:text-5xl font-bold mb-8 text-[#413291]">
                 Manusia serakah, bumi terpaksa merekah
             </h2>
