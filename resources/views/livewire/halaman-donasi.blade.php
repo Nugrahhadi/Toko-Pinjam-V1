@@ -159,7 +159,7 @@
             @foreach($arrangedTop3 as $i => $row)
                 @php
                     $rankReal = $i === 0 ? 2 : ($i === 1 ? 1 : 3);
-                    $name = $row->user->full_name ?? $row->user->name ?? 'Anonim';
+                    $name = $row->user->display_name ?? $row->user->name ?? full_name;
                     $parts = preg_split('/\s+/', trim($name)); $initials = '';
                     foreach ($parts as $p) { if ($p !== '') { $initials .= mb_substr($p,0,1); if (mb_strlen($initials) >= 2) break; } }
                     $initials = mb_strtoupper($initials);
@@ -272,7 +272,7 @@
         <div class="swiper testimonials-swiper" wire:ignore>
             <div class="swiper-wrapper">
                 @forelse(($testimonials ?? []) as $t)
-                    @php $tname = $t->user->full_name ?? $t->user->name ?? 'Anonim'; @endphp
+                    @php $tname = $t->display_name ?: ($t->user->full_name ?? $t->user->name ?? 'Anonim'); @endphp
                     <div class="swiper-slide">
                         <div class="bg-[#433592] text-white p-6 max-w-md mx-auto rounded-xl shadow testimonial-card w-full">
                             <p class="testimonial-text italic mb-4">"{{ $t->message }}"</p>

@@ -160,6 +160,13 @@ Route::middleware(["auth", "admin"])
          * - detail : leaderboard (Top 10 editor)
          * - detail : testimonials (CRUD + pagination 10)
          */
+
+        // ... (rute admin lain)
+        Route::get(
+            "/transactions",
+            App\Livewire\Admin\TransactionManagement::class,
+        )->name("transactions");
+
         Route::prefix("donation")
             ->name("donation.")
             ->group(function () {

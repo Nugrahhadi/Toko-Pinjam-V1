@@ -8,20 +8,14 @@ class DonationTestimonial extends Model
 {
     protected $fillable = [
         "user_id",
+        "display_name", // ← pakai untuk override nama tampil
         "message",
         "approved",
         "position",
-        "display_name",
     ];
 
     public function user()
     {
         return $this->belongsTo(\App\Models\User::class);
-    }
-
-    public function getDisplayLabelAttribute(): string
-    {
-        return $this->display_name ?:
-            $this->user->full_name ?? ($this->user->name ?? "Anonim");
     }
 }

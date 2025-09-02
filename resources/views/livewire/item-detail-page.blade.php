@@ -157,12 +157,14 @@
                                 <div class="text-2xl font-bold" x-text="formatRupiah(totalCost)"></div>
                             </div>
 
-                            <!-- Tombol Donasi (Hijau) -->
-                            <button
-                                @click.prevent="handleDonateClick()"
-                                class="mt-4 w-full inline-flex items-center justify-center rounded-xl px-4 py-3 text-white font-semibold bg-green-600 hover:bg-green-700">
-                                Donasi
-                            </button>
+                            {{-- TOMBOL DONASI: hanya muncul jika harga > 0 --}}
+                            @if((float) $item->donation_price > 0)
+                                <button
+                                    @click.prevent="handleDonateClick()"
+                                    class="mt-4 w-full inline-flex items-center justify-center rounded-xl px-4 py-3 text-white font-semibold bg-green-600 hover:bg-green-700">
+                                    Donasi
+                                </button>
+                            @endif
 
                             <!-- Tombol Pinjam via WhatsApp -->
                             <button
