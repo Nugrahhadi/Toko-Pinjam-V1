@@ -75,6 +75,27 @@
                                         Kelola Barang
                                     </a>
                                 </li>
+
+                                <!-- NEW: Kelola Transaksi -->
+                                <li>
+                                    <a href="{{ route('admin.transactions') }}"
+                                       class="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold {{ request()->routeIs('admin.transactions') ? 'bg-white/10 text-white' : 'text-gray-200 hover:text-white hover:bg-white/10' }} transition-all duration-200">
+                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h.01M11 15h.01M15 15h.01M5 7h14a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V9a2 2 0 012-2z"/>
+                                        </svg>
+                                        Kelola Transaksi
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('admin.donation.index') }}"
+                                       class="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold {{ request()->routeIs('admin.donation.*') ? 'bg-white/10 text-white' : 'text-gray-200 hover:text-white hover:bg-white/10' }} transition-all duration-200">
+                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 1.567-3 3.5S10.343 15 12 15s3-1.567 3-3.5S13.657 8 12 8zM12 5v3m0 7v4m7-7h3M2 12h3" />
+                                        </svg>
+                                        Donasi
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class="mt-auto">
