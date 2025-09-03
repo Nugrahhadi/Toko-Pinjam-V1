@@ -147,53 +147,83 @@
                 </div>
                 @else
                 <!-- Jam Buka Content -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <p class="text-gray-600 mb-6" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                            Kamu harus mengajukan peminjaman melalui website ini, lalu mengambil dan mengembalikan barang di jam berikut:
-                        </p>
-                        
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-center py-2 border-b">
-                                <span class="font-semibold text-[#433592]">Senin</span>
-                                <span class="text-gray-700">09.00 - 15.00</span>
-                            </div>
-                            <div class="flex justify-between items-center py-2 border-b">
-                                <span class="font-semibold text-[#433592]">Selasa</span>
-                                <span class="text-gray-700">09.00 - 15.00</span>
-                            </div>
-                            <div class="flex justify-between items-center py-2 border-b">
-                                <span class="font-semibold text-[#433592]">Rabu</span>
-                                <span class="text-gray-700">09.00 - 15.00</span>
-                            </div>
-                            <div class="flex justify-between items-center py-2 border-b">
-                                <span class="font-semibold text-[#433592]">Kamis</span>
-                                <span class="text-gray-700">09.00 - 15.00</span>
-                            </div>
-                            <div class="flex justify-between items-center py-2 border-b">
-                                <span class="font-semibold text-[#433592]">Jumat</span>
-                                <span class="text-gray-700">09.00 - 15.00</span>
-                            </div>
-                            <div class="flex justify-between items-center py-2 border-b">
-                                <span class="font-semibold text-[#433592]">Sabtu</span>
-                                <span class="text-gray-700">11.00 - 17.00</span>
-                            </div>
-                            <div class="flex justify-between items-center py-2 border-b">
-                                <span class="font-semibold text-[#433592]">Minggu</span>
-                                <span class="text-gray-700">11.00 - 17.00</span>
+                {{-- <div class="bg-white rounded-3xl shadow-2xl overflow-hidden mb-16 transform hover:scale-105 transition-all duration-300"> --}}
+                    <div class="md:flex">
+                        <!-- Content Section -->
+                        <div class="md:w-3/5 p-8 flex flex-col justify-center">
+                            <div class="space-y-6">
+                                <p class="text-gray-600 text-lg leading-relaxed" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                                    Kamu harus mengajukan peminjaman melalui website ini, lalu mengambil dan mengembalikan barang di jam berikut:
+                                </p>
+                                
+                                <div class="space-y-4">
+                                    <div class="flex items-start space-x-3">
+                                        <div class="flex justify-between items-center w-full py-2 border-b border-gray-200">
+                                            <span class="font-semibold text-[#433592] text-lg">Senin</span>
+                                            <span class="text-gray-700 text-lg">09.00 - 15.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <div class="flex justify-between items-center w-full py-2 border-b border-gray-200">
+                                            <span class="font-semibold text-[#433592] text-lg">Selasa</span>
+                                            <span class="text-gray-700 text-lg">09.00 - 15.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <div class="flex justify-between items-center w-full py-2 border-b border-gray-200">
+                                            <span class="font-semibold text-[#433592] text-lg">Rabu</span>
+                                            <span class="text-gray-700 text-lg">09.00 - 15.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <div class="flex justify-between items-center w-full py-2 border-b border-gray-200">
+                                            <span class="font-semibold text-[#433592] text-lg">Kamis</span>
+                                            <span class="text-gray-700 text-lg">09.00 - 15.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <div class="flex justify-between items-center w-full py-2 border-b border-gray-200">
+                                            <span class="font-semibold text-[#433592] text-lg">Jumat</span>
+                                            <span class="text-gray-700 text-lg">09.00 - 15.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <div class="flex justify-between items-center w-full py-2 border-b border-gray-200">
+                                            <span class="font-semibold text-[#433592] text-lg">Sabtu</span>
+                                            <span class="text-gray-700 text-lg">11.00 - 17.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <div class="flex justify-between items-center w-full py-2 border-b border-gray-200">
+                                            <span class="font-semibold text-[#433592] text-lg">Minggu</span>
+                                            <span class="text-gray-700 text-lg">11.00 - 17.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+                                    <p class="text-red-600 font-semibold text-lg" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                                        ⚠️ Tanggal merah dan hari raya keagamaan = Libur
+                                    </p>
+                                </div>
                             </div>
                         </div>
                         
-                        <p class="text-red-600 font-semibold mt-4" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                            Tanggal merah dan hari raya keagamaan = Libur
-                        </p>
-                    </div>
-                    <div class="flex justify-center">
-                        <div class="w-80 h-96 overflow-hidden rounded-2xl shadow-xl">
-                            <img src="{{ asset('images/landmark-sectionpwt.JPG') }}" alt="Landmark Purwokerto" class="w-full h-full object-cover">
+                        <!-- Image Section -->
+                        <div class="md:w-2/5 p-6">
+                            <div class="bg-gradient-to-brrounded-2xl p-4 relative overflow-hidden" style="aspect-ratio: 4/5;">
+                                <img src="{{ asset('images/MenaraTeratai.png') }}" 
+                                     alt="Landmark Purwokerto" 
+                                     class="w-full h-full object-cover rounded-xl shadow-lg transition-all duration-500">
+                                
+                                <!-- Image overlay with title -->
+                                <div class="absolute bottom-4 left-4 right-4 bg-black/50 backdrop-blur-sm rounded-lg p-3">
+                                    <p class="text-white font-semibold text-base">📍 Station Purwokerto</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                {{-- </div> --}}
                 @endif
             </div>
         </div>

@@ -114,7 +114,7 @@
                     <!-- Left Content -->
                     <div class="pl-8 pr-2 py-4">
                         <h2 class="text-4xl lg:text-5xl font-extrabold text-[#433592] mb-4" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                            Ingin Jadi Bagian dari<br>the Super Team?
+                            Ingin Jadi Bagian dari<br><i>the Super Team?</i>
                         </h2>
                         <p class="text-gray-700 text-base lg:text-lg mb-4 leading-relaxed" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                             Kami selalu membuka kesempatan untuk siapapun yang tertarik bergabung bersama the Super Team. Daftarkan dirimu sekarang!

@@ -58,17 +58,25 @@
                 <!-- Bottom Purple Section with Buttons -->
                 <div class="bg-[#433592] px-8 py-6">
                     <div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
-                        <a href="{{ route('register.custom') }}" class="px-8 py-3 bg-[#FDF2EB] text-[#433592] font-bold rounded-lg hover:bg-white transition-all duration-300 shadow-md" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                            Register
-                        </a>
-                        
-                        <span class="text-white font-medium text-lg" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                            Atau
-                        </span>
-                        
-                        <a href="{{ route('login.custom') }}" class="px-8 py-3 bg-transparent text-[#FDF2EB] font-bold rounded-lg border-2 border-[#FDF2EB] hover:bg-[#FDF2EB] hover:text-[#433592] transition-all duration-300" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                            Login
-                        </a>
+                        @auth
+                            {{-- Untuk user yang sudah login --}}
+                            <a href="{{ route('all-items') }}" class="px-12 py-4 bg-transparent text-[#FDF2EB] font-bold rounded-lg border-2 border-[#FDF2EB] hover:bg-[#FDF2EB] hover:text-[#433592] transition-all duration-300" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                                Pinjam Barang Sekarang
+                            </a>
+                        @else
+                            {{-- Untuk guest yang belum login --}}
+                            <a href="{{ route('register.custom') }}" class="px-8 py-3 bg-[#FDF2EB] text-[#433592] font-bold rounded-lg hover:bg-white transition-all duration-300 shadow-md" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                                Register
+                            </a>
+                            
+                            <span class="text-white font-medium text-lg" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                                Atau
+                            </span>
+                            
+                            <a href="{{ route('login.custom') }}" class="px-8 py-3 bg-transparent text-[#FDF2EB] font-bold rounded-lg border-2 border-[#FDF2EB] hover:bg-[#FDF2EB] hover:text-[#433592] transition-all duration-300" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                                Login
+                            </a>
+                        @endauth
                     </div>
                 </div>
             </div>

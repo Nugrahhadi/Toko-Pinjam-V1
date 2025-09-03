@@ -81,6 +81,65 @@
             border-radius: 0.5rem !important;
             padding: 0.25rem !important;
         }
+
+        /* Quote styling */
+        trix-editor blockquote {
+            margin: 1.5rem 0 !important;
+            padding: 1rem 1.5rem !important;
+            border-left: 4px solid #7c3aed !important;
+            background: #f8f5ff !important;
+            color: #4c1d95 !important;
+            font-style: italic !important;
+            border-radius: 0 0.5rem 0.5rem 0 !important;
+            position: relative !important;
+        }
+        
+        trix-editor blockquote::before {
+            content: '"' !important;
+            font-size: 3rem !important;
+            color: #7c3aed !important;
+            position: absolute !important;
+            left: -0.5rem !important;
+            top: -0.5rem !important;
+            line-height: 1 !important;
+        }
+
+        /* Code styling */
+        trix-editor pre {
+            background: #1f2937 !important;
+            color: #f9fafb !important;
+            padding: 1rem 1.5rem !important;
+            border-radius: 0.5rem !important;
+            overflow-x: auto !important;
+            margin: 1rem 0 !important;
+            font-family: 'Courier New', Consolas, monospace !important;
+            font-size: 14px !important;
+            line-height: 1.4 !important;
+            border: 1px solid #374151 !important;
+        }
+        
+        trix-editor code {
+            background: #f3f4f6 !important;
+            color: #ef4444 !important;
+            padding: 0.2rem 0.4rem !important;
+            border-radius: 0.25rem !important;
+            font-family: 'Courier New', Consolas, monospace !important;
+            font-size: 0.9em !important;
+            border: 1px solid #e5e7eb !important;
+        }
+
+        /* Active state styling for quote and code buttons */
+        trix-toolbar .trix-button--icon-quote.trix-active,
+        trix-toolbar .trix-button[data-trix-attribute="quote"].trix-active {
+            background: #7c3aed !important;
+            color: white !important;
+        }
+        
+        trix-toolbar .trix-button--icon-code.trix-active,
+        trix-toolbar .trix-button[data-trix-attribute="code"].trix-active {
+            background: #1f2937 !important;
+            color: white !important;
+        }
         
         /* Custom heading button group */
         trix-toolbar .trix-button-group--heading {
@@ -409,18 +468,37 @@
                     h4Button.setAttribute('data-trix-key', '4');
                     h4Button.innerHTML = 'H4';
                     h4Button.title = 'Heading 4';
+
+                    // Quote Button
+                    const quoteButton = document.createElement('button');
+                    quoteButton.type = 'button';
+                    quoteButton.className = 'trix-button trix-button--icon-quote';
+                    quoteButton.setAttribute('data-trix-attribute', 'quote');
+                    quoteButton.innerHTML = '❝';
+                    quoteButton.title = 'Quote';
+                    quoteButton.style.fontSize = '18px';
+
+                    // Code Button
+                    const codeButton = document.createElement('button');
+                    codeButton.type = 'button';
+                    codeButton.className = 'trix-button trix-button--icon-code';
+                    codeButton.setAttribute('data-trix-attribute', 'code');
+                    codeButton.innerHTML = '&lt;/&gt;';
+                    codeButton.title = 'Code Block';
                     
                     // Add buttons to group
                     headingGroup.appendChild(h1Button);
                     headingGroup.appendChild(h2Button);
                     headingGroup.appendChild(h3Button);
                     headingGroup.appendChild(h4Button);
+                    headingGroup.appendChild(quoteButton);
+                    headingGroup.appendChild(codeButton);
                     
                     // Insert heading group at the beginning of toolbar
                     toolbar.parentNode.insertBefore(headingGroup, toolbar);
                     
-                    // Add event listeners for heading buttons
-                    [h1Button, h2Button, h3Button, h4Button].forEach(button => {
+                    // Add event listeners for all buttons
+                    [h1Button, h2Button, h3Button, h4Button, quoteButton, codeButton].forEach(button => {
                         button.addEventListener('click', function(e) {
                             e.preventDefault();
                             const editor = document.querySelector('trix-editor');
@@ -428,26 +506,57 @@
                             
                             if (editor.editor) {
                                 if (this.classList.contains('trix-active')) {
-                                    // Remove heading
+                                    // Remove attribute
                                     editor.editor.removeCurrentAttribute(attribute);
                                 } else {
-                                    // Remove other headings first
-                                    ['heading1', 'heading2', 'heading3', 'heading4'].forEach(attr => {
-                                        if (attr !== attribute) {
-                                            editor.editor.removeCurrentAttribute(attr);
-                                        }
-                                    });
-                                    // Apply new heading
+                                    // For headings, remove other headings first
+                                    if (attribute.includes('heading')) {
+                                        ['heading1', 'heading2', 'heading3', 'heading4'].forEach(attr => {
+                                            if (attr !== attribute) {
+                                                editor.editor.removeCurrentAttribute(attr);
+                                            }
+                                        });
+                                    }
+                                    // For quote/code, remove other block formats
+                                    if (attribute === 'quote' || attribute === 'code') {
+                                        ['heading1', 'heading2', 'heading3', 'heading4', 'quote', 'code'].forEach(attr => {
+                                            if (attr !== attribute) {
+                                                editor.editor.removeCurrentAttribute(attr);
+                                            }
+                                        });
+                                    }
+                                    // Apply new attribute
                                     editor.editor.setCurrentAttribute(attribute, true);
                                 }
                                 editor.focus();
+                                
+                                // Update button states
+                                updateButtonStates();
                             }
                         });
                     });
+                    
+                    // Function to update button states
+                    function updateButtonStates() {
+                        const editor = document.querySelector('trix-editor');
+                        if (!editor.editor) return;
+                        
+                        [h1Button, h2Button, h3Button, h4Button, quoteButton, codeButton].forEach(button => {
+                            const attribute = button.getAttribute('data-trix-attribute');
+                            if (editor.editor.attributeIsActive(attribute)) {
+                                button.classList.add('trix-active');
+                            } else {
+                                button.classList.remove('trix-active');
+                            }
+                        });
+                    }
+                    
+                    // Listen for selection changes
+                    document.addEventListener('trix-selection-change', updateButtonStates);
                 }
             }
             
-            // Configure Trix with custom headings
+            // Configure Trix with custom block attributes
             if (typeof Trix !== 'undefined') {
                 // Define heading block attributes
                 Trix.config.blockAttributes.heading1 = {
@@ -475,6 +584,22 @@
                     tagName: 'h4',
                     terminal: true,
                     breakOnReturn: true, 
+                    group: false
+                };
+
+                // Define quote block attribute
+                Trix.config.blockAttributes.quote = {
+                    tagName: 'blockquote',
+                    terminal: true,
+                    breakOnReturn: true,
+                    group: false
+                };
+
+                // Define code block attribute
+                Trix.config.blockAttributes.code = {
+                    tagName: 'pre',
+                    terminal: true,
+                    breakOnReturn: true,
                     group: false
                 };
             }

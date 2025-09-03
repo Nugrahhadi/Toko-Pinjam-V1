@@ -207,24 +207,58 @@
                         </select>
                     </div>
 
+                    <!-- Editor Selection -->
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Editor</label>
+                        <select wire:model="selected_editor" 
+                                class="block w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#433592] focus:border-[#433592] transition-colors duration-200">
+                            <option value="">Pilih Editor</option>
+                            <option value="rafiif_nur_tahta_bagaskara">Rafiif Nur Tahta Bagaskara</option>
+                            <option value="alin_alya_yasmin">Alin Alya Yasmin</option>
+                        </select>
+                        <p class="mt-1 text-xs text-gray-500">Pilih editor yang akan menangani artikel ini</p>
+                    </div>
+
                     <!-- Action Buttons -->
                     <div class="space-y-3">
                         <button type="button" 
                                 wire:click="saveDraft"
-                                class="w-full px-4 py-2 bg-gray-200 text-gray-800 font-medium rounded-lg hover:bg-gray-300 transition-colors duration-200">
-                            <svg class="w-4 h-4 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3-3m0 0l-3 3m3-3v12"></path>
-                            </svg>
-                            Simpan Draft
+                                wire:loading.attr="disabled"
+                                wire:target="saveDraft"
+                                class="w-full px-4 py-2 bg-gray-200 text-gray-800 font-medium rounded-lg hover:bg-gray-300 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <span wire:loading.remove wire:target="saveDraft">
+                                <svg class="w-4 h-4 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3-3m0 0l-3 3m3-3v12"></path>
+                                </svg>
+                                Simpan Draft
+                            </span>
+                            <span wire:loading wire:target="saveDraft" class="flex items-center justify-center">
+                                <svg class="animate-spin -ml-1 mr-3 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                Menyimpan...
+                            </span>
                         </button>
                         
                         <button type="button" 
                                 wire:click="publish"
-                                class="w-full px-4 py-2 bg-gradient-to-r from-[#433592] to-[#5B4B8A] text-white font-medium rounded-lg hover:from-[#3A2D7E] hover:to-[#4F4076] transition-all duration-200">
-                            <svg class="w-4 h-4 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            {{ $isEditing ? 'Update & Publikasikan' : 'Publikasikan' }}
+                                wire:loading.attr="disabled"
+                                wire:target="publish"
+                                class="w-full px-4 py-2 bg-gradient-to-r from-[#433592] to-[#5B4B8A] text-white font-medium rounded-lg hover:from-[#3A2D7E] hover:to-[#4F4076] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <span wire:loading.remove wire:target="publish">
+                                <svg class="w-4 h-4 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                {{ $isEditing ? 'Update & Publikasikan' : 'Publikasikan' }}
+                            </span>
+                            <span wire:loading wire:target="publish" class="flex items-center justify-center">
+                                <svg class="animate-spin -ml-1 mr-3 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                {{ $isEditing ? 'Memperbarui...' : 'Mempublikasikan...' }}
+                            </span>
                         </button>
 
                         <button type="button" 
@@ -285,7 +319,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🎯 Admin Trix Editor initialization started...');
     
-    // Configure Trix with custom headings
+    // Configure Trix with custom block attributes
     if (typeof Trix !== 'undefined') {
         // Define heading block attributes
         Trix.config.blockAttributes.heading1 = {
@@ -315,83 +349,145 @@ document.addEventListener('DOMContentLoaded', function() {
             breakOnReturn: true, 
             group: false
         };
+
+        // Define quote block attribute
+        Trix.config.blockAttributes.quote = {
+            tagName: 'blockquote',
+            terminal: true,
+            breakOnReturn: true,
+            group: false
+        };
+
+        // Define code block attribute
+        Trix.config.blockAttributes.code = {
+            tagName: 'pre',
+            terminal: true,
+            breakOnReturn: true,
+            group: false
+        };
     }
     
-    // Add custom heading buttons to Trix toolbar
-    function addAdminHeadingButtons() {
-        const toolbar = document.querySelector('trix-toolbar .trix-button-group--block-tools');
-        if (toolbar) {
-            // Create heading buttons container
-            const headingGroup = document.createElement('span');
-            headingGroup.className = 'trix-button-group trix-button-group--heading';
-            
-            // H1 Button
-            const h1Button = document.createElement('button');
-            h1Button.type = 'button';
-            h1Button.className = 'trix-button trix-button--icon-h1';
-            h1Button.setAttribute('data-trix-attribute', 'heading1');
-            h1Button.innerHTML = 'H1';
-            h1Button.title = 'Heading 1';
-            
-            // H2 Button
-            const h2Button = document.createElement('button');
-            h2Button.type = 'button';
-            h2Button.className = 'trix-button trix-button--icon-h2';
-            h2Button.setAttribute('data-trix-attribute', 'heading2');
-            h2Button.innerHTML = 'H2';
-            h2Button.title = 'Heading 2';
-            
-            // H3 Button
-            const h3Button = document.createElement('button');
-            h3Button.type = 'button';
-            h3Button.className = 'trix-button trix-button--icon-h3';
-            h3Button.setAttribute('data-trix-attribute', 'heading3');
-            h3Button.innerHTML = 'H3';
-            h3Button.title = 'Heading 3';
-            
-            // H4 Button
-            const h4Button = document.createElement('button');
-            h4Button.type = 'button';
-            h4Button.className = 'trix-button trix-button--icon-h4';
-            h4Button.setAttribute('data-trix-attribute', 'heading4');
-            h4Button.innerHTML = 'H4';
-            h4Button.title = 'Heading 4';
-            
-            // Add buttons to group
-            headingGroup.appendChild(h1Button);
-            headingGroup.appendChild(h2Button);
-            headingGroup.appendChild(h3Button);
-            headingGroup.appendChild(h4Button);
-            
-            // Insert heading group at the beginning of toolbar
-            toolbar.parentNode.insertBefore(headingGroup, toolbar);
-            
-            // Add event listeners for heading buttons
-            [h1Button, h2Button, h3Button, h4Button].forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const editor = document.querySelector('.admin-trix-editor');
-                    const attribute = this.getAttribute('data-trix-attribute');
-                    
-                    if (editor.editor) {
-                        if (this.classList.contains('trix-active')) {
-                            // Remove heading
-                            editor.editor.removeCurrentAttribute(attribute);
-                        } else {
-                            // Remove other headings first
+    // Add custom buttons to toolbar
+    function addCustomButtons() {
+        const toolbar = document.querySelector('trix-toolbar .trix-button-group');
+        if (!toolbar) return;
+
+        // Create heading button group
+        const headingGroup = document.createElement('div');
+        headingGroup.className = 'trix-button-group trix-button-group--heading';
+        
+        // H1 Button
+        const h1Button = document.createElement('button');
+        h1Button.type = 'button';
+        h1Button.className = 'trix-button trix-button--icon-h1';
+        h1Button.setAttribute('data-trix-attribute', 'heading1');
+        h1Button.setAttribute('data-trix-key', '1');
+        h1Button.innerHTML = 'H1';
+        h1Button.title = 'Heading 1';
+        
+        // H2 Button
+        const h2Button = document.createElement('button');
+        h2Button.type = 'button';
+        h2Button.className = 'trix-button trix-button--icon-h2';
+        h2Button.setAttribute('data-trix-attribute', 'heading2');
+        h2Button.setAttribute('data-trix-key', '2');
+        h2Button.innerHTML = 'H2';
+        h2Button.title = 'Heading 2';
+        
+        // H3 Button
+        const h3Button = document.createElement('button');
+        h3Button.type = 'button';
+        h3Button.className = 'trix-button trix-button--icon-h3';
+        h3Button.setAttribute('data-trix-attribute', 'heading3');
+        h3Button.setAttribute('data-trix-key', '3');
+        h3Button.innerHTML = 'H3';
+        h3Button.title = 'Heading 3';
+        
+        // H4 Button
+        const h4Button = document.createElement('button');
+        h4Button.type = 'button';
+        h4Button.className = 'trix-button trix-button--icon-h4';
+        h4Button.setAttribute('data-trix-attribute', 'heading4');
+        h4Button.setAttribute('data-trix-key', '4');
+        h4Button.innerHTML = 'H4';
+        h4Button.title = 'Heading 4';
+
+        // Quote Button
+        const quoteButton = document.createElement('button');
+        quoteButton.type = 'button';
+        quoteButton.className = 'trix-button trix-button--icon-quote';
+        quoteButton.setAttribute('data-trix-attribute', 'quote');
+        quoteButton.innerHTML = '❝';
+        quoteButton.title = 'Quote';
+        quoteButton.style.fontSize = '18px';
+
+        // Code Button
+        const codeButton = document.createElement('button');
+        codeButton.type = 'button';
+        codeButton.className = 'trix-button trix-button--icon-code';
+        codeButton.setAttribute('data-trix-attribute', 'code');
+        codeButton.innerHTML = '&lt;/&gt;';
+        codeButton.title = 'Code Block';
+        
+        // Add buttons to group
+        headingGroup.appendChild(h1Button);
+        headingGroup.appendChild(h2Button);
+        headingGroup.appendChild(h3Button);
+        headingGroup.appendChild(h4Button);
+        headingGroup.appendChild(quoteButton);
+        headingGroup.appendChild(codeButton);
+        
+        // Insert heading group at the beginning of toolbar
+        toolbar.parentNode.insertBefore(headingGroup, toolbar);
+        
+        // Add event listeners for all custom buttons
+        [h1Button, h2Button, h3Button, h4Button, quoteButton, codeButton].forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const editor = document.querySelector('.admin-trix-editor');
+                const attribute = this.getAttribute('data-trix-attribute');
+                
+                if (editor.editor) {
+                    if (this.classList.contains('trix-active')) {
+                        // Remove attribute
+                        editor.editor.removeCurrentAttribute(attribute);
+                    } else {
+                        // For headings, remove other headings first
+                        if (attribute.includes('heading')) {
                             ['heading1', 'heading2', 'heading3', 'heading4'].forEach(attr => {
                                 if (attr !== attribute) {
                                     editor.editor.removeCurrentAttribute(attr);
                                 }
                             });
-                            // Apply new heading
-                            editor.editor.setCurrentAttribute(attribute, true);
                         }
-                        editor.focus();
+                        // Apply new attribute
+                        editor.editor.setCurrentAttribute(attribute, true);
                     }
-                });
+                    editor.focus();
+                    
+                    // Update button states
+                    updateButtonStates();
+                }
+            });
+        });
+        
+        // Update button states on selection change
+        function updateButtonStates() {
+            const editor = document.querySelector('.admin-trix-editor');
+            if (!editor.editor) return;
+            
+            [h1Button, h2Button, h3Button, h4Button, quoteButton, codeButton].forEach(button => {
+                const attribute = button.getAttribute('data-trix-attribute');
+                if (editor.editor.attributeIsActive(attribute)) {
+                    button.classList.add('trix-active');
+                } else {
+                    button.classList.remove('trix-active');
+                }
             });
         }
+        
+        // Listen for selection changes
+        document.addEventListener('trix-selection-change', updateButtonStates);
     }
     
     // Trix Editor Event Handlers
@@ -409,8 +505,8 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('📝 Loaded existing content into Admin Trix editor');
     }
     
-    // Add heading buttons after editor is ready
-    setTimeout(addAdminHeadingButtons, 100);
+    // Add custom buttons after editor is ready
+    setTimeout(addCustomButtons, 100);
 
     // Sync content to Livewire on changes
     function syncToLivewire() {
@@ -536,6 +632,54 @@ function resetAdminFileDisplay() {
     color: #6b7280 !important;
 }
 
+/* Quote and Code Block Styling - Same as User Interface */
+.admin-trix-editor blockquote {
+    margin: 1.5rem 0 !important;
+    padding: 1rem 1.25rem !important;
+    border-left: 4px solid #7c3aed !important;
+    background: linear-gradient(135deg, #f8f4ff 0%, #faf5ff 100%) !important;
+    font-style: italic !important;
+    color: #6b46c1 !important;
+    border-radius: 0 0.5rem 0.5rem 0 !important;
+    position: relative !important;
+}
+
+.admin-trix-editor blockquote::before {
+    content: '"' !important;
+    font-size: 3rem !important;
+    font-weight: bold !important;
+    color: #7c3aed !important;
+    position: absolute !important;
+    top: -10px !important;
+    left: 10px !important;
+    line-height: 1 !important;
+}
+
+.admin-trix-editor blockquote::after {
+    content: '"' !important;
+    font-size: 3rem !important;
+    font-weight: bold !important;
+    color: #7c3aed !important;
+    position: absolute !important;
+    bottom: -20px !important;
+    right: 10px !important;
+    line-height: 1 !important;
+}
+
+.admin-trix-editor pre {
+    margin: 1.5rem 0 !important;
+    padding: 1.25rem !important;
+    background: #1f2937 !important;
+    color: #f9fafb !important;
+    border-radius: 0.75rem !important;
+    font-family: 'Courier New', Consolas, monospace !important;
+    font-size: 0.875rem !important;
+    line-height: 1.6 !important;
+    overflow-x: auto !important;
+    border: 1px solid #374151 !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+}
+
 trix-toolbar {
     border: none !important;
     border-radius: 0.5rem !important;
@@ -592,6 +736,21 @@ trix-toolbar .trix-button-group--heading .trix-button {
     font-weight: 600 !important;
     min-width: 40px !important;
     height: 36px !important;
+}
+
+/* Quote and Code button styling */
+trix-toolbar .trix-button--icon-quote.trix-active,
+trix-toolbar .trix-button[data-trix-attribute="quote"].trix-active {
+    background: #7c3aed !important;
+    color: white !important;
+    box-shadow: 0 1px 2px rgba(124, 58, 237, 0.3) !important;
+}
+
+trix-toolbar .trix-button--icon-code.trix-active,
+trix-toolbar .trix-button[data-trix-attribute="code"].trix-active {
+    background: #1f2937 !important;
+    color: white !important;
+    box-shadow: 0 1px 2px rgba(31, 41, 55, 0.3) !important;
 }
 
 trix-toolbar .trix-button:hover {

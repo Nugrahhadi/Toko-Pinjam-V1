@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\DonationLeaderboard;
 
 class BlogDetail extends Component
 {
@@ -27,14 +28,31 @@ class BlogDetail extends Component
 
     public function getTopDonors()
     {
-        // Mock data untuk top donors - sesuaikan dengan model donation Anda
-        return [
-            ['name' => 'Ahmad Wijaya', 'amount' => 5000000, 'avatar' => 'donor1.jpg'],
-            ['name' => 'Siti Nurhaliza', 'amount' => 3500000, 'avatar' => 'donor2.jpg'],
-            ['name' => 'Budi Santoso', 'amount' => 2800000, 'avatar' => 'donor3.jpg'],
-            ['name' => 'Maya Indira', 'amount' => 2200000, 'avatar' => 'donor4.jpg'],
-            ['name' => 'Rizki Pratama', 'amount' => 1800000, 'avatar' => 'donor5.jpg'],
-        ];
+        // Get real data from donation_leaderboards table
+        $topDonors = DonationLeaderboard::with('user')
+            ->orderBy('amount', 'desc')
+            ->take(5)
+            ->get()
+            ->map(function ($donor) {
+                return [
+                    'name' => $donor->display_name ?: ($donor->user->full_name ?? $donor->user->name ?? 'Donatur Anonim'),
+                    'amount' => $donor->amount,
+                    'avatar' => $donor->user->avatar ?? null
+                ];
+            });
+
+        // If no real data exists, return sample data
+        if ($topDonors->isEmpty()) {
+            return [
+                ['name' => 'Ahmad Wijaya', 'amount' => 5000000, 'avatar' => null],
+                ['name' => 'Siti Nurhaliza', 'amount' => 3500000, 'avatar' => null],
+                ['name' => 'Budi Santoso', 'amount' => 2800000, 'avatar' => null],
+                ['name' => 'Maya Indira', 'amount' => 2200000, 'avatar' => null],
+                ['name' => 'Rizki Pratama', 'amount' => 1800000, 'avatar' => null],
+            ];
+        }
+
+        return $topDonors->toArray();
     }
 
     public function getRecentPosts()

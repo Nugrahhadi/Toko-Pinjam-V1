@@ -121,8 +121,14 @@ class RegisterForm extends Component
 
             $this->resetForm();
 
-            // Hide loading and show success
+            // Hide loading
             $this->dispatch('hide-loading-register');
+
+            // Set session flash for success message (this will be the primary success display)
+            session()->flash('registration_success', true);
+            session()->flash('success_message', 'Pendaftaran berhasil! Tim kami akan memverifikasi data Anda dan menginformasikan via WhatsApp dalam 48 jam.');
+
+            // Only dispatch success event if SweetAlert should handle it (as fallback)
             $this->dispatch('show-register-success');
         } catch (\Illuminate\Validation\ValidationException $e) {
             $this->dispatch('hide-loading-register');

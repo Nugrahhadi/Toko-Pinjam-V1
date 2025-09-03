@@ -47,9 +47,13 @@
                         <!-- Dropdown Menu Lokasi -->
                         <div class="absolute top-full left-0 mt-1 w-48 bg-white border border-gray-200 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                             <div class="py-1">
-                                <a href="{{ route('chapter-purwokerto') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FDF2EB] hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Purwokerto</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FDF2EB] hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Yogyakarta</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FDF2EB] hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Surabaya</a>
+                                <a href="{{ route('chapter-purwokerto') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FDF2EB] hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                                    <div class="flex items-center">
+                                        <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                                        Purwokerto
+                                        <span class="ml-auto text-xs text-green-600 font-medium">Aktif</span>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -173,9 +177,13 @@
                 <div class="px-3 py-2">
                     <div class="font-medium text-gray-700 mb-2" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Lokasi</div>
                     <div class="pl-4 space-y-1">
-                        <a href="#" class="block py-1 text-sm text-gray-600 hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Purwokerto</a>
-                        <a href="#" class="block py-1 text-sm text-gray-600 hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Yogyakarta</a>
-                        <a href="#" class="block py-1 text-sm text-gray-600 hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Surabaya</a>
+                        <a href="{{ route('chapter-purwokerto') }}" class="block py-1 text-sm text-gray-600 hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                                Purwokerto
+                                <span class="ml-auto text-xs text-green-600 font-medium">Aktif</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 

@@ -13,7 +13,65 @@
 
     <div class="max-w-4xl mx-auto">
         
-        {{-- Success Alert --}}
+        {{-- Success Alert with Tailwind CSS --}}
+        @if(session('registration_success'))
+        <div x-data="{ show: true, countdown: 5 }" 
+             x-show="show" 
+             x-init="
+                let timer = setInterval(() => { 
+                    countdown--; 
+                    if (countdown <= 0) { 
+                        clearInterval(timer); 
+                        show = false; 
+                        setTimeout(() => { 
+                            window.location.href = '{{ route("login.custom") }}'; 
+                        }, 300); 
+                    } 
+                }, 1000)
+             "
+             class="fixed top-4 right-4 z-50 max-w-md w-full bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl shadow-2xl border border-green-300 transform transition-all duration-300 ease-in-out">
+            <div class="p-6">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="ml-4 flex-1">
+                        <h3 class="text-lg font-bold text-white mb-1">
+                            🎉 Pendaftaran Berhasil!
+                        </h3>
+                        <p class="text-green-100 text-sm leading-relaxed mb-3">
+                            {{ session('success_message') }}
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <p class="text-green-200 text-xs font-medium">
+                                Redirect dalam <span x-text="countdown" class="font-bold"></span> detik...
+                            </p>
+                            <button onclick="window.location.href='{{ route("login.custom") }}'" 
+                                    class="px-3 py-1.5 bg-white text-green-600 rounded-lg hover:bg-green-50 transition-colors text-xs font-semibold shadow-sm">
+                                Login Sekarang
+                            </button>
+                        </div>
+                    </div>
+                    <button @click="show = false; setTimeout(() => window.location.href = '{{ route("login.custom") }}', 300);" 
+                            class="ml-2 text-green-200 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="bg-white bg-opacity-30 h-1 rounded-b-xl">
+                <div class="bg-white h-full rounded-b-xl transition-all duration-1000 ease-linear" 
+                     :style="`width: ${(countdown / 5) * 100}%`"></div>
+            </div>
+        </div>
+        @endif
+        
+        {{-- Old Success Alert (Keep for backward compatibility) --}}
         @if($showSuccessAlert)
         <div x-data="{ show: true }" 
              x-show="show" 
@@ -261,41 +319,52 @@
 </div>
 
 <script>
-    // Listen for loading and success events
-    document.addEventListener('livewire:init', () => {
-        Livewire.on('show-loading-register', () => {
-            Swal.fire({
-                title: 'Sedang Mendaftar...',
-                html: 'Mohon tunggu, kami sedang memproses data Anda',
-                timerProgressBar: true,
-                didOpen: () => {
-                    Swal.showLoading();
-                },
-                allowOutsideClick: false,
-                allowEscapeKey: false,
-                showConfirmButton: false
-            });
-        });
+// Event listeners untuk Livewire 3
+window.addEventListener('show-loading-register', () => {
+    Swal.fire({
+        title: 'Sedang Mendaftar...',
+        html: 'Mohon tunggu, kami sedang memproses data Anda',
+        timerProgressBar: true,
+        didOpen: () => {
+            Swal.showLoading();
+        },
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        showConfirmButton: false
+    });
+});
 
-        Livewire.on('hide-loading-register', () => {
-            Swal.close();
-        });
+window.addEventListener('hide-loading-register', () => {
+    Swal.close();
+});
 
-        Livewire.on('show-register-success', () => {
+// Success handler - only trigger if no session flash exists
+window.addEventListener('show-register-success', () => {
+    // Check if session flash exists, if so, let it handle the success message
+    @if(!session('registration_success'))
+        setTimeout(() => {
             Swal.fire({
                 title: 'Pendaftaran Berhasil!',
                 html: 'Tim kami akan memverifikasi data Anda dan menginformasikan via WhatsApp dalam 48 jam.<br><br>Anda akan diarahkan ke halaman login.',
                 icon: 'success',
-                timer: 5000,
+                timer: 6000,
                 timerProgressBar: true,
                 showConfirmButton: true,
                 confirmButtonText: 'Login Sekarang',
                 confirmButtonColor: '#433592',
                 allowOutsideClick: false
-            }).then((result) => {
-                // Redirect to login page
+            }).then(() => {
                 window.location.href = '{{ route("login.custom") }}';
             });
-        });
-    });
+        }, 500);
+    @endif
+});
+
+// Clean up any competing timers or alerts
+document.addEventListener('livewire:navigated', () => {
+    // Clear any existing timers on page navigation
+    if (typeof Swal !== 'undefined') {
+        Swal.close();
+    }
+});
 </script>

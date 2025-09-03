@@ -95,7 +95,7 @@ Route::middleware("auth")->group(function () {
     Route::get("/profile", UserProfile::class)->name("profile");
 
     // Penulisan artikel (aktif: Trix)
-    Route::get("/tulis-artikel-sederhana", ArticleEditorTrix::class)->name(
+    Route::get("/tulis-artikel", ArticleEditorTrix::class)->name(
         "write-article-simple",
     );
     // Backup CKEditor (opsional)

@@ -21,13 +21,16 @@ class BlogEditor extends Component
     public $isEditing = false;
     public $current_featured_image = null;
     public $featured_image = null;
+    public $selected_editor = '';
+    public $isSubmitting = false;
 
     protected $rules = [
         'title' => 'required|min:5|max:255',
         'description' => 'nullable|max:500',
         'content' => 'required|min:50',
         'status' => 'in:draft,published',
-        'featured_image' => 'nullable|image|max:2048'
+        'featured_image' => 'nullable|image|max:2048',
+        'selected_editor' => 'nullable|string'
     ];
 
     protected $messages = [
@@ -60,6 +63,7 @@ class BlogEditor extends Component
         $this->content = $post->content;
         $this->status = $post->status;
         $this->current_featured_image = $post->featured_image;
+        $this->selected_editor = $post->selected_editor ?? '';
     }
 
     public function updatedTitle()
@@ -69,14 +73,34 @@ class BlogEditor extends Component
 
     public function saveDraft()
     {
+        if ($this->isSubmitting) {
+            return;
+        }
+
+        $this->isSubmitting = true;
         $this->status = 'draft';
-        $this->save();
+
+        try {
+            $this->save();
+        } finally {
+            $this->isSubmitting = false;
+        }
     }
 
     public function publish()
     {
+        if ($this->isSubmitting) {
+            return;
+        }
+
+        $this->isSubmitting = true;
         $this->status = 'published';
-        $this->save();
+
+        try {
+            $this->save();
+        } finally {
+            $this->isSubmitting = false;
+        }
     }
 
     public function save()
@@ -108,7 +132,7 @@ class BlogEditor extends Component
             'description' => $this->description,
             'content' => $this->content,
             'status' => $this->status,
-            'editor_id' => Auth::id(),
+            'selected_editor' => $this->selected_editor,
         ];
 
         // Handle featured image upload
