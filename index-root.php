@@ -48,6 +48,19 @@ require __DIR__.'/vendor/autoload.php';
 
 $app = require_once __DIR__.'/bootstrap/app.php';
 
+// Set custom paths for root deployment
+$app->bind('path.public', function() {
+    return __DIR__ . '/public';
+});
+
+// Force asset URL configuration for root deployment
+$app->resolving('url', function ($url, $app) {
+    $url->forceRootUrl(config('app.url'));
+    if (config('app.env') === 'production') {
+        $url->forceScheme('https');
+    }
+});
+
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $response = $kernel->handle(

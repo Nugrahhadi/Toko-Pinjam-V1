@@ -14,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 
-    /**
+        /**
      * Bootstrap any application services.
      */
     public function boot(): void
@@ -24,19 +24,41 @@ class AppServiceProvider extends ServiceProvider
             \URL::forceScheme('https');
         }
         
-        // Fix asset URLs when Laravel is not in public folder
+        // Override asset helper to handle non-public-folder setup
         if (app()->environment('production')) {
-            // Check if we're not in a public subfolder setup
-            $appUrl = config('app.url');
-            if (!str_contains($appUrl, '/public')) {
-                // Override asset URL generation to include /public prefix for assets
-                app('url')->asset = function ($path, $secure = null) use ($appUrl) {
-                    if (str_starts_with($path, 'build/') || str_starts_with($path, 'images/')) {
-                        return rtrim($appUrl, '/') . '/public/' . ltrim($path, '/');
+            app()->singleton('url', function ($app) {
+                $url = new \Illuminate\Routing\UrlGenerator(
+                    $app['router']->getRoutes(),
+                    $app['request']
+                );
+                
+                $url->forceScheme('https');
+                
+                // Override asset method
+                $originalAsset = $url;
+                $url = new class($originalAsset) extends \Illuminate\Routing\UrlGenerator {
+                    protected $original;
+                    
+                    public function __construct($original) {
+                        $this->original = $original;
+                        parent::__construct($original->routes, $original->request);
                     }
-                    return rtrim($appUrl, '/') . '/' . ltrim($path, '/');
+                    
+                    public function asset($path, $secure = null) {
+                        // For production, always prefix with /public/ for actual assets
+                        if (str_contains($path, 'build/') || 
+                            str_contains($path, 'images/') || 
+                            str_contains($path, 'favicon.ico') ||
+                            str_contains($path, 'robots.txt')) {
+                            return $this->to('public/' . ltrim($path, '/'), [], $secure);
+                        }
+                        
+                        return parent::asset($path, $secure);
+                    }
                 };
-            }
+                
+                return $url;
+            });
         }
     }
 }
