@@ -211,7 +211,7 @@
                         
                         <!-- Image Section -->
                         <div class="md:w-2/5 p-6">
-                            <div class="bg-gradient-to-brrounded-2xl p-4 relative overflow-hidden" style="aspect-ratio: 4/5;">
+                            <div class="bg-gradient-to-br from-purple-100 to-blue-100 rounded-2xl p-4 relative overflow-hidden" style="aspect-ratio: 4/5;">
                                 <img src="{{ asset('images/MenaraTeratai.png') }}" 
                                      alt="Landmark Purwokerto" 
                                      class="w-full h-full object-cover rounded-xl shadow-lg transition-all duration-500">
