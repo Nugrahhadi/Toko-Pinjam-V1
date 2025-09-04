@@ -39,7 +39,7 @@
               </span>
             </div>
             <!-- Gambar 1 -->
-            <img src="{{ asset('images/butuhbantuan/111.jpg') }}"
+            <img src="{{ asset('images/butuhbantuan/111.JPG') }}"
                  alt="Photo 1"
                  class="w-full h-40 object-cover rounded-lg col-span-1 md:col-span-2">
             <!-- Gambar 2 -->

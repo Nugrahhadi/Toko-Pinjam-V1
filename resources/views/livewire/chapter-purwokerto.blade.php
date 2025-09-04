@@ -5,7 +5,7 @@
     <!-- HERO SECTION -->
     <div class="bg-white py-8">
         <div class="relative bg-cover bg-center bg-no-repeat min-h-[500px] py-24"
-             style="background-image: url('{{ asset('images/landmark.jpg') }}');">
+             style="background-image: url('{{ asset('images/landmark.JPG') }}');">
 
             <!-- Link yang melapisi seluruh area, tapi tidak menghalangi konten -->
             <a href="https://www.tokopinjam.com/purwokerto"
