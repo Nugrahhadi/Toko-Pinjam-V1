@@ -19,7 +19,13 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @if(app()->environment('production') && !file_exists(public_path('build/manifest.json')))
+            <!-- Fallback CDN CSS/JS for production if build assets not available -->
+            <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+            <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+        @else
+            @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @endif
         
         <!-- Sweet Alert 2 CDN -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
