@@ -17,4 +17,7 @@ require __DIR__ . '/vendor/autoload.php';
 /** @var Application $app */
 $app = require_once __DIR__ . '/bootstrap/app.php';
 
+// Configure for production deployment in root folder
+$app->usePublicPath(__DIR__ . '/public');
+
 $app->handleRequest(Request::capture());

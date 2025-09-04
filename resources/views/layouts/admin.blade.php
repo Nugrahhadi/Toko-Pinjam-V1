@@ -12,24 +12,10 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     
     <!-- TailwindCSS -->
-    @if(app()->environment('production'))
-        @if(file_exists(public_path('build/manifest.json')))
-            @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @else
-            <!-- Fallback CDN CSS/JS for production if build assets not available -->
-            <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-            <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-            <!-- Custom styles for admin layout -->
-            <style>
-                .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
-                .grid { display: grid; }
-                .flex { display: flex; }
-                .hidden { display: none; }
-                .block { display: block; }
-                .bg-gray-50 { background-color: #f9fafb; }
-                .text-gray-900 { color: #111827; }
-            </style>
-        @endif
+    @if(app()->environment('production') && !file_exists(public_path('build/manifest.json')))
+        <!-- Fallback CDN CSS/JS for production if build assets not available -->
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     @else
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @endif
