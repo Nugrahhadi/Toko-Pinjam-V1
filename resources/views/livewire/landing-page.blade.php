@@ -34,9 +34,8 @@
     <!-- Butuh Bantuan Section -->
     <livewire:components.butuh-bantuan />
 
-    
-    <!-- Testimonials Section -->
-   {{-- <livewire:components.testimonials-section /> --}}
+    <!-- Laporan Keuangan -->
+    <livewire:components.lihat-lapkeu />
     
     <!-- Cannot Donate Yet Section -->
     <livewire:components.cannot-donate-yet />

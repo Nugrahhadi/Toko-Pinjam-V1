@@ -108,9 +108,8 @@ Route::middleware("auth")->group(function () {
  * --------------------------------------------------------------------------
  */
 Route::middleware("guest")->group(function () {
-    Route::view("/register-custom", "register")->name("register.custom");
-    Route::view("/login-custom", "login")->name("login.custom");
-    Route::view("/login", "login")->name("login"); // default login
+    Route::view("/register", "register")->name("register.custom");
+    Route::view("/login", "login")->name("login.custom");
 });
 
 /**

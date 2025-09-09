@@ -19,7 +19,7 @@
                 </div>
                 
                 <div>
-                    <a href="#" class="inline-block text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors" 
+                    <a href="{{ route('register.custom') }}" class="inline-block text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors" 
                        style="background-color: #433592;" 
                        onmouseover="this.style.backgroundColor='#3A2B7A'" 
                        onmouseout="this.style.backgroundColor='#433592'">
