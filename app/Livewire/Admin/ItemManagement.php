@@ -265,17 +265,17 @@ class ItemManagement extends Component
         if (!$this->deleteItemId) {
             return;
         }
-        
+
         $item = Item::findOrFail($this->deleteItemId);
         $itemName = $item->name;
-        
+
         // Hapus gambar dari storage jika ada
         if ($item->image_path) {
             if (\Storage::disk('public')->exists($item->image_path)) {
                 \Storage::disk('public')->delete($item->image_path);
             }
         }
-        
+
         // Hapus gallery images jika ada
         if ($item->gallery_images) {
             $galleryImages = json_decode($item->gallery_images, true);
@@ -287,10 +287,10 @@ class ItemManagement extends Component
                 }
             }
         }
-        
+
         // Hapus item dari database
         $item->delete();
-        
+
         $this->cancelDelete();
         session()->flash("message", "Barang '{$itemName}' berhasil dihapus beserta semua file gambarnya.");
     }

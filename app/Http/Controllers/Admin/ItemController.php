@@ -15,7 +15,7 @@ class ItemController extends Controller
     public function destroy($id)
     {
         $item = Item::findOrFail($id);
-        
+
         // Hapus gambar dari storage jika ada
         if ($item->image_path) {
             // Hapus file gambar utama
@@ -23,7 +23,7 @@ class ItemController extends Controller
                 Storage::disk('public')->delete($item->image_path);
             }
         }
-        
+
         // Hapus gallery images jika ada
         if ($item->gallery_images) {
             $galleryImages = json_decode($item->gallery_images, true);
@@ -35,19 +35,19 @@ class ItemController extends Controller
                 }
             }
         }
-        
+
         // Simpan nama item untuk pesan sukses
         $itemName = $item->name;
-        
+
         // Hapus item dari database
         $item->delete();
-        
+
         // Redirect dengan pesan sukses
         return redirect()
             ->route('admin.items')
             ->with('success', "Barang '{$itemName}' berhasil dihapus beserta semua file gambarnya.");
     }
-    
+
     /**
      * Soft delete item (jika ingin menggunakan soft delete)
      */
@@ -55,15 +55,15 @@ class ItemController extends Controller
     {
         $item = Item::findOrFail($id);
         $itemName = $item->name;
-        
+
         // Soft delete (jika model menggunakan SoftDeletes trait)
         $item->delete();
-        
+
         return redirect()
             ->route('admin.items')
             ->with('success', "Barang '{$itemName}' berhasil diarsipkan.");
     }
-    
+
     /**
      * Restore soft deleted item
      */
@@ -71,9 +71,9 @@ class ItemController extends Controller
     {
         $item = Item::withTrashed()->findOrFail($id);
         $itemName = $item->name;
-        
+
         $item->restore();
-        
+
         return redirect()
             ->route('admin.items')
             ->with('success', "Barang '{$itemName}' berhasil dipulihkan.");

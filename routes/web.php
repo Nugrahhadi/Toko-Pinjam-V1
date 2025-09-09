@@ -109,7 +109,7 @@ Route::middleware("auth")->group(function () {
  * --------------------------------------------------------------------------
  */
 Route::middleware("guest")->group(function () {
-    Route::view("/register", "register")->name("register.custom");
+    Route::view("/register-toko", "register")->name("register.custom");
     Route::view("/login", "login")->name("login.custom");
 });
 
