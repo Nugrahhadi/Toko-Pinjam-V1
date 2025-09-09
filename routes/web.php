@@ -24,6 +24,7 @@ use App\Livewire\ItemDetailPage;
 
 // Controllers
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\Admin\ItemController;
 
 // Admin Livewire pages
 use App\Livewire\Admin\BlogManagement;
@@ -140,6 +141,10 @@ Route::middleware(["auth", "admin"])
         Route::get("/items/{itemId}/edit", ItemEditor::class)->name(
             "items.edit",
         );
+        Route::delete("/items/{id}", [ItemController::class, "destroy"])
+            ->name("items.destroy");
+        Route::patch("/items/{id}/restore", [ItemController::class, "restore"])
+            ->name("items.restore");
         Route::get("/rentals/create", RentalCreate::class)->name(
             "rentals.create",
         );

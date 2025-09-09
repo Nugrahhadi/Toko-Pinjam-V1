@@ -265,9 +265,34 @@ class ItemManagement extends Component
         if (!$this->deleteItemId) {
             return;
         }
-        Item::findOrFail($this->deleteItemId)->delete();
+        
+        $item = Item::findOrFail($this->deleteItemId);
+        $itemName = $item->name;
+        
+        // Hapus gambar dari storage jika ada
+        if ($item->image_path) {
+            if (\Storage::disk('public')->exists($item->image_path)) {
+                \Storage::disk('public')->delete($item->image_path);
+            }
+        }
+        
+        // Hapus gallery images jika ada
+        if ($item->gallery_images) {
+            $galleryImages = json_decode($item->gallery_images, true);
+            if (is_array($galleryImages)) {
+                foreach ($galleryImages as $imagePath) {
+                    if (\Storage::disk('public')->exists($imagePath)) {
+                        \Storage::disk('public')->delete($imagePath);
+                    }
+                }
+            }
+        }
+        
+        // Hapus item dari database
+        $item->delete();
+        
         $this->cancelDelete();
-        session()->flash("message", "Barang dihapus.");
+        session()->flash("message", "Barang '{$itemName}' berhasil dihapus beserta semua file gambarnya.");
     }
 
     /** ---------------- PROVIDERS ---------------- **/
