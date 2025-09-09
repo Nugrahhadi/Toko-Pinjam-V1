@@ -63,7 +63,7 @@
 
     <!-- Link Bawah -->
     <div class="text-center">
-      <a href="#" class="text-white underline text-sm hover:text-gray-300 transition">
+      <a href="{{ route('tujuan-dan-visi') }}" class="text-white underline text-sm hover:text-gray-300 transition">
         Pelajari misi dan dampak yang kami perjuangkan
       </a>
     </div>

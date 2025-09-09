@@ -27,6 +27,9 @@
             @vite(['resources/css/app.css', 'resources/js/app.js'])
         @endif
         
+        <!-- Livewire Styles -->
+        @livewireStyles
+        
         <!-- Sweet Alert 2 CDN -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         
@@ -78,5 +81,8 @@
         
         <!-- Additional Scripts -->
         @stack('scripts')
+        
+        <!-- Livewire Scripts -->
+        @livewireScripts
     </body>
 </html>

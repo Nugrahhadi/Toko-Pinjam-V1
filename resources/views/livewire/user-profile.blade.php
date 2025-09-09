@@ -24,6 +24,16 @@
         this.animateCount('shared', this.targets.shared);
     },
 
+    // Check for hash on load
+    init() {
+        if (window.location.hash === '#riwayat-peminjaman') {
+            this.activeTab = 'riwayat';
+            setTimeout(() => {
+                document.getElementById('riwayat-peminjaman').scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+    },
+
     // animasi: integer utk savings/shared, desimal utk environment
     animateCount(key, target) {
         const duration = 2000, frameRate = 60;
@@ -110,7 +120,7 @@
 
             <!-- Riwayat Peminjaman -->
             <!-- Riwayat Peminjaman -->
-<div x-show="activeTab === 'riwayat'" x-transition>
+<div x-show="activeTab === 'riwayat'" x-transition id="riwayat-peminjaman">
     <h3 class="text-lg font-semibold text-gray-800 mb-4">Riwayat Peminjaman</h3>
 
     <div class="overflow-x-auto bg-white rounded-lg shadow">

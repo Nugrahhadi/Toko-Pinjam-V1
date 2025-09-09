@@ -21,12 +21,13 @@
               Kami mengajak kamu untuk ikut bergerak bersama dalam gerakan ini dengan memberikan donasi dalam jumlah berapapun dan bentuk apapun!
             </p>
             <div class="flex flex-wrap gap-4">
-               <button class="w-[200px] flex items-center justify-center px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-blue-700 transition-all duration-200" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-    </svg>
-    Donasi
-</button>
+                <a href="{{ route('donasi') }}" 
+                class="flex items-center px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105" style="font-family: 'Google Sans', 'Product Sans', sans-serif;" title="Donasi untuk Toko Pinjam">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                    </svg>
+                    Donasi
+                </a>
             </div>
           </div>
           

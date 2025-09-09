@@ -31,7 +31,7 @@
       </div>
     </div>
 
-    <a href="#" class="text-purple-900 underline text-sm md:text-base hover:text-purple-700 transition">
+    <a href="{{ route('tujuan-dan-visi') }}" class="text-purple-900 underline text-sm md:text-base hover:text-purple-700 transition">
       Pelajari misi dan dampak yang kami perjuangkan
     </a>
   </div>
