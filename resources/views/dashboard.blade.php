@@ -62,45 +62,6 @@
                         </div>
                     </div>
 
-                    <!-- Action Buttons -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                        <!-- Pinjam Sekarang -->
-                        <a href="{{ route('all-items') }}" 
-                           class="group bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
-                            <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-lg font-bold text-purple-800 mb-2">Pinjam Sekarang</h3>
-                            <p class="text-sm text-gray-600">Jelajahi berbagai barang yang bisa kamu pinjam</p>
-                        </a>
-
-                        <!-- Profile -->
-                        <a href="{{ route('profile') }}" 
-                           class="group bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
-                            <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-xl flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
-                                <svg class="w-6 h-6 text-purple-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-lg font-bold text-purple-800 mb-2">Profil Saya</h3>
-                            <p class="text-sm text-gray-600">Kelola profil dan riwayat peminjaman</p>
-                        </a>
-
-                        <!-- Donasi -->
-                        <a href="{{ route('donasi') }}" 
-                           class="group bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
-                            <div class="w-12 h-12 bg-gradient-to-br from-pink-500 to-red-500 rounded-xl flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-lg font-bold text-purple-800 mb-2">Donasi</h3>
-                            <p class="text-sm text-gray-600">Dukung gerakan berbagi kami</p>
-                        </a>
-                    </div>
-
                     <!-- Bottom Quote -->
                     <div class="mt-12 max-w-2xl mx-auto">
                         <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
