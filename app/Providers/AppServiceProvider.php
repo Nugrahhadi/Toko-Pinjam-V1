@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
         if (config('app.env') === 'production') {
             \URL::forceScheme('https');
             \URL::forceRootUrl(config('app.url'));
-            
+
             // Set asset URL to ensure proper file access
             if (!app()->runningInConsole()) {
                 // Pastikan storage files bisa diakses
