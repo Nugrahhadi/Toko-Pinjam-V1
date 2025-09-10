@@ -42,14 +42,15 @@
                 <!-- FAQ Items -->
                 <div class="space-y-4">
                     @foreach($faqs as $index => $faq)
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden" wire:key="faq-{{ $index }}">
                             <button 
                                 wire:click="toggleItem({{ $index }})"
-                                class="w-full px-6 py-4 text-left bg-[#FAF0EB] hover:bg-yellow-100 transition-colors duration-100 flex justify-between items-center"
+                                type="button"
+                                class="w-full px-6 py-4 text-left bg-[#FAF0EB] hover:bg-yellow-100 transition-colors duration-100 flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-purple-500"
                             >
-                                <span class="font-bold text-purple-700">{{ $faq['question'] }}</span>
+                                <span class="font-bold text-purple-700 pr-4">{{ $faq['question'] }}</span>
                                 <svg 
-                                    class="w-5 h-5 text-purple-700 transform transition-transform duration-200 {{ isset($openItems[$index]) ? 'rotate-180' : '' }}"
+                                    class="w-5 h-5 text-purple-700 transform transition-transform duration-200 flex-shrink-0 {{ isset($openItems[$index]) ? 'rotate-180' : '' }}"
                                     fill="none" 
                                     stroke="currentColor" 
                                     viewBox="0 0 24 24"
@@ -58,7 +59,7 @@
                                 </svg>
                             </button>
                             
-                            <div class="overflow-hidden transition-all duration-300 ease-in-out {{ isset($openItems[$index]) ? 'max-h-96' : 'max-h-0' }}">
+                            <div class="overflow-hidden transition-all duration-300 ease-in-out {{ isset($openItems[$index]) ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0' }}">
                                 <div class="px-6 py-4 bg-orange-500 text-white">
                                     {{ $faq['answer'] }}
                                 </div>
@@ -84,5 +85,37 @@
 
     <!-- Livewire Scripts -->
     @livewireScripts
+    
+    <!-- Debug Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('FAQ Page loaded');
+            console.log('Livewire available:', typeof Livewire !== 'undefined');
+            
+            // Fallback click handler jika Livewire gagal
+            document.querySelectorAll('[wire\\:click^="toggleItem"]').forEach((button, index) => {
+                button.addEventListener('click', function(e) {
+                    console.log('FAQ button clicked:', index);
+                    if (typeof Livewire === 'undefined') {
+                        console.error('Livewire not loaded, implementing fallback');
+                        // Fallback manual toggle
+                        const parent = this.closest('.bg-white');
+                        const content = parent.querySelector('.overflow-hidden');
+                        const icon = this.querySelector('svg');
+                        
+                        if (content.style.maxHeight === '0px' || !content.style.maxHeight) {
+                            content.style.maxHeight = content.scrollHeight + 'px';
+                            content.style.opacity = '1';
+                            icon.style.transform = 'rotate(180deg)';
+                        } else {
+                            content.style.maxHeight = '0px';
+                            content.style.opacity = '0';
+                            icon.style.transform = 'rotate(0deg)';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

@@ -8,6 +8,12 @@ class FaqPage extends Component
 {
     public $openItems = [];
 
+    public function mount()
+    {
+        // Initialize empty array for tracking open items
+        $this->openItems = [];
+    }
+
     public function toggleItem($index)
     {
         if (isset($this->openItems[$index])) {
@@ -15,6 +21,9 @@ class FaqPage extends Component
         } else {
             $this->openItems[$index] = true;
         }
+        
+        // Force re-render
+        $this->render();
     }
 
     public function render()
