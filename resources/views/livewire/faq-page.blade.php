@@ -1,6 +1,45 @@
-<div>
-    @section('title', 'FAQ - Frequently Asked Questions')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()            <!-- Bottom Contact Section -->
+            <div class="text-center mt-12 mb-8">
+                <p class="text-gray-600 text-lg">
+                    Pertanyaanmu Belum Terjawab? 
+                    <a href="{{ route('kontak') }}" class="text-purple-700 hover:text-purple-900 font-medium underline">
+                        Hubungi Kami!
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <livewire:components.footer />
+</div>
+
+<!-- Livewire Scripts -->
+@livewireScripts
+</body>
+</html>    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     
+    <title>FAQ - Frequently Asked Questions - Toko Pinjam</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon_io/favicon.ico') }}">
+    
+    <!-- Scripts -->
+    @if(app()->environment('production') && !file_exists(public_path('build/manifest.json')))
+        <!-- Fallback CDN CSS/JS for production if build assets not available -->
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    @else
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @endif
+    
+    <!-- Livewire Styles -->
+    @livewireStyles
+</head>
+<body>
+<div>
     <livewire:components.navbar />
 
     <div class="min-h-screen bg-gray-50 py-8">

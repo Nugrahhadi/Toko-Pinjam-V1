@@ -96,9 +96,12 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide text-center">
                     <h3 class="text-lg font-medium mb-4">Chapter I: Purwokerto</h3>
-                    <div class="bg-gray-200 rounded-lg shadow-md h-[400px] overflow-hidden">
-                        <img src="{{ asset('images/donasi/pwtt.jpg') }}" alt="Chapter I Purwokerto" class="w-full h-full object-cover">
-                    </div>
+                    <a href="{{ route('chapter-purwokerto') }}" class="block bg-gray-200 rounded-lg shadow-md h-[400px] overflow-hidden hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                        <img src="{{ asset('images/donasi/pwtt.JPG') }}" 
+                             alt="Chapter I Purwokerto" 
+                             class="w-full h-full object-cover"
+                             onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full bg-purple-100 text-purple-600\'><div class=\'text-center\'><svg class=\'w-16 h-16 mx-auto mb-4\' fill=\'currentColor\' viewBox=\'0 0 20 20\'><path fill-rule=\'evenodd\' d=\'M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z\' clip-rule=\'evenodd\'></path></svg><p class=\'text-sm font-medium\'>Chapter I: Purwokerto</p><p class=\'text-xs mt-1\'>Klik untuk lihat detail</p></div></div>';">
+                    </a>
                 </div>
                 <div class="swiper-slide text-center">
                     <h3 class="text-lg font-medium mb-4">Chapter II: ???</h3>

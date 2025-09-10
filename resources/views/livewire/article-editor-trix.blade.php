@@ -278,10 +278,10 @@
                             <option value="">Pilih kategori artikel</option>
                             <option value="tips">Tips & Trik</option>
                             <option value="tutorial">Tutorial</option>
-                            <option value="review">Review</option>
                             <option value="teknologi">Teknologi</option>
                             <option value="lifestyle">Lifestyle</option>
-                            <option value="lainnya">Lainnya</option>
+                            <option value="siaran-pers">Siaran Pers</option>
+                            <option value="pengumuman">Pengumuman</option>
                         </select>
                         @error('category')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>

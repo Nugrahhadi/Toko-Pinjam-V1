@@ -130,7 +130,7 @@
                                 @endforeach
                             </div>
                             <div class="mt-4 pt-4 border-t">
-                                <a href="#" class="text-[#433592] hover:underline text-sm font-medium">
+                                <a href="{{ route('donasi') }}" class="text-[#433592] hover:underline text-sm font-medium">
                                     Lihat semua donatur →
                                 </a>
                             </div>
