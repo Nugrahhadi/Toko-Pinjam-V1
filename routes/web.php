@@ -166,6 +166,7 @@ Route::middleware(["auth", "admin"])
          */
 
         // ... (rute admin lain)
+
         Route::get(
             "/transactions",
             App\Livewire\Admin\TransactionManagement::class,
