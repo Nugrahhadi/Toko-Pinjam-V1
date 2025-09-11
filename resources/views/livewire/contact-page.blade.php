@@ -59,7 +59,7 @@
             </p>
             <p class="text-xl text-[#3b0a73]">
                 Siapa tahu pertanyaanmu sudah terjawab. 
-                <a href="#faq" class="text-[#3b0a73] underline hover:text-purple-700">Klik di sini</a>
+                <a href="{{ route('faq') }}" class="text-[#3b0a73] underline hover:text-purple-700">Klik di sini</a>
             </p>
         </div>
 
