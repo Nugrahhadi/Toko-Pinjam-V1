@@ -21,9 +21,9 @@ class FaqPage extends Component
         } else {
             $this->openItems[$index] = true;
         }
-        
+
         // Force re-render
-        $this->render();
+        // $this->render();
     }
 
     public function render()
