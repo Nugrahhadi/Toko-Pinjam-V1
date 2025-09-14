@@ -10,6 +10,8 @@ use App\Models\Category;
 use App\Models\Location;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 
 class ItemManagement extends Component
@@ -261,39 +263,77 @@ class ItemManagement extends Component
     }
 
     public function deleteItem()
-    {
-        if (!$this->deleteItemId) {
-            return;
-        }
+{
+    if (!$this->deleteItemId) {
+        return;
+    }
 
-        $item = Item::findOrFail($this->deleteItemId);
-        $itemName = $item->name;
+    $item = Item::withCount('rentals')->findOrFail($this->deleteItemId);
+    $itemName = $item->name;
 
-        // Hapus gambar dari storage jika ada
-        if ($item->image_path) {
-            if (\Storage::disk('public')->exists($item->image_path)) {
-                \Storage::disk('public')->delete($item->image_path);
+    // KEBIJAKAN: blokir hapus jika item pernah / sedang dipinjam
+    if ($item->rentals_count > 0) {
+        $this->cancelDelete();
+        session()->flash(
+            'message',
+            "Tidak bisa menghapus '{$itemName}' karena sudah/ pernah dipakai di pesanan. " .
+            "Nonaktifkan saja item ini, atau hapus pesanan terkait terlebih dahulu."
+        );
+        return;
+    }
+
+    try {
+        DB::transaction(function () use ($item) {
+            // 1) Hapus semua file gambar yang diketahui
+
+            // a) Skema baru: kolom 'images' (array path relatife storage 'public')
+            $images = (array) ($item->images ?? []);
+            foreach ($images as $path) {
+                if (is_string($path) && Storage::disk('public')->exists($path)) {
+                    Storage::disk('public')->delete($path);
+                }
             }
-        }
 
-        // Hapus gallery images jika ada
-        if ($item->gallery_images) {
-            $galleryImages = json_decode($item->gallery_images, true);
-            if (is_array($galleryImages)) {
-                foreach ($galleryImages as $imagePath) {
-                    if (\Storage::disk('public')->exists($imagePath)) {
-                        \Storage::disk('public')->delete($imagePath);
+            // b) Backward compatibility: 'image_path' tunggal
+            if (isset($item->image_path) && is_string($item->image_path)) {
+                if (Storage::disk('public')->exists($item->image_path)) {
+                    Storage::disk('public')->delete($item->image_path);
+                }
+            }
+
+            // c) Backward compatibility: 'gallery_images' (json)
+            if (isset($item->gallery_images)) {
+                $gallery = json_decode($item->gallery_images, true);
+                if (is_array($gallery)) {
+                    foreach ($gallery as $p) {
+                        if (is_string($p) && Storage::disk('public')->exists($p)) {
+                            Storage::disk('public')->delete($p);
+                        }
                     }
                 }
             }
-        }
 
-        // Hapus item dari database
-        $item->delete();
+            // 2) Hapus item
+            $item->delete();
+        });
 
         $this->cancelDelete();
-        session()->flash("message", "Barang '{$itemName}' berhasil dihapus beserta semua file gambarnya.");
+        session()->flash('message', "Barang '{$itemName}' berhasil dihapus beserta semua file gambarnya.");
+    } catch (QueryException $e) {
+        // Tertolak oleh constraint DB (FK, dll)
+        $this->cancelDelete();
+        session()->flash(
+            'message',
+            "Gagal menghapus '{$itemName}'. Masih ada data yang bergantung (mis. pesanan)."
+        );
+    } catch (\Throwable $e) {
+        $this->cancelDelete();
+        session()->flash(
+            'message',
+            "Terjadi kesalahan saat menghapus '{$itemName}': " . $e->getMessage()
+        );
     }
+}
 
     /** ---------------- PROVIDERS ---------------- **/
 
