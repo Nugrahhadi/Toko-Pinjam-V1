@@ -7,22 +7,37 @@ use Livewire\Attributes\On;
 
 class Navbar extends Component
 {
-    public $isMenuOpen = false;
-    public $search = '';
+    public bool $isMenuOpen = false;     // toggle mobile menu
+    public bool $profileOpen = false;    // toggle dropdown profil (tanpa Alpine)
+    public string $search = '';
 
-    public function toggleMenu()
+    /** Toggle mobile menu */
+    public function toggleMenu(): void
     {
-        $this->isMenuOpen = !$this->isMenuOpen;
+        $this->isMenuOpen = ! $this->isMenuOpen;
     }
 
-    public function updatedSearch()
+    /** Toggle dropdown profil (desktop) */
+    public function toggleProfile(): void
+    {
+        $this->profileOpen = ! $this->profileOpen;
+    }
+
+    /** Tutup dropdown profil saat area luar diklik (opsional, bisa dipanggil dari link) */
+    public function closeProfile(): void
+    {
+        $this->profileOpen = false;
+    }
+
+    /** Livewire v3: dipanggil saat search berubah */
+    public function updatedSearch(): void
     {
         // Emit event ketika search berubah
         $this->dispatch('searchUpdated', $this->search);
     }
 
     #[On('clearSearchInput')]
-    public function clearSearchInput()
+    public function clearSearchInput(): void
     {
         $this->search = '';
     }
