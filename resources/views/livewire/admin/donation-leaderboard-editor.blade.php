@@ -13,10 +13,16 @@
     </div>
 
     <div class="bg-white border rounded-xl p-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {{-- Container yang akan dibuat Sortable --}}
+        <div id="leaderboard-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
             @for ($i=1; $i<=10; $i++)
-                <div class="border rounded-lg p-4">
-                    <div class="text-xs text-gray-500 mb-2">Posisi #{{ $i }}</div>
+                <div class="border rounded-lg p-4" data-index="{{ $i }}" wire:key="row-{{ $i }}">
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="text-xs text-gray-500">Posisi #{{ $i }}</div>
+                        <button type="button"
+                                class="drag-handle cursor-move text-gray-400 hover:text-gray-600"
+                                title="Drag untuk pindah">↕</button>
+                    </div>
 
                     {{-- user --}}
                     <label class="block text-sm text-gray-700">User</label>
@@ -51,8 +57,15 @@
 </div>
 
 @push('scripts')
+{{-- 1) Muat SortableJS --}}
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+
 <script>
-document.addEventListener("livewire:navigated", () => {
+/**
+ * Inisialisasi TomSelect + Sortable setelah Livewire render/navigate.
+ * Kita set flag data-attr supaya tidak double-init.
+ */
+function initTomSelect() {
     document.querySelectorAll('select.user-select').forEach((el) => {
         if (!el.tomselect) {
             new TomSelect(el, {
@@ -63,6 +76,45 @@ document.addEventListener("livewire:navigated", () => {
             });
         }
     });
+}
+
+function initSortableGrid() {
+    const grid = document.getElementById('leaderboard-grid');
+    if (!grid || grid.dataset.sortableInit === '1') return;
+    grid.dataset.sortableInit = '1';
+
+    new Sortable(grid, {
+        animation: 150,
+        handle: '.drag-handle',
+        ghostClass: 'bg-purple-50',
+        onEnd: function () {
+            // Baca urutan DOM lalu kirim ke Livewire::reorder
+            const order = Array.from(grid.querySelectorAll('[data-index]'))
+                .map(el => ({ value: el.dataset.index }));
+            @this.call('reorder', order);
+        }
+    });
+}
+
+document.addEventListener('livewire:load', () => {
+    initTomSelect();
+    initSortableGrid();
+});
+
+// Jika pakai navigate di Livewire v3
+document.addEventListener('livewire:navigated', () => {
+    initTomSelect();
+    initSortableGrid();
+});
+
+// Jika bukan pakai navigate, tapi rerender biasa:
+document.addEventListener('livewire:initialized', () => {
+    if (window.Livewire) {
+        Livewire.hook('message.processed', () => {
+            initTomSelect();
+            initSortableGrid();
+        });
+    }
 });
 </script>
 @endpush

@@ -161,14 +161,14 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             @foreach($arrangedTop3 as $i => $row)
                 @php
-                    $rankReal = $i === 0 ? 2 : ($i === 1 ? 1 : 3);
-                    $name = $row->user->display_name ?? $row->user->name ?? full_name;
-                    $parts = preg_split('/\s+/', trim($name)); $initials = '';
-                    foreach ($parts as $p) { if ($p !== '') { $initials .= mb_substr($p,0,1); if (mb_strlen($initials) >= 2) break; } }
-                    $initials = mb_strtoupper($initials);
-                    $amt  = 'Rp'.number_format((float)$row->amount);
-                    $badgeColor = $rankReal===1 ? 'bg-yellow-400' : ($rankReal===2 ? 'bg-gray-400' : 'bg-orange-400');
-                @endphp
+    $rankReal = $i === 0 ? 2 : ($i === 1 ? 1 : 3);
+    $name = $row->display_name ?: ($row->user->full_name ?? $row->user->name ?? 'Anonim');
+    $parts = preg_split('/\s+/', trim($name)); $initials = '';
+    foreach ($parts as $p) { if ($p !== '') { $initials .= mb_substr($p,0,1); if (mb_strlen($initials) >= 2) break; } }
+    $initials = mb_strtoupper($initials);
+    $amt  = 'Rp'.number_format((float)$row->amount);
+    $badgeColor = $rankReal===1 ? 'bg-yellow-400' : ($rankReal===2 ? 'bg-gray-400' : 'bg-orange-400');
+@endphp
 
                 <div class="relative flex flex-col items-center bg-[#f3f3fd] p-6 rounded-lg shadow-lg">
                     <div class="absolute -top-4 {{ $badgeColor }} w-8 h-8 flex items-center justify-center rounded-full text-white font-bold text-lg border-2 border-white shadow-md">{{ $rankReal }}</div>
@@ -219,13 +219,14 @@
         <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6 max-w-5xl mx-auto">
             @foreach($chunk1 as $idx => $row)
                 @php
-                    $rank = $idx + 4;
-                    $name = $row->user->full_name ?? $row->user->name ?? 'Anonim';
-                    $parts = preg_split('/\s+/', trim($name)); $initials = '';
-                    foreach ($parts as $p) { if ($p !== '') { $initials .= mb_substr($p,0,1); if (mb_strlen($initials) >= 2) break; } }
-                    $initials = mb_strtoupper($initials);
-                    $amt  = 'Rp'.number_format((float)$row->amount);
-                @endphp
+    $rank = $idx + 4;
+    $name = $row->display_name ?: ($row->user->full_name ?? $row->user->name ?? 'Anonim');
+    $parts = preg_split('/\s+/', trim($name)); $initials = '';
+    foreach ($parts as $p) { if ($p !== '') { $initials .= mb_substr($p,0,1); if (mb_strlen($initials) >= 2) break; } }
+    $initials = mb_strtoupper($initials);
+    $amt  = 'Rp'.number_format((float)$row->amount);
+@endphp
+
                 <div class="flex items-center bg-[#f3f3fd] p-3 rounded-lg shadow-sm gap-3">
                     <div class="text-[#433592] font-bold text-lg w-6 text-left">{{ $rank }}</div>
                     <div class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center">

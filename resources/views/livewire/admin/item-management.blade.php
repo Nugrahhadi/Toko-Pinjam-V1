@@ -208,10 +208,10 @@
                                 <a href="{{ route('admin.items.edit', $it->id) }}"
                                    class="text-[#433592] hover:underline">Edit</a>
                                 <button
-                                    wire:click="confirmDelete({{ $it->id }})"
-                                    class="text-red-600 ml-3 hover:underline">
-                                    Hapus
-                                </button>
+    wire:click="confirmDelete(@js($it->id))"
+    class="text-red-600 ml-3 hover:underline">
+    Hapus
+</button>
                             </td>
                         </tr>
                     @empty

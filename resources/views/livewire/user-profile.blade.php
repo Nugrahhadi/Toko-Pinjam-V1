@@ -108,13 +108,13 @@
 
                 <div class="mt-6 text-sm text-center text-gray-600">
                     Ingin ajukan perubahan informasi?
-                    <a href="#" class="text-purple-700 underline hover:text-purple-900">Kontak kami sekarang!</a>
+                    <a href="{{ route('kontak') }}" class="text-purple-700 underline hover:text-purple-900">Kontak kami sekarang!</a>
                 </div>
 
                 <div class="mt-6 text-center">
-                    <button class="bg-purple-700 text-white px-6 py-2 rounded hover:bg-purple-800">
+                    <a href="{{ route('kontak') }}" class="bg-purple-700 text-white px-6 py-2 rounded hover:bg-purple-800">
                         Kontak
-                    </button>
+                </a>
                 </div>
             </div>
 
@@ -204,7 +204,7 @@
 
                     <div class="text-center mt-6">
                         <p class="text-purple-700 font-medium">Buat lebih besar dampak</p>
-                        <a href="{{ route('pinjam-sekarang') }}" class="mt-2 inline-block bg-purple-700 text-white px-6 py-2 rounded hover:bg-purple-800">
+                        <a href="{{ route('all-items') }}" class="mt-2 inline-block bg-purple-700 text-white px-6 py-2 rounded hover:bg-purple-800">
                             Pinjam sekarang
                         </a>
                     </div>
