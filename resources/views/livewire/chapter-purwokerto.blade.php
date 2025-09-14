@@ -56,7 +56,7 @@
                             Berkolaborasi dengan:
                         </p>
                         <div class="flex justify-center md:justify-start">
-                            <img src="{{ asset('images/logo-toko-pinjam.png') }}" alt="Toko Pinjam Logo" class="h-12 w-auto">
+                            <img src="{{ asset('images/purwokerto/Maggenzim.png') }}" alt="Toko Pinjam Logo" class="h-20 w-auto">
                         </div>
                     </div>
                 </div>
@@ -203,7 +203,7 @@
                                 
                                 <div class="bg-red-50 border border-red-200 rounded-lg p-4">
                                     <p class="text-red-600 font-semibold text-lg" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                                        ⚠️ Tanggal merah dan hari raya keagamaan = Libur
+                                        ⚠️ Hari libur nasional dan hari raya keagamaan = Libur
                                     </p>
                                 </div>
                             </div>
@@ -238,17 +238,17 @@
                         Dari Kami, Melalui Mereka, Untuk Purwokerto
                     </h2>
                     <p class="text-gray-700 leading-relaxed mb-4">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Maggenzim memiliki visi yang sama dengan Toko Pinjam Purwokerto, yaitu sama-sama ingin mengurangi emisi gas rumah kaca melalui inovasi dan cara-cara yang lebih berkelanjutan.
                     </p>
                     <p class="text-gray-700 leading-relaxed mb-4">
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Toko Pinjam hadir untuk memberikan solusi bagi masyarakat yang membutuhkan barang hanya untuk penggunaan sesaat, sehingga mengurangi kebutuhan akan kepemilikan barang yang berkontribusi pada penumpukan sampah dan emisi karbon.
                     </p>
                     <p class="text-gray-700 leading-relaxed">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                        Dari kesamaan visi inilah, Maggenzim berkolaborasi dengan Toko Pinjam sebagai upaya dalam mendukung gerakan keberlanjutan lingkungan dan reduksi emisi gas rumah kaca di Purwokerto.
                     </p>
                 </div>
                 <div class="flex justify-center">
-                    <img src="{{ asset('images/footerlogo.png') }}" alt="Footer Logo" class="max-w-full h-auto">
+                    <img src="{{ asset('images/purwokerto/Maggenzim-TokoPinjam.jpg') }}" alt="Maggenzim Toko Pinjam" class="max-w-full h-auto">
                 </div>
             </div>
         </div>
