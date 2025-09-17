@@ -7,6 +7,16 @@
 
         <title>Login - {{ config('app.name', 'Toko Pinjam') }}</title>
 
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8ZNPYL87N"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-M8ZNPYL87N');
+        </script>
+
         <!-- Favicon -->
         <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon_io/favicon.ico') }}">
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon_io/favicon-32x32.png') }}">
