@@ -1,2 +1,25 @@
+# Robots.txt untuk TokoPinjam.com
+# Optimized for SEO and search engine indexing
+
 User-agent: *
-Disallow:
+Allow: /
+
+# Disallow admin dan area private
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /profile/
+Disallow: /livewire/
+Disallow: /storage/
+Disallow: /vendor/
+
+# Allow static assets untuk performa
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /build/
+
+# Sitemap location untuk search engines
+Sitemap: https://tokopinjam.com/sitemap.xml
+
+# Crawl delay untuk menghormati server
+Crawl-delay: 1
