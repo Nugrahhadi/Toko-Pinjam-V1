@@ -55,8 +55,10 @@
                         <p class="text-sm mb-4" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                             Berkolaborasi dengan:
                         </p>
-                        <div class="flex justify-center md:justify-start">
-                            <img src="{{ asset('images/purwokerto/Maggenzim.png') }}" alt="Toko Pinjam Logo" class="h-20 w-auto">
+                        <!-- Logo container - horizontal layout -->
+                        <div class="flex gap-0 justify-center md:justify-start items-center">
+                            <img src="{{ asset('images/purwokerto/Maggenzim.png') }}" alt="Maggenzim" class="h-16 w-auto">
+                            <img src="{{ asset('images/purwokerto/voluntiiran-pwt.png') }}" alt="Voluntiiran Purwokerto" class="h-16 w-auto">
                         </div>
                     </div>
                 </div>
