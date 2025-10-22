@@ -62,7 +62,7 @@
                 <div class="text-center">
                     <p class="text-sm text-gray-600">
                         Lupa password? 
-                        <a href="https://wa.me/6285128050500?text=Halo%20admin%2C%20saya%20lupa%20password%20untuk%20login%20ke%20akun%20Toko%20Pinjam." 
+                        <a href="https://wa.me/6282122270150?text=Halo%20admin%2C%20saya%20lupa%20password%20untuk%20login%20ke%20akun%20Toko%20Pinjam." 
                            target="_blank"
                            class="text-purple-600 hover:text-purple-700 font-medium underline">
                             Hubungi kami

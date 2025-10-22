@@ -7,32 +7,32 @@
     <!-- Hero Section - Gagasan Kami Menembus Ruang Kelas -->
     <section class="py-16 bg-gray-50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl lg:text-5xl font-extrabold text-[#433592] mb-6" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+            <h1 class="text-2xl lg:text-5xl font-extrabold text-[#433592] mb-6" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                 Gagasan Kami Menembus<br>Ruang Kelas
             </h1>
-            <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+            <p class="text-base lg:text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                 Seluruh anggota tim kami adalah mahasiswa dengan keahlian di bidang masing-masing. Gagasan kami tumbuh di dalam kelas dan termanifestasi di bawah terik matahari. Kami bekerja bersama lintas benua dan zona waktu untuk mempersembahkan karya kami, Toko Pinjam.
             </p>
         </div>
     </section>
 
     <!-- Meet the Super Team Section -->
-    <section class="py-16 bg-[#9be1eb]">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl lg:text-5xl font-extrabold text-[#433592] mb-4" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+    <section class="min-h-screen flex items-center py-12 bg-[#9be1eb]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl lg:text-5xl font-extrabold text-[#433592] mb-4" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                     Meet the Super Team
                 </h2>
             </div>
             
             <!-- Team Members -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
                 <!-- Rafif N T Bagaskara -->
                 <div class="text-center">
-                    <div class="relative mb-4">
+                    <div class="relative mb-4 flex justify-center">
                         <img src="{{ asset('images/team/bagas.png') }}" 
                              alt="Rafif N T Bagaskara" 
-                             class="w-42 h-42 rounded-full mx-auto object-cover shadow-lg">
+                             class="w-52 h-52 rounded-full object-cover shadow-2xl">
                     </div>
                     <h3 class="text-xl font-bold text-[#433592] mb-1" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                         Rafif N T Bagaskara
@@ -48,10 +48,10 @@
 
                 <!-- M Nugrahhadi -->
                 <div class="text-center">
-                    <div class="relative mb-4">
+                    <div class="relative mb-4 flex justify-center">
                         <img src="{{ asset('images/team/hadi.png') }}" 
                              alt="M Nugrahhadi" 
-                             class="w-42 h-42 rounded-full mx-auto object-cover shadow-lg">
+                             class="w-52 h-52 rounded-full object-cover shadow-2xl">
                     </div>
                     <h3 class="text-xl font-bold text-[#433592] mb-1" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                         M Nugrahhadi Al K
@@ -67,10 +67,10 @@
 
                 <!-- Arga -->
                 <div class="text-center">
-                    <div class="relative mb-4">
+                    <div class="relative mb-4 flex justify-center">
                         <img src="{{ asset('images/team/Arga.png') }}" 
                              alt="Arga" 
-                             class="w-42 h-42 rounded-full mx-auto object-cover shadow-lg">
+                             class="w-52 h-52 rounded-full object-cover shadow-2xl">
                     </div>
                     <h3 class="text-xl font-bold text-[#433592] mb-1" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                         Arga Aryanta I
@@ -86,10 +86,10 @@
 
                 <!-- Allin Alya Yasmin -->
                 <div class="text-center">
-                    <div class="relative mb-4">
+                    <div class="relative mb-4 flex justify-center">
                         <img src="{{ asset('images/team/Alin.png') }}" 
                              alt="Allin Alya Yasmin" 
-                             class="w-42 h-42 rounded-full mx-auto object-cover shadow-lg">
+                             class="w-52 h-52 rounded-full object-cover shadow-2xl">
                     </div>
                     <h3 class="text-xl font-bold text-[#433592] mb-1" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                         Allin Alya Yasmin
@@ -100,6 +100,44 @@
                     <p class="text-sm text-[#433592]" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                         Environmental Science,<br>
                         University of Toronto
+                    </p>
+                </div>
+
+                <!-- Jes -->
+                <div class="text-center">
+                    <div class="relative mb-4 flex justify-center">
+                        <img src="{{ asset('images/team/jes.png') }}" 
+                             alt="Jeskris Oktovianus Silahooy" 
+                             class="w-52 h-52 rounded-full object-cover shadow-2xl">
+                    </div>
+                    <h3 class="text-xl font-bold text-[#433592] mb-1" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                        Jeskris Oktovianus Silahooy
+                    </h3>
+                    <p class="text-[#433592] font-semibold mb-1" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                        IT Support Intern
+                    </p>
+                    <p class="text-sm text-[#433592]" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                        Teknik Informatika, <br>
+                        Universitas Jenderal Soedirman
+                    </p>
+                </div>
+
+                <!-- Ariq -->
+                <div class="text-center">
+                    <div class="relative mb-4 flex justify-center">
+                        <img src="{{ asset('images/team/ariq.webp') }}" 
+                             alt="Faisal Ariq Ramadhan" 
+                             class="w-52 h-52 rounded-full object-cover shadow-2xl">
+                    </div>
+                    <h3 class="text-xl font-bold text-[#433592] mb-1" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                       Faisal Ariq Ramadhan
+                    </h3>
+                    <p class="text-[#433592] font-semibold mb-1" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                        Graphic Design Intern
+                    </p>
+                    <p class="text-sm text-[#433592]" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                        Teknik Sipil,<br>
+                        Universitas Diponegoro
                     </p>
                 </div>
             </div>
@@ -113,7 +151,7 @@
                 <div class="grid lg:grid-cols-2 items-center gap-0">
                     <!-- Left Content -->
                     <div class="pl-8 pr-2 py-4">
-                        <h2 class="text-4xl lg:text-5xl font-extrabold text-[#433592] mb-4" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                        <h2 class="text-2xl lg:text-5xl font-extrabold text-[#433592] mb-4" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                             Ingin Jadi Bagian dari<br><i>the Super Team?</i>
                         </h2>
                         <p class="text-gray-700 text-base lg:text-lg mb-4 leading-relaxed" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">

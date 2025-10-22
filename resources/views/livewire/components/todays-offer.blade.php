@@ -4,10 +4,10 @@
         <div class="relative">
             <!-- Today's Offer Badge (positioned above the cream box) -->
             <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 z-20">
-                <div class="bg-[#433592] text-white px-8 py-3 rounded-lg shadow-lg">
+                <div class="bg-[#433592] text-white px-4 py-2 lg:px-8 lg:py-3 rounded-lg shadow-lg">
                     <div class="flex items-center gap-2">
-                        <span class="text-2xl">🎉</span>
-                        <h2 class="text-2xl lg:text-4xl font-bold" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                        <span class="text-lg lg:text-2xl">🎉</span>
+                        <h2 class="text-lg lg:text-4xl font-bold" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                             TODAY'S OFFER
                         </h2>
                     </div>
@@ -29,25 +29,25 @@
                     <!-- Right Content (3 columns) -->
                     <div class="lg:col-span-3 lg:order-2 p-6 lg:p-8 flex flex-col justify-center">
                         <div class="space-y-4">
-                            <h1 class="text-5xl lg:text-6xl font-extrabold leading-tight" style="color: #433592; font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                            <h1 class="text-2xl lg:text-6xl font-extrabold leading-tight" style="color: #433592; font-family: 'Google Sans', 'Product Sans', sans-serif;">
                                 GRATIS PINJAM<br>
                                 PERTAMA KALI
                             </h1>
                             
                             <div class="space-y-3">
-                                <p class="text-md text-[#433592] leading-relaxed" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                                <p class="text-xs lg:text-md text-[#433592] leading-relaxed" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                                     Peminjaman pertama setiap akun adalah <strong>GRATIS</strong>. 
                                     Kamu tetap perlu bayar donasi minimal, namun 
                                     nantinya akan dikembalikan saat pengambilan 
                                     barang.
                                 </p>
                                 
-                                <p class="text-md font-bold text-[#433592]" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                                <p class="text-xs lg:text-md font-bold text-[#433592]" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                                     Promo ini berlaku untuk semua barang, 
                                     tanpa terkecuali.
                                 </p>
                                 
-                                <p class="text-md text-[#433592] mt-3" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                                <p class="text-xs lg:text-md text-[#433592] mt-3" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                                     Daftarkan kamu, dan teman-teman mu SEKARANG!
                                 </p>
                             </div>
@@ -56,24 +56,24 @@
                 </div>
                 
                 <!-- Bottom Purple Section with Buttons -->
-                <div class="bg-[#433592] px-8 py-6">
-                    <div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
+                <div class="bg-[#433592] px-4 py-4 lg:px-8 lg:py-6">
+                    <div class="flex flex-row gap-3 lg:gap-4 items-center justify-center">
                         @auth
                             {{-- Untuk user yang sudah login --}}
-                            <a href="{{ route('all-items') }}" class="px-12 py-4 bg-transparent text-[#FDF2EB] font-bold rounded-lg border-2 border-[#FDF2EB] hover:bg-[#FDF2EB] hover:text-[#433592] transition-all duration-300" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                            <a href="{{ route('all-items') }}" class="px-8 py-3 lg:px-12 lg:py-4 bg-transparent text-[#FDF2EB] font-bold rounded-lg border-2 border-[#FDF2EB] hover:bg-[#FDF2EB] hover:text-[#433592] transition-all duration-300 text-sm lg:text-base" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                                 Pinjam Barang Sekarang
                             </a>
                         @else
                             {{-- Untuk guest yang belum login --}}
-                            <a href="{{ route('register.custom') }}" class="px-8 py-3 bg-[#FDF2EB] text-[#433592] font-bold rounded-lg hover:bg-white transition-all duration-300 shadow-md" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                            <a href="{{ route('register.custom') }}" class="px-6 py-2 lg:px-8 lg:py-3 bg-[#FDF2EB] text-[#433592] font-bold rounded-lg hover:bg-white transition-all duration-300 shadow-md text-sm lg:text-base" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                                 Register
                             </a>
                             
-                            <span class="text-white font-medium text-lg" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                            <span class="text-white font-medium text-sm lg:text-lg" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                                 Atau
                             </span>
                             
-                            <a href="{{ route('login.custom') }}" class="px-8 py-3 bg-transparent text-[#FDF2EB] font-bold rounded-lg border-2 border-[#FDF2EB] hover:bg-[#FDF2EB] hover:text-[#433592] transition-all duration-300" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                            <a href="{{ route('login.custom') }}" class="px-6 py-2 lg:px-8 lg:py-3 bg-transparent text-[#FDF2EB] font-bold rounded-lg border-2 border-[#FDF2EB] hover:bg-[#FDF2EB] hover:text-[#433592] transition-all duration-300 text-sm lg:text-base" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                                 Login
                             </a>
                         @endauth

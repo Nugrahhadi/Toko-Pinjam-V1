@@ -44,6 +44,14 @@ class ArticleEditorTrix extends Component
         'featured_image.max' => 'Ukuran file maksimal 5MB',
     ];
 
+    public function mount()
+    {
+        // Extra safety: redirect jika belum login
+        if (!Auth::check()) {
+            return redirect()->route('login.custom');
+        }
+    }
+
     public function submit()
     {
         $this->validate();

@@ -32,7 +32,7 @@
           </div>
           
           <!-- Right Content Grid -->
-          <div class="relative grid grid-cols-1 md:grid-cols-2 gap-2">
+          <div class="relative grid grid-cols-2 gap-2">
             <!-- Overlay teks -->
             <div class="absolute inset-0 flex justify-center items-center z-10">
               <span class="text-[#413291] text-xl md:text-xl font-bold px-4 py-2 bg-yellow-400 transform" style="rotate: 5deg;">
@@ -42,7 +42,7 @@
             <!-- Gambar 1 -->
             <img src="{{ asset('images/butuhbantuan/111.JPG') }}"
                  alt="Photo 1"
-                 class="w-full h-40 object-cover rounded-lg col-span-1 md:col-span-2">
+                 class="w-full h-40 object-cover rounded-lg col-span-2">
             <!-- Gambar 2 -->
             <img src="{{ asset('images/butuhbantuan/22.jpg') }}"
                  alt="Photo 2"

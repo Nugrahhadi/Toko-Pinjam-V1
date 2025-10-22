@@ -86,16 +86,16 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Tab Navigation -->
             <div class="flex justify-center mb-12">
-                <div class="bg-gray-100 rounded-lg p-1 flex">
+                <div class="bg-gray-100 rounded-lg p-1 flex w-full max-w-md">
                     <button 
                         wire:click="setActiveTab('lokasi')"
-                        class="px-6 py-3 rounded-lg font-semibold transition-all {{ $activeTab === 'lokasi' ? 'bg-[#433592] text-white' : 'text-gray-600 hover:text-gray-800' }}"
+                        class="flex-1 px-4 py-3 rounded-lg font-semibold transition-all duration-500 ease-in-out transform {{ $activeTab === 'lokasi' ? 'bg-[#433592] text-white shadow-lg scale-105' : 'text-gray-600 hover:text-gray-800 hover:bg-gray-200' }}"
                         style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                         📍 Lokasi Station
                     </button>
                     <button 
                         wire:click="setActiveTab('jam')"
-                        class="px-6 py-3 rounded-lg font-semibold transition-all {{ $activeTab === 'jam' ? 'bg-[#433592] text-white' : 'text-gray-600 hover:text-gray-800' }}"
+                        class="flex-1 px-4 py-3 rounded-lg font-semibold transition-all duration-500 ease-in-out transform {{ $activeTab === 'jam' ? 'bg-[#433592] text-white shadow-lg scale-105' : 'text-gray-600 hover:text-gray-800 hover:bg-gray-200' }}"
                         style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                         🕐 Jam Buka
                     </button>
@@ -103,7 +103,7 @@
             </div>
 
             <!-- Tab Content -->
-            <div class="transition-all duration-300">
+            <div class="transition-all duration-500 ease-in-out transform">
                 @if($activeTab === 'lokasi')
                 <!-- Lokasi Station Content -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">

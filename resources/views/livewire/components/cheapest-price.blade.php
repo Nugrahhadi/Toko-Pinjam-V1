@@ -2,10 +2,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Header -->
         <div class="text-center mb-16">
-            <h2 class="text-4xl lg:text-5xl text-[#433592] mb-6" style="font-weight: 800; font-family: 'Google Sans', 'Product Sans', sans-serif;">
+            <h2 class="text-2xl lg:text-5xl text-[#433592] mb-6" style="font-weight: 800; font-family: 'Google Sans', 'Product Sans', sans-serif;">
                 Kami Menjamin Harga Termurah
             </h2>
-            <p class="text-lg text-[#433592] max-w-3xl mx-auto leading-relaxed" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+            <p class="text-sm lg:text-lg text-[#433592] max-w-3xl mx-auto leading-relaxed" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                 Tidak perlu lagi mengeluarkan ratusan hingga jutaan rupiah hanya untuk barang yang dipakai jarang-jarang. 
                 Mulai dari 10 Ribu, kamu bisa pinjam dan pakai barang-barang ini. Dengan begitu, sisa uang kamu bisa dipakai 
                 untuk keperluan yang lain!

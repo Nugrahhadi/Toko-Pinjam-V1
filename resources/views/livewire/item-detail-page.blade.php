@@ -157,12 +157,12 @@
                                 <div class="text-2xl font-bold" x-text="formatRupiah(totalCost)"></div>
                             </div>
 
-                            {{-- TOMBOL DONASI: hanya muncul jika harga > 0 --}}
+                            {{-- TOMBOL BAYAR: hanya muncul jika harga > 0 --}}
                             @if((float) $item->donation_price > 0)
                                 <button
                                     @click.prevent="handleDonateClick()"
                                     class="mt-4 w-full inline-flex items-center justify-center rounded-xl px-4 py-3 text-white font-semibold bg-green-600 hover:bg-green-700">
-                                    Donasi
+                                    Bayar
                                 </button>
                             @endif
 
@@ -298,9 +298,9 @@
                 get canBook(){ return !!this.start; },
 
                 get waHref(){
-                    const base = 'https://wa.me/6285128050500?text=';
+                    const phone = '6282122270150';
                     const msg = this.buildMessage();
-                    return base + encodeURIComponent(msg);
+                    return `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(msg)}`;
                 },
                 donateUrl: 'https://sociabuzz.com/tokopinjam/donate',
 
@@ -317,7 +317,8 @@
                         this.openAuthModal = true;
                         return;
                     }
-                    window.open(this.waHref, '_blank');
+                    // Redirect langsung ke WhatsApp
+                    window.location.href = this.waHref;
                 },
 
                 buildMessage(){

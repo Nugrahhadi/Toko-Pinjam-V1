@@ -1,10 +1,10 @@
 <nav class="shadow-sm" style="background-color: #fffaf7;">
     {{-- Top notification bar --}}
     <div class="px-4 py-2" style="background-color: #FFC131; color: #433592;">
-        <div class="max-w-7xl mx-auto flex items-center justify-between text-sm">
+        <div class="max-w-7xl mx-auto flex items-center justify-between text-xs lg:text-sm">
             <div class="flex items-center">
                 <span class="mr-2">💡</span>
-                <span class="font-semibold">Untuk dompetmu, lingkunganmu, dan kamu</span>
+                <span class="font-semibold text-xs lg:text-sm">Untuk dompetmu, lingkunganmu, dan kamu</span>
             </div>
 
             {{-- Search (Livewire v3) --}}
@@ -14,7 +14,7 @@
                         type="text"
                         wire:model.live.debounce.300ms="search"
                         placeholder="Mau cari apa?"
-                        class="pl-8 pr-4 py-1 text-sm border border-gray-300 rounded-md focus:outline-none bg-white text-gray-900 placeholder-gray-500"
+                        class="pl-8 pr-4 py-1 text-xs lg:text-sm border border-gray-300 rounded-md focus:outline-none bg-white text-gray-900 placeholder-gray-500"
                         style="--tw-ring-color: #433592; border-color: #433592;"
                     >
                     <svg class="absolute left-2 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -290,8 +290,10 @@
                         </form>
                     </div>
                 @else
-                    <a href="{{ route('login.custom') }}" class="block px-3 py-2 text-gray-700 font-medium hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Login</a>
-                    <a href="{{ route('register.custom') }}" class="block px-3 py-2 text-white rounded-md font-medium text-center bg-[#433592] hover:bg-[#3A2B7A] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Register</a>
+                    <div class="px-3 py-2 flex flex-col items-center space-y-2">
+                        <a href="{{ route('login.custom') }}" class="w-full text-center px-3 py-2 border-2 border-[#433592] text-[#433592] rounded-md font-medium hover:bg-[#433592] hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Login</a>
+                        <a href="{{ route('register.custom') }}" class="w-full text-center px-3 py-2 text-white rounded-md font-medium bg-[#433592] hover:bg-[#3A2B7A] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Register</a>
+                    </div>
                 @endauth
 
                 {{-- Mobile Donasi Button --}}

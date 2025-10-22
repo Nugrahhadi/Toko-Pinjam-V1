@@ -43,7 +43,7 @@
                     <h4 class="font-semibold mb-3 text-white" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Terhubung dengan Kami</h4>
                     <div class="flex space-x-4">
                         <!-- WhatsApp -->
-                        <a href="https://wa.me/6285128050500" class="text-white/80 hover:text-white transition-colors">
+                        <a href="https://wa.me/6282122270150" class="text-white/80 hover:text-white transition-colors">
                             <span class="[&>svg]:h-7 [&>svg]:w-7">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
