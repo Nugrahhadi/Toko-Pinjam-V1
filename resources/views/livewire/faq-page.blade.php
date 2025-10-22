@@ -7,7 +7,7 @@
 
             <!-- Header Section -->
             <div class="flex flex-col lg:flex-row justify-between items-center mb-10">
-                <h1 class="text-4xl font-bold text-purple-700 mr-4">
+                <h1 class="text-2xl lg:text-4xl font-bold text-purple-700 mr-4">
                     Frequently<br>
                     Asked Questions<br>
                     (FAQ)

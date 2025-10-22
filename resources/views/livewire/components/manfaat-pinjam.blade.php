@@ -2,7 +2,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     {{-- HEADLINE --}}
-    <h2 class="text-center text-4xl font-extrabold text-[#433592] leading-snug mb-10"
+    <h2 class="text-center text-2xl lg:text-4xl font-extrabold text-[#433592] leading-snug mb-10"
         style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
       <em>Sustainable Lifestyle</em> Bukanlah Pengorbanan.<br class="hidden md:block">
       Coba dan Rasakan Dampaknya!
@@ -12,39 +12,47 @@
     <div class="relative">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {{-- Card 1 --}}
-        <div class="relative bg-[#FCE9F0] border-8 border-white rounded-xl shadow-md p-6 text-center">
-          <img src="{{ asset('images/sustain/1.png') }}" alt="" class="mx-auto mb-5 w-40 h-40 object-contain">
-          <p class="text-xl font-bold text-[#433592] tracking-wide">
+        <div class="relative bg-[#FCE9F0] border-8 border-white rounded-xl shadow-md p-6 text-center flex flex-col">
+          <div class="flex items-center justify-center mb-5" style="height: 160px;">
+            <img src="{{ asset('images/sustain/1.png') }}" alt="" class="max-w-full max-h-full object-contain">
+          </div>
+          <p class="text-sm lg:text-xl font-bold text-[#433592] tracking-wide mt-auto">
             EKONOMI MELEMAH,<br> KEBUTUHAN TETAP SAMA
           </p>
         </div>
 
         {{-- Card 2 --}}
-        <div class="relative bg-[#6457cb] border-8 border-white rounded-xl shadow-md p-6 text-center">
-          <img src="{{ asset('images/sustain/2.png') }}" alt="" class="mx-auto mb-5 w-40 h-40 object-contain">
-          <p class="text-xl font-bold text-white tracking-wide">
+        <div class="relative bg-[#6457cb] border-8 border-white rounded-xl shadow-md p-6 text-center flex flex-col">
+          <div class="flex items-center justify-center mb-5" style="height: 160px;">
+            <img src="{{ asset('images/sustain/2.png') }}" alt="" class="max-w-full max-h-full object-contain">
+          </div>
+          <p class="text-sm lg:text-xl font-bold text-white tracking-wide mt-auto">
             PINJAM KEBUTUHAN<br> DAN SIMPAN UANG-MU
           </p>
         </div>
 
         {{-- Card 3 --}}
-        <div class="relative bg-[#FBE2EF] border-8 border-white rounded-xl shadow-md p-6 text-center">
-          <img src="{{ asset('images/sustain/3.png') }}" alt="" class="mx-auto mb-5 w-40 h-40 object-contain">
-          <p class="text-xl font-bold text-[#433592] tracking-wide">
-            OVER-KONSUMSI NAIK 300%<br> DALAM 50 TAHUN
-          </p>
-          <span class="text-md text-gray-500 mt-2 block">Sumber: OECD</span>
+        <div class="relative bg-[#FBE2EF] border-8 border-white rounded-xl shadow-md p-6 text-center flex flex-col">
+          <div class="flex items-center justify-center mb-5" style="height: 160px;">
+            <img src="{{ asset('images/sustain/3.png') }}" alt="" class="max-w-full max-h-full object-contain">
+          </div>
+          <div class="mt-auto">
+            <p class="text-sm lg:text-xl font-bold text-[#433592] tracking-wide">
+              OVER-KONSUMSI NAIK 300%<br> DALAM 50 TAHUN
+            </p>
+            <span class="text-xs lg:text-md text-gray-500 mt-2 block">Sumber: OECD</span>
+          </div>
         </div>
 
         {{-- Card 4 --}}
-<div class="relative bg-[#6457cb] border-8 border-white rounded-xl shadow-md pt-6 px-0 pb-6 text-center">
-  <img src="{{ asset('images/sustain/4.png') }}" 
-       alt="" 
-       class="w-full h-30 object-cover rounded-t-xl">
-  <p class="text-xl pt-8 font-bold text-white tracking-wide px-6">
-    SHARING BERSAMA SAHABAT,<br> JADI RAMAH LINGKUNGAN
-  </p>
-</div>
+        <div class="relative bg-[#6457cb] border-8 border-white rounded-xl shadow-md p-6 text-center flex flex-col">
+          <div class="flex items-center justify-center mb-5" style="height: 160px;">
+            <img src="{{ asset('images/sustain/4.png') }}" alt="" class="max-w-full max-h-full object-contain rounded-lg">
+          </div>
+          <p class="text-sm lg:text-xl font-bold text-white tracking-wide mt-auto">
+            SHARING BERSAMA SAHABAT,<br> JADI RAMAH LINGKUNGAN
+          </p>
+        </div>
       </div>
 
       {{-- PANAH 1 -> 2 --}}
@@ -63,29 +71,29 @@
   <div class="grid grid-cols-1 md:grid-cols-[auto,1fr] md:gap-x-6 items-center">
     
     {{-- Gambar Orang (5.png) --}}
-    <div class="flex justify-center md:justify-start pr-10">
+    <div class="flex justify-center md:justify-center mb-4 md:mb-0">
       <img src="{{ asset('images/sustain/5.png') }}" 
            alt="People" 
-           class="max-w-[300px] md:max-w-[300px] w-full h-auto">
+           class="max-w-[250px] md:max-w-[300px] w-full h-auto">
     </div>
 
     {{-- Judul + Bubble Chat --}}
-    <div class="flex flex-col items-center md:items-start space-y-2 mt-4 md:mt-0">
-      <div class="text-left">
-        <h3 class="text-[#433592] font-extrabold text-5xl mb-1"
+    <div class="flex flex-col items-center md:items-start space-y-4 mt-4 md:mt-0">
+      <div class="text-center md:text-left">
+        <h3 class="text-[#433592] font-extrabold text-3xl md:text-5xl mb-2"
             style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
           100% Orang Butuh Toko Pinjam
         </h3>
-        <p class="text-gray-700 text-xl">
+        <p class="text-gray-700 text-base md:text-xl">
           25 dari 25 orang yang kami survey secara mandiri mengatakan dua hal:
         </p>
       </div>
 
       {{-- Bubble Chat (6.png) --}}
-      <div class="mt-2">
+      <div class="flex justify-center md:justify-start w-full">
         <img src="{{ asset('images/sustain/6.png') }}" 
              alt="Quotes" 
-             class="max-w-xl w-full h-300">
+             class="max-w-full md:max-w-xl w-full h-auto">
       </div>
     </div>
   </div>

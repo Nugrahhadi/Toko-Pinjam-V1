@@ -130,7 +130,7 @@
 
                         <h2 class="text-2xl font-semibold text-[#433592] mb-4">Kontak</h2>
                         <p class="mb-4">Untuk pertanyaan atau keluhan, hubungi kami melalui:</p>
-                        <p class="mb-4">WhatsApp: <a href="https://wa.me/6285128050500" class="text-purple-600 hover:text-purple-700">0851-2805-0500</a></p>
+                        <p class="mb-4">WhatsApp: <a href="https://wa.me/6282122270150" class="text-purple-600 hover:text-purple-700">0821-2227-0150</a></p>
                     </div>
                 </div>
             </div>

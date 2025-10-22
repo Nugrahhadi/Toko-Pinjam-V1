@@ -31,7 +31,7 @@
             </a>
 
             {{-- WhatsApp --}}
-            <a href="https://wa.me/6285128050500?text=Halo%20Admin%2C%20saya%20ingin%20bertanya%20tentang..."
+            <a href="https://wa.me/6282122270150?text=Halo%20Admin%2C%20saya%20ingin%20bertanya%20tentang..."
                 class="flex-1 bg-lime-300 text-[#3b0a73] p-6 rounded-xl shadow-md hover:scale-105 transition text-left"
                 target="_blank">
                 <div class="text-4xl font-bold flex justify-left items-left gap-2 mb-2">
@@ -44,8 +44,7 @@
                     WhatsApp
                 </div>
                 <div class="text-2xl md:text-base font-semibold">
-                    +62 851-2805-0500 (Hanya Chat)
-
+                    +62 821-2227-0150 (Hanya Chat)
                 </div>
             </a>
         </div>

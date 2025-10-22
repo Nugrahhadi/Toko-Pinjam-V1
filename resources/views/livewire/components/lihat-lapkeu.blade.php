@@ -6,8 +6,8 @@
         
         <!-- Teks di tengah absolute -->
         <div class="absolute inset-0 flex justify-center items-center">
-          <div class="text-center">
-            <h3 class="whitespace-nowrap text-3xl md:text-4xl font-extrabold text-[#413291] mb-8" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+          <div class="text-center px-4">
+            <h3 class="text-2xl md:text-4xl font-extrabold text-[#413291] mb-8 leading-tight" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
               Kamu berhak tahu untuk apa donasimu digunakan
             </h3>
             <a href="{{ route('laporan-keuangan') }}" target="_blank"

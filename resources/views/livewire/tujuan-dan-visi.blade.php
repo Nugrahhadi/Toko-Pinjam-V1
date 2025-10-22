@@ -7,11 +7,11 @@
         <div class="absolute inset-0 bg-black/20"></div>
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
             <div class="text-center">
-                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in">
+                <h1 class="text-2xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
                     We are standing for<br>
                     <span class="text-yellow-300">Environmental Justice</span>
                 </h1>
-                <p class="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
+                <p class="text-base lg:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
                     Environmental justice atau keadilan lingkungan adalah sebuah konsep dan gerakan yang 
                     menuntut distribusi yang adil atas manfaat dan beban lingkungan serta proses pengambilan 
                     keputusan yang inklusif dan bermakna bagi semua kelompok, terutama yang terpinggirkan.
@@ -31,10 +31,10 @@
     <div class="py-20 bg-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-[#433592] mb-6">
+                <h2 class="text-2xl lg:text-5xl font-bold text-[#433592] mb-6">
                     Ketimpangan, ketimpangan, ketimpangan
                 </h2>
-                <p class="text-lg text-[#433592] max-w-4xl mx-auto">
+                <p class="text-base lg:text-lg text-[#433592] max-w-4xl mx-auto">
                     Tinggal di perkotaan? coba sesekali ke pedesaan. Tinggal di pedesaan? coba sesekali tinggal di perkotaan. 
                     Kamu bukan hanya akan melihat, tapi juga merasakan ketimpangan, gap, disparitas akan akses kepada 
                     fasilitas penunjang dan pendukung kreatifitas.
@@ -88,10 +88,10 @@
         </div>
 
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl md:text-5xl font-bold mb-8 text-[#413291]">
+            <h2 class="text-2xl lg:text-5xl font-bold mb-8 text-[#413291]">
                 Manusia serakah, bumi terpaksa merekah
             </h2>
-            <p class="text-xl text-[#413291] max-w-3xl mx-auto">
+            <p class="text-base lg:text-xl text-[#413291] max-w-3xl mx-auto">
                 Jika kamu pikir keadilan hanya untuk manusia, maka kamu tidak adil.<br>
                 Bumi dan lingkungannya juga butuh keadilan.
             </p>
@@ -102,7 +102,7 @@
     <div class="py-10 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-[#433592] mb-4">Sekarang</h2>
+                <h2 class="text-xl lg:text-4xl font-bold text-[#433592] mb-4">Sekarang</h2>
 
                 <!-- Statistic 1 -->
                 <div class="text-center p-8 bg-gradient-to-br from-red-50 to-orange-50 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
@@ -112,7 +112,7 @@
                     </p>
                 </div>
 
-                <h2 class="text-4xl font-bold text-[#433592] mt-12">Proyeksi</h2>
+                <h2 class="text-xl lg:text-4xl font-bold text-[#433592] mt-12">Proyeksi</h2>
             </div>
              
 
@@ -240,7 +240,7 @@
         
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-8 animate-fade-in">
+                <h2 class="text-2xl lg:text-5xl font-bold mb-8 animate-fade-in">
                     Konsumtif? <span class="text-yellow-300">in this economy??!!</span>
                 </h2>
             </div>
@@ -309,7 +309,7 @@
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Title -->
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+                <h2 class="text-2xl lg:text-5xl font-bold text-gray-900 mb-8">
                     Maka dari itu,<br>
                     <span class="text-purple-600">Toko Pinjam hadir!</span>
                 </h2>

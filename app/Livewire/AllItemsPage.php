@@ -12,6 +12,7 @@ class AllItemsPage extends Component
     use WithPagination;
 
     public $selectedCategory = 'all';
+    public $search = '';
     public $categories;
 
     public function mount()
@@ -25,15 +26,26 @@ class AllItemsPage extends Component
         $this->resetPage();
     }
 
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
     public function render()
     {
         $items = Item::with(['category:id,name,slug', 'location:id,name'])
             ->where('is_active', true)
+            ->when($this->search, function ($q) {
+                $q->where(function($qq) {
+                    $qq->where('name', 'like', '%' . $this->search . '%')
+                       ->orWhere('description', 'like', '%' . $this->search . '%');
+                });
+            })
             ->when($this->selectedCategory !== 'all', function ($q) {
                 $q->whereHas('category', fn($qq) => $qq->where('slug', $this->selectedCategory));
             })
             ->latest()        // urutkan dari yang terbaru
-            ->paginate(12);
+            ->paginate(20);    // ubah dari 12 menjadi 20 untuk 5 kolom (4 baris x 5)
 
         return view('livewire.all-items-page', [
             'items' => $items,

@@ -4,22 +4,22 @@
             <!-- Left content -->
             <div class="space-y-8">
                 <div class="space-y-4">
-                    <h1 class="text-4xl lg:text-6xl leading-tight" style="font-weight: 900; color: #433592;">
+                    <h1 class="text-2xl lg:text-6xl leading-tight" style="font-weight: 900; color: #433592;">
                         <span style="color: #433592; font-weight: 900;">Kalau bisa 
-                            <span style="color: #433592; font-weight: 800;" class="py-1 rounded inline-block min-w-[120px] lg:min-w-[140px] text-center" 
+                            <span style="color: #433592; font-weight: 800;" class="py-1 rounded inline-block min-w-[80px] lg:min-w-[140px] text-center" 
                                   id="animated-text" 
                                   style="animation: 3s ease 0s infinite normal forwards running fadeInOut; color: #433592; font-weight: 900;">pinjam</span>
                         </span><br>
                         <span style="color: #433592; font-weight: 900;">kenapa harus beli?</span><br>
                     </h1>
                     
-                    <p class="text-xl text-gray-600 max-w-md">
+                    <p class="text-sm lg:text-xl text-gray-600 max-w-md">
                         Daripada hanya dipakai sekali, mending pinjam barang yang kamu perlukan dengan harga miring. Dompetmu tenang, lingkungan pun aman.
                     </p>
                 </div>
                 
                 <div>
-                    <a href="{{ route('register.custom') }}" class="inline-block text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors" 
+                    <a href="{{ route('register.custom') }}" class="inline-block text-white px-6 py-3 lg:px-8 lg:py-4 rounded-lg font-semibold text-base lg:text-lg transition-colors" 
                        style="background-color: #433592;" 
                        onmouseover="this.style.backgroundColor='#3A2B7A'" 
                        onmouseout="this.style.backgroundColor='#433592'">
