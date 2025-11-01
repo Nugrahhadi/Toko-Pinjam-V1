@@ -1,7 +1,6 @@
 <section style="background-color: #fffaf7;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <!-- Left content -->
             <div class="space-y-8">
                 <div class="space-y-4">
                     <h1 class="text-2xl lg:text-6xl leading-tight" style="font-weight: 900; color: #433592;">
@@ -28,9 +27,7 @@
                 </div>
             </div>
 
-            <!-- Right content - Image grid -->
             <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                <!-- Row 1 -->
                 <div class="space-y-4">
                     <img src="{{ asset('images/naikGunung.png') }}" 
                          alt="Camera equipment" 
@@ -39,8 +36,7 @@
                          alt="Projector rental" 
                          class="rounded-lg w-full h-40 object-cover">
                 </div>
-                
-                <!-- Row 2 -->
+
                 <div class="space-y-4 mt-8">
                     <img src="{{ asset('images/MainPS.jpg') }}" 
                          alt="Gaming console" 
@@ -49,8 +45,7 @@
                          alt="Photography equipment" 
                          class="rounded-lg w-full h-32 object-cover">
                 </div>
-                
-                <!-- Row 3 -->
+
                 <div class="space-y-4 hidden lg:block">
                     <img src="{{ asset('images/foto.jpeg') }}" 
                          alt="Photography setup" 
@@ -62,8 +57,7 @@
             </div>
         </div>
     </div>
-    
-    <!-- Script animasi teks -->
+
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const animatedText = document.getElementById('animated-text');
@@ -82,8 +76,7 @@
         }
     });
     </script>
-    
-    <!-- Style animasi teks -->
+
     <style>
     @keyframes fadeInOut {
         0% { opacity: 1; transform: translateY(0); }

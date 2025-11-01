@@ -1,8 +1,5 @@
-<!-- HERO SECTION -->
 <section class="bg-[#413291] py-12">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <!-- Kotak Putih di Atas -->
     <div class="bg-white rounded-lg shadow-md p-6 mb-10">
       <h2 class="text-xl md:text-2xl font-extrabold text-gray-800 mb-2" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
         Kami frustasi ketika harus membeli mahal barang yang hanya dipakai sesekali, dan ternyata kamu juga!
@@ -13,12 +10,10 @@
       </p>
     </div>
 
-    <!-- Judul Besar -->
     <h3 class="text-2xl md:text-3xl font-extrabold text-white text-center mb-10" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
       Kenapa Lebih Baik Pinjam?
     </h3>
 
-    <!-- 3 Card Alasan -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
       <!-- Card 1 -->
       <div class="bg-white rounded-lg shadow-md p-6 h-full relative">
@@ -34,7 +29,6 @@
         <img src="{{ asset('images/kenapapinjam/1.png') }}" alt="Murah" class="w-20 absolute right-4 bottom-4">
       </div>
 
-      <!-- Card 2 -->
       <div class="bg-white rounded-lg shadow-md p-6 h-full relative">
         <div>
           <h4 class="text-lg font-bold text-gray-800 mb-3">
@@ -47,7 +41,6 @@
         <img src="{{ asset('images/kenapapinjam/2.png') }}" alt="Ramah Lingkungan" class="w-20 absolute right-4 bottom-4">
       </div>
 
-      <!-- Card 3 -->
       <div class="bg-white rounded-lg shadow-md p-6 h-full relative">
         <div>
           <h4 class="text-lg font-bold text-gray-800 mb-3">
@@ -61,7 +54,6 @@
       </div>
     </div>
 
-    <!-- Link Bawah -->
     <div class="text-center">
       <a href="{{ route('tujuan-dan-visi') }}" class="text-white underline text-sm hover:text-gray-300 transition">
         Pelajari misi dan dampak yang kami perjuangkan

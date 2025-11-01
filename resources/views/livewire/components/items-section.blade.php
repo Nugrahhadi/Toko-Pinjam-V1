@@ -1,6 +1,5 @@
 <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Category buttons -->
         <div class="flex flex-wrap justify-center gap-3 mb-12">
             @foreach($categories as $category)
                 <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors">
@@ -9,7 +8,6 @@
             @endforeach
         </div>
 
-        <!-- Featured items grid -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
             @foreach($featuredItems as $item)
                 <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
@@ -34,7 +32,6 @@
             @endforeach
         </div>
 
-        <!-- Affordable things section -->
         <div class="text-center mb-12">
             @if($searchTerm)
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">
@@ -56,7 +53,6 @@
             @endif
         </div>
 
-        <!-- All items grid -->
         @if($searchTerm && ($items->count() > 0 || $featuredItems->count() > 0))
             <div class="mb-4 flex justify-between items-center">
                 <h3 class="text-xl font-semibold text-gray-900">Search Results</h3>
@@ -68,7 +64,6 @@
         
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
             @if($searchTerm)
-                {{-- Show all search results --}}
                 @foreach($items as $item)
                     <div class="text-center">
                         <div class="bg-gray-100 rounded-lg p-4 mb-3 aspect-square flex items-center justify-center">
@@ -86,7 +81,7 @@
                     </div>
                 @endforeach
             @else
-                {{-- Show limited results when not searching --}}
+
                 @foreach($items->take(4) as $item)
                     <div class="text-center">
                         <div class="bg-gray-100 rounded-lg p-4 mb-3 aspect-square flex items-center justify-center">

@@ -1,7 +1,6 @@
 <footer class="bg-[#433592] text-white py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid md:grid-cols-4 gap-8 lg:gap-12">
-            <!-- Logo and description -->
             <div class="md:col-span-1">
                 <a href="/" class="flex items-center hover:opacity-80 transition-opacity mb-4">
                     <img src="{{ asset('images/footerlogo.png') }}" 
@@ -13,7 +12,6 @@
                 </p>
             </div>
 
-            <!-- Cara Meminjam -->
             <div>
                 <h4 class="font-semibold mb-4 text-white" style="font-family: 'Google Sans', 'Product Sans', sans-serif;"></h4>
                 <ul class="space-y-2 text-sm text-white/80">
@@ -25,7 +23,6 @@
                 </ul>
             </div>
 
-            <!-- Tentang Kami -->
             <div>
                 <h4 class="font-semibold mb-4 text-white" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Tentang Kami</h4>
                 <ul class="space-y-2 text-sm text-white/80">
@@ -36,13 +33,10 @@
                 </ul>
             </div>
 
-            <!-- Support & Legal -->
             <div>
-                <!-- Social Media -->
                 <div class="mb-6">
                     <h4 class="font-semibold mb-3 text-white" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Terhubung dengan Kami</h4>
                     <div class="flex space-x-4">
-                        <!-- WhatsApp -->
                         <a href="https://wa.me/6282122270150" class="text-white/80 hover:text-white transition-colors">
                             <span class="[&>svg]:h-7 [&>svg]:w-7">
                                 <svg
@@ -55,8 +49,7 @@
                                 </svg>
                             </span>
                         </a>
-                        
-                        <!-- Instagram -->
+
                         <a href="https://www.instagram.com/tokopinjam/" class="text-white/80 hover:text-white transition-colors">
                             <span class="[&>svg]:h-7 [&>svg]:w-7">
                                 <svg
@@ -70,7 +63,6 @@
                             </span>
                         </a>
 
-                        <!-- YouTube -->
                         <a href="https://www.youtube.com/channel/UCSQL7JClXeiOSHygskqo8iQ" class="text-white/80 hover:text-white transition-colors">
                             <span class="[&>svg]:h-7 [&>svg]:w-7">
                                 <svg
@@ -86,7 +78,6 @@
                     </div>
                 </div>
 
-                <!-- Address -->
                 <div>
                     <h4 class="font-semibold mb-3 text-white" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Alamat Kami</h4>
                     <p class="text-white/80 text-sm" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
@@ -98,7 +89,6 @@
             </div>
         </div>
 
-        <!-- Bottom section -->
         <div class="border-t border-white/20 mt-12 pt-8">
             <div class="text-center">
                 <p class="text-white/80 text-sm mb-2" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">

@@ -1,5 +1,4 @@
 <nav class="shadow-sm" style="background-color: #fffaf7;">
-    {{-- Top notification bar --}}
     <div class="px-4 py-2" style="background-color: #FFC131; color: #433592;">
         <div class="max-w-7xl mx-auto flex items-center justify-between text-xs lg:text-sm">
             <div class="flex items-center">
@@ -7,7 +6,6 @@
                 <span class="font-semibold text-xs lg:text-sm">Untuk dompetmu, lingkunganmu, dan kamu</span>
             </div>
 
-            {{-- Search (Livewire v3) --}}
             <div class="flex items-center">
                 <div class="relative">
                     <input
@@ -26,10 +24,8 @@
         </div>
     </div>
 
-    {{-- Main navbar --}}
     <div class="max-w-7xl mx-auto px-4 mt-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
-            {{-- Logo + Desktop links --}}
             <div class="flex items-center">
                 <a href="/" class="flex items-center px-4 hover:opacity-80 transition-opacity">
                     <img src="{{ asset('images/logo-toko-pinjam.png') }}"
@@ -38,14 +34,12 @@
                 </a>
 
                 <div class="hidden md:flex items-center space-x-8">
-                    {{-- Nav Pinjam Sekarang --}}
                     <a href="{{ route('all-items') }}"
                        class="text-gray-700 font-medium hover:text-[#433592] transition-colors"
                        style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                         Pinjam Sekarang
                     </a>
 
-                    {{-- Dropdown Lokasi (CSS hover) --}}
                     <div class="relative group">
                         <button class="text-gray-700 font-medium hover:text-[#433592] transition-colors flex items-center"
                                 style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
@@ -70,7 +64,6 @@
                         </div>
                     </div>
 
-                    {{-- Dropdown Tentang Kami (CSS hover) --}}
                     <div class="relative group">
                         <button class="text-gray-700 font-medium hover:text-[#433592] transition-colors flex items-center"
                                 style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
@@ -95,7 +88,6 @@
                 </div>
             </div>
 
-            {{-- Right side button (desktop) --}}
             <div class="hidden md:flex items-center space-x-4">
                 <a href="{{ route('donasi') }}"
                    class="flex items-center px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
@@ -109,7 +101,6 @@
                 </a>
 
                 @auth
-                    {{-- Dropdown Profil tanpa Alpine --}}
                     <div class="relative">
                         <button wire:click="toggleProfile"
                                 class="flex items-center space-x-2 text-gray-700 font-medium hover:text-[#433592] transition-colors">
@@ -126,7 +117,6 @@
                         @if($profileOpen)
                             <div class="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg z-50">
                                 <div class="py-1">
-                                    {{-- User Info --}}
                                     <div class="px-4 py-3">
                                         <p class="text-sm font-medium text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                                             {{ auth()->user()->name }}
@@ -139,7 +129,6 @@
                                         </span>
                                     </div>
 
-                                    {{-- Menu Items --}}
                                     <a href="{{ route('profile') }}" wire:click="closeProfile" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                                         <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -190,7 +179,6 @@
                 @endauth
             </div>
 
-            {{-- Mobile menu button (Livewire) --}}
             <div class="md:hidden">
                 <button wire:click="toggleMenu"
                         class="text-gray-700"
@@ -205,7 +193,6 @@
             </div>
         </div>
 
-        {{-- Mobile menu (Livewire toggle) --}}
         <div class="md:hidden {{ $isMenuOpen ? 'block' : 'hidden' }}">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t">
                 <a href="{{ route('all-items') }}"
@@ -214,7 +201,6 @@
                     Pinjam Sekarang
                 </a>
 
-                {{-- Mobile Lokasi --}}
                 <div class="px-3 py-2">
                     <div class="font-medium text-gray-700 mb-2" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Lokasi</div>
                     <div class="pl-4 space-y-1">
@@ -230,7 +216,6 @@
                     </div>
                 </div>
 
-                {{-- Mobile Tentang Kami --}}
                 <div class="px-3 py-2">
                     <div class="font-medium text-gray-700 mb-2" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Tentang Kami</div>
                     <div class="pl-4 space-y-1">
@@ -243,7 +228,6 @@
                 </div>
 
                 @auth
-                    {{-- Mobile Auth Menu --}}
                     <div class="pt-3">
                         <div class="px-3 py-2 mb-2">
                             <div class="flex items-center space-x-3">
@@ -296,7 +280,6 @@
                     </div>
                 @endauth
 
-                {{-- Mobile Donasi Button --}}
                 <div class="px-3 py-2">
                     <a href="{{ route('donasi') }}"
                        class="w-full flex items-center justify-center px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-blue-700 transition-all duration-200"

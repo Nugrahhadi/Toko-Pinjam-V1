@@ -1,6 +1,5 @@
 <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Header -->
         <div class="text-center mb-16">
             <h2 class="text-2xl lg:text-5xl text-[#433592] mb-6" style="font-weight: 800; font-family: 'Google Sans', 'Product Sans', sans-serif;">
                 Kami Menjamin Harga Termurah
@@ -13,10 +12,9 @@
         </div>
 
         @php
-            /** Ambil 5 item terbaru yang aktif */
             $latestItems = \App\Models\Item::with('category')
                 ->where('is_active', true)
-                ->latest()              // order by created_at desc
+                ->latest()
                 ->take(5)
                 ->get();
         @endphp
@@ -36,14 +34,12 @@
         <a href="{{ route('items.show', $item->slug) }}"
            class="group block transform hover:scale-105 transition-all duration-300 h-full">
             <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
-                <!-- Image rasio 1:1 -->
                 <div class="aspect-square overflow-hidden bg-gray-50">
                     <img src="{{ $img }}"
                          alt="{{ $item->name }}"
                          class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
                 </div>
 
-                <!-- Content -->
                 <div class="p-3 lg:p-4 flex-1 flex flex-col">
                     <div class="mb-2">
                         <span class="inline-block px-2 py-1 text-xs font-medium text-[#433592] bg-[#FDF2EB] rounded-full">
@@ -69,7 +65,6 @@
     @endforelse
 </div>
 
-        <!-- Call to Action -->
         <div class="text-center mt-12">
             <a href="{{ route('all-items') }}" class="inline-flex items-center px-8 py-4 bg-[#433592] text-white font-semibold rounded-lg hover:bg-[#3A2B7A] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                 Lihat Semua Barang

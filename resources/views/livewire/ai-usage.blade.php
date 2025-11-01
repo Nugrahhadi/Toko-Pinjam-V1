@@ -1,23 +1,18 @@
 <div>
-    <!-- Navbar -->
     <livewire:components.navbar />
-    
-    <!-- Main Content -->
+
     <section class="bg-white py-12">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
 
-            <!-- Acknowledgement Section -->
             <section class="bg-white py-12">
                 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-gray-700 text-justify relative">
 
-                    <!-- Ikon di pojok kanan atas -->
                     <div class="absolute top-0 right-0 mt-2 mr-2 sm:mt-4 sm:mr-6 lg:mr-8">
                         <img src="{{ asset('images/aiusage/judul.png') }}"
                              alt="Photo 3"
                              class="w-full h-36 object-cover rounded-lg">
                     </div>
 
-                    <!-- Judul -->
                     <h2 class="text-3xl md:text-4xl font-extrabold text-[#413291] mb-10" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                       Acknowledgement<br>
                       of Artificial<br>
@@ -25,7 +20,6 @@
                       Usage
                     </h2>
 
-                    <!-- Paragraf -->
                     <div class="space-y-4 text-base md:text-lg leading-relaxed">
                       <p>
                         Dalam pembuatan laman ini, kami menggunakan <em>AI</em> sebagai alat bantu sehingga proses menjadi lebih cepat dan murah. <em>AI</em> digunakan dalam memproduksi ilustrasi grafis dan proses <em>touch up</em> foto produk kami. Jenis <em>AI</em> yang digunakan adalah <em>Large Language Models</em> yaitu <em>ChatGPT</em>.
@@ -45,7 +39,6 @@
                 </div>
             </section>
 
-            <!-- Super Team Section -->
             <div class="bg-[#FDF5F2] rounded-lg shadow-md p-8 mb-4">
                 <div class="flex items-center justify-between">
                     <div class="flex-1">
@@ -63,7 +56,6 @@
                         </a>
                     </div>
 
-                    <!-- Illustration -->
                     <div class="flex justify-center md:justify-end">
                         <img src="{{ asset('images/aiusage/bumi.png') }}"
                              alt="Photo 3"
@@ -75,13 +67,10 @@
         </div>
     </section>
 
-    <!-- Butuh Bantuan Section -->
     <section class="bg-white py-2 mb-12 w-full">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-[#FDF5F2] rounded-lg shadow-md p-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-                    
-                    <!-- Left Content -->
                     <div>
                         <h2 class="text-2xl md:text-3xl font-extrabold text-gray-800 mb-4" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                             Kami Butuh Uluran Tanganmu
@@ -92,33 +81,28 @@
                         <p class="text-gray-700 mb-6 text-base md:text-lg leading-relaxed">
                             Kami mengajak kamu untuk ikut bergerak bersama dalam gerakan ini dengan memberikan donasi dalam jumlah berapapun dan bentuk apapun!
                         </p>
-                       <div class="flex flex-wrap gap-4">
-               <button class="w-[200px] flex items-center justify-center px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-blue-700 transition-all duration-200" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-    </svg>
-    Donasi
-</button>
-            </div>
+                        <div class="flex flex-wrap gap-4">
+                            <button class="w-[200px] flex items-center justify-center px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-blue-700 transition-all duration-200" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                </svg>
+                                Donasi
+                            </button>
+                        </div>
                     </div>
 
-                    <!-- Right Content Grid -->
                     <div class="relative grid grid-cols-1 md:grid-cols-2 gap-2">
-                        <!-- Overlay teks -->
                         <div class="absolute inset-0 flex justify-center items-center z-10">
                             <span class="text-[#413291] text-xl md:text-xl font-bold px-4 py-2 bg-yellow-400 transform" style="rotate: 5deg;">
                                 <em>Our Founders</em>
                             </span>
                         </div>
-                        <!-- Gambar 1 -->
                         <img src="{{ asset('images/butuhbantuan/111.jpg') }}"
                              alt="Photo 1"
                              class="w-full h-40 object-cover rounded-lg col-span-1 md:col-span-2">
-                        <!-- Gambar 2 -->
                         <img src="{{ asset('images/butuhbantuan/22.jpg') }}"
                              alt="Photo 2"
                              class="w-full h-32 object-cover rounded-lg">
-                        <!-- Gambar 3 -->
                         <img src="{{ asset('images/butuhbantuan/33.jpg') }}"
                              alt="Photo 3"
                              class="w-full h-32 object-cover rounded-lg">
@@ -128,6 +112,5 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <livewire:components.footer />
 </div>

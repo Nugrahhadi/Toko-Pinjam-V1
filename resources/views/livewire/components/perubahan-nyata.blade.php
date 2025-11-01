@@ -9,21 +9,18 @@
     </p>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-      <!-- Card 1 -->
       <div>
         <p class="text-purple-900 text-base mb-1">Menghemat</p>
         <h3 class="text-2xl md:text-3xl font-bold text-purple-900" id="count-money">0</h3>
         <p class="text-purple-900 mt-1">Uang masyarakat</p>
       </div>
 
-      <!-- Card 2 -->
       <div>
         <p class="text-purple-900 text-base mb-1">Menangkal</p>
         <h3 class="text-2xl md:text-3xl font-bold text-purple-900" id="count-co2">0</h3>
         <p class="text-purple-900 mt-1">Emisi CO2 ke atmosfer</p>
       </div>
 
-      <!-- Card 3 -->
       <div>
         <p class="text-purple-900 text-base mb-1">Mencegah</p>
         <h3 class="text-2xl md:text-3xl font-bold text-purple-900" id="count-waste">0</h3>
@@ -37,12 +34,11 @@
   </div>
 </section>
 
-<!-- CountUp.js CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.6.2/countUp.umd.js"></script>
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    let animated = false; // Supaya tidak jalan berkali-kali
+    let animated = false; 
 
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
@@ -74,7 +70,7 @@
         }
       });
     }, {
-      threshold: 0.3 // hero terlihat minimal 30%
+      threshold: 0.3
     });
 
     observer.observe(document.querySelector("#hero-impact"));
