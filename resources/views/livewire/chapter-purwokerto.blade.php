@@ -1,21 +1,16 @@
 <div>
-    <!-- Import Navbar -->
     @livewire('components.navbar')
 
-    <!-- HERO SECTION -->
     <div class="bg-white py-8">
         <div class="relative bg-cover bg-center bg-no-repeat min-h-[500px] py-24"
              style="background-image: url('{{ asset('images/landmark.JPG') }}');">
 
-            <!-- Link yang melapisi seluruh area, tapi tidak menghalangi konten -->
             <a href="https://www.tokopinjam.com/purwokerto"
                class="absolute inset-0 z-10"
                aria-label="Link ke tokopinjam Purwokerto"></a>
 
-            <!-- Overlay Ungu Semi Transparan -->
             <div class="absolute inset-0 bg-purple-900 opacity-50 z-0"></div>
 
-            <!-- Konten Hero -->
             <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center z-20 pointer-events-none">
                 <div class="w-full mt-10 md:w-2/3 md:ml-auto md:pl-20 text-center md:text-left text-white">
 
@@ -28,7 +23,6 @@
                         Butuh barang apa hari ini?
                     </p>
 
-                    <!-- Tombol Register, Login, dan Instagram -->
                     <div class="flex flex-wrap gap-4 justify-center md:justify-start mb-6 pointer-events-auto">
                         <a href="{{ route('register.custom') }}" class="inline-flex items-center gap-2 bg-white text-purple-900 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition">
                             Register
@@ -45,17 +39,10 @@
                         </a>
                     </div>
 
-                    <!-- Alamat: dibungkus agar tetap bisa diklik & selectable -->
-                    {{-- <p class="text-base md:text-lg mb-6 max-w-xl pointer-events-auto">
-                        📍 Jl. Raya Klapasawit No.18, Dusun 2, Kalimanah Kulon, Kec. Kalimanah, Kabupaten Purbalingga, Jawa Tengah 53371
-                    </p> --}}
-
-                    <!-- Berkolaborasi dengan -->
                     <div class="pointer-events-auto">
                         <p class="text-sm mb-4" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                             Berkolaborasi dengan:
                         </p>
-                        <!-- Logo container - horizontal layout -->
                         <div class="flex gap-0 justify-center md:justify-start items-center">
                             <img src="{{ asset('images/purwokerto/Maggenzim.png') }}" alt="Maggenzim" class="h-16 w-auto">
                             <img src="{{ asset('images/purwokerto/voluntiiran-pwt.png') }}" alt="Voluntiiran Purwokerto" class="h-16 w-auto">
@@ -66,7 +53,6 @@
         </div>
     </div>
 
-    <!-- FAKTA MENARIK SECTION -->
     <section class="bg-white py-12">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h3 class="text-lg text-[#433592] mb-4" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
@@ -81,10 +67,8 @@
         </div>
     </section>
 
-    <!-- LOKASI & JAM BUKA SECTION -->
     <section class="py-16 bg-[#faf0eb]">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Tab Navigation -->
             <div class="flex justify-center mb-12">
                 <div class="bg-gray-100 rounded-lg p-1 flex w-full max-w-md">
                     <button 
@@ -102,10 +86,8 @@
                 </div>
             </div>
 
-            <!-- Tab Content -->
             <div class="transition-all duration-500 ease-in-out transform">
                 @if($activeTab === 'lokasi')
-                <!-- Lokasi Station Content -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                     <div>
                         <h3 class="text-3xl font-bold text-[#433592] mb-6" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
@@ -133,9 +115,6 @@
                                 <span class="text-lg text-gray-600">Bandung - Segera Hadir</span>
                             </div>
                         </div>
-                        {{-- <p class="text-gray-600 mt-6" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                            Kamu harus mengajukan peminjaman melalui website ini, lalu mengambil dan mengembalikan barang di jam berikut:
-                        </p> --}}
                     </div>
                     <div class="flex justify-center">
                         <div class="bg-gradient-to-br from-[#433592] to-[#6B46C1] p-8 rounded-2xl shadow-xl text-white text-center">
@@ -148,10 +127,8 @@
                     </div>
                 </div>
                 @else
-                <!-- Jam Buka Content -->
-                {{-- <div class="bg-white rounded-3xl shadow-2xl overflow-hidden mb-16 transform hover:scale-105 transition-all duration-300"> --}}
+
                     <div class="md:flex">
-                        <!-- Content Section -->
                         <div class="md:w-3/5 p-8 flex flex-col justify-center">
                             <div class="space-y-6">
                                 <p class="text-gray-600 text-lg leading-relaxed" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
@@ -210,28 +187,24 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- Image Section -->
+
                         <div class="md:w-2/5 p-6">
                             <div class="bg-gradient-to-br from-purple-100 to-blue-100 rounded-2xl p-4 relative overflow-hidden" style="aspect-ratio: 4/5;">
                                 <img src="{{ asset('images/MenaraTeratai.png') }}" 
                                      alt="Landmark Purwokerto" 
                                      class="w-full h-full object-cover rounded-xl shadow-lg transition-all duration-500">
-                                
-                                <!-- Image overlay with title -->
+
                                 <div class="absolute bottom-4 left-4 right-4 bg-black/50 backdrop-blur-sm rounded-lg p-3">
                                     <p class="text-white font-semibold text-base">📍 Station Purwokerto</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                {{-- </div> --}}
                 @endif
             </div>
         </div>
     </section>
 
-    <!-- DARI KAMI SECTION -->
     <section class="py-16 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -256,15 +229,11 @@
         </div>
     </section>
 
-    <!-- AKU MAU PINJAM SECTION -->
     <livewire:components.how-it-works />
 
-    <!-- BARANG YANG UMUMNYA DIPINJAM -->
     <livewire:components.cheapest-price />
 
-    <!-- KEUNTUNGAN MEMINJAM SECTION -->
     <livewire:components.manfaat-pinjam />
 
-    <!-- FOOTER -->
     @livewire('components.footer')
 </div>

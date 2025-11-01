@@ -1,15 +1,10 @@
 <div>
-  
-  <!-- SECTION 1 -->
   <section class="bg-white py-12 w-full">
     <div class="flex justify-center w-full items-stretch">
-      
-  
-      <!-- Kotak Div Isi -->
+
       <div class="bg-[#FDF5F2] rounded-lg shadow p-8 flex-1 max-w-6xl w-full">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          
-          <!-- Left Content -->
+
           <div>
             <h2 class="text-2xl md:text-3xl font-extrabold text-gray-800 mb-4" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
               Kami Butuh Uluran Tanganmu
@@ -30,8 +25,7 @@
                 </a>
             </div>
           </div>
-          
-          <!-- Right Content Grid -->
+
           <div class="relative grid grid-cols-2 gap-2">
             <!-- Overlay teks -->
             <div class="absolute inset-0 flex justify-center items-center z-10">
@@ -39,23 +33,18 @@
                 Our Founders
               </span>
             </div>
-            <!-- Gambar 1 -->
             <img src="{{ asset('images/butuhbantuan/111.JPG') }}"
                  alt="Photo 1"
                  class="w-full h-40 object-cover rounded-lg col-span-2">
-            <!-- Gambar 2 -->
             <img src="{{ asset('images/butuhbantuan/22.jpg') }}"
                  alt="Photo 2"
                  class="w-full h-32 object-cover rounded-lg">
-            <!-- Gambar 3 -->
             <img src="{{ asset('images/butuhbantuan/33.jpg') }}"
                  alt="Photo 3"
                  class="w-full h-32 object-cover rounded-lg">
           </div>
         </div>
       </div>
-    
-    
     </div>
   </section>
 </div>

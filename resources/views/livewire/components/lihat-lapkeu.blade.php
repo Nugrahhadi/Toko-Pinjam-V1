@@ -3,8 +3,6 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
     <div class="relative w-full h-[250px] overflow-hidden">
-        
-        <!-- Teks di tengah absolute -->
         <div class="absolute inset-0 flex justify-center items-center">
           <div class="text-center px-4">
             <h3 class="text-2xl md:text-4xl font-extrabold text-[#413291] mb-8 leading-tight" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
@@ -16,9 +14,6 @@
             </a>
           </div>
         </div>
-        
-       
       </div>
-      
     </div>
 </section>

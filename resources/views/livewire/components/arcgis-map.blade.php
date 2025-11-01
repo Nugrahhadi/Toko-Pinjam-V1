@@ -1,8 +1,6 @@
 <div x-data="{ showMap: false }">
-    <!-- Modal -->
     <div class="fixed inset-0 bg-black/50 flex items-center justify-center z-50" x-show="showMap" x-transition style="display: none;">
         <div class="bg-white rounded-3xl shadow-2xl max-w-6xl w-full mx-4 max-h-[90vh] overflow-hidden" @click.away="showMap = false">
-            <!-- Header -->
             <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6">
                 <div class="flex justify-between items-center">
                     <div>
@@ -17,9 +15,7 @@
                 </div>
             </div>
 
-            <!-- Map Content -->
             <div class="p-6 overflow-y-auto" style="max-height: calc(90vh - 120px);">
-                <!-- ArcGIS Online Embed -->
                 <div class="w-full h-96 rounded-2xl overflow-hidden shadow-lg mb-6">
                     <iframe 
                         src="https://www.arcgis.com/apps/mapviewer/index.html?layers=d17ba8b2eb1345dbad3d3ab1b7edee3a" 
@@ -33,49 +29,6 @@
                     </iframe>
                 </div>
 
-                {{-- <!-- Information Cards -->
-                <div class="grid md:grid-cols-2 gap-6">
-                    <!-- Case Studies -->
-                    <div class="bg-red-50 rounded-2xl p-6 border border-red-200">
-                        <h4 class="text-lg font-bold text-red-800 mb-4">🚨 Highlighted Cases</h4>
-                        <div class="space-y-3">
-                            <div class="bg-white rounded-lg p-4 shadow-sm">
-                                <h5 class="font-semibold text-red-700">TPA Bantar Gebang, Bekasi</h5>
-                                <p class="text-sm text-gray-600 mt-1">Gunung sampah yang mengancam kesehatan penduduk sekitar</p>
-                            </div>
-                            <div class="bg-white rounded-lg p-4 shadow-sm">
-                                <h5 class="font-semibold text-red-700">Pencemaran Teluk Jakarta</h5>
-                                <p class="text-sm text-gray-600 mt-1">Polusi industri dan limbah domestik</p>
-                            </div>
-                            <div class="bg-white rounded-lg p-4 shadow-sm">
-                                <h5 class="font-semibold text-red-700">Deforestasi Kalimantan</h5>
-                                <p class="text-sm text-gray-600 mt-1">Kehilangan hutan untuk perkebunan kelapa sawit</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Resources -->
-                    <div class="bg-blue-50 rounded-2xl p-6 border border-blue-200">
-                        <h4 class="text-lg font-bold text-blue-800 mb-4">📊 Data Sources</h4>
-                        <div class="space-y-3">
-                            <div class="bg-white rounded-lg p-4 shadow-sm">
-                                <h5 class="font-semibold text-blue-700">EJAtlas Indonesia</h5>
-                                <p class="text-sm text-gray-600 mt-1">Database kasus ketidakadilan lingkungan</p>
-                                <a href="https://ejatlas.org/country/indonesia" target="_blank" class="text-blue-600 hover:underline text-xs">Visit Site →</a>
-                            </div>
-                            <div class="bg-white rounded-lg p-4 shadow-sm">
-                                <h5 class="font-semibold text-blue-700">KLHK Data Portal</h5>
-                                <p class="text-sm text-gray-600 mt-1">Data lingkungan resmi pemerintah</p>
-                            </div>
-                            <div class="bg-white rounded-lg p-4 shadow-sm">
-                                <h5 class="font-semibold text-blue-700">Forest Watch Indonesia</h5>
-                                <p class="text-sm text-gray-600 mt-1">Monitoring deforestasi dan degradasi hutan</p>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-
-                <!-- Call to Action -->
                 <div class="mt-6 bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl p-6 text-center">
                     <h4 class="text-xl font-bold text-gray-900 mb-4">Mari Bersama Mewujudkan Keadilan Lingkungan</h4>
                     <p class="text-gray-600 mb-6">Toko Pinjam hadir sebagai solusi untuk mengurangi konsumsi berlebihan dan dampak lingkungan</p>
@@ -94,7 +47,6 @@
         </div>
     </div>
 
-    <!-- Trigger Button -->
     <div @click="showMap = true" class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-bold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg">
         <div class="flex items-center space-x-3">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">

@@ -6,11 +6,8 @@
             </h2>
         </div>
 
-        {{-- DESKTOP VERSION - Grid Layout (Step 1-3, then 4-5) --}}
         <div class="hidden md:block">
-            {{-- First Row: Steps 1-3 --}}
             <div class="grid md:grid-cols-3 gap-12 mb-16">
-                <!-- Step 1 -->
                 <div class="flex flex-col items-center text-center">
                     <div class="relative mx-auto" style="width: 280px; height: 280px;">
                         <img src="{{ asset('images/howitworks/1.png') }}"
@@ -30,7 +27,6 @@
                     </p>
                 </div>
 
-                <!-- Step 2 -->
                 <div class="flex flex-col items-center text-center">
                     <div class="relative mx-auto" style="width: 280px; height: 280px;">
                         <img src="{{ asset('images/howitworks/2.png') }}"
@@ -50,7 +46,6 @@
                     </p>
                 </div>
 
-                <!-- Step 3 -->
                 <div class="flex flex-col items-center text-center">
                     <div class="relative mx-auto" style="width: 280px; height: 280px;">
                         <img src="{{ asset('images/howitworks/3.png') }}"
@@ -71,16 +66,13 @@
                 </div>
             </div>
 
-            {{-- Second Row: Steps 4-5 with side images --}}
             <div class="flex justify-center items-start gap-11">
-                <!-- Gambar Kiri -->
                 <div>
                     <img src="{{ asset('images/howitworks/karaokee.png') }}"
                          alt="Gambar Kiri"
                          class="w-full h-40">
                 </div>
 
-                <!-- Step 4 -->
                 <div class="flex flex-col items-center text-center">
                     <div class="relative mx-auto" style="width: 280px; height: 280px;">
                         <img src="{{ asset('images/howitworks/4.png') }}"
@@ -100,7 +92,6 @@
                     </p>
                 </div>
 
-                <!-- Step 5 -->
                 <div class="flex flex-col items-center text-center">
                     <div class="relative mx-auto" style="width: 280px; height: 280px;">
                         <img src="{{ asset('images/howitworks/5.jpg') }}"
@@ -120,7 +111,6 @@
                     </p>
                 </div>
 
-                <!-- Gambar Kanan -->
                 <div>
                    <img src="{{ asset('images/howitworks/bumii.png') }}"
                          alt="Gambar Kanan"
@@ -129,9 +119,7 @@
             </div>
         </div>
 
-        {{-- MOBILE VERSION - Vertical Layout (All Steps 1-5) --}}
         <div class="block md:hidden space-y-12">
-            <!-- Step 1 -->
             <div class="flex flex-col items-center text-center">
                 <div class="relative mx-auto" style="width: 240px; height: 240px;">
                     <img src="{{ asset('images/howitworks/1.png') }}"
@@ -151,7 +139,6 @@
                 </p>
             </div>
 
-            <!-- Step 2 -->
             <div class="flex flex-col items-center text-center">
                 <div class="relative mx-auto" style="width: 240px; height: 240px;">
                     <img src="{{ asset('images/howitworks/2.png') }}"
@@ -171,7 +158,6 @@
                 </p>
             </div>
 
-            <!-- Step 3 -->
             <div class="flex flex-col items-center text-center">
                 <div class="relative mx-auto" style="width: 240px; height: 240px;">
                     <img src="{{ asset('images/howitworks/3.png') }}"
@@ -191,7 +177,6 @@
                 </p>
             </div>
 
-            <!-- Step 4 -->
             <div class="flex flex-col items-center text-center">
                 <div class="relative mx-auto" style="width: 240px; height: 240px;">
                     <img src="{{ asset('images/howitworks/4.png') }}"
@@ -211,7 +196,6 @@
                 </p>
             </div>
 
-            <!-- Step 5 -->
             <div class="flex flex-col items-center text-center">
                 <div class="relative mx-auto" style="width: 240px; height: 240px;">
                     <img src="{{ asset('images/howitworks/5.jpg') }}"
