@@ -7,20 +7,16 @@
     
     <title>@yield('title', 'Admin Panel') - {{ config('app.name', 'Toko Pinjam') }}</title>
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     
-    <!-- TailwindCSS -->
     @if(app()->environment('production') && !file_exists(public_path('build/manifest.json')))
-        <!-- Fallback CDN CSS/JS for production if build assets not available -->
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
         <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     @else
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @endif
 
-    <!-- Tom Select CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet">
 
     @stack('styles')
@@ -29,17 +25,14 @@
 
 <body class="h-full bg-gray-50 font-sans antialiased overflow-x-hidden">
     <div x-data="{ sidebarOpen: false }" class="h-full">
-        <!-- Sidebar -->
         <div class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
             <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-gradient-to-b from-[#433592] to-[#5B4B8A] px-6 pb-4">
-                <!-- Logo -->
                 <div class="flex h-20 shrink-0 items-center justify-center border-b border-white/20">
                     <div class="flex items-center space-x-3">
                         <img src="{{ asset('images/footerlogo.png') }}" alt="Toko Pinjam" class="h-12 w-auto">
                     </div>
                 </div>
 
-                <!-- Navigation -->
                 <nav class="flex flex-1 flex-col">
                     <ul role="list" class="flex flex-1 flex-col gap-y-7">
                         <li>
@@ -52,6 +45,16 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M8 5a2 2 0 012-2h4a2 2 0 012 2v2a2 2 0 01-2 2H10a2 2 0 01-2-2V5z" />
                                         </svg>
                                         Dashboard
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="{{ route('admin.homepage.index') }}" 
+                                       class="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold {{ request()->routeIs('admin.homepage.*') ? 'bg-white/10 text-white' : 'text-gray-200 hover:text-white hover:bg-white/10' }} transition-all duration-200">
+                                        <svg class="h-6 w-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                                        </svg>
+                                        Kelola Homepage
                                     </a>
                                 </li>
                                 <li>
@@ -82,7 +85,6 @@
                                     </a>
                                 </li>
 
-                                <!-- NEW: Kelola Transaksi -->
                                 <li>
                                     <a href="{{ route('admin.transactions') }}"
                                        class="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold {{ request()->routeIs('admin.transactions') ? 'bg-white/10 text-white' : 'text-gray-200 hover:text-white hover:bg-white/10' }} transition-all duration-200">
@@ -148,7 +150,8 @@
             </div>
         </div>
 
-        <!-- Main content -->
+        {{-- Anda perlu menambahkan bagian sidebar mobile di sini jika belum ada --}}
+
         <div class="lg:pl-72">
             <div class="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
                 <button @click="sidebarOpen = true" class="-m-2.5 p-2.5 text-gray-700 lg:hidden">
@@ -158,7 +161,6 @@
                     </svg>
                 </button>
 
-                <!-- Separator -->
                 <div class="h-6 w-px bg-gray-900/10 lg:hidden" aria-hidden="true"></div>
 
                 <div class="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
@@ -186,7 +188,6 @@
 
     @livewireScripts
 
-    <!-- Tom Select JS -->
     <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
     <script>
         document.addEventListener("livewire:navigated", () => {
