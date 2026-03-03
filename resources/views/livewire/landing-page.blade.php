@@ -26,7 +26,7 @@
     {{-- <livewire:components.items-section /> --}}
 
 <!-- Manfaat Pinjam Section -->
-    <livewire:components.manfaat-pinjam />
+ <livewire:components.media-partner-section />
 
     <!-- Impact Section -->
     <livewire:components.perubahan-nyata />
@@ -39,6 +39,8 @@
     
     <!-- Cannot Donate Yet Section -->
     <livewire:components.cannot-donate-yet />
+
+    <livewire:components.our-partner-section />
     
     <!-- Footer -->
     <livewire:components.footer />

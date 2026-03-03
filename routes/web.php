@@ -37,6 +37,9 @@ use App\Livewire\Admin\UserEditor;
 use App\Livewire\Admin\DonationPageEditor;
 use App\Livewire\Admin\DonationLeaderboardEditor;
 use App\Livewire\Admin\DonationTestimonialEditor;
+use App\Livewire\Admin\HomepageEditor; 
+use App\Livewire\Admin\MediaPartnerEditor;
+use App\Livewire\Admin\OurPartnerEditor;
 
 /**
  * --------------------------------------------------------------------------
@@ -157,10 +160,24 @@ Route::middleware(["auth", "admin"])
         Route::get("/users/{userId}/edit", UserEditor::class)->name(
             "users.edit",
         );
+        
+        /**
+         * Homepage management
+         */
+        Route::prefix("homepage")
+            ->name("homepage.")
+            ->group(function () {
+                // Halaman Ringkasan (Overview Beranda)
+                Route::get("/", HomepageEditor::class)->name("index"); 
 
+                // Halaman Editor Detail Partner Media
+                Route::get("/media-partners", MediaPartnerEditor::class)->name("media-partners"); 
+                Route::get("/our-partners", OurPartnerEditor::class)->name("our-partners"); 
+            });
+        
         /**
          * Donation management
-         * - index  : ringkas (Top 3 & 5 testimoni terbaru + settings)
+         * - index  : ringkas (Top 3 & 5 testimoni terbaru + settings)
          * - detail : leaderboard (Top 10 editor)
          * - detail : testimonials (CRUD + pagination 10)
          */

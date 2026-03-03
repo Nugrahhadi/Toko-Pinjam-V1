@@ -28,7 +28,8 @@ class RentalCreate extends Component
     {
         $today = Carbon::today();
         $this->start_date = $today->toDateString();
-        $this->end_date   = $today->copy()->addDay()->toDateString();
+        // Ubah default end_date agar sama dengan start_date (memungkinkan peminjaman 1 hari)
+        $this->end_date   = $this->start_date; 
 
         // Ambil semua item (stok saat ini sudah merefleksikan booking sebelumnya)
         $this->items = Item::orderBy('name')->get(['id','name','stock']);
@@ -49,6 +50,15 @@ class RentalCreate extends Component
     public function updatedItemId(){ $this->recomputeAvailable(); }
     public function updatedStartDate(){ $this->recomputeAvailable(); }
     public function updatedEndDate(){ $this->recomputeAvailable(); }
+    
+    /** Metode baru untuk set peminjaman 1 hari penuh */
+    public function setOneDay()
+    {
+        $today = Carbon::today();
+        $this->start_date = $today->toDateString();
+        $this->end_date = $this->start_date; // Selesai sama dengan Mulai (1 hari)
+        $this->recomputeAvailable();
+    }
 
     public function save()
     {
@@ -58,7 +68,8 @@ class RentalCreate extends Component
                 'user_id'    => ['required', Rule::exists('users','id')],
                 'quantity'   => ['required','integer','min:1'],
                 'start_date' => ['required','date'],
-                'end_date'   => ['required','date','after:start_date'],
+                // PERUBAHAN: Mengizinkan end_date sama dengan start_date untuk 1 hari
+                'end_date'   => ['required','date', 'after_or_equal:start_date'],
                 'note'       => ['nullable','string'],
             ]);
 
