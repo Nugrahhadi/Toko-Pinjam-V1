@@ -100,64 +100,74 @@ class ItemEditor extends Component
 
     public function save()
     {
-        $this->validate();
+        try {
+            $this->validate();
 
-        // Pastikan slug unik
-        $slug = $this->slug ?: Str::slug($this->name);
-        $base = $slug;
-        $i = 1;
-        while (
-            Item::where("slug", $slug)
-                ->when(
-                    $this->item,
-                    fn($q) => $q->where("id", "!=", $this->item->id),
-                )
-                ->exists()
-        ) {
-            $slug = "{$base}-{$i}";
-            $i++;
+            // Pastikan slug unik
+            $slug = $this->slug ?: Str::slug($this->name);
+            $base = $slug;
+            $i = 1;
+            while (
+                Item::where("slug", $slug)
+                    ->when(
+                        $this->item,
+                        fn($q) => $q->where("id", "!=", $this->item->id),
+                    )
+                    ->exists()
+            ) {
+                $slug = "{$base}-{$i}";
+                $i++;
+            }
+
+            // Upload file baru → simpan path ke storage/public/items
+            $uploadedPaths = [];
+            foreach ($this->image_files as $file) {
+                $uploadedPaths[] = $file->store("items", "public"); // contoh hasil: items/abc.jpg
+            }
+
+            // Gabungkan gambar lama (yang masih dipertahankan) + yang baru diupload
+            $images = array_values(
+                array_filter(array_merge($this->existing_images, $uploadedPaths)),
+            );
+
+            $data = [
+                "name" => $this->name,
+                "slug" => $slug,
+                "description" => $this->description,
+                "original_price" => $this->original_price ?: null,
+                "donation_price" => $this->donation_price,
+                "stock" => $this->stock,
+                "images" => $images,
+                "category_id" => $this->category_id,
+                "location_id" => $this->location_id,
+                "weight" => $this->weight ?: null,
+                "is_active" => (bool) $this->is_active,
+                "completeness" => $this->completeness ?: null,
+                "how_to_use" => $this->how_to_use ?: null,
+                "how_to_borrow" => $this->how_to_borrow ?: null,
+            ];
+
+            if ($this->item) {
+                $this->item->update($data);
+                session()->flash("message", "Barang diperbarui.");
+            } else {
+                $this->item = Item::create($data);
+                session()->flash("message", "Barang dibuat.");
+            }
+
+            // Reset upload sementara supaya preview bersih
+            $this->image_files = [];
+
+            return redirect()->route("admin.items");
+        } catch (\Exception $e) {
+            \Log::error('ItemEditor save error: ' . $e->getMessage(), [
+                'exception' => $e,
+                'data' => $this->only(['name', 'slug', 'category_id', 'location_id'])
+            ]);
+            
+            $this->addError('general', "Gagal menyimpan barang: " . $e->getMessage());
+            throw $e;
         }
-
-        // Upload file baru → simpan path ke storage/public/items
-        $uploadedPaths = [];
-        foreach ($this->image_files as $file) {
-            $uploadedPaths[] = $file->store("items", "public"); // contoh hasil: items/abc.jpg
-        }
-
-        // Gabungkan gambar lama (yang masih dipertahankan) + yang baru diupload
-        $images = array_values(
-            array_filter(array_merge($this->existing_images, $uploadedPaths)),
-        );
-
-        $data = [
-            "name" => $this->name,
-            "slug" => $slug,
-            "description" => $this->description,
-            "original_price" => $this->original_price,
-            "donation_price" => $this->donation_price,
-            "stock" => $this->stock,
-            "images" => $images,
-            "category_id" => $this->category_id,
-            "location_id" => $this->location_id,
-            "weight" => $this->weight,
-            "is_active" => (bool) $this->is_active,
-            "completeness" => $this->completeness,
-            "how_to_use" => $this->how_to_use,
-            "how_to_borrow" => $this->how_to_borrow, // NEW
-        ];
-
-        if ($this->item) {
-            $this->item->update($data);
-            session()->flash("message", "Barang diperbarui.");
-        } else {
-            $this->item = Item::create($data);
-            session()->flash("message", "Barang dibuat.");
-        }
-
-        // Reset upload sementara supaya preview bersih
-        $this->image_files = [];
-
-        return redirect()->route("admin.items");
     }
 
     public function render()
