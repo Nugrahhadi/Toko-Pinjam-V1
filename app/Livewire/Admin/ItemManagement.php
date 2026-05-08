@@ -50,13 +50,14 @@ class ItemManagement extends Component
 
     public function mount(): void
     {
-        $this->autoTransitionBookings(); // booked -> ongoing saat tanggal mulai tiba
+        $this->autoTransitionBookings();
     }
 
     public function updatingSearch()
     {
         $this->resetPage();
     }
+    
     public function updatingFilter()
     {
         $this->resetPage();
@@ -82,22 +83,22 @@ class ItemManagement extends Component
 
     /** ---------------- RENTAL LOGIC ---------------- **/
 
-    /** Auto-transisi: booked -> ongoing (stok tidak berubah di sini karena sudah dipesan/ditahan saat BOOKED) */
     protected function autoTransitionBookings(): void
     {
         $today = Carbon::today();
 
-        $due = Rental::where("status", "booked")
+        // 1. Transisi ke Ongoing (Sedang Dipinjam) untuk pesanan yang masih relevan
+        Rental::where("status", "booked")
             ->whereDate("start_date", "<=", $today)
             ->whereDate("end_date", ">=", $today)
-            ->get();
+            ->update(["status" => "ongoing"]);
 
-        foreach ($due as $rental) {
-            $rental->update(["status" => "ongoing"]);
-        }
+        // 2. Transisi ke Returned (Otomatis Selesai) untuk pesanan yang sudah melewati tanggal selesai
+        Rental::whereIn("status", ["booked", "ongoing"])
+            ->whereDate("end_date", "<", $today)
+            ->update(["status" => "returned", "returned_at" => now()]);
     }
 
-    /** Tandai kembali: kembalikan stok (karena stok sudah ditahan saat BOOKED) */
     public function markReturned(int $rentalId): void
     {
         $rental = Rental::with("item")->findOrFail($rentalId);
@@ -109,27 +110,35 @@ class ItemManagement extends Component
             return;
         }
 
-        DB::transaction(function () use ($rental) {
-            // kembalikan stok
-            $item = Item::where("id", $rental->item_id)
-                ->lockForUpdate()
-                ->first();
-            if ($item) {
-                $item->update([
-                    "stock" => (int) $item->stock + (int) $rental->quantity,
-                ]);
-            }
-            // ubah status
-            $rental->update(["status" => "returned", "returned_at" => now()]);
-        });
+        // Hanya memperbarui status, tanpa memanipulasi $item->stock
+        $rental->update(["status" => "returned", "returned_at" => now()]);
 
         session()->flash(
             "message",
-            "Barang ditandai sudah kembali & stok ditambahkan.",
+            "Barang ditandai sudah kembali.",
         );
     }
 
-    /** Edit pesanan (hanya untuk status BOOKED) */
+    // Fungsi bantuan untuk menghitung ketersediaan stok berdasarkan rentang tanggal
+    private function checkAvailableStock($itemId, $startDate, $endDate, $ignoreRentalId = null)
+    {
+        $item = Item::findOrFail($itemId);
+        
+        $bookedQuantity = Rental::where("item_id", $itemId)
+            ->whereIn("status", ["booked", "ongoing"])
+            ->where(function ($query) use ($startDate, $endDate) {
+                // Rentang waktu beririsan
+                $query->whereDate("start_date", "<=", $endDate)
+                      ->whereDate("end_date", ">=", $startDate);
+            })
+            ->when($ignoreRentalId, function ($query, $ignoreRentalId) {
+                return $query->where("id", "!=", $ignoreRentalId);
+            })
+            ->sum("quantity");
+
+        return $item->stock - $bookedQuantity;
+    }
+
     public function openEditModal(int $rentalId): void
     {
         $r = Rental::with("item")->findOrFail($rentalId);
@@ -159,7 +168,7 @@ class ItemManagement extends Component
             "edit_item_id" => ["required", Rule::exists("items", "id")],
             "edit_quantity" => ["required", "integer", "min:1"],
             "edit_start_date" => ["required", "date"],
-            "edit_end_date" => ["required", "date", "after:edit_start_date"],
+            "edit_end_date" => ["required", "date", "after_or_equal:edit_start_date"],
             "edit_note" => ["nullable", "string"],
         ]);
 
@@ -172,62 +181,31 @@ class ItemManagement extends Component
             return;
         }
 
-        DB::transaction(function () use ($r) {
-            $oldItemId = $r->item_id;
-            $oldQty = (int) $r->quantity;
-            $newItemId = (int) $this->edit_item_id;
-            $newQty = (int) $this->edit_quantity;
+        // Cek ketersediaan berdasarkan irisan tanggal
+        $available = $this->checkAvailableStock(
+            $this->edit_item_id, 
+            $this->edit_start_date, 
+            $this->edit_end_date, 
+            $r->id
+        );
 
-            if ($newItemId === $oldItemId) {
-                // Ubah jumlah pada item yang sama
-                $item = Item::where("id", $oldItemId)->lockForUpdate()->first();
-                $delta = $newQty - $oldQty;
-                if ($delta > 0) {
-                    // butuh tambahan stok -> cek cukup
-                    if ($item->stock < $delta) {
-                        throw new \RuntimeException(
-                            "Stok tidak cukup. Tersedia: {$item->stock}",
-                        );
-                    }
-                    $item->decrement("stock", $delta);
-                } elseif ($delta < 0) {
-                    // kembalikan sisa stok
-                    $item->increment("stock", abs($delta));
-                }
-            } else {
-                // Kembalikan stok ke item lama
-                $oldItem = Item::where("id", $oldItemId)
-                    ->lockForUpdate()
-                    ->first();
-                $oldItem->increment("stock", $oldQty);
+        if ($this->edit_quantity > $available) {
+            $this->addError("form", "Stok pada tanggal tersebut tidak cukup. Tersedia: {$available}");
+            return;
+        }
 
-                // Ambil stok dari item baru
-                $newItem = Item::where("id", $newItemId)
-                    ->lockForUpdate()
-                    ->first();
-                if ($newItem->stock < $newQty) {
-                    throw new \RuntimeException(
-                        "Stok untuk barang baru tidak cukup. Tersedia: {$newItem->stock}",
-                    );
-                }
-                $newItem->decrement("stock", $newQty);
-            }
-
-            // Update data rental
-            $r->update([
-                "item_id" => $newItemId,
-                "quantity" => $newQty,
-                "start_date" => $this->edit_start_date,
-                "end_date" => $this->edit_end_date,
-                "note" => $this->edit_note,
-            ]);
-        });
+        $r->update([
+            "item_id" => $this->edit_item_id,
+            "quantity" => $this->edit_quantity,
+            "start_date" => $this->edit_start_date,
+            "end_date" => $this->edit_end_date,
+            "note" => $this->edit_note,
+        ]);
 
         $this->showEditModal = false;
-        session()->flash("message", "Pesanan diperbarui & stok disesuaikan.");
+        session()->flash("message", "Pesanan berhasil diperbarui.");
     }
 
-    /** Hapus pesanan (BOOKED saja) + kembalikan stok */
     public function deleteBooking(int $rentalId): void
     {
         $r = Rental::findOrFail($rentalId);
@@ -239,23 +217,18 @@ class ItemManagement extends Component
             return;
         }
 
-        DB::transaction(function () use ($r) {
-            $item = Item::where("id", $r->item_id)->lockForUpdate()->first();
-            if ($item) {
-                $item->increment("stock", (int) $r->quantity);
-            }
-            $r->delete();
-        });
+        // Dihapus tanpa memanipulasi $item->stock
+        $r->delete();
 
-        session()->flash("message", "Pesanan dihapus & stok dikembalikan.");
+        session()->flash("message", "Pesanan berhasil dihapus.");
     }
 
-    /** Hapus barang (tetap seperti sebelumnya) */
     public function confirmDelete($id)
     {
         $this->deleteItemId = $id;
         $this->showDeleteModal = true;
     }
+    
     public function cancelDelete()
     {
         $this->showDeleteModal = false;
@@ -263,77 +236,69 @@ class ItemManagement extends Component
     }
 
     public function deleteItem()
-{
-    if (!$this->deleteItemId) {
-        return;
-    }
+    {
+        if (!$this->deleteItemId) {
+            return;
+        }
 
-    $item = Item::withCount('rentals')->findOrFail($this->deleteItemId);
-    $itemName = $item->name;
+        $item = Item::withCount('rentals')->findOrFail($this->deleteItemId);
+        $itemName = $item->name;
 
-    // KEBIJAKAN: blokir hapus jika item pernah / sedang dipinjam
-    if ($item->rentals_count > 0) {
-        $this->cancelDelete();
-        session()->flash(
-            'message',
-            "Tidak bisa menghapus '{$itemName}' karena sudah/ pernah dipakai di pesanan. " .
-            "Nonaktifkan saja item ini, atau hapus pesanan terkait terlebih dahulu."
-        );
-        return;
-    }
+        if ($item->rentals_count > 0) {
+            $this->cancelDelete();
+            session()->flash(
+                'message',
+                "Tidak bisa menghapus '{$itemName}' karena sudah/ pernah dipakai di pesanan. " .
+                "Nonaktifkan saja item ini, atau hapus pesanan terkait terlebih dahulu."
+            );
+            return;
+        }
 
-    try {
-        DB::transaction(function () use ($item) {
-            // 1) Hapus semua file gambar yang diketahui
-
-            // a) Skema baru: kolom 'images' (array path relatife storage 'public')
-            $images = (array) ($item->images ?? []);
-            foreach ($images as $path) {
-                if (is_string($path) && Storage::disk('public')->exists($path)) {
-                    Storage::disk('public')->delete($path);
+        try {
+            DB::transaction(function () use ($item) {
+                $images = (array) ($item->images ?? []);
+                foreach ($images as $path) {
+                    if (is_string($path) && Storage::disk('public')->exists($path)) {
+                        Storage::disk('public')->delete($path);
+                    }
                 }
-            }
 
-            // b) Backward compatibility: 'image_path' tunggal
-            if (isset($item->image_path) && is_string($item->image_path)) {
-                if (Storage::disk('public')->exists($item->image_path)) {
-                    Storage::disk('public')->delete($item->image_path);
+                if (isset($item->image_path) && is_string($item->image_path)) {
+                    if (Storage::disk('public')->exists($item->image_path)) {
+                        Storage::disk('public')->delete($item->image_path);
+                    }
                 }
-            }
 
-            // c) Backward compatibility: 'gallery_images' (json)
-            if (isset($item->gallery_images)) {
-                $gallery = json_decode($item->gallery_images, true);
-                if (is_array($gallery)) {
-                    foreach ($gallery as $p) {
-                        if (is_string($p) && Storage::disk('public')->exists($p)) {
-                            Storage::disk('public')->delete($p);
+                if (isset($item->gallery_images)) {
+                    $gallery = json_decode($item->gallery_images, true);
+                    if (is_array($gallery)) {
+                        foreach ($gallery as $p) {
+                            if (is_string($p) && Storage::disk('public')->exists($p)) {
+                                Storage::disk('public')->delete($p);
+                            }
                         }
                     }
                 }
-            }
 
-            // 2) Hapus item
-            $item->delete();
-        });
+                $item->delete();
+            });
 
-        $this->cancelDelete();
-        session()->flash('message', "Barang '{$itemName}' berhasil dihapus beserta semua file gambarnya.");
-    } catch (QueryException $e) {
-        // Tertolak oleh constraint DB (FK, dll)
-        $this->cancelDelete();
-        session()->flash(
-            'message',
-            "Gagal menghapus '{$itemName}'. Masih ada data yang bergantung (mis. pesanan)."
-        );
-    } catch (\Throwable $e) {
-        $this->cancelDelete();
-        session()->flash(
-            'message',
-            "Terjadi kesalahan saat menghapus '{$itemName}': " . $e->getMessage()
-        );
+            $this->cancelDelete();
+            session()->flash('message', "Barang '{$itemName}' berhasil dihapus beserta semua file gambarnya.");
+        } catch (QueryException $e) {
+            $this->cancelDelete();
+            session()->flash(
+                'message',
+                "Gagal menghapus '{$itemName}'. Masih ada data yang bergantung (mis. pesanan)."
+            );
+        } catch (\Throwable $e) {
+            $this->cancelDelete();
+            session()->flash(
+                'message',
+                "Terjadi kesalahan saat menghapus '{$itemName}': " . $e->getMessage()
+            );
+        }
     }
-}
 
     /** ---------------- PROVIDERS ---------------- **/
 

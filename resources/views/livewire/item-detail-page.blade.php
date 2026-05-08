@@ -30,7 +30,6 @@
     <div class="bg-gray-50 py-10">
         <div class="max-w-7xl mb-10 mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                <!-- LEFT: Konten utama -->
                 <div class="lg:col-span-8">
                     @php
                         $images = $item->images ?: [];
@@ -109,7 +108,6 @@
                     </div>
                 </div>
 
-                <!-- RIGHT: Sticky sidebar -->
                 <div class="lg:col-span-4 lg:sticky lg:top-6 h-fit">
                     <div
                         x-data="itemBooking($el)"
@@ -123,7 +121,6 @@
                         <h3 class="text-lg font-bold mb-3">Ketersediaan</h3>
                         <p class="text-sm text-gray-600 mb-3">Pilih tanggal pinjam. Tanggal yang diarsir/tidak bisa diklik berarti sudah dibooking.</p>
 
-                        {{-- sr-only agar ada input untuk Flatpickr --}}
                         <div class="calendar-scope">
                             <input type="text" x-ref="picker" class="sr-only" />
                         </div>
@@ -157,32 +154,22 @@
                                 <div class="text-2xl font-bold" x-text="formatRupiah(totalCost)"></div>
                             </div>
 
-                            {{-- TOMBOL BAYAR: hanya muncul jika harga > 0 --}}
-                            @if((float) $item->donation_price > 0)
-                                <button
-                                    @click.prevent="handleDonateClick()"
-                                    class="mt-4 w-full inline-flex items-center justify-center rounded-xl px-4 py-3 text-white font-semibold bg-green-600 hover:bg-green-700">
-                                    Bayar
-                                </button>
-                            @endif
-
-                            <!-- Tombol Pinjam via WhatsApp -->
                             <button
                                 :disabled="!canBook"
                                 @click.prevent="handleRentClick()"
-                                class="mt-3 w-full inline-flex items-center justify-center rounded-xl px-4 py-3 text-white font-semibold bg-[#433592] hover:bg-[#3A2B7A] disabled:opacity-50 disabled:cursor-not-allowed">
-                                Pinjam via WhatsApp
+                                class="mt-4 w-full inline-flex items-center justify-center rounded-xl px-4 py-3 text-white font-semibold bg-[#433592] hover:bg-[#3A2B7A] disabled:opacity-50 disabled:cursor-not-allowed transition duration-200">
+                                Cek Ketersediaan via WhatsApp
                             </button>
                             <p class="mt-2 text-xs text-gray-500">
                                 Pemesanan dilakukan via WhatsApp. Admin akan memproses booking di halaman admin.
                             </p>
                         </div>
 
-                        <!-- MODAL ajakan daftar/login -->
                         <div
                             x-show="openAuthModal"
                             x-transition.opacity
                             class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+                            @click.away="openAuthModal=false"
                             @keydown.escape.window="openAuthModal=false"
                         >
                             <div class="bg-white w-full max-w-md rounded-2xl p-6 shadow-xl"
@@ -207,8 +194,7 @@
                             </div>
                         </div>
                     </div>
-                </div> <!-- /RIGHT -->
-            </div>
+                </div> </div>
         </div>
     </div>
 
@@ -218,7 +204,6 @@
     <style>
         [x-cloak] { display: none !important; }
 
-        /* Flatpickr: no shadow + full width + grid rapi */
         .calendar-scope .flatpickr-calendar{
             width:90% !important;
             max-width:none !important;
@@ -240,18 +225,6 @@
             line-height:2.5rem;
             margin:0;
             box-shadow:none !important;
-        }
-        .calendar-scope .flatpickr-day::after{
-            --dot: 1.55rem;
-            content:"";
-            position:absolute;
-            width:var(--dot);
-            height:var(--dot);
-            border-radius:9999px;
-            top:50%; left:50%;
-            transform:translate(-50%,-50%);
-            background:transparent;
-            pointer-events:none;
         }
         .calendar-scope .flatpickr-day.selected,
         .calendar-scope .flatpickr-day.startRange,
@@ -275,7 +248,6 @@
     <script>
         function itemBooking(el) {
             return {
-                // from data-attributes
                 itemName: JSON.parse(el.dataset.name || '""'),
                 price: Number(el.dataset.price || 0),
                 bookedRanges: JSON.parse(el.dataset.booked || '[]'),
@@ -289,9 +261,9 @@
                 get endDateText(){ return this.end ? this.fmtLong(this.end) : null; },
                 get totalDays(){
                     if(!this.start) return 0;
-                    if(!this.end) return 1; // single day
+                    if(!this.end) return 1; 
                     const ms = this.end.setHours(0,0,0,0) - this.start.setHours(0,0,0,0);
-                    const days = Math.floor(ms / (1000*60*60*24)) + 1; // inclusive
+                    const days = Math.floor(ms / (1000*60*60*24)) + 1; 
                     return days > 0 ? days : 0;
                 },
                 get totalCost(){ return this.totalDays * Number(this.price || 0); },
@@ -302,31 +274,22 @@
                     const msg = this.buildMessage();
                     return `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(msg)}`;
                 },
-                donateUrl: 'https://sociabuzz.com/tokopinjam/donate',
 
-                handleDonateClick(){
-                    if (this.isGuest) {
-                        this.openAuthModal = true;
-                        return;
-                    }
-                    window.open(this.donateUrl, '_blank');
-                },
                 handleRentClick(){
                     if (!this.canBook) return;
                     if (this.isGuest) {
                         this.openAuthModal = true;
                         return;
                     }
-                    // Redirect langsung ke WhatsApp
                     window.location.href = this.waHref;
                 },
 
                 buildMessage(){
                     if(!this.start) return `Halo, saya ingin menanyakan ketersediaan ${this.itemName}.`;
                     if(!this.end){
-                        return `halo, saya ingin meminjam ${this.itemName} pada tanggal ${this.fmtLong(this.start)}`;
+                        return `Halo, saya ingin menanyakan ketersediaan ${this.itemName} pada tanggal ${this.fmtLong(this.start)}`;
                     }
-                    return `halo, saya ingin meminjam ${this.itemName} pada tanggal ${this.fmtLong(this.start)} hingga ${this.fmtLong(this.end)}`;
+                    return `Halo, saya ingin menanyakan ketersediaan ${this.itemName} pada tanggal ${this.fmtLong(this.start)} hingga ${this.fmtLong(this.end)}`;
                 },
                 fmtLong(d){ return d.toLocaleDateString('id-ID', { weekday:'long', day:'2-digit', month:'long', year:'numeric' }); },
                 formatRupiah(n){
