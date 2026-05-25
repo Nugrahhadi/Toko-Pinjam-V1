@@ -264,41 +264,44 @@
                 </div>
 
                 {{-- Terms and Conditions --}}
-                <div class="space-y-6">
-                    <div class="flex items-start space-x-3">
-                        <input type="checkbox" 
-                               id="agreeTerms"
-                               wire:model="agreeTerms"
-                               class="mt-1 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded">
-                        <label for="agreeTerms" class="text-sm text-gray-700">
-                            Saya telah membaca dan mengerti 
-                            <a href="/syarat-ketentuan" target="_blank" class="text-[#433592] underline hover:text-purple-700">
-                                peraturan Toko Pinjam
-                            </a>
-                        </label>
-                    </div>
-                    @error('agreeTerms') <p class="text-red-500 text-xs">{{ $message }}</p> @enderror
+<div class="space-y-6" x-data="{ agreed: false }">
+    <div class="flex items-start space-x-3">
+        {{-- Tambahkan x-model="agreed" di checkbox ini --}}
+        <input type="checkbox" 
+               id="agreeTerms"
+               wire:model="agreeTerms"
+               x-model="agreed"
+               class="mt-1 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded">
+        <label for="agreeTerms" class="text-sm text-gray-700">
+            Saya telah membaca dan mengerti 
+            <a href="/syarat-ketentuan" target="_blank" class="text-[#433592] underline hover:text-purple-700">
+                peraturan Toko Pinjam
+            </a>
+        </label>
+    </div>
+    @error('agreeTerms') <p class="text-red-500 text-xs">{{ $message }}</p> @enderror
 
-                    {{-- Submit Button --}}
-<button type="submit" 
-        x-bind:disabled="!$wire.agreeTerms"
-        :class="$wire.agreeTerms ? 'bg-[#433592] hover:bg-[#3A2B7A] hover:-translate-y-0.5 hover:shadow-lg' : 'bg-gray-400 cursor-not-allowed'"
-        class="w-full py-4 px-6 rounded-lg font-semibold text-white transition-all duration-200 flex items-center justify-center relative">
-    
-    {{-- Text saat normal (tidak sedang loading) --}}
-    <span wire:loading.remove wire:target="register">
-        Buat Akun
-    </span>
-    
-    {{-- Text & Spinner saat tombol ditekan (loading) --}}
-    <span wire:loading wire:target="register" class="flex items-center">
-        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-        </svg>
-        Mendaftar...
-    </span>
-</button>
+    {{-- Submit Button --}}
+    <button type="submit" 
+            x-bind:disabled="!agreed"
+            x-bind:class="agreed ? 'bg-[#433592] hover:bg-[#3A2B7A] hover:-translate-y-0.5 hover:shadow-lg' : 'bg-gray-400 cursor-not-allowed'"
+            class="w-full py-4 px-6 rounded-lg font-semibold text-white transition-all duration-200 flex items-center justify-center relative">
+        
+        {{-- Text saat normal (tidak sedang loading) --}}
+        <span wire:loading.remove wire:target="register">
+            Buat Akun
+        </span>
+        
+        {{-- Text & Spinner saat tombol ditekan (loading) --}}
+        <span wire:loading wire:target="register" class="flex items-center">
+            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Mendaftar...
+        </span>
+    </button>
+</div>
 
                     {{-- Login Link --}}
                     <div class="text-center">
