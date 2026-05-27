@@ -7,7 +7,6 @@
 
         <title>@hasSection('title')@yield('title') - Toko Pinjam@else{{ config('app.name', 'Toko Pinjam') }}@endif</title>
 
-        <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8ZNPYL87N"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
@@ -17,44 +16,35 @@
           gtag('config', 'G-M8ZNPYL87N');
         </script>
 
-        <!-- Favicon -->
         <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon_io/favicon.ico') }}">
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon_io/favicon-32x32.png') }}">
         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon_io/favicon-16x16.png') }}">
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon_io/apple-touch-icon.png') }}">
         <link rel="manifest" href="{{ asset('images/favicon_io/site.webmanifest') }}">
 
-        <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-        <!-- Scripts -->
         @if(app()->environment('production') && !file_exists(public_path('build/manifest.json')))
-            <!-- Fallback CDN CSS/JS for production if build assets not available -->
             <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
             <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
         @else
             @vite(['resources/css/app.css', 'resources/js/app.js'])
         @endif
         
-        <!-- Livewire Styles -->
         @livewireStyles
         
-        <!-- Sweet Alert 2 CDN -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         
-        <!-- Trix Editor CDN -->
         <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
         <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
         
-        <!-- Additional Styles -->
         @stack('styles')
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
             <livewire:layout.navigation />
 
-            <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -63,13 +53,11 @@
                 </header>
             @endif
 
-            <!-- Page Content -->
             <main>
                 {{ $slot }}
             </main>
         </div>
         
-        <!-- Sweet Alert untuk Login Success -->
         @if(session('login_success'))
             <script>
                 Swal.fire({
@@ -89,10 +77,9 @@
             </script>
         @endif
         
-        <!-- Additional Scripts -->
         @stack('scripts')
         
-        <!-- Livewire Scripts -->
-        @livewireScripts
+        @livewireScriptConfig
+        <script src="{{ asset('livewire/livewire.min.js') }}"></script>
     </body>
 </html>
