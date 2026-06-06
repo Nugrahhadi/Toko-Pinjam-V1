@@ -1,18 +1,18 @@
-<nav class="shadow-sm" style="background-color: #fffaf7;">
+<nav x-data="{ open: false }" class="shadow-sm" style="background-color: #fffaf7;">
     <div class="px-4 py-2" style="background-color: #FFC131; color: #433592;">
-        <div class="max-w-7xl mx-auto flex items-center justify-between text-xs lg:text-sm">
-            <div class="flex items-center">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-xs lg:text-sm">
+            <div class="flex items-center text-center sm:text-left">
                 <span class="mr-2">💡</span>
-                <span class="font-semibold text-xs lg:text-sm">Untuk dompetmu, lingkunganmu, dan kamu</span>
+                <span class="font-semibold text-xs lg:text-sm break-words">Untuk dompetmu, lingkunganmu, dan kamu</span>
             </div>
 
-            <div class="flex items-center">
-                <div class="relative">
+            <div class="flex items-center w-full sm:w-auto justify-center sm:justify-end">
+                <div class="relative w-full sm:w-auto max-w-[280px]">
                     <input
                         type="text"
                         wire:model.live.debounce.300ms="search"
                         placeholder="Mau cari apa?"
-                        class="pl-8 pr-4 py-1 text-xs lg:text-sm border border-gray-300 rounded-md focus:outline-none bg-white text-gray-900 placeholder-gray-500"
+                        class="w-full pl-8 pr-4 py-1 text-xs lg:text-sm border border-gray-300 rounded-md focus:outline-none bg-white text-gray-900 placeholder-gray-500"
                         style="--tw-ring-color: #433592; border-color: #433592;"
                     >
                     <svg class="absolute left-2 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -180,7 +180,7 @@
             </div>
 
             <div class="md:hidden">
-                <button wire:click="toggleMenu"
+                <button @click="open = !open"
                         class="text-gray-700"
                         style="color: #433592;"
                         onmouseover="this.style.color='#433592'"
@@ -193,7 +193,16 @@
             </div>
         </div>
 
-        <div class="md:hidden {{ $isMenuOpen ? 'block' : 'hidden' }}">
+        <div class="md:hidden" 
+             x-show="open" 
+             x-cloak
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-2"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 -translate-y-2"
+             style="display: none;">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t">
                 <a href="{{ route('all-items') }}"
                    class="block px-3 py-2 text-gray-700 font-medium hover:text-[#433592] transition-colors"
@@ -231,12 +240,12 @@
                     <div class="pt-3">
                         <div class="px-3 py-2 mb-2">
                             <div class="flex items-center space-x-3">
-                                <div class="w-10 h-10 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center text-white font-semibold">
+                                <div class="w-10 h-10 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center text-white font-semibold flex-shrink-0">
                                     {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
                                 </div>
-                                <div>
-                                    <p class="text-sm font-medium text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ auth()->user()->name }}</p>
-                                    <p class="text-xs text-gray-500" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ auth()->user()->email }}</p>
+                                <div class="min-w-0 flex-1">
+                                    <p class="text-sm font-medium text-gray-900 truncate" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ auth()->user()->name }}</p>
+                                    <p class="text-xs text-gray-500 truncate" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ auth()->user()->email }}</p>
                                     <span class="inline-flex items-center px-2 py-0.5 mt-1 text-xs font-medium text-green-700 bg-green-100 rounded-full">
                                         {{ ucfirst(auth()->user()->role ?? 'user') }}
                                     </span>

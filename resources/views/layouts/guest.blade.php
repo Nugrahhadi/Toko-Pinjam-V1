@@ -26,6 +26,10 @@
         body {
             font-family: 'Google Sans', 'Product Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
+
+        [x-cloak] {
+            display: none !important;
+        }
         </style>
 
         <!-- Scripts -->
@@ -43,10 +47,7 @@
         <!-- Trix Editor CDN -->
         <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
         <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
-
-             <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
         
-        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
         @livewireStyles
         @stack('styles')
     </head>
@@ -58,7 +59,6 @@
 
         @livewireScripts
         
-        <!-- Scroll to How It Works Script -->
         <script>
             function scrollToHowItWorks() {
                 const howItWorksSection = document.getElementById('how-it-works');
@@ -68,17 +68,15 @@
                         block: 'start'
                     });
                 } else {
-                    // If not on the landing page, redirect to home and then scroll
                     window.location.href = '/#how-it-works';
                 }
             }
             
-            // Check if there's a hash in the URL when page loads
             document.addEventListener('DOMContentLoaded', function() {
                 if (window.location.hash === '#how-it-works') {
                     setTimeout(() => {
                         scrollToHowItWorks();
-                    }, 500); // Wait for page to load
+                    }, 500); 
                 }
             });
         </script>

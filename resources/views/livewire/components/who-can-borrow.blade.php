@@ -9,7 +9,7 @@
                     <p class="text-xs lg:text-base text-gray-700 mb-5 leading-relaxed" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                         Kami menyambut mahasiswa di seluruh jenjang (D3/D4/S1/S2/S3) dari semua universitas di Indonesia untuk meminjam. Dibuktikan dengan menunjukkan Kartu Tanda Mahasiswa (KTM) saat mendaftar. Ayo bergabung! Pembuatan akun tidak dipungut biaya.
                     </p>
-                    <div class="flex flex-row gap-2 lg:gap-3 items-center">
+                    <div class="flex flex-wrap gap-2 lg:gap-3 items-center">
                         @auth
                             <a href="{{ route('all-items') }}" class="px-6 py-2 lg:px-8 lg:py-3 bg-[#433592] text-white rounded-lg font-semibold hover:bg-[#3A2B7A] transition-colors text-xs lg:text-sm" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                                 Pinjam Barang Sekarang

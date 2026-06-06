@@ -79,7 +79,7 @@
 <!-- Banner Laporan Keuangan -->
 <div class="bg-[#9be1eb]">
     <div class="pt-8 pb-8 text-center">
-        <h3 class="whitespace-nowrap text-2xl font-extrabold text-[#413291] mb-8" style="font-family: 'Google Sans','Product Sans',sans-serif;">
+        <h3 class="text-xl md:text-2xl font-extrabold text-[#413291] mb-8" style="font-family: 'Google Sans','Product Sans',sans-serif;">
             Kamu berhak tahu untuk apa donasimu digunakan
         </h3>
         <a href="{{ route('laporan-keuangan') }}" target="_blank"

@@ -109,11 +109,11 @@ class ItemEditor extends Component
             $i = 1;
             while (
                 Item::where("slug", $slug)
-                    ->when(
-                        $this->item,
-                        fn($q) => $q->where("id", "!=", $this->item->id),
-                    )
-                    ->exists()
+                ->when(
+                    $this->item,
+                    fn($q) => $q->where("id", "!=", $this->item->id),
+                )
+                ->exists()
             ) {
                 $slug = "{$base}-{$i}";
                 $i++;
@@ -164,7 +164,7 @@ class ItemEditor extends Component
                 'exception' => $e,
                 'data' => $this->only(['name', 'slug', 'category_id', 'location_id'])
             ]);
-            
+
             $this->addError('general', "Gagal menyimpan barang: " . $e->getMessage());
             throw $e;
         }

@@ -52,7 +52,7 @@
                 </div>
                 
                 <div class="bg-[#433592] px-4 py-4 lg:px-8 lg:py-6">
-                    <div class="flex flex-row gap-3 lg:gap-4 items-center justify-center">
+                    <div class="flex flex-wrap gap-3 lg:gap-4 items-center justify-center">
                         @auth
                             <a href="{{ route('all-items') }}" class="px-8 py-3 lg:px-12 lg:py-4 bg-transparent text-[#FDF2EB] font-bold rounded-lg border-2 border-[#FDF2EB] hover:bg-[#FDF2EB] hover:text-[#433592] transition-all duration-300 text-sm lg:text-base" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
                                 Pinjam Barang Sekarang

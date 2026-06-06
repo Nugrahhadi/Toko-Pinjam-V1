@@ -4,25 +4,19 @@
     <livewire:components.navbar />
 
     <div class="max-w-5xl mx-auto px-6 lg:px-16 py-16">
-        {{-- Judul dan Maskot --}}
         <div class="flex flex-col lg:flex-row justify-between items-center mb-10">
             <h2 class="text-5xl font-extrabold text-[#3b0a73] mb-4 lg:mb-10">Kontak</h2>
             <img src="{{ asset('images/aiusage/kontak.png') }}" alt="Maskot" class="w-[130px]">
         </div>
 
-        {{-- Kartu Kontak --}}
         <div class="flex flex-col md:flex-row justify-left gap-4 md:gap-6 mb-10">
-            {{-- Email --}}
-           <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tokopinjamindonesia@gmail.com&su=Halo%20Admin&body=Halo%20saya%20ingin%20bertanya..."
-   target="_blank"
+           <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tokopinjamindonesia@gmail.com&su=Halo%20Admin&body=Halo%20saya%20ingin%20bertanya..." target="_blank"
                 class="flex-1 bg-red-500 text-white p-6 rounded-xl shadow-md hover:scale-105 transition text-left">
                 <div class="text-4xl font-bold flex justify-left items-left gap-2 mb-2">
                    <svg class="w-[50px] h-[50px] fill-[#FFFFFF]" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-
-  <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-  <path d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"></path>
-
-</svg>
+                        <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <path d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"></path>
+                    </svg>
                     Email
                 </div>
                 <div class="text-2xl md:text-base font-semibold break-words">
@@ -30,7 +24,6 @@
                 </div>
             </a>
 
-            {{-- WhatsApp --}}
             <a href="https://wa.me/6282122270150?text=Halo%20Admin%2C%20saya%20ingin%20bertanya%20tentang..."
                 class="flex-1 bg-lime-300 text-[#3b0a73] p-6 rounded-xl shadow-md hover:scale-105 transition text-left"
                 target="_blank">
@@ -51,7 +44,6 @@
 
         
     </div>
-    {{-- FAQ Section --}}
         <div class="bg-[#FAF0EB] px-10 py-10 rounded-xl text-center mx-auto">
             <p class="text-4xl font-bold text-[#3b0a73]">
                 Mau Tanya Apa? Coba Cek FAQ!
