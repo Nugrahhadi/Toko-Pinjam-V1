@@ -1,0 +1,56 @@
+<?php
+
+return [
+    'about' => [
+        'vision' => 'Our Vision & Mission',
+        'team' => 'Our Team',
+    ],
+    'financial' => [
+        'title' => 'Financial Reports',
+        'title_html' => 'Financial<br>Reports',
+        'subtitle' => 'As a nonprofit organization that grows and lives through donations, we are responsible for the transparency of every rupiah coming in and out. Our financial reports are compiled and published every quarter of the year.',
+        'for_what' => 'What is Your Donation For?',
+        'operational' => 'Operational',
+        'buy_goods' => 'Buy Goods',
+        'event' => 'Event',
+        'promotion' => 'Promotion',
+        'maintenance' => 'Maintenance',
+        'others' => 'Others',
+        'total' => 'Total',
+        'documents' => 'Report Documents',
+        'quarter' => 'Quarter',
+        'download' => 'Download',
+    ],
+    'contact' => [
+        'title' => 'Contact Us',
+        'subtitle' => 'We are ready to help answer your questions about Toko Pinjam.',
+        'name' => 'Full Name',
+        'email' => 'Email Address',
+        'message' => 'Message',
+        'send' => 'Send Message',
+        'success' => 'Your message has been sent successfully!',
+        'placeholder_name' => 'Enter your full name',
+        'placeholder_email' => 'Enter your email address',
+        'placeholder_message' => 'Type your message here...',
+    ],
+    'item' => [
+        'borrow' => 'Borrow Now',
+        'details' => 'Item Details',
+        'instructions' => 'Borrowing Instructions',
+        'stock' => 'Stock',
+        'category' => 'Category',
+        'location' => 'Location',
+        'weight' => 'Weight',
+        'original_price' => 'Original Price',
+        'donation_price' => 'Donation Fee',
+        'completeness' => 'Completeness',
+        'how_to_use' => 'How to Use',
+        'how_to_borrow' => 'How to Borrow',
+    ],
+    'location' => [
+        'title' => 'Our Locations',
+        'purwokerto' => 'Purwokerto Branch',
+        'hours' => 'Operational Hours',
+        'map' => 'Guide Map',
+    ]
+];

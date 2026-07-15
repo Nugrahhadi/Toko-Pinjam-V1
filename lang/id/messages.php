@@ -1,0 +1,56 @@
+<?php
+
+return [
+    'about' => [
+        'vision' => 'Visi & Misi Kami',
+        'team' => 'Tim Kami',
+    ],
+    'financial' => [
+        'title' => 'Laporan Keuangan',
+        'title_html' => 'Laporan<br>Keuangan',
+        'subtitle' => 'Sebagai nonprofit organization yang berkembang dan hidup melalui donasi, kami bertanggung jawab atas transparansi setiap rupiah yang masuk dan keluar. Laporan keuangan kami disusun dan dipublikasikan setiap kuartal dalam satu tahun.',
+        'for_what' => 'Untuk Apa Donasimu?',
+        'operational' => 'Operasional',
+        'buy_goods' => 'Beli Barang',
+        'event' => 'Event',
+        'promotion' => 'Promosi',
+        'maintenance' => 'Maintenance',
+        'others' => 'Lainnya',
+        'total' => 'Total',
+        'documents' => 'Dokumen Laporan',
+        'quarter' => 'Kuartal',
+        'download' => 'Unduh',
+    ],
+    'contact' => [
+        'title' => 'Hubungi Kami',
+        'subtitle' => 'Kami siap membantu menjawab pertanyaan Anda seputar Toko Pinjam.',
+        'name' => 'Nama Lengkap',
+        'email' => 'Alamat Email',
+        'message' => 'Pesan',
+        'send' => 'Kirim Pesan',
+        'success' => 'Pesan Anda berhasil dikirim!',
+        'placeholder_name' => 'Masukkan nama lengkap Anda',
+        'placeholder_email' => 'Masukkan alamat email Anda',
+        'placeholder_message' => 'Ketik pesan Anda di sini...',
+    ],
+    'item' => [
+        'borrow' => 'Pinjam Sekarang',
+        'details' => 'Detail Barang',
+        'instructions' => 'Instruksi Peminjaman',
+        'stock' => 'Stok',
+        'category' => 'Kategori',
+        'location' => 'Lokasi',
+        'weight' => 'Berat',
+        'original_price' => 'Harga Asli',
+        'donation_price' => 'Biaya Donasi',
+        'completeness' => 'Kelengkapan',
+        'how_to_use' => 'Cara Penggunaan',
+        'how_to_borrow' => 'Cara Peminjaman',
+    ],
+    'location' => [
+        'title' => 'Lokasi Kami',
+        'purwokerto' => 'Cabang Purwokerto',
+        'hours' => 'Jam Operasional',
+        'map' => 'Peta Panduan',
+    ]
+];

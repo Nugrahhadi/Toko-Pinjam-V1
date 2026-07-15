@@ -2,12 +2,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <h2 class="text-2xl lg:text-5xl text-[#433592] mb-6" style="font-weight: 800; font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                Kami Menjamin Harga Termurah
+                {{ __('Kami Menjamin Harga Termurah') }}
             </h2>
             <p class="text-sm lg:text-lg text-[#433592] max-w-3xl mx-auto leading-relaxed" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                Tidak perlu lagi mengeluarkan ratusan hingga jutaan rupiah hanya untuk barang yang dipakai jarang-jarang. 
-                Mulai dari 10 Ribu, kamu bisa pinjam dan pakai barang-barang ini. Dengan begitu, sisa uang kamu bisa dipakai 
-                untuk keperluan yang lain!
+                {{ __('Tidak perlu lagi mengeluarkan ratusan hingga jutaan rupiah hanya untuk barang yang dipakai jarang-jarang. Mulai dari 10 Ribu, kamu bisa pinjam dan pakai barang-barang ini. Dengan begitu, sisa uang kamu bisa dipakai untuk keperluan yang lain!') }}
             </p>
         </div>
 
@@ -43,7 +41,7 @@
                 <div class="p-3 lg:p-4 flex-1 flex flex-col">
                     <div class="mb-2">
                         <span class="inline-block px-2 py-1 text-xs font-medium text-[#433592] bg-[#FDF2EB] rounded-full">
-                            {{ $item->category->name ?? 'Tanpa Kategori' }}
+                            {{ $item->category->name ?? __('Tanpa Kategori') }}
                         </span>
                     </div>
                     <h3 class="text-sm font-semibold text-gray-900 mb-2 line-clamp-2">
@@ -53,21 +51,21 @@
                         <span class="text-base lg:text-lg font-bold text-[#433592]">
                             Rp {{ number_format($item->donation_price) }}
                         </span>
-                        <span class="text-xs text-gray-500">per hari</span>
+                        <span class="text-xs text-gray-500">{{ __('per hari') }}</span>
                     </div>
                 </div>
             </div>
         </a>
     @empty
         <div class="col-span-full text-center text-gray-500">
-            Belum ada barang untuk ditampilkan.
+            {{ __('Belum ada barang untuk ditampilkan.') }}
         </div>
     @endforelse
 </div>
 
         <div class="text-center mt-12">
             <a href="{{ route('all-items') }}" class="inline-flex items-center px-8 py-4 bg-[#433592] text-white font-semibold rounded-lg hover:bg-[#3A2B7A] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                Lihat Semua Barang
+                {{ __('Lihat Semua Barang') }}
                 <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                 </svg>

@@ -42,6 +42,17 @@ class Navbar extends Component
         $this->search = '';
     }
 
+    public function setLocale(string $locale): void
+    {
+        if (in_array($locale, ['id', 'en'])) {
+            session()->put('locale', $locale);
+            app()->setLocale($locale);
+            
+            // Full reload by redirecting back to the referer page
+            $this->redirect(request()->header('Referer') ?? route('home'), navigate: false);
+        }
+    }
+
     public function render()
     {
         return view('livewire.components.navbar');

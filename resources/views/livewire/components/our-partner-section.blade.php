@@ -7,7 +7,7 @@
                 Our Partners
             </h2>
 
-            <div class="swiper-container our-partner-slider">
+            <div class="swiper our-partner-slider overflow-hidden w-full">
                 <div class="swiper-wrapper">
                     {{-- Loop seluruh partner --}}
                     @foreach ($partners as $partner)

@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <h2 class="text-2xl lg:text-3xl text-gray-900 mb-4 font-extrabold" style="color: #433592; font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                Aku Mau Pinjam. Gimana Caranya?
+                {{ __('Aku Mau Pinjam. Gimana Caranya?') }}
             </h2>
         </div>
 
@@ -20,10 +20,10 @@
                         </div>
                     </div>
                     <h3 class="text-lg font-bold mt-9 text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                        Buat akun
+                        {{ __('Buat akun') }}
                     </h3>
                     <p class="text-gray-600 mt-3 text-sm leading-relaxed max-w-xs">
-                        Isi formulir singkat untuk bergabung dalam sebuah lifestyle baru yang sehat untuk kamu, dan dompetmu. Konfirmasi akun kamu akan dikirim via WhatsApp dalam 24 jam setelah pengajuan.
+                        {{ __('Isi formulir singkat untuk bergabung dalam sebuah lifestyle baru yang sehat untuk kamu, dan dompetmu. Konfirmasi akun kamu akan dikirim via WhatsApp dalam 24 jam setelah pengajuan.') }}
                     </p>
                 </div>
 
@@ -39,10 +39,10 @@
                         </div>
                     </div>
                     <h3 class="text-lg font-bold mt-9 text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                        Cari dan Pinjam
+                        {{ __('Cari dan Pinjam') }}
                     </h3>
                     <p class="text-gray-600 mt-3 text-sm leading-relaxed max-w-xs">
-                        Periksa ketersediaan barang dan pinjam di website ini. Oiya, kamu juga bisa lihat instagram toko pinjam daerah kamu untuk tau barang apa saja yang tersedia.
+                        {{ __('Periksa ketersediaan barang dan pinjam di website ini. Oiya, kamu juga bisa lihat instagram toko pinjam daerah kamu untuk tau barang apa saja yang tersedia.') }}
                     </p>
                 </div>
 
@@ -58,10 +58,10 @@
                         </div>
                     </div>
                     <h3 class="text-lg font-bold mt-9 text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                        Yuk Berdonasi
+                        {{ __('Yuk Berdonasi') }}
                     </h3>
                     <p class="text-gray-600 mt-3 text-sm leading-relaxed max-w-xs">
-                        Dalam menyediakan layanan ini, kami bekerja secara sukarela. Donasi kamu akan membantu kami tetap hidup agar kamu, teman kamu, semua orang di sekelilingmu juga bisa rasakan manfaat ini.
+                        {{ __('Dalam menyediakan layanan ini, kami bekerja secara sukarela. Donasi kamu akan membantu kami tetap hidup agar kamu, teman kamu, semua orang di sekelilingmu juga bisa rasakan manfaat ini.') }}
                     </p>
                 </div>
             </div>
@@ -85,10 +85,10 @@
                         </div>
                     </div>
                     <h3 class="text-lg font-bold mt-9 text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                        Ambil Barang
+                        {{ __('Ambil Barang') }}
                     </h3>
                     <p class="text-gray-600 mt-3 text-sm leading-relaxed max-w-xs">
-                        Datang ke lokasi toko pinjam di kota kamu dan ambil barangnya. Jangan lupa bawa KTP/SIM untuk dititipkan ya!
+                        {{ __('Datang ke lokasi toko pinjam di kota kamu dan ambil barangnya. Jangan lupa bawa KTP/SIM untuk dititipkan ya!') }}
                     </p>
                 </div>
 
@@ -104,10 +104,10 @@
                         </div>
                     </div>
                     <h3 class="text-lg font-bold mt-9 text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                        Kembalikan Barang
+                        {{ __('Kembalikan Barang') }}
                     </h3>
                     <p class="text-gray-600 mt-3 text-sm leading-relaxed max-w-xs">
-                        Sudah selesai, datang lagi ke lokasi kamu meminjam dan kembalikan barangnya ya. Karena teman-teman kita yang lain juga mau pakai barangnya setelah kamu.
+                        {{ __('Sudah selesai, datang lagi ke lokasi kamu meminjam dan kembalikan barangnya ya. Karena teman-teman kita yang lain juga mau pakai barangnya setelah kamu.') }}
                     </p>
                 </div>
 
@@ -132,10 +132,10 @@
                     </div>
                 </div>
                 <h3 class="text-base font-bold mt-6 text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                    Buat akun
+                    {{ __('Buat akun') }}
                 </h3>
                 <p class="text-gray-600 mt-3 text-xs leading-relaxed px-4">
-                    Isi formulir singkat untuk bergabung dalam sebuah lifestyle baru yang sehat untuk kamu, dan dompetmu. Konfirmasi akun kamu akan dikirim via WhatsApp dalam 24 jam setelah pengajuan.
+                    {{ __('Isi formulir singkat untuk bergabung dalam sebuah lifestyle baru yang sehat untuk kamu, dan dompetmu. Konfirmasi akun kamu akan dikirim via WhatsApp dalam 24 jam setelah pengajuan.') }}
                 </p>
             </div>
 
@@ -151,10 +151,10 @@
                     </div>
                 </div>
                 <h3 class="text-base font-bold mt-6 text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                    Cari dan Pinjam
+                    {{ __('Cari dan Pinjam') }}
                 </h3>
                 <p class="text-gray-600 mt-3 text-xs leading-relaxed px-4">
-                    Periksa ketersediaan barang dan pinjam di website ini. Oiya, kamu juga bisa lihat instagram toko pinjam daerah kamu untuk tau barang apa saja yang tersedia.
+                    {{ __('Periksa ketersediaan barang dan pinjam di website ini. Oiya, kamu juga bisa lihat instagram toko pinjam daerah kamu untuk tau barang apa saja yang tersedia.') }}
                 </p>
             </div>
 
@@ -170,10 +170,10 @@
                     </div>
                 </div>
                 <h3 class="text-base font-bold mt-6 text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                    Yuk Berdonasi
+                    {{ __('Yuk Berdonasi') }}
                 </h3>
                 <p class="text-gray-600 mt-3 text-xs leading-relaxed px-4">
-                    Dalam menyediakan layanan ini, kami bekerja secara sukarela. Donasi kamu akan membantu kami tetap hidup agar kamu, teman kamu, semua orang di sekelilingmu juga bisa rasakan manfaat ini.
+                    {{ __('Dalam menyediakan layanan ini, kami bekerja secara sukarela. Donasi kamu akan membantu kami tetap hidup agar kamu, teman kamu, semua orang di sekelilingmu juga bisa rasakan manfaat ini.') }}
                 </p>
             </div>
 
@@ -189,10 +189,10 @@
                     </div>
                 </div>
                 <h3 class="text-base font-bold mt-6 text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                    Ambil Barang
+                    {{ __('Ambil Barang') }}
                 </h3>
                 <p class="text-gray-600 mt-3 text-xs leading-relaxed px-4">
-                    Datang ke lokasi toko pinjam di kota kamu dan ambil barangnya. Jangan lupa bawa KTP/SIM untuk dititipkan ya!
+                    {{ __('Datang ke lokasi toko pinjam di kota kamu dan ambil barangnya. Jangan lupa bawa KTP/SIM untuk dititipkan ya!') }}
                 </p>
             </div>
 
@@ -207,11 +207,11 @@
                         5
                     </div>
                 </div>
-                <h3 class="text-lg font-bold mt-6 text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                    Kembalikan Barang
+                <h3 class="text-base font-bold mt-6 text-gray-900" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
+                    {{ __('Kembalikan Barang') }}
                 </h3>
-                <p class="text-gray-600 mt-3 text-sm leading-relaxed px-4">
-                    Sudah selesai, datang lagi ke lokasi kamu meminjam dan kembalikan barangnya ya. Karena teman-teman kita yang lain juga mau pakai barangnya setelah kamu.
+                <p class="text-gray-600 mt-3 text-xs leading-relaxed px-4">
+                    {{ __('Sudah selesai, datang lagi ke lokasi kamu meminjam dan kembalikan barangnya ya. Karena teman-teman kita yang lain juga mau pakai barangnya setelah kamu.') }}
                 </p>
             </div>
         </div>

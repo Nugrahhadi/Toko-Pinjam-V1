@@ -49,12 +49,12 @@
                 <img src="{{ asset('images/donasi/logo.png') }}" alt="Toko Pinjam Indonesia" class="w-full h-full object-cover">
             </div>
             <div>
-                <h1 class="text-4xl font-bold text-[#433592] mb-2">Toko Pinjam Indonesia</h1>
-                <p class="text-gray-600 max-w-xl">Kami menghadirkan layanan pinjam murah untuk mahasiswa yang memberikan kabar gembira pada lingkungan.</p>
+                <h1 class="text-4xl font-bold text-[#433592] mb-2">{{ __('Toko Pinjam Indonesia') }}</h1>
+                <p class="text-gray-600 max-w-xl">{{ __('Kami menghadirkan layanan pinjam murah untuk mahasiswa yang memberikan kabar gembira pada lingkungan.') }}</p>
             </div>
         </div>
         <a href="https://sociabuzz.com/tokopinjam/donate" target="_blank" rel="noopener"
-           class="mt-12 bg-[#433592] text-white px-6 py-2 rounded-xl hover:bg-[#3a2d7a] transition-colors">Donasi</a>
+           class="mt-12 bg-[#433592] text-white px-6 py-2 rounded-xl hover:bg-[#3a2d7a] transition-colors">{{ __('Donasi') }}</a>
     </div>
 </section>
 
@@ -62,7 +62,7 @@
 <section class="bg-white py-16">
     <div class="max-w-4xl mx-auto text-center px-4">
         <h2 class="text-4xl font-bold text-[#433592]">
-            <span id="donasiTotal" data-total="{{ (float)($total_amount ?? 0) }}">Rp{{ number_format((float)($total_amount ?? 0)) }}</span> telah terkumpul
+            <span id="donasiTotal" data-total="{{ (float)($total_amount ?? 0) }}">Rp{{ number_format((float)($total_amount ?? 0)) }}</span> {{ __('telah terkumpul') }}
         </h2>
         <div class="relative mt-6 h-4 bg-gray-200 rounded-full overflow-hidden">
             <div id="donasiProgress"
@@ -80,11 +80,11 @@
 <div class="bg-[#9be1eb]">
     <div class="pt-8 pb-8 text-center">
         <h3 class="text-xl md:text-2xl font-extrabold text-[#413291] mb-8" style="font-family: 'Google Sans','Product Sans',sans-serif;">
-            Kamu berhak tahu untuk apa donasimu digunakan
+            {{ __('Kamu berhak tahu untuk apa donasimu digunakan') }}
         </h3>
         <a href="{{ route('laporan-keuangan') }}" target="_blank"
            class="inline-block bg-[#413291] text-white font-semibold px-6 py-3 rounded hover:bg-[#2e2367] transition">
-           Laporan Keuangan
+           {{ __('Laporan Keuangan') }}
         </a>
     </div>
 </div>
@@ -107,7 +107,7 @@
                     <h3 class="text-lg font-medium mb-4">Chapter II: ???</h3>
                     <div class="bg-black text-white py-24 px-6 rounded-lg h-[400px] flex flex-col items-center justify-center">
                         <p class="text-4xl mb-4">???</p>
-                        <p>Nantikan Toko Pinjam di Kota Kamu<br>Update di Instagram @tokopinjam</p>
+                        <p>{{ __('Nantikan Toko Pinjam di Kota Kamu') }}<br>{{ __('Update di Instagram @tokopinjam') }}</p>
                     </div>
                 </div>
             </div>
@@ -120,23 +120,23 @@
 <!-- Insentif Donasi -->
 <section class="bg-white py-16">
     <div class="max-w-5xl mx-auto text-center px-4">
-        <h2 class="text-3xl font-bold text-[#433592] mb-10">Insentif Donasi</h2>
+        <h2 class="text-3xl font-bold text-[#433592] mb-10">{{ __('Insentif Donasi') }}</h2>
         <div class="grid md:grid-cols-2 gap-8">
             <div class="bg-[#FFF0E1] shadow rounded-lg p-6 flex flex-col items-center">
                 <div class="w-24 h-24 mb-4 overflow-hidden">
                     <img src="{{ asset('images/donasi/1.png') }}" alt="Insentif 1" class="w-full h-full">
                 </div>
-                <p class="text-lg text-gray-600">Total Donasi Minimum</p>
+                <p class="text-lg text-gray-600">{{ __('Total Donasi Minimum') }}</p>
                 <p class="text-5xl font-bold text-[#433592]">Rp100.000</p>
-                <p class="text-xl text-[#433592] mt-2 font-semibold">Nama tercantum di list leaderboard</p>
+                <p class="text-xl text-[#433592] mt-2 font-semibold">{{ __('Nama tercantum di list leaderboard') }}</p>
             </div>
             <div class="bg-[#FFF0E1] shadow rounded-lg p-6 flex flex-col items-center">
                 <div class="w-24 h-24 mb-4 overflow-hidden">
                     <img src="{{ asset('images/donasi/2.png') }}" alt="Insentif 2" class="w-full h-full">
                 </div>
-                <p class="text-lg text-gray-600">Total Donasi Minimum</p>
+                <p class="text-lg text-gray-600">{{ __('Total Donasi Minimum') }}</p>
                 <p class="text-5xl font-bold text-[#433592]">Rp50.000</p>
-                <p class="text-xl text-[#433592] mt-2 font-semibold">Pesan tercantum di running text website</p>
+                <p class="text-xl text-[#433592] mt-2 font-semibold">{{ __('Pesan tercantum di running text website') }}</p>
             </div>
         </div>
     </div>
@@ -145,7 +145,7 @@
 <!-- Donatur Teratas (dinamis) -->
 <section class="py-16 bg-[#FFF0E1]">
     <div class="max-w-6xl mx-auto text-center px-4">
-        <h2 class="text-3xl font-bold text-[#433592] mb-10">Donatur Teratas</h2>
+        <h2 class="text-3xl font-bold text-[#433592] mb-10">{{ __('Donatur Teratas') }}</h2>
 
         @php
             $top = collect($leaders ?? []);
@@ -269,8 +269,8 @@
 <!-- Testimoni (dinamis) -->
 <section class="py-16 bg-white">
     <div class="max-w-6xl mx-auto text-center px-4">
-        <h2 class="text-3xl font-bold text-[#433592] mb-6">Apa Kata Mereka</h2>
-        <p class="text-sm text-gray-500 mb-8">(Diperbarui berkala)</p>
+        <h2 class="text-3xl font-bold text-[#433592] mb-6">{{ __('Apa Kata Mereka') }}</h2>
+        <p class="text-sm text-gray-500 mb-8">{{ __('(Diperbarui berkala)') }}</p>
 
         <!-- wire:ignore penting agar Swiper tidak terganggu re-render Livewire -->
         <div class="swiper testimonials-swiper" wire:ignore>
@@ -286,7 +286,7 @@
                 @empty
                     <div class="swiper-slide">
                         <div class="bg-[#433592] text-white p-6 max-w-md mx-auto rounded-xl shadow testimonial-card w-full">
-                            <p class="testimonial-text italic mb-4">"Belum ada testimoni."</p>
+                            <p class="testimonial-text italic mb-4">"{{ __('Belum ada testimoni.') }}"</p>
                             <p class="font-semibold">—</p>
                         </div>
                     </div>

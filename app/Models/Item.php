@@ -16,8 +16,10 @@ class Item extends Model
 
     protected $fillable = [
         "name",
+        "name_en",
         "slug",
         "description",
+        "description_en",
         "original_price",
         "donation_price",
         "completeness",
@@ -106,5 +108,27 @@ class Item extends Model
             // format id: {running_number}-{mY}
             $item->id = $next . "-" . $date->format("mY");
         });
+    }
+
+    /**
+     * Localized name accessor.
+     */
+    public function getNameAttribute($value)
+    {
+        if (app()->getLocale() === 'en' && isset($this->attributes['name_en']) && !empty($this->attributes['name_en'])) {
+            return $this->attributes['name_en'];
+        }
+        return $value;
+    }
+
+    /**
+     * Localized description accessor.
+     */
+    public function getDescriptionAttribute($value)
+    {
+        if (app()->getLocale() === 'en' && isset($this->attributes['description_en']) && !empty($this->attributes['description_en'])) {
+            return $this->attributes['description_en'];
+        }
+        return $value;
     }
 }

@@ -8,13 +8,11 @@
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
             <div class="text-center">
                 <h1 class="text-2xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
-                    We are standing for<br>
-                    <span class="text-yellow-300">Environmental Justice</span>
+                    {{ __('We are standing for') }}<br>
+                    <span class="text-yellow-300">{{ __('Environmental Justice') }}</span>
                 </h1>
                 <p class="text-base lg:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
-                    Environmental justice atau keadilan lingkungan adalah sebuah konsep dan gerakan yang 
-                    menuntut distribusi yang adil atas manfaat dan beban lingkungan serta proses pengambilan 
-                    keputusan yang inklusif dan bermakna bagi semua kelompok, terutama yang terpinggirkan.
+                    {{ __('Environmental justice atau keadilan lingkungan adalah sebuah konsep dan gerakan yang menuntut distribusi yang adil atas manfaat dan beban lingkungan serta proses pengambilan keputusan yang inklusif dan bermakna bagi semua kelompok, terutama yang terpinggirkan') }}
                 </p>
             </div>
         </div>
@@ -32,18 +30,15 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-2xl lg:text-5xl font-bold text-[#433592] mb-6">
-                    Ketimpangan, ketimpangan, ketimpangan
+                    {{ __('Ketimpangan, ketimpangan, ketimpangan') }}
                 </h2>
                 <p class="text-base lg:text-lg text-[#433592] max-w-4xl mx-auto">
-                    Tinggal di perkotaan? coba sesekali ke pedesaan. Tinggal di pedesaan? coba sesekali tinggal di perkotaan. 
-                    Kamu bukan hanya akan melihat, tapi juga merasakan ketimpangan, gap, disparitas akan akses kepada 
-                    fasilitas penunjang dan pendukung kreatifitas.
+                    {{ __('Tinggal di perkotaan? coba sesekali ke pedesaan. Tinggal di pedesaan? coba sesekali tinggal di perkotaan. Kamu bukan hanya akan melihat, tapi juga merasakan ketimpangan, gap, disparitas akan akses kepada fasilitas penunjang dan pendukung kreatifitas.') }}
                 </p>
             </div>
 
             <!-- Benefit vs Burden -->
             <div class="relative max-w-4xl mx-auto mb-16">
-                {{-- <div class="bg-gradient-to-r from-gray-100 to-gray-50 rounded-3xl p-8 shadow-2xl"> --}}
                     <div class="relative overflow-hidden rounded-2xl">
                         <div class="flex justify-center">
                             <img src="{{ asset('images/tujuanVisi/benefitBurden.png') }}" 
@@ -55,32 +50,30 @@
                     
                     <div class="grid md:grid-cols-2 gap-8 mt-8">
                         <div class="bg-green-50 rounded-2xl p-6 border-l-4 border-green-500 transform hover:scale-105 transition-transform duration-300">
-                            <h4 class="text-lg font-bold text-green-800 mb-3">Contoh Benefit:</h4>
+                            <h4 class="text-lg font-bold text-green-800 mb-3">{{ __('Contoh Benefit:') }}</h4>
                             <ul class="space-y-2 text-green-700">
-                                <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>Akses ruang terbuka hijau</li>
-                                <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>Fasilitas bersepeda</li>
-                                <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>Pilihan transportasi umum</li>
+                                <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>{{ __('Akses ruang terbuka hijau') }}</li>
+                                <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>{{ __('Fasilitas bersepeda') }}</li>
+                                <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>{{ __('Pilihan transportasi umum') }}</li>
                             </ul>
                         </div>
                         
                         <div class="bg-red-50 rounded-2xl p-6 border-l-4 border-red-500 transform hover:scale-105 transition-transform duration-300">
-                            <h4 class="text-lg font-bold text-red-800 mb-3">Contoh Burden:</h4>
+                            <h4 class="text-lg font-bold text-red-800 mb-3">{{ __('Contoh Burden:') }}</h4>
                             <ul class="space-y-2 text-red-700">
-                                <li class="flex items-center"><span class="w-2 h-2 bg-red-500 rounded-full mr-3"></span>Polusi tanah air maupun udara</li>
-                                <li class="flex items-center"><span class="w-2 h-2 bg-red-500 rounded-full mr-3"></span>Pabrik-pabrik</li>
-                                <li class="flex items-center"><span class="w-2 h-2 bg-red-500 rounded-full mr-3"></span>Sampah</li>
+                                <li class="flex items-center"><span class="w-2 h-2 bg-red-500 rounded-full mr-3"></span>{{ __('Polusi tanah air maupun udara') }}</li>
+                                <li class="flex items-center"><span class="w-2 h-2 bg-red-500 rounded-full mr-3"></span>{{ __('Pabrik-pabrik') }}</li>
+                                <li class="flex items-center"><span class="w-2 h-2 bg-red-500 rounded-full mr-3"></span>{{ __('Sampah') }}</li>
                             </ul>
                         </div>
                     </div>
-                {{-- </div> --}}
                 
                 <!-- Quote section -->
                 <div class="mt-12 text-center">
                     <div class="bg-[#433592] text-white rounded-3xl p-8 transform hover:scale-105 transition-all duration-300 shadow-2xl">
-                        <h3 class="text-2xl font-bold mb-4">Dalam bahasa bayi:</h3>
+                        <h3 class="text-2xl font-bold mb-4">{{ __('Dalam bahasa bayi:') }}</h3>
                         <blockquote class="text-lg italic leading-relaxed">
-                            "Daerah perkotaan memiliki dan mendapat manfaat yang lebih banyak dan menanggung 
-                            beban yang cenderung lebih kecil dibanding daerah pedesaan, begitu juga sebaliknya."
+                            {{ __('"Daerah perkotaan memiliki dan mendapat manfaat yang lebih banyak dan menanggung beban yang cenderung lebih kecil dibanding daerah pedesaan, begitu juga sebaliknya."') }}
                         </blockquote>
                     </div>
                 </div>
@@ -89,11 +82,11 @@
 
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-2xl lg:text-5xl font-bold mb-8 text-[#413291]">
-                Manusia serakah, bumi terpaksa merekah
+                {{ __('Manusia serakah, bumi terpaksa merekah') }}
             </h2>
             <p class="text-base lg:text-xl text-[#413291] max-w-3xl mx-auto">
-                Jika kamu pikir keadilan hanya untuk manusia, maka kamu tidak adil.<br>
-                Bumi dan lingkungannya juga butuh keadilan.
+                {{ __('Jika kamu pikir keadilan hanya untuk manusia, maka kamu tidak adil.') }}<br>
+                {{ __('Bumi dan lingkungannya juga butuh keadilan.') }}
             </p>
         </div>
     </div>
@@ -102,17 +95,17 @@
     <div class="py-10 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-xl lg:text-4xl font-bold text-[#433592] mb-4">Sekarang</h2>
+                <h2 class="text-xl lg:text-4xl font-bold text-[#433592] mb-4">{{ __('Sekarang') }}</h2>
 
                 <!-- Statistic 1 -->
                 <div class="text-center p-8 bg-gradient-to-br from-red-50 to-orange-50 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
                     <div class="text-8xl font-black text-red-600 mb-4 animate-pulse">60%</div>
                     <p class="text-red-600 text-xl leading-relaxed">
-                        emisi global dihasilkan oleh konsumsi produk dan jasa rumah tangga, salah satu penyebab utama anthropogenic climate change
+                        {{ __('emisi global dihasilkan oleh konsumsi produk dan jasa rumah tangga, salah satu penyebab utama anthropogenic climate change') }}
                     </p>
                 </div>
 
-                <h2 class="text-xl lg:text-4xl font-bold text-[#433592] mt-12">Proyeksi</h2>
+                <h2 class="text-xl lg:text-4xl font-bold text-[#433592] mt-12">{{ __('Proyeksi') }}</h2>
             </div>
              
 
@@ -121,7 +114,7 @@
                 <div class="text-center p-8 bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
                     <div class="text-8xl font-black text-purple-600 mb-4 animate-bounce">9.6</div>
                     <p class="text-purple-600 text-lg leading-relaxed">
-                        milyar orang akan hidup di bumi pada 2050, dan 11 milyar di 2100. Hampir dipastikan besar emisi dari konsumsi manusia akan meningkat
+                        {{ __('milyar orang akan hidup di bumi pada 2050, and 11 milyar di 2100. Hampir dipastikan besar emisi dari konsumsi manusia akan meningkat') }}
                     </p>
                 </div>
                 
@@ -129,7 +122,7 @@
                 <div class="text-center p-8 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
                     <div class="text-8xl font-black text-blue-600 mb-4">300%</div>
                     <p class="text-blue-600 text-lg leading-relaxed">
-                        kematian akibat polusi udara akibat partikel halus (PM) di 2050 dibandingkan tahun 2000
+                        {{ __('kematian akibat polusi udara akibat partikel halus (PM) di 2050 dibandingkan tahun 2000') }}
                     </p>
                 </div>
 
@@ -137,7 +130,7 @@
                 <div class="text-center p-8 bg-gradient-to-br from-red-50 to-orange-50 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
                     <div class="text-8xl font-black text-custom-orange mb-4">4X</div>
                     <p class="text-custom-orange text-lg leading-relaxed">
-                        sampah di lautan akan meningkat di 20250 dibandingkan tahun 2000.
+                        {{ __('sampah di lautan akan meningkat di 20250 dibandingkan tahun 2000.') }}
                     </p>
                 </div>
             </div>
@@ -157,17 +150,17 @@
             <!-- Main Title -->
             <div class="text-center mb-16">
                 <div class="inline-block px-6 py-2 bg-red-100 text-red-800 rounded-full text-md font-semibold mb-6 animate-bounce">
-                    - We are over-consuming, and it is a disease -
+                    {{ __('- We are over-consuming, and it is a disease -') }}
                 </div>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                    Highlighted case: <span class="font-bold text-purple-700">Gunung sampah TPA Bantar Gebang, Bekasi, Jawa Barat</span>
+                    {{ __('Highlighted case:') }} <span class="font-bold text-purple-700">{{ __('Gunung sampah TPA Bantar Gebang, Bekasi, Jawa Barat') }}</span>
                 </p>
             </div>
 
             <!-- Case Study Card -->
             <div class="bg-white rounded-3xl shadow-2xl overflow-hidden mb-16 transform hover:scale-105 transition-all duration-300">
                 <div class="md:flex">
-                    <!-- Image Section - Made Larger -->
+                    <!-- Image Section -->
                     <div class="md:w-3/5 p-6">
                         <div class="bg-gradient-to-br from-cyan-100 to-blue-200 rounded-2xl p-4 relative overflow-hidden" style="aspect-ratio: 1350/1012;">
                             <!-- TPA Bantar Gebang Image -->
@@ -177,38 +170,38 @@
                             
                             <!-- Image overlay with title -->
                             <div class="absolute bottom-4 left-4 right-4 bg-black/50 backdrop-blur-sm rounded-lg p-2">
-                                <p class="text-white font-semibold text-sm">TPA Bantar Gebang</p>
-                                <p class="text-gray-200 text-xs">Gunung Sampah, Bekasi</p>
+                                <p class="text-white font-semibold text-sm">{{ __('TPA Bantar Gebang') }}</p>
+                                <p class="text-gray-200 text-xs">{{ __('Gunung Sampah, Bekasi') }}</p>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Content Section - Adjusted for smaller space -->
+                    <!-- Content Section -->
                     <div class="md:w-2/5 p-6 flex flex-col justify-center">
                         <div class="space-y-4 text-[#413291]">
                             <p class="leading-relaxed text-lg">
-                                TPA ini menjadi tempat pembuangan utama bagi sampah yang dihasilkan oleh Jakarta, sebuah megapolitan dengan populasi lebih dari 10 juta jiwa.
+                                {{ __('TPA ini menjadi tempat pembuangan utama bagi sampah yang dihasilkan oleh Jakarta, sebuah megapolitan dengan populasi lebih dari 10 jiwa.') }}
                             </p>
                             
                             <div class="space-y-3">
                                 <div class="flex items-start space-x-3">
                                     <div class="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                                    <p class="text-lg">Setiap harinya, Jakarta menghasilkan lebih dari 7.100 ton sampah, dan sebagian besar dikirim ke Bantar Gebang.</p>
+                                    <p class="text-lg">{{ __('Setiap harinya, Jakarta menghasilkan lebih dari 7.100 ton sampah, dan sebagian besar dikirim ke Bantar Gebang.') }}</p>
                                 </div>
                                 
                                 <div class="flex items-start space-x-3">
                                     <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                                    <p class="text-lg">Krisis sampah yang semakin memburuk memicu ketegangan antara pemulung, kelompok masyarakat sipil, dan pemerintah. </p>
+                                    <p class="text-lg">{{ __('Krisis sampah yang semakin memburuk memicu ketegangan antara pemulung, kelompok masyarakat sipil, dan pemerintah.') }}</p>
                                 </div>
                                 
                                 <div class="flex items-start space-x-3">
                                     <div class="w-2 h-2 bg-teal-500 rounded-full mt-2 flex-shrink-0"></div>
-                                    <p class="text-lg">Dampak lingkungan antara lain: pencemaran udara, air permukaan, air tanah, polusi suara, penurunan kualitas lanskap, dan penumpukan limbah.</p>
+                                    <p class="text-lg">{{ __('Dampak lingkungan antara lain: pencemaran udara, air permukaan, air tanah, polusi suara, penurunan kualitas lanskap, dan penumpukan limbah.') }}</p>
                                 </div>
                                 
                                 <div class="flex items-start space-x-3">
                                     <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                                    <p class="text-lg">Berpotensi Irreversible atau tidak dapat kembali seperti semula dalam jangka waktu satu atau beberapa generasi.</p>
+                                    <p class="text-lg">{{ __('Berpotensi Irreversible atau tidak dapat kembali seperti semula dalam jangka waktu satu atau beberapa generasi.') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -219,7 +212,7 @@
             <!-- Question Section -->
             <div class="text-center mb-2">
                 <h3 class="text-2xl font-medium text-[#413291] mb-8">
-                    <strong>Tertarik lihat kasus-kasus ketidakadilan lingkungan lain?</strong> Cek di sini
+                    <strong>{{ __('Tertarik lihat kasus-kasus ketidakadilan lingkungan lain? Cek di sini') }}</strong>
                 </h3>
                 <livewire:components.arcgis-map 
                     map-id="environmental-justice-indonesia" 
@@ -241,7 +234,7 @@
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-2xl lg:text-5xl font-bold mb-8 animate-fade-in">
-                    Konsumtif? <span class="text-yellow-300">in this economy??!!</span>
+                    {{ __('Konsumtif? in this economy??!!') }}
                 </h2>
             </div>
             
@@ -250,29 +243,29 @@
                 <!-- Card 1: Daya Beli -->
                 <div class="group bg-white/15 backdrop-blur-sm rounded-3xl p-6 text-center transform hover:scale-110 hover:bg-white/25 transition-all duration-300 cursor-pointer border border-white/20 hover:border-white/40">
                     <span class="text-6xl">📉</span>
-                    <p class="font-bold text-lg text-white">Daya Beli</p>
-                    <p class="font-bold text-lg text-white">Masyarakat Turun</p>
+                    <p class="font-bold text-lg text-white">{{ __('Daya Beli') }}</p>
+                    <p class="font-bold text-lg text-white">{{ __('Masyarakat Turun') }}</p>
                 </div>
 
                 <!-- Card 2: Inflasi -->
                 <div class="group bg-white/15 backdrop-blur-sm rounded-3xl p-6 text-center transform hover:scale-110 hover:bg-white/25 transition-all duration-300 cursor-pointer border border-white/20 hover:border-white/40">
                     <span class="text-6xl">📈</span>
-                    <p class="font-bold text-lg text-white">Inflasi Terus</p>
-                    <p class="font-bold text-lg text-white">Meningkat</p>
+                    <p class="font-bold text-lg text-white">{{ __('Inflasi Terus') }}</p>
+                    <p class="font-bold text-lg text-white">{{ __('Meningkat') }}</p>
                 </div>
 
                 <!-- Card 3: Rata-rata penghasilan -->
                 <div class="group bg-white/15 backdrop-blur-sm rounded-3xl p-6 text-center transform hover:scale-110 hover:bg-white/25 transition-all duration-300 cursor-pointer border border-white/20 hover:border-white/40">
                     <span class="text-6xl">💰</span>
-                    <p class="font-bold text-lg text-white">Rata-rata</p>
-                    <p class="font-bold text-lg text-white">Penghasilan Stagnan</p>
+                    <p class="font-bold text-lg text-white">{{ __('Rata-rata') }}</p>
+                    <p class="font-bold text-lg text-white">{{ __('Penghasilan Stagnan') }}</p>
                 </div>
 
                 <!-- Card 4: Geopolitik -->
                 <div class="group bg-white/15 backdrop-blur-sm rounded-3xl p-6 text-center transform hover:scale-110 hover:bg-white/25 transition-all duration-300 cursor-pointer border border-white/20 hover:border-white/40">
                     <span class="text-6xl">⚔️</span>
-                    <p class="font-bold text-lg text-white">Geopolitik dan</p>
-                    <p class="font-bold text-lg text-white">Perang Merajalela</p>
+                    <p class="font-bold text-lg text-white">{{ __('Geopolitik dan') }}</p>
+                    <p class="font-bold text-lg text-white">{{ __('Perang Merajalela') }}</p>
                 </div>
             </div>
 
@@ -281,22 +274,22 @@
                 <!-- Card 5: Lapangan kerja -->
                 <div class="group bg-white/15 backdrop-blur-sm rounded-3xl p-6 text-center transform hover:scale-105 hover:bg-white/25 transition-all duration-300 cursor-pointer border border-white/20 hover:border-white/40">
                     <span class="text-6xl">🇮🇩</span>
-                    <p class="font-bold text-lg text-white">Gonjang Ganjing</p>
-                    <p class="font-bold text-lg text-white">Politik Nasional</p>
+                    <p class="font-bold text-lg text-white">{{ __('Gonjang Ganjing') }}</p>
+                    <p class="font-bold text-lg text-white">{{ __('Politik Nasional') }}</p>
                 </div>
 
                 <!-- Card 6: Perubahan Iklim -->
                 <div class="group bg-white/15 backdrop-blur-sm rounded-3xl p-6 text-center transform hover:scale-105 hover:bg-white/25 transition-all duration-300 cursor-pointer border border-white/20 hover:border-white/40">    
                     <span class="text-6xl">🌍</span>
-                    <p class="font-bold text-lg text-white">Kebijakan "Gila"</p>
-                    <p class="font-bold text-lg text-white">Pemimpin Dunia</p>
+                    <p class="font-bold text-lg text-white">{{ __('Kebijakan "Gila"') }}</p>
+                    <p class="font-bold text-lg text-white">{{ __('Pemimpin Dunia') }}</p>
                 </div>
 
                 <!-- Card 7: Biaya Hidup -->
                 <div class="group bg-white/15 backdrop-blur-sm rounded-3xl p-6 text-center transform hover:scale-105 hover:bg-white/25 transition-all duration-300 cursor-pointer border border-white/20 hover:border-white/40">
                     <span class="text-6xl">💼</span>
-                    <p class="font-bold text-lg text-white">Stagnasi Jumlah</p>
-                    <p class="font-bold text-lg text-white">Lapangan Kerja</p>
+                    <p class="font-bold text-lg text-white">{{ __('Stagnasi Jumlah') }}</p>
+                    <p class="font-bold text-lg text-white">{{ __('Lapangan Kerja') }}</p>
                 </div>
             </div>
         </div>
@@ -310,8 +303,8 @@
             <!-- Title -->
             <div class="text-center mb-16">
                 <h2 class="text-2xl lg:text-5xl font-bold text-gray-900 mb-8">
-                    Maka dari itu,<br>
-                    <span class="text-purple-600">Toko Pinjam hadir!</span>
+                    {{ __('Maka dari itu,') }}<br>
+                    <span class="text-purple-600">{{ __('Toko Pinjam hadir!') }}</span>
                 </h2>
             </div>
 
@@ -324,7 +317,7 @@
                            <span class="text-4xl">🧰</span>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold mb-4 leading-tight">Menyediakan akses fasilitas untuk kreativitas secara gratis dan sukarela di daerah</h3>
+                            <h3 class="text-xl font-bold mb-4 leading-tight">{{ __('Menyediakan akses fasilitas untuk kreativitas secara gratis dan sukarela di daerah') }}</h3>
                         </div>
                     </div>
                 </div>
@@ -336,7 +329,7 @@
                             <span class="text-4xl">♻️</span>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold mb-4 leading-tight">Ramah lingkungan dengan mengurangi sampah dan emisi karbon</h3>
+                            <h3 class="text-xl font-bold mb-4 leading-tight">{{ __('Ramah lingkungan dengan mengurangi sampah dan emisi karbon') }}</h3>
                         </div>
                     </div>
                 </div>
@@ -348,7 +341,7 @@
                             <span class="text-4xl">🤑</span>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold mb-4 leading-tight">Perkecil pengeluaran, sisanya bisa ditabung atau diinvestasikan</h3>
+                            <h3 class="text-xl font-bold mb-4 leading-tight">{{ __('Perkecil pengeluaran, sisanya bisa ditabung atau diinvestasikan') }}</h3>
                         </div>
                     </div>
                 </div>
@@ -438,20 +431,3 @@
     <!-- Footer -->
     <livewire:components.footer />
 </div>
-
-{{-- <style>
-    @keyframes fade-in {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .animate-fade-in {
-        animation: fade-in 1s ease-out;
-    }
-    
-    /* Custom hover effects */
-    .hover-lift:hover {
-        transform: translateY(-8px);
-        transition: transform 0.3s ease;
-    }
-</style> --}}

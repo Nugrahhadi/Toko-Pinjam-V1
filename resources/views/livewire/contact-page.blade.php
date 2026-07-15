@@ -1,11 +1,11 @@
 <div>
-    @section('title', 'Hubungi Kami')
+    @section('title', __('messages.contact.title'))
     
     <livewire:components.navbar />
 
     <div class="max-w-5xl mx-auto px-6 lg:px-16 py-16">
         <div class="flex flex-col lg:flex-row justify-between items-center mb-10">
-            <h2 class="text-5xl font-extrabold text-[#3b0a73] mb-4 lg:mb-10">Kontak</h2>
+            <h2 class="text-5xl font-extrabold text-[#3b0a73] mb-4 lg:mb-10">{{ __('messages.contact.title') }}</h2>
             <img src="{{ asset('images/aiusage/kontak.png') }}" alt="Maskot" class="w-[130px]">
         </div>
 
@@ -14,7 +14,6 @@
                 class="flex-1 bg-red-500 text-white p-6 rounded-xl shadow-md hover:scale-105 transition text-left">
                 <div class="text-4xl font-bold flex justify-left items-left gap-2 mb-2">
                    <svg class="w-[50px] h-[50px] fill-[#FFFFFF]" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                        <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                         <path d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"></path>
                     </svg>
                     Email
@@ -37,22 +36,21 @@
                     WhatsApp
                 </div>
                 <div class="text-2xl md:text-base font-semibold">
-                    +62 821-2227-0150 (Hanya Chat)
+                    +62 821-2227-0150 ({{ __('Hanya Chat') }})
                 </div>
             </a>
         </div>
-
-        
     </div>
-        <div class="bg-[#FAF0EB] px-10 py-10 rounded-xl text-center mx-auto">
-            <p class="text-4xl font-bold text-[#3b0a73]">
-                Mau Tanya Apa? Coba Cek FAQ!
-            </p>
-            <p class="text-xl text-[#3b0a73]">
-                Siapa tahu pertanyaanmu sudah terjawab. 
-                <a href="{{ route('faq') }}" class="text-[#3b0a73] underline hover:text-purple-700">Klik di sini</a>
-            </p>
-        </div>
+
+    <div class="bg-[#FAF0EB] px-10 py-10 rounded-xl text-center mx-auto max-w-5xl mb-16">
+        <p class="text-4xl font-bold text-[#3b0a73]">
+            {{ __('Mau Tanya Apa? Coba Cek FAQ!') }}
+        </p>
+        <p class="text-xl text-[#3b0a73] mt-2">
+            {{ __('Siapa tahu pertanyaanmu sudah terjawab.') }} 
+            <a href="{{ route('faq') }}" class="text-[#3b0a73] underline hover:text-purple-700 font-semibold">{{ __('Klik di sini') }}</a>
+        </p>
+    </div>
 
     <livewire:components.footer />
 </div>

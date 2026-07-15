@@ -4,7 +4,7 @@
             As Mentioned in
         </h2>
 
-        <div class="swiper-container media-partner-slider">
+        <div class="swiper media-partner-slider overflow-hidden w-full">
             <div class="swiper-wrapper">
                 {{-- Loop seluruh partner media --}}
                 @foreach ($partners as $partner)

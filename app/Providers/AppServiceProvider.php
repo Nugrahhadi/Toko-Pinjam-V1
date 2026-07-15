@@ -30,5 +30,20 @@ class AppServiceProvider extends ServiceProvider
                 config(['app.asset_url' => config('app.url')]);
             }
         }
+
+        // Register custom SQLite collation for testing environments
+        if (app()->environment('testing')) {
+            \Illuminate\Support\Facades\Event::listen(
+                \Illuminate\Database\Events\ConnectionEstablished::class,
+                function (\Illuminate\Database\Events\ConnectionEstablished $event) {
+                    $connection = $event->connection;
+                    if ($connection instanceof \Illuminate\Database\SQLiteConnection) {
+                        $connection->getPdo()->sqliteCreateCollation('utf8mb4_unicode_ci', function ($a, $b) {
+                            return strcmp($a, $b);
+                        });
+                    }
+                }
+            );
+        }
     }
 }

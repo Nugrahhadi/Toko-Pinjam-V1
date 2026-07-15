@@ -13,7 +13,7 @@
 
         <h1 class="text-3xl md:text-5xl font-extrabold mb-4"
             style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-          Kini Telah Hadir di Purwokerto!
+          {{ __('Kini Telah Hadir di Purwokerto!') }}
         </h1>
 
         <p class="text-base md:text-lg mb-6 max-w-xl pointer-events-auto">

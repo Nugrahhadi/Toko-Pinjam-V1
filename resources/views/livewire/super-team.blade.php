@@ -1,5 +1,5 @@
 <div>
-    @section('title', 'Super Team')
+    @section('title', __('Super Team'))
     
     <!-- Navbar -->
     <livewire:components.navbar />
@@ -8,10 +8,10 @@
     <section class="py-16 bg-gray-50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="text-2xl lg:text-5xl font-extrabold text-[#433592] mb-6" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                Gagasan Kami Menembus<br>Ruang Kelas
+                {{ __('Gagasan Kami Menembus') }}<br>{{ __('Ruang Kelas') }}
             </h1>
             <p class="text-base lg:text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                Seluruh anggota tim kami adalah mahasiswa dengan keahlian di bidang masing-masing. Gagasan kami tumbuh di dalam kelas dan termanifestasi di bawah terik matahari. Kami bekerja bersama lintas benua dan zona waktu untuk mempersembahkan karya kami, Toko Pinjam.
+                {{ __('Seluruh anggota tim kami adalah mahasiswa dengan keahlian di bidang masing-masing. Gagasan kami tumbuh di dalam kelas dan termanifestasi di bawah terik matahari. Kami bekerja bersama lintas benua dan zona waktu untuk mempersembahkan karya kami, Toko Pinjam.') }}
             </p>
         </div>
     </section>
@@ -21,7 +21,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="text-center mb-8">
                 <h2 class="text-3xl lg:text-5xl font-extrabold text-[#433592] mb-4" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                    Meet the Super Team
+                    {{ __('Meet the Super Team') }}
                 </h2>
             </div>
             
@@ -38,11 +38,11 @@
                         Rafif N T Bagaskara
                     </h3>
                     <p class="text-[#433592] font-semibold mb-1" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                        Founder and Director
+                        {{ __('Founder and Director') }}
                     </p>
                     <p class="text-sm text-[#433592]" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                        Environmental Science,<br>
-                        University of Toronto
+                        {{ __('Environmental Science,') }}<br>
+                        {{ __('University of Toronto') }}
                     </p>
                 </div>
 
@@ -57,11 +57,11 @@
                         M Nugrahhadi Al K
                     </h3>
                     <p class="text-[#433592] font-semibold mb-1" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                        Operating Director
+                        {{ __('Operating Director') }}
                     </p>
                     <p class="text-sm text-[#433592]" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                        Teknik Informatika,<br>
-                        Universitas Jenderal Soedirman
+                        {{ __('Teknik Informatika,') }}<br>
+                        {{ __('Universitas Jenderal Soedirman') }}
                     </p>
                 </div>
 
@@ -76,11 +76,11 @@
                         Arga Aryanta I
                     </h3>
                     <p class="text-[#433592] font-semibold mb-1" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                        IT Specialist
+                        {{ __('IT Specialist') }}
                     </p>
                     <p class="text-sm text-[#433592]" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                        Teknik Informatika,<br>
-                        Universitas Jenderal Soedirman
+                        {{ __('Teknik Informatika,') }}<br>
+                        {{ __('Universitas Jenderal Soedirman') }}
                     </p>
                 </div>
 
@@ -95,11 +95,11 @@
                         Allin Alya Yasmin
                     </h3>
                     <p class="text-[#433592] font-semibold mb-1" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                        Sustainability Specialist
+                        {{ __('Sustainability Specialist') }}
                     </p>
                     <p class="text-sm text-[#433592]" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                        Environmental Science,<br>
-                        University of Toronto
+                        {{ __('Environmental Science,') }}<br>
+                        {{ __('University of Toronto') }}
                     </p>
                 </div>
 
@@ -114,11 +114,11 @@
                         Jeskris Oktovianus Silahooy
                     </h3>
                     <p class="text-[#433592] font-semibold mb-1" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                        IT Support Intern
+                        {{ __('IT Support Intern') }}
                     </p>
                     <p class="text-sm text-[#433592]" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                        Teknik Informatika, <br>
-                        Universitas Jenderal Soedirman
+                        {{ __('Teknik Informatika,') }} <br>
+                        {{ __('Universitas Jenderal Soedirman') }}
                     </p>
                 </div>
 
@@ -130,14 +130,14 @@
                              class="w-52 h-52 rounded-full object-cover shadow-2xl">
                     </div>
                     <h3 class="text-xl font-bold text-[#433592] mb-1" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                       Faisal Ariq Ramadhan
+                        Faisal Ariq Ramadhan
                     </h3>
                     <p class="text-[#433592] font-semibold mb-1" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                        Graphic Design Intern
+                        {{ __('Graphic Design Intern') }}
                     </p>
                     <p class="text-sm text-[#433592]" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                        Teknik Sipil,<br>
-                        Universitas Diponegoro
+                        {{ __('Teknik Sipil,') }}<br>
+                        {{ __('Universitas Diponegoro') }}
                     </p>
                 </div>
             </div>
@@ -152,13 +152,13 @@
                     <!-- Left Content -->
                     <div class="pl-8 pr-2 py-4">
                         <h2 class="text-2xl lg:text-5xl font-extrabold text-[#433592] mb-4" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                            Ingin Jadi Bagian dari<br><i>the Super Team?</i>
+                            {{ __('Ingin Jadi Bagian dari') }}<br><i>{{ __('the Super Team?') }}</i>
                         </h2>
                         <p class="text-gray-700 text-base lg:text-lg mb-4 leading-relaxed" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                            Kami selalu membuka kesempatan untuk siapapun yang tertarik bergabung bersama the Super Team. Daftarkan dirimu sekarang!
+                            {{ __('Kami selalu membuka kesempatan untuk siapapun yang tertarik bergabung bersama the Super Team. Daftarkan dirimu sekarang!') }}
                         </p>
                         <a href="{{ route('bergabung-super-team') }}" class="inline-block bg-[#433592] text-white px-6 py-2 rounded-lg font-bold hover:bg-[#3A2B7A] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                            Daftar Sekarang
+                            {{ __('Daftar Sekarang') }}
                         </a>
                     </div>
                     <!-- Right Image -->
@@ -175,8 +175,6 @@
     <!-- Manfaat Pinjam Section -->
     <livewire:components.manfaat-pinjam />
 
-    
-
     <!-- Quote Section -->
     <section class="py-16 bg-white relative">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -185,7 +183,7 @@
                     <div class="bg-[#ffc131] text-[#433592] px-8 py-3 rounded-md shadow-lg">
                         <div class="flex items-center gap-2">
                             <h2 class="text-2xl lg:text-4xl font-bold" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                                Apa Yang Kami Percaya
+                                {{ __('Apa Yang Kami Percaya') }}
                             </h2>
                         </div>
                     </div>
@@ -196,7 +194,7 @@
                     <div class="p-12 lg:p-16 flex flex-col justify-center items-center text-center min-h-[300px]">
                         <div class="space-y-6 max-w-4xl">
                             <blockquote class="text-2xl lg:text-3xl text-[#433592] leading-relaxed font-bold" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                                Bumi menyediakan cukup sumber daya untuk memenuhi kebutuhan setiap manusia, tetapi tidak cukup untuk memenuhi keserakahan setiap manusia.
+                                {{ __('Bumi menyediakan cukup sumber daya untuk memenuhi kebutuhan setiap manusia, tetapi tidak cukup untuk memenuhi keserakahan setiap manusia.') }}
                             </blockquote>
                             
                             <cite class="text-xl lg:text-2xl text-[#433592] font-semibold block" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">

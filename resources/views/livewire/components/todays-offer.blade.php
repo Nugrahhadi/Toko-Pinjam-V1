@@ -26,25 +26,22 @@
                     <div class="lg:col-span-3 lg:order-2 p-4 lg:p-8 flex flex-col justify-center">
                         <div class="space-y-2 lg:space-y-4">
                             <h1 class="text-3xl lg:text-6xl font-extrabold leading-tight" style="color: #433592; font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                                CASHBACK 50%<br>
-                                <h2 class="text-2xl lg:text-4xl font-extrabold leading-tight" style="color: #433592; font-family: 'Google Sans', 'Product Sans', sans-serif;">PINJAM PERTAMA KALI</h2>
+                                {{ __('CASHBACK 50%') }}<br>
+                                <h2 class="text-2xl lg:text-4xl font-extrabold leading-tight" style="color: #433592; font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('PINJAM PERTAMA KALI') }}</h2>
                             </h1>
 
                             <div class="space-y-2 lg:space-y-3">
                                 <p class="text-sm lg:text-md text-[#433592] leading-relaxed" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                                    Peminjaman pertama setiap akun akan mendapatkan <strong>CASHBACK 50%</strong>.
-                                    Kamu tetap perlu bayar penuh barang yang dipinjam, dan 50%
-                                    sisanya akan dikembalikan saat pengambilan
-                                    barang.
+                                    {{ __('Peminjaman pertama setiap akun akan mendapatkan') }} <strong>{{ __('CASHBACK 50%') }}</strong>.
+                                    {{ __('Kamu tetap perlu bayar penuh barang yang dipinjam, dan 50% sisanya akan dikembalikan saat pengambilan barang.') }}
                                 </p>
 
                                 <p class="text-sm lg:text-md font-bold text-[#433592]" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                                    Promo ini berlaku untuk semua barang,
-                                    tanpa terkecuali.
+                                    {{ __('Promo ini berlaku untuk semua barang, tanpa terkecuali.') }}
                                 </p>
 
                                 <p class="text-sm lg:text-md text-[#433592] mt-2 lg:mt-3" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                                    Daftarkan kamu, dan teman-teman mu SEKARANG!
+                                    {{ __('Daftarkan kamu, dan teman-teman mu SEKARANG!') }}
                                 </p>
                             </div>
                         </div>
@@ -55,19 +52,19 @@
                     <div class="flex flex-wrap gap-3 lg:gap-4 items-center justify-center">
                         @auth
                             <a href="{{ route('all-items') }}" class="px-8 py-3 lg:px-12 lg:py-4 bg-transparent text-[#FDF2EB] font-bold rounded-lg border-2 border-[#FDF2EB] hover:bg-[#FDF2EB] hover:text-[#433592] transition-all duration-300 text-sm lg:text-base" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                                Pinjam Barang Sekarang
+                                {{ __('Pinjam Barang Sekarang') }}
                             </a>
                         @else
                             <a href="{{ route('register.custom') }}" class="px-6 py-2 lg:px-8 lg:py-3 bg-[#FDF2EB] text-[#433592] font-bold rounded-lg hover:bg-white transition-all duration-300 shadow-md text-sm lg:text-base" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                                Register
+                                {{ __('Register') }}
                             </a>
                             
                             <span class="text-white font-medium text-sm lg:text-lg" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                                Atau
+                                {{ __('Atau') }}
                             </span>
                             
                             <a href="{{ route('login.custom') }}" class="px-6 py-2 lg:px-8 lg:py-3 bg-transparent text-[#FDF2EB] font-bold rounded-lg border-2 border-[#FDF2EB] hover:bg-[#FDF2EB] hover:text-[#433592] transition-all duration-300 text-sm lg:text-base" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                                Login
+                                {{ __('Login') }}
                             </a>
                         @endauth
                     </div>

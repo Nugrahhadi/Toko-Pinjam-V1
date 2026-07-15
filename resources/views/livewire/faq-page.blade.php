@@ -8,9 +8,7 @@
             <!-- Header Section -->
             <div class="flex flex-col lg:flex-row justify-between items-center mb-10">
                 <h1 class="text-2xl lg:text-4xl font-bold text-purple-700 mr-4">
-                    Frequently<br>
-                    Asked Questions<br>
-                    (FAQ)
+                    {{ __('Frequently Asked Questions (FAQ)') }}
                 </h1>
                 <img src="{{ asset('images/aiusage/kucing.png') }}" alt="Maskot" class="w-[100px]">
             </div>
@@ -24,7 +22,7 @@
                             @click="open = !open"
                             class="w-full px-6 py-4 text-left bg-[#FAF0EB] hover:bg-yellow-100 transition-colors duration-100 flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-purple-500"
                         >
-                            <span class="font-bold text-purple-700 pr-4">{{ $faq['question'] }}</span>
+                            <span class="font-bold text-purple-700 pr-4">{{ __($faq['question']) }}</span>
 
                             <svg
                                 class="w-5 h-5 text-purple-700 transform transition-transform duration-200 flex-shrink-0"
@@ -43,7 +41,7 @@
                             x-ref="content"
                         >
                             <div class="px-6 py-4 bg-orange-500 text-white">
-                                {{ $faq['answer'] }}
+                                {{ __($faq['answer']) }}
                             </div>
                         </div>
                     </div>
@@ -53,9 +51,9 @@
             <!-- Bottom Contact Section -->
             <div class="text-center mt-12 mb-8">
                 <p class="text-gray-600 text-lg">
-                    Pertanyaanmu Belum Terjawab?
+                    {{ __('Pertanyaanmu Belum Terjawab?') }}
                     <a href="{{ route('kontak') }}" class="text-purple-700 hover:text-purple-900 font-medium underline">
-                        Hubungi Kami!
+                        {{ __('Hubungi Kami!') }}
                     </a>
                 </p>
             </div>

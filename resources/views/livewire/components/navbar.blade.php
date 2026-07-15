@@ -3,7 +3,7 @@
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-xs lg:text-sm">
             <div class="flex items-center text-center sm:text-left">
                 <span class="mr-2">💡</span>
-                <span class="font-semibold text-xs lg:text-sm break-words">Untuk dompetmu, lingkunganmu, dan kamu</span>
+                <span class="font-semibold text-xs lg:text-sm break-words">{{ __('Untuk dompetmu, lingkunganmu, dan kamu') }}</span>
             </div>
 
             <div class="flex items-center w-full sm:w-auto justify-center sm:justify-end">
@@ -11,7 +11,7 @@
                     <input
                         type="text"
                         wire:model.live.debounce.300ms="search"
-                        placeholder="Mau cari apa?"
+                        placeholder="{{ __('Mau cari apa?') }}"
                         class="w-full pl-8 pr-4 py-1 text-xs lg:text-sm border border-gray-300 rounded-md focus:outline-none bg-white text-gray-900 placeholder-gray-500"
                         style="--tw-ring-color: #433592; border-color: #433592;"
                     >
@@ -37,13 +37,13 @@
                     <a href="{{ route('all-items') }}"
                        class="text-gray-700 font-medium hover:text-[#433592] transition-colors"
                        style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                        Pinjam Sekarang
+                        {{ __('Pinjam Sekarang') }}
                     </a>
 
                     <div class="relative group">
                         <button class="text-gray-700 font-medium hover:text-[#433592] transition-colors flex items-center"
                                 style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                            Lokasi
+                            {{ __('Lokasi') }}
                             <svg class="ml-1 w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                       d="M19 9l-7 7-7-7"></path>
@@ -67,7 +67,7 @@
                     <div class="relative group">
                         <button class="text-gray-700 font-medium hover:text-[#433592] transition-colors flex items-center"
                                 style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                            Tentang Kami
+                            {{ __('Tentang Kami') }}
                             <svg class="ml-1 w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                       d="M19 9l-7 7-7-7"></path>
@@ -75,13 +75,13 @@
                         </button>
                         <div class="absolute top-full left-0 mt-1 w-56 bg-white border border-gray-200 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                             <div class="py-1">
-                                <a href="{{ route('tujuan-dan-visi') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FDF2EB] hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Tujuan dan Visi</a>
-                                <a href="{{ route('super-team') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FDF2EB] hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">The Super Team</a>
-                                <a href="{{ route('laporan-keuangan') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FDF2EB] hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Laporan Keuangan</a>
-                                <a href="{{ route('blog') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FDF2EB] hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Blog</a>
-                                <a href="{{ route('faq') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FDF2EB] hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">FAQ</a>
-                                <a href="{{ route('kontak') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FDF2EB] hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Kontak</a>
-                                <a href="{{ route('ai-usage') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FDF2EB] hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Acknowledgement of AI Usage</a>
+                                <a href="{{ route('tujuan-dan-visi') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FDF2EB] hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('Tujuan dan Visi') }}</a>
+                                <a href="{{ route('super-team') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FDF2EB] hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('The Super Team') }}</a>
+                                <a href="{{ route('laporan-keuangan') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FDF2EB] hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('Laporan Keuangan') }}</a>
+                                <a href="{{ route('blog') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FDF2EB] hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('Blog') }}</a>
+                                <a href="{{ route('faq') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FDF2EB] hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('FAQ') }}</a>
+                                <a href="{{ route('kontak') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FDF2EB] hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('Kontak') }}</a>
+                                <a href="{{ route('ai-usage') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#FDF2EB] hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('Acknowledgement of AI Usage') }}</a>
                             </div>
                         </div>
                     </div>
@@ -89,6 +89,16 @@
             </div>
 
             <div class="hidden md:flex items-center space-x-4">
+                <!-- Language Switcher Desktop -->
+                <div class="flex items-center space-x-0.5 border border-[#433592]/20 rounded-full p-0.5 bg-white/50 mr-2">
+                    <button wire:click="setLocale('id')" class="px-2.5 py-1 text-xs font-semibold rounded-full transition-all duration-200 {{ app()->getLocale() === 'id' ? 'bg-[#433592] text-white shadow-sm' : 'text-gray-500 hover:text-[#433592]' }}">
+                        ID
+                    </button>
+                    <button wire:click="setLocale('en')" class="px-2.5 py-1 text-xs font-semibold rounded-full transition-all duration-200 {{ app()->getLocale() === 'en' ? 'bg-[#433592] text-white shadow-sm' : 'text-gray-500 hover:text-[#433592]' }}">
+                        EN
+                    </button>
+                </div>
+
                 <a href="{{ route('donasi') }}"
                    class="flex items-center px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
                    style="font-family: 'Google Sans', 'Product Sans', sans-serif;"
@@ -97,7 +107,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                               d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
                     </svg>
-                    Donasi
+                    {{ __('Donasi') }}
                 </a>
 
                 @auth
@@ -134,7 +144,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                   d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                                         </svg>
-                                        Profil Saya
+                                        {{ __('Profil Saya') }}
                                     </a>
 
                                     <a href="{{ route('profile') }}#riwayat-peminjaman" wire:click="closeProfile" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
@@ -142,7 +152,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                   d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
                                         </svg>
-                                        Riwayat Pinjaman
+                                        {{ __('Riwayat Pinjaman') }}
                                     </a>
 
                                     <hr class="my-1 border-gray-200">
@@ -154,7 +164,7 @@
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                       d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
                                             </svg>
-                                            Keluar
+                                            {{ __('Keluar') }}
                                         </button>
                                     </form>
                                 </div>
@@ -167,14 +177,14 @@
                        style="color: #433592;"
                        onmouseover="this.style.color='#433592'"
                        onmouseout="this.style.color='#6B7280'">
-                        Login
+                        {{ __('Login') }}
                     </a>
                     <a href="{{ route('register.custom') }}"
                        class="text-white px-6 py-2 rounded-md font-medium transition-colors"
                        style="background-color: #433592;"
                        onmouseover="this.style.backgroundColor='#3A2B7A'"
                        onmouseout="this.style.backgroundColor='#433592'">
-                        Register
+                        {{ __('Register') }}
                     </a>
                 @endauth
             </div>
@@ -204,14 +214,27 @@
              x-transition:leave-end="opacity-0 -translate-y-2"
              style="display: none;">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t">
+                <!-- Language Switcher Mobile -->
+                <div class="px-3 py-2 flex items-center justify-between border-b border-gray-100 pb-3 mb-2">
+                    <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('Pilih Bahasa / Language') }}</span>
+                    <div class="flex items-center space-x-0.5 border border-[#433592]/20 rounded-full p-0.5 bg-white">
+                        <button wire:click="setLocale('id')" class="px-2.5 py-0.5 text-xs font-semibold rounded-full transition-all duration-200 {{ app()->getLocale() === 'id' ? 'bg-[#433592] text-white' : 'text-gray-500' }}">
+                            ID
+                        </button>
+                        <button wire:click="setLocale('en')" class="px-2.5 py-0.5 text-xs font-semibold rounded-full transition-all duration-200 {{ app()->getLocale() === 'en' ? 'bg-[#433592] text-white' : 'text-gray-500' }}">
+                            EN
+                        </button>
+                    </div>
+                </div>
+
                 <a href="{{ route('all-items') }}"
                    class="block px-3 py-2 text-gray-700 font-medium hover:text-[#433592] transition-colors"
                    style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                    Pinjam Sekarang
+                    {{ __('Pinjam Sekarang') }}
                 </a>
 
                 <div class="px-3 py-2">
-                    <div class="font-medium text-gray-700 mb-2" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Lokasi</div>
+                    <div class="font-medium text-gray-700 mb-2" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('Lokasi') }}</div>
                     <div class="pl-4 space-y-1">
                         <a href="{{ route('chapter-purwokerto') }}"
                            class="block py-1 text-sm text-gray-600 hover:text-[#433592] transition-colors"
@@ -226,13 +249,13 @@
                 </div>
 
                 <div class="px-3 py-2">
-                    <div class="font-medium text-gray-700 mb-2" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Tentang Kami</div>
+                    <div class="font-medium text-gray-700 mb-2" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('Tentang Kami') }}</div>
                     <div class="pl-4 space-y-1">
-                        <a href="{{ route('tujuan-dan-visi') }}" class="block py-1 text-sm text-gray-600 hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Tujuan dan Visi</a>
-                        <a href="{{ route('super-team') }}" class="block py-1 text-sm text-gray-600 hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">The Super Team</a>
-                        <a href="{{ route('laporan-keuangan') }}" class="block py-1 text-sm text-gray-600 hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Laporan Keuangan</a>
-                        <a href="{{ route('blog') }}" class="block py-1 text-sm text-gray-600 hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Blog</a>
-                        <a href="{{ route('faq') }}" class="block py-1 text-sm text-gray-600 hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">FAQ</a>
+                        <a href="{{ route('tujuan-dan-visi') }}" class="block py-1 text-sm text-gray-600 hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('Tujuan dan Visi') }}</a>
+                        <a href="{{ route('super-team') }}" class="block py-1 text-sm text-gray-600 hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('The Super Team') }}</a>
+                        <a href="{{ route('laporan-keuangan') }}" class="block py-1 text-sm text-gray-600 hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('Laporan Keuangan') }}</a>
+                        <a href="{{ route('blog') }}" class="block py-1 text-sm text-gray-600 hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('Blog') }}</a>
+                        <a href="{{ route('faq') }}" class="block py-1 text-sm text-gray-600 hover:text-[#433592] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('FAQ') }}</a>
                     </div>
                 </div>
 
@@ -258,7 +281,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                       d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                             </svg>
-                            Profil Saya
+                            {{ __('Profil Saya') }}
                         </a>
 
                         <a href="{{ route('profile') }}#riwayat-peminjaman" class="flex items-center px-3 py-2 text-gray-700 font-medium hover:text-[#433592] hover:bg-gray-50 transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
@@ -266,7 +289,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                       d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
                             </svg>
-                            Riwayat Pinjaman
+                            {{ __('Riwayat Pinjaman') }}
                         </a>
 
                         <hr class="my-2 border-gray-200">
@@ -278,14 +301,14 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                           d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
                                 </svg>
-                                Keluar
+                                {{ __('Keluar') }}
                             </button>
                         </form>
                     </div>
                 @else
                     <div class="px-3 py-2 flex flex-col items-center space-y-2">
-                        <a href="{{ route('login.custom') }}" class="w-full text-center px-3 py-2 border-2 border-[#433592] text-[#433592] rounded-md font-medium hover:bg-[#433592] hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Login</a>
-                        <a href="{{ route('register.custom') }}" class="w-full text-center px-3 py-2 text-white rounded-md font-medium bg-[#433592] hover:bg-[#3A2B7A] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Register</a>
+                        <a href="{{ route('login.custom') }}" class="w-full text-center px-3 py-2 border-2 border-[#433592] text-[#433592] rounded-md font-medium hover:bg-[#433592] hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('Login') }}</a>
+                        <a href="{{ route('register.custom') }}" class="w-full text-center px-3 py-2 text-white rounded-md font-medium bg-[#433592] hover:bg-[#3A2B7A] transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('Register') }}</a>
                     </div>
                 @endauth
 
@@ -297,7 +320,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                   d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
                         </svg>
-                        Donasi
+                        {{ __('Donasi') }}
                     </a>
                 </div>
             </div>

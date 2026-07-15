@@ -4,16 +4,16 @@
             <div class="space-y-8">
                 <div class="space-y-4">
                     <h1 class="text-2xl lg:text-6xl leading-tight" style="font-weight: 900; color: #433592;">
-                        <span style="color: #433592; font-weight: 900;">Kalau bisa 
+                        <span style="color: #433592; font-weight: 900;">{{ __('Kalau bisa') }} 
                             <span style="color: #433592; font-weight: 800;" class="py-1 rounded inline-block min-w-[80px] lg:min-w-[140px] text-center" 
                                   id="animated-text" 
-                                  style="animation: 3s ease 0s infinite normal forwards running fadeInOut; color: #433592; font-weight: 900;">pinjam</span>
+                                  style="animation: 3s ease 0s infinite normal forwards running fadeInOut; color: #433592; font-weight: 900;">{{ __('pinjam') }}</span>
                         </span><br>
-                        <span style="color: #433592; font-weight: 900;">kenapa harus beli?</span><br>
+                        <span style="color: #433592; font-weight: 900;">{{ __('kenapa harus beli?') }}</span><br>
                     </h1>
                     
                     <p class="text-sm lg:text-xl text-gray-600 max-w-md">
-                        Daripada hanya dipakai sekali, mending pinjam barang yang kamu perlukan dengan harga miring. Dompetmu tenang, lingkungan pun aman.
+                        {{ __('Daripada hanya dipakai sekali, mending pinjam barang yang kamu perlukan dengan harga miring. Dompetmu tenang, lingkungan pun aman.') }}
                     </p>
                 </div>
                 
@@ -22,7 +22,7 @@
                        style="background-color: #433592;" 
                        onmouseover="this.style.backgroundColor='#3A2B7A'" 
                        onmouseout="this.style.backgroundColor='#433592'">
-                        Bergabung untuk memulai
+                        {{ __('Bergabung untuk memulai') }}
                     </a>
                 </div>
             </div>
@@ -62,7 +62,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         const animatedText = document.getElementById('animated-text');
         if (animatedText) {
-            const words = ['pinjam', 'berbagi', 'hemat', 'donasi'];
+            const words = {!! json_encode([__('pinjam'), __('berbagi'), __('hemat'), __('donasi')]) !!};
             let currentIndex = 0;
             
             function changeWord() {
