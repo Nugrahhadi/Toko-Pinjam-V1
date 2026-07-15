@@ -8,34 +8,34 @@
                          class="h-16 w-auto max-w-[160px] object-contain">
                 </a>
                 <p class="text-white/80 text-sm leading-relaxed mb-6" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                    Toko Pinjam adalah sebuah <i>nonprofit organization</i> yang membantu mahasiswa mengakses barang-barang berkualitas dengan harga terjangkau.
+                    {{ __('Toko Pinjam adalah sebuah') }} <i>nonprofit organization</i> {{ __('yang membantu mahasiswa mengakses barang-barang berkualitas dengan harga terjangkau.') }}
                 </p>
             </div>
 
             <div>
                 <h4 class="font-semibold mb-4 text-white" style="font-family: 'Google Sans', 'Product Sans', sans-serif;"></h4>
                 <ul class="space-y-2 text-sm text-white/80">
-                    <li><a href="{{ route('syarat-ketentuan') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Peraturan Meminjam</a></li>
-                    <li><a href="javascript:void(0)" onclick="scrollToHowItWorks()" class="hover:text-white transition-colors cursor-pointer" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Cara Meminjam</a></li>
-                    <li><a href="{{ route('kontak') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Kontak</a></li>
-                    <li><a href="{{ route('ai-usage') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Acknowledgement of AI Usage</a></li>
-                    <li><a href="{{ route('bergabung-super-team') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Bergabung ke Tim</a></li>
+                    <li><a href="{{ route('syarat-ketentuan') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('Peraturan Meminjam') }}</a></li>
+                    <li><a href="javascript:void(0)" onclick="scrollToHowItWorks()" class="hover:text-white transition-colors cursor-pointer" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('Cara Meminjam') }}</a></li>
+                    <li><a href="{{ route('kontak') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('Kontak') }}</a></li>
+                    <li><a href="{{ route('ai-usage') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('Acknowledgement of AI Usage') }}</a></li>
+                    <li><a href="{{ route('bergabung-super-team') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('Bergabung ke Tim') }}</a></li>
                 </ul>
             </div>
 
             <div>
-                <h4 class="font-semibold mb-4 text-white" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Tentang Kami</h4>
+                <h4 class="font-semibold mb-4 text-white" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('Tentang Kami') }}</h4>
                 <ul class="space-y-2 text-sm text-white/80">
-                    <li><a href="{{ route('tujuan-dan-visi') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Tujuan dan Visi</a></li>
-                    <li><a href="{{ route('super-team') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">The Super Team</a></li>
-                    <li><a href="{{ route('laporan-keuangan') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Laporan Keuangan</a></li>
-                    <li><a href="{{ route('faq') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">FAQ</a></li>
+                    <li><a href="{{ route('tujuan-dan-visi') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('Tujuan dan Visi') }}</a></li>
+                    <li><a href="{{ route('super-team') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('The Super Team') }}</a></li>
+                    <li><a href="{{ route('laporan-keuangan') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('Laporan Keuangan') }}</a></li>
+                    <li><a href="{{ route('faq') }}" class="hover:text-white transition-colors" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('FAQ') }}</a></li>
                 </ul>
             </div>
 
             <div>
                 <div class="mb-6">
-                    <h4 class="font-semibold mb-3 text-white" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Terhubung dengan Kami</h4>
+                    <h4 class="font-semibold mb-3 text-white" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('Terhubung dengan Kami') }}</h4>
                     <div class="flex space-x-4">
                         <a href="https://wa.me/6282122270150" class="text-white/80 hover:text-white transition-colors">
                             <span class="[&>svg]:h-7 [&>svg]:w-7">
@@ -79,11 +79,11 @@
                 </div>
 
                 <div>
-                    <h4 class="font-semibold mb-3 text-white" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">Alamat Kami</h4>
+                    <h4 class="font-semibold mb-3 text-white" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">{{ __('Alamat Kami') }}</h4>
                     <p class="text-white/80 text-sm" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                        Kost Hadai<br>
-                        Jl. Prof. DR. Suharso No.123<br>
-                        Purwokerto, Jawa Tengah 53122
+                        {{ __('Kost Hadai') }}<br>
+                        {{ __('Jl. Prof. DR. Suharso No.123') }}<br>
+                        {{ __('Purwokerto, Jawa Tengah 53122') }}
                     </p>
                 </div>
             </div>

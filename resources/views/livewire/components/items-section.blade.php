@@ -35,29 +35,29 @@
         <div class="text-center mb-12">
             @if($searchTerm)
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">
-                    Search Results for "{{ $searchTerm }}"
+                    {{ __('Search Results for') }} "{{ $searchTerm }}"
                 </h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">
-                    Found {{ $items->count() + $featuredItems->count() }} items matching your search.
+                    {{ __('Found') }} {{ $items->count() + $featuredItems->count() }} {{ __('items matching your search.') }}
                     @if($items->count() == 0 && $featuredItems->count() == 0)
-                        <span class="block mt-2 text-purple-600 font-medium">No items found. Try a different search term.</span>
+                        <span class="block mt-2 text-purple-600 font-medium">{{ __('No items found. Try a different search term.') }}</span>
                     @endif
                 </p>
             @else
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">
-                    Affordable things. The planet-friendly way.
+                    {{ __('Affordable things. The planet-friendly way.') }}
                 </h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">
-                    "We've partnered with SHSH, SHSH, charity Shishi. They bisa find one item. Our team of fix choose light-craft, tools that can be repaired, or renting we can keep things out of landfill for longer and stop new stuff being made."
+                    {{ __("We've partnered with SHSH, SHSH, charity Shishi. They bisa find one item. Our team of fix choose light-craft, tools that can be repaired, or renting we can keep things out of landfill for longer and stop new stuff being made.") }}
                 </p>
             @endif
         </div>
 
         @if($searchTerm && ($items->count() > 0 || $featuredItems->count() > 0))
             <div class="mb-4 flex justify-between items-center">
-                <h3 class="text-xl font-semibold text-gray-900">Search Results</h3>
+                <h3 class="text-xl font-semibold text-gray-900">{{ __('Search Results') }}</h3>
                 <button wire:click="clearSearch" class="text-purple-600 hover:text-purple-700 text-sm font-medium">
-                    Clear Search
+                    {{ __('Clear Search') }}
                 </button>
             </div>
         @endif

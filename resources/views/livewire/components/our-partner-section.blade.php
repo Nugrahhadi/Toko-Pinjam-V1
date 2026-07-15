@@ -4,7 +4,7 @@
     <section class="py-12 md:py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-2xl md:text-3xl font-extrabold text-center text-gray-800 mb-8" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-                Our Partners
+                {{ __('Our Partners') }}
             </h2>
 
             <div class="swiper our-partner-slider overflow-hidden w-full">

@@ -1,7 +1,7 @@
 <section class="py-12 md:py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-2xl md:text-3xl font-extrabold text-center text-gray-800 mb-8" style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-            As Mentioned in
+            {{ __('As Mentioned in') }}
         </h2>
 
         <div class="swiper media-partner-slider overflow-hidden w-full">

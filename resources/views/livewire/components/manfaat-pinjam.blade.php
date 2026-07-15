@@ -3,8 +3,8 @@
 
     <h2 class="text-center text-2xl lg:text-4xl font-extrabold text-[#433592] leading-snug mb-10"
         style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-      <em>Sustainable Lifestyle</em> Bukanlah Pengorbanan.<br class="hidden md:block">
-      Coba dan Rasakan Dampaknya!
+      <em>{{ __('Sustainable Lifestyle') }}</em> {{ __('Bukanlah Pengorbanan.') }}<br class="hidden md:block">
+      {{ __('Coba dan Rasakan Dampaknya!') }}
     </h2>
 
     <div class="relative">
@@ -14,7 +14,7 @@
             <img src="{{ asset('images/sustain/1.png') }}" alt="" class="max-w-full max-h-full object-contain">
           </div>
           <p class="text-sm lg:text-xl font-bold text-[#433592] tracking-wide mt-auto">
-            EKONOMI MELEMAH,<br> KEBUTUHAN TETAP SAMA
+            {{ __('EKONOMI MELEMAH,') }}<br> {{ __('KEBUTUHAN TETAP SAMA') }}
           </p>
         </div>
 
@@ -23,7 +23,7 @@
             <img src="{{ asset('images/sustain/2.png') }}" alt="" class="max-w-full max-h-full object-contain">
           </div>
           <p class="text-sm lg:text-xl font-bold text-white tracking-wide mt-auto">
-            PINJAM KEBUTUHAN<br> DAN SIMPAN UANG-MU
+            {{ __('PINJAM KEBUTUHAN') }}<br> {{ __('DAN SIMPAN UANG-MU') }}
           </p>
         </div>
 
@@ -33,9 +33,9 @@
           </div>
           <div class="mt-auto">
             <p class="text-sm lg:text-xl font-bold text-[#433592] tracking-wide">
-              OVER-KONSUMSI NAIK 300%<br> DALAM 50 TAHUN
+              {{ __('OVER-KONSUMSI NAIK 300%') }}<br> {{ __('DALAM 50 TAHUN') }}
             </p>
-            <span class="text-xs lg:text-md text-gray-500 mt-2 block">Sumber: OECD</span>
+            <span class="text-xs lg:text-md text-gray-500 mt-2 block">{{ __('Sumber: OECD') }}</span>
           </div>
         </div>
 
@@ -44,7 +44,7 @@
             <img src="{{ asset('images/sustain/4.png') }}" alt="" class="max-w-full max-h-full object-contain rounded-lg">
           </div>
           <p class="text-sm lg:text-xl font-bold text-white tracking-wide mt-auto">
-            SHARING BERSAMA SAHABAT,<br> JADI RAMAH LINGKUNGAN
+            {{ __('SHARING BERSAMA SAHABAT,') }}<br> {{ __('JADI RAMAH LINGKUNGAN') }}
           </p>
         </div>
       </div>
@@ -71,10 +71,10 @@
       <div class="text-center md:text-left">
         <h3 class="text-[#433592] font-extrabold text-3xl md:text-5xl mb-2"
             style="font-family: 'Google Sans', 'Product Sans', sans-serif;">
-          100% Orang Butuh Toko Pinjam
+          {{ __('100% Orang Butuh Toko Pinjam') }}
         </h3>
         <p class="text-gray-700 text-base md:text-xl">
-          25 dari 25 orang yang kami survey secara mandiri mengatakan dua hal:
+          {{ __('25 dari 25 orang yang kami survey secara mandiri mengatakan dua hal:') }}
         </p>
       </div>
 

@@ -30,16 +30,16 @@
                 </div>
 
                 <div class="mt-6 bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl p-6 text-center">
-                    <h4 class="text-xl font-bold text-gray-900 mb-4">Mari Bersama Mewujudkan Keadilan Lingkungan</h4>
-                    <p class="text-gray-600 mb-6">Toko Pinjam hadir sebagai solusi untuk mengurangi konsumsi berlebihan dan dampak lingkungan</p>
+                    <h4 class="text-xl font-bold text-gray-900 mb-4">{{ __('Mari Bersama Mewujudkan Keadilan Lingkungan') }}</h4>
+                    <p class="text-gray-600 mb-6">{{ __('Toko Pinjam hadir sebagai solusi untuk mengurangi konsumsi berlebihan dan dampak lingkungan') }}</p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a href="{{ route('pinjam-sekarang') }}" 
                            class="inline-flex items-center px-6 py-3 bg-purple-600 text-white font-semibold rounded-full hover:bg-purple-700 transition-colors">
-                            Mulai Pinjam Sekarang
+                            {{ __('Mulai Pinjam Sekarang') }}
                         </a>
                         <a href="{{ route('bergabung-super-team') }}" 
                            class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-colors">
-                            Bergabung Komunitas
+                            {{ __('Bergabung Komunitas') }}
                         </a>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
             </svg>
-            <span>Lihat Peta Kasus Ketidakadilan Lingkungan</span>
+            <span>{{ __('Lihat Peta Kasus Ketidakadilan Lingkungan') }}</span>
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4"></path>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 4h6m0 0v6m0-6L10 14"></path>

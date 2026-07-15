@@ -17,7 +17,7 @@
         </h1>
 
         <p class="text-base md:text-lg mb-6 max-w-xl pointer-events-auto">
-          📍 Jl. Raya Klapasawit No.18, Dusun 2, Kalimanah Kulon, Kec. Kalimanah, Kabupaten Purbalingga, Jawa Tengah 53371
+          {{ __('📍 Jl. Raya Klapasawit No.18, Dusun 2, Kalimanah Kulon, Kec. Kalimanah, Kabupaten Purbalingga, Jawa Tengah 53371') }}
         </p>
 
         <a href="https://www.instagram.com/tokopinjam.purwokerto/" target="_blank"

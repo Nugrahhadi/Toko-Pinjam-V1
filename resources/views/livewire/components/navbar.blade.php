@@ -57,7 +57,7 @@
                                     <div class="flex items-center">
                                         <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
                                         Purwokerto
-                                        <span class="ml-auto text-xs text-green-600 font-medium">Aktif</span>
+                                        <span class="ml-auto text-xs text-green-600 font-medium">{{ __('Aktif') }}</span>
                                     </div>
                                 </a>
                             </div>
@@ -242,7 +242,7 @@
                             <div class="flex items-center">
                                 <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
                                 Purwokerto
-                                <span class="ml-auto text-xs text-green-600 font-medium">Aktif</span>
+                                <span class="ml-auto text-xs text-green-600 font-medium">{{ __('Aktif') }}</span>
                             </div>
                         </a>
                     </div>
