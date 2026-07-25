@@ -10,7 +10,7 @@
             <div class="grid md:grid-cols-3 gap-12 mb-16">
                 <div class="flex flex-col items-center text-center">
                     <div class="relative mx-auto" style="width: 280px; height: 280px;">
-                        <img src="{{ asset('images/howitworks/1.png') }}"
+                        <img src="{{ asset('images/howitworks/1.webp') }}"
                              alt="Join & start learning"
                              class="w-full h-full object-cover shadow-lg border-4 border-white"
                              style="border-radius: 24px;">
@@ -29,7 +29,7 @@
 
                 <div class="flex flex-col items-center text-center">
                     <div class="relative mx-auto" style="width: 280px; height: 280px;">
-                        <img src="{{ asset('images/howitworks/2.png') }}"
+                        <img src="{{ asset('images/howitworks/2.webp') }}"
                              alt="Reserve & rent"
                              class="w-full h-full object-cover shadow-lg border-4 border-white"
                              style="border-radius: 24px;">
@@ -48,7 +48,7 @@
 
                 <div class="flex flex-col items-center text-center">
                     <div class="relative mx-auto" style="width: 280px; height: 280px;">
-                        <img src="{{ asset('images/howitworks/3.png') }}"
+                        <img src="{{ asset('images/howitworks/3.webp') }}"
                              alt="Return & share"
                              class="w-full h-full object-cover shadow-lg border-4 border-white"
                              style="border-radius: 24px;">
@@ -75,7 +75,7 @@
 
                 <div class="flex flex-col items-center text-center">
                     <div class="relative mx-auto" style="width: 280px; height: 280px;">
-                        <img src="{{ asset('images/howitworks/4.png') }}"
+                        <img src="{{ asset('images/howitworks/4.webp') }}"
                              alt="Ambil Barang"
                              class="w-full h-full object-cover shadow-lg border-4 border-white"
                              style="border-radius: 24px;">
@@ -94,7 +94,7 @@
 
                 <div class="flex flex-col items-center text-center">
                     <div class="relative mx-auto" style="width: 280px; height: 280px;">
-                        <img src="{{ asset('images/howitworks/5.jpg') }}"
+                        <img src="{{ asset('images/howitworks/5.webp') }}"
                              alt="Kembalikan Barang"
                              class="w-full h-full object-cover shadow-lg border-4 border-white"
                              style="border-radius: 24px;">

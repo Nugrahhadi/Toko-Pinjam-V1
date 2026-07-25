@@ -10,7 +10,7 @@
                 <h1 class="text-2xl lg:text-4xl font-bold text-purple-700 mr-4">
                     {{ __('Frequently Asked Questions (FAQ)') }}
                 </h1>
-                <img src="{{ asset('images/aiusage/kucing.png') }}" alt="Maskot" class="w-[100px]">
+                <img src="{{ asset('images/aiusage/bingung.png') }}" alt="Frequently Asked Questions" class="w-[100px]">
             </div>
 
             <!-- FAQ Items (Alpine-only toggle) -->

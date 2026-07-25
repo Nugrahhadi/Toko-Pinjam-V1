@@ -7,11 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class DonationAllocation extends Model
 {
     protected $fillable = [
-        'operational',
-        'buy_goods',
-        'event',
-        'promotion',
-        'maintenance',
+        'item_procurement',
+        'website_operations',
+        'creative_work',
+        'digital_subscriptions',
         'others',
     ];
 
@@ -20,11 +19,10 @@ class DonationAllocation extends Model
      */
     public function getTotalAttribute(): int
     {
-        return $this->operational
-            + $this->buy_goods
-            + $this->event
-            + $this->promotion
-            + $this->maintenance
+        return $this->item_procurement
+            + $this->website_operations
+            + $this->creative_work
+            + $this->digital_subscriptions
             + $this->others;
     }
 }

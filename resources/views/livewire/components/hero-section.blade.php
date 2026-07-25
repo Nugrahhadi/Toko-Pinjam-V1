@@ -32,25 +32,25 @@
                     <img src="{{ asset('images/naikGunung.png') }}" 
                          alt="Camera equipment" 
                          class="rounded-lg w-full h-32 object-cover">
-                    <img src="{{ asset('images/buku.jpg') }}" 
+                    <img src="{{ asset('images/buku.webp') }}" 
                          alt="Projector rental" 
                          class="rounded-lg w-full h-40 object-cover">
                 </div>
 
                 <div class="space-y-4 mt-8">
-                    <img src="{{ asset('images/MainPS.jpg') }}" 
+                    <img src="{{ asset('images/MainPS.webp') }}" 
                          alt="Gaming console" 
                          class="rounded-lg w-full h-40 object-cover">
-                    <img src="{{ asset('images/proyektor.jpeg') }}" 
+                    <img src="{{ asset('images/proyektor.webp') }}" 
                          alt="Photography equipment" 
                          class="rounded-lg w-full h-32 object-cover">
                 </div>
 
                 <div class="space-y-4 hidden lg:block">
-                    <img src="{{ asset('images/foto.jpeg') }}" 
+                    <img src="{{ asset('images/foto.webp') }}" 
                          alt="Photography setup" 
                          class="rounded-lg w-full h-32 object-cover">
-                    <img src="{{ asset('images/badminton.jpg') }}" 
+                    <img src="{{ asset('images/badminton.webp') }}" 
                          alt="Camera rental" 
                          class="rounded-lg w-full h-40 object-cover">
                 </div>

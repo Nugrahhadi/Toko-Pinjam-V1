@@ -17,7 +17,7 @@
                 <div class="grid lg:grid-cols-5 items-center min-h-[400px]">
                     <div class="lg:col-span-2 lg:order-1 flex items-center justify-center h-full">
                         <div class="relative w-full h-full flex items-center justify-center p-6">
-                            <img src="{{ asset('images/todayOffer.png') }}" 
+                            <img src="{{ asset('images/todayOffer.webp') }}" 
                                  alt="Today's Offer - Gratis Pinjam Pertama Kali" 
                                  class="w-full max-w-sm h-auto object-contain">
                         </div>

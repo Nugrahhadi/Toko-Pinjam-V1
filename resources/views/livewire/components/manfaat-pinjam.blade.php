@@ -11,7 +11,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <div class="relative bg-[#FCE9F0] border-8 border-white rounded-xl shadow-md p-6 text-center flex flex-col">
           <div class="flex items-center justify-center mb-5" style="height: 160px;">
-            <img src="{{ asset('images/sustain/1.png') }}" alt="" class="max-w-full max-h-full object-contain">
+            <img src="{{ asset('images/sustain/1.webp') }}" alt="" class="max-w-full max-h-full object-contain">
           </div>
           <p class="text-sm lg:text-xl font-bold text-[#433592] tracking-wide mt-auto">
             {{ __('EKONOMI MELEMAH,') }}<br> {{ __('KEBUTUHAN TETAP SAMA') }}
@@ -20,7 +20,7 @@
 
         <div class="relative bg-[#6457cb] border-8 border-white rounded-xl shadow-md p-6 text-center flex flex-col">
           <div class="flex items-center justify-center mb-5" style="height: 160px;">
-            <img src="{{ asset('images/sustain/2.png') }}" alt="" class="max-w-full max-h-full object-contain">
+            <img src="{{ asset('images/sustain/2.webp') }}" alt="" class="max-w-full max-h-full object-contain">
           </div>
           <p class="text-sm lg:text-xl font-bold text-white tracking-wide mt-auto">
             {{ __('PINJAM KEBUTUHAN') }}<br> {{ __('DAN SIMPAN UANG-MU') }}
@@ -29,7 +29,7 @@
 
         <div class="relative bg-[#FBE2EF] border-8 border-white rounded-xl shadow-md p-6 text-center flex flex-col">
           <div class="flex items-center justify-center mb-5" style="height: 160px;">
-            <img src="{{ asset('images/sustain/3.png') }}" alt="" class="max-w-full max-h-full object-contain">
+            <img src="{{ asset('images/sustain/3.webp') }}" alt="" class="max-w-full max-h-full object-contain">
           </div>
           <div class="mt-auto">
             <p class="text-sm lg:text-xl font-bold text-[#433592] tracking-wide">
@@ -41,7 +41,7 @@
 
         <div class="relative bg-[#6457cb] border-8 border-white rounded-xl shadow-md p-6 text-center flex flex-col">
           <div class="flex items-center justify-center mb-5" style="height: 160px;">
-            <img src="{{ asset('images/sustain/4.png') }}" alt="" class="max-w-full max-h-full object-contain rounded-lg">
+            <img src="{{ asset('images/sustain/4.webp') }}" alt="" class="max-w-full max-h-full object-contain rounded-lg">
           </div>
           <p class="text-sm lg:text-xl font-bold text-white tracking-wide mt-auto">
             {{ __('SHARING BERSAMA SAHABAT,') }}<br> {{ __('JADI RAMAH LINGKUNGAN') }}
@@ -62,7 +62,7 @@
   <div class="grid grid-cols-1 md:grid-cols-[auto,1fr] md:gap-x-6 items-center">
 
     <div class="flex justify-center md:justify-center mb-4 md:mb-0">
-      <img src="{{ asset('images/sustain/5.png') }}" 
+      <img src="{{ asset('images/sustain/5.webp') }}" 
            alt="People" 
            class="max-w-[250px] md:max-w-[300px] w-full h-auto">
     </div>

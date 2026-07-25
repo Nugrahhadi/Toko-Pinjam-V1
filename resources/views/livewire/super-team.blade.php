@@ -30,7 +30,7 @@
                 <!-- Rafif N T Bagaskara -->
                 <div class="text-center">
                     <div class="relative mb-4 flex justify-center">
-                        <img src="{{ asset('images/team/bagas.png') }}" 
+                        <img src="{{ asset('images/team/bagas.webp') }}" 
                              alt="Rafif N T Bagaskara" 
                              class="w-52 h-52 rounded-full object-cover shadow-2xl">
                     </div>
@@ -49,7 +49,7 @@
                 <!-- M Nugrahhadi -->
                 <div class="text-center">
                     <div class="relative mb-4 flex justify-center">
-                        <img src="{{ asset('images/team/hadi.png') }}" 
+                        <img src="{{ asset('images/team/hadi.webp') }}" 
                              alt="M Nugrahhadi" 
                              class="w-52 h-52 rounded-full object-cover shadow-2xl">
                     </div>
@@ -68,7 +68,7 @@
                 <!-- Arga -->
                 <div class="text-center">
                     <div class="relative mb-4 flex justify-center">
-                        <img src="{{ asset('images/team/Arga.png') }}" 
+                        <img src="{{ asset('images/team/Arga.webp') }}" 
                              alt="Arga" 
                              class="w-52 h-52 rounded-full object-cover shadow-2xl">
                     </div>
@@ -87,7 +87,7 @@
                 <!-- Allin Alya Yasmin -->
                 <div class="text-center">
                     <div class="relative mb-4 flex justify-center">
-                        <img src="{{ asset('images/team/Alin.png') }}" 
+                        <img src="{{ asset('images/team/Alin.webp') }}" 
                              alt="Allin Alya Yasmin" 
                              class="w-52 h-52 rounded-full object-cover shadow-2xl">
                     </div>
@@ -106,7 +106,7 @@
                 <!-- Jes -->
                 <div class="text-center">
                     <div class="relative mb-4 flex justify-center">
-                        <img src="{{ asset('images/team/jes.png') }}" 
+                        <img src="{{ asset('images/team/jes.webp') }}" 
                              alt="Jeskris Oktovianus Silahooy" 
                              class="w-52 h-52 rounded-full object-cover shadow-2xl">
                     </div>

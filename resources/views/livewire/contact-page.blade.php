@@ -6,7 +6,7 @@
     <div class="max-w-5xl mx-auto px-6 lg:px-16 py-16">
         <div class="flex flex-col lg:flex-row justify-between items-center mb-10">
             <h2 class="text-5xl font-extrabold text-[#3b0a73] mb-4 lg:mb-10">{{ __('messages.contact.title') }}</h2>
-            <img src="{{ asset('images/aiusage/kontak.png') }}" alt="Maskot" class="w-[130px]">
+            <img src="{{ asset('images/aiusage/kontak.webp') }}" alt="Maskot" class="w-[130px]">
         </div>
 
         <div class="flex flex-col md:flex-row justify-left gap-4 md:gap-6 mb-10">

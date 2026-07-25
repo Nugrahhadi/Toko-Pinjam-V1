@@ -8,7 +8,7 @@
                 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-gray-700 text-justify relative">
 
                     <div class="absolute top-0 right-0 mt-2 mr-2 sm:mt-4 sm:mr-6 lg:mr-8">
-                        <img src="{{ asset('images/aiusage/judul.png') }}"
+                        <img src="{{ asset('images/aiusage/ai-usage.webp') }}"
                              alt="Photo 3"
                              class="w-full h-36 object-cover rounded-lg">
                     </div>

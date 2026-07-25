@@ -148,29 +148,24 @@
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div>
-                    <label class="block text-sm text-gray-700 mb-1">Operasional (Rp)</label>
-                    <input type="number" wire:model.defer="operational" class="w-full border rounded-md px-3 py-2 focus:ring-1 focus:ring-[#433592] focus:border-[#433592] outline-none">
-                    @error('operational') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
+                    <label class="block text-sm text-gray-700 mb-1">Pengadaan Barang (Rp)</label>
+                    <input type="number" wire:model.defer="item_procurement" class="w-full border rounded-md px-3 py-2 focus:ring-1 focus:ring-[#433592] focus:border-[#433592] outline-none">
+                    @error('item_procurement') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
                 </div>
                 <div>
-                    <label class="block text-sm text-gray-700 mb-1">Beli Barang (Rp)</label>
-                    <input type="number" wire:model.defer="buy_goods" class="w-full border rounded-md px-3 py-2 focus:ring-1 focus:ring-[#433592] focus:border-[#433592] outline-none">
-                    @error('buy_goods') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
+                    <label class="block text-sm text-gray-700 mb-1">Operasional Website (Rp)</label>
+                    <input type="number" wire:model.defer="website_operations" class="w-full border rounded-md px-3 py-2 focus:ring-1 focus:ring-[#433592] focus:border-[#433592] outline-none">
+                    @error('website_operations') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
                 </div>
                 <div>
-                    <label class="block text-sm text-gray-700 mb-1">Event (Rp)</label>
-                    <input type="number" wire:model.defer="event" class="w-full border rounded-md px-3 py-2 focus:ring-1 focus:ring-[#433592] focus:border-[#433592] outline-none">
-                    @error('event') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
+                    <label class="block text-sm text-gray-700 mb-1">Pekerjaan Kreatif (Rp)</label>
+                    <input type="number" wire:model.defer="creative_work" class="w-full border rounded-md px-3 py-2 focus:ring-1 focus:ring-[#433592] focus:border-[#433592] outline-none">
+                    @error('creative_work') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
                 </div>
                 <div>
-                    <label class="block text-sm text-gray-700 mb-1">Promosi (Rp)</label>
-                    <input type="number" wire:model.defer="promotion" class="w-full border rounded-md px-3 py-2 focus:ring-1 focus:ring-[#433592] focus:border-[#433592] outline-none">
-                    @error('promotion') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
-                </div>
-                <div>
-                    <label class="block text-sm text-gray-700 mb-1">Maintenance (Rp)</label>
-                    <input type="number" wire:model.defer="maintenance" class="w-full border rounded-md px-3 py-2 focus:ring-1 focus:ring-[#433592] focus:border-[#433592] outline-none">
-                    @error('maintenance') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
+                    <label class="block text-sm text-gray-700 mb-1">Langganan Digital (Rp)</label>
+                    <input type="number" wire:model.defer="digital_subscriptions" class="w-full border rounded-md px-3 py-2 focus:ring-1 focus:ring-[#433592] focus:border-[#433592] outline-none">
+                    @error('digital_subscriptions') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
                 </div>
                 <div>
                     <label class="block text-sm text-gray-700 mb-1">Lainnya (Rp)</label>
@@ -208,17 +203,6 @@
                     </div>
 
                     <div>
-                        <label class="block text-sm text-gray-700 mb-1">Kuartal</label>
-                        <select wire:model.defer="report_quarter" class="w-full border rounded-md px-3 py-2 bg-white focus:ring-1 focus:ring-[#433592] focus:border-[#433592] outline-none">
-                            <option value="I">Kuartal I (Jan - Mar)</option>
-                            <option value="II">Kuartal II (Apr - Jun)</option>
-                            <option value="III">Kuartal III (Jul - Sep)</option>
-                            <option value="IV">Kuartal IV (Okt - Des)</option>
-                        </select>
-                        @error('report_quarter') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
-                    </div>
-
-                    <div>
                         <label class="block text-sm text-gray-700 mb-1">File Dokumen (PDF)</label>
                         <input type="file" wire:model="report_file" class="w-full border rounded-md px-3 py-2 bg-gray-50 focus:ring-1 focus:ring-[#433592] focus:border-[#433592] outline-none">
                         @error('report_file') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
@@ -242,7 +226,6 @@
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                             <tr>
                                 <th class="px-4 py-3">Tahun</th>
-                                <th class="px-4 py-3">Kuartal</th>
                                 <th class="px-4 py-3">File Dokumen</th>
                                 <th class="px-4 py-3 text-right">Aksi</th>
                             </tr>
@@ -251,7 +234,6 @@
                             @forelse ($reportsList as $report)
                                 <tr class="border-b bg-white">
                                     <td class="px-4 py-3 font-semibold text-gray-900">{{ $report->year }}</td>
-                                    <td class="px-4 py-3">{{ $report->quarter }}</td>
                                     <td class="px-4 py-3 text-blue-600">
                                         <a href="{{ asset('storage/' . $report->pdf_path) }}" target="_blank" class="hover:underline flex items-center gap-1">
                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -268,7 +250,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="4" class="px-4 py-8 text-center text-gray-500">Belum ada laporan diunggah.</td>
+                                    <td colspan="3" class="px-4 py-8 text-center text-gray-500">Belum ada laporan diunggah.</td>
                                 </tr>
                             @endforelse
                         </tbody>

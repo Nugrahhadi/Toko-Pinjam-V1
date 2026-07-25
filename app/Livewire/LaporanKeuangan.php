@@ -13,11 +13,10 @@ class LaporanKeuangan extends Component
     public function render()
     {
         $allocation = DonationAllocation::first() ?? new DonationAllocation([
-            'operational' => 0,
-            'buy_goods' => 0,
-            'event' => 0,
-            'promotion' => 0,
-            'maintenance' => 0,
+            'item_procurement' => 0,
+            'website_operations' => 0,
+            'creative_work' => 0,
+            'digital_subscriptions' => 0,
             'others' => 0,
         ]);
 

@@ -30,7 +30,7 @@
                 
                 <div class="lg:col-span-1 lg:order-2 flex items-end justify-end h-full">
                     <div class="relative w-full max-w-xl">
-                        <img src="{{ asset('images/SiapaBolehPinjam.png') }}" 
+                        <img src="{{ asset('images/SiapaBolehPinjam.webp') }}" 
                              alt="Siapa yang boleh meminjam" 
                              class="w-full h-auto object-contain">
                     </div>

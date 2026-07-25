@@ -31,16 +31,14 @@ class DonationPageEditor extends Component
     public $waste_prevented;
 
     // Donation Allocation
-    public $operational;
-    public $buy_goods;
-    public $event;
-    public $promotion;
-    public $maintenance;
+    public $item_procurement;
+    public $website_operations;
+    public $creative_work;
+    public $digital_subscriptions;
     public $others;
 
     // Financial Reports
     public $report_year;
-    public $report_quarter = 'I';
     public $report_file;
 
     protected $rules = [
@@ -70,18 +68,16 @@ class DonationPageEditor extends Component
 
         // Donation allocations
         $allocation = DonationAllocation::first() ?? DonationAllocation::create([
-            'operational' => 0,
-            'buy_goods' => 0,
-            'event' => 0,
-            'promotion' => 0,
-            'maintenance' => 0,
+            'item_procurement' => 0,
+            'website_operations' => 0,
+            'creative_work' => 0,
+            'digital_subscriptions' => 0,
             'others' => 0,
         ]);
-        $this->operational = $allocation->operational;
-        $this->buy_goods = $allocation->buy_goods;
-        $this->event = $allocation->event;
-        $this->promotion = $allocation->promotion;
-        $this->maintenance = $allocation->maintenance;
+        $this->item_procurement = $allocation->item_procurement;
+        $this->website_operations = $allocation->website_operations;
+        $this->creative_work = $allocation->creative_work;
+        $this->digital_subscriptions = $allocation->digital_subscriptions;
         $this->others = $allocation->others;
 
         // Defaults for report upload
@@ -120,20 +116,18 @@ class DonationPageEditor extends Component
     public function saveAllocation(): void
     {
         $this->validate([
-            'operational' => 'required|integer|min:0',
-            'buy_goods' => 'required|integer|min:0',
-            'event' => 'required|integer|min:0',
-            'promotion' => 'required|integer|min:0',
-            'maintenance' => 'required|integer|min:0',
+            'item_procurement' => 'required|integer|min:0',
+            'website_operations' => 'required|integer|min:0',
+            'creative_work' => 'required|integer|min:0',
+            'digital_subscriptions' => 'required|integer|min:0',
             'others' => 'required|integer|min:0',
         ]);
 
         DonationAllocation::query()->first()->update([
-            'operational' => $this->operational,
-            'buy_goods' => $this->buy_goods,
-            'event' => $this->event,
-            'promotion' => $this->promotion,
-            'maintenance' => $this->maintenance,
+            'item_procurement' => $this->item_procurement,
+            'website_operations' => $this->website_operations,
+            'creative_work' => $this->creative_work,
+            'digital_subscriptions' => $this->digital_subscriptions,
             'others' => $this->others,
         ]);
 
@@ -144,17 +138,14 @@ class DonationPageEditor extends Component
     {
         $this->validate([
             'report_year' => 'required|integer|min:2020|max:2050',
-            'report_quarter' => 'required|in:I,II,III,IV',
             'report_file' => 'required|file|mimes:pdf|max:5120',
         ]);
 
         // Check unique constraint
-        $existing = FinancialReport::where('year', $this->report_year)
-            ->where('quarter', $this->report_quarter)
-            ->first();
+        $existing = FinancialReport::where('year', $this->report_year)->first();
 
         if ($existing) {
-            $this->addError('report_quarter', 'Laporan untuk tahun dan kuartal ini sudah ada.');
+            $this->addError('report_year', 'Laporan untuk tahun ini sudah ada.');
             return;
         }
 
@@ -163,7 +154,6 @@ class DonationPageEditor extends Component
 
         FinancialReport::create([
             'year' => $this->report_year,
-            'quarter' => $this->report_quarter,
             'pdf_path' => $path,
         ]);
 
@@ -213,7 +203,6 @@ class DonationPageEditor extends Component
     {
         $setting = DonationSetting::first();
         $reportsList = FinancialReport::orderBy('year', 'desc')
-            ->orderBy('quarter', 'asc')
             ->get();
 
         return view("livewire.admin.donation-page-editor", [

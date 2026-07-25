@@ -26,13 +26,13 @@
       <div>
         <p class="text-purple-900 text-base mb-1">{{ __('Menangkal') }}</p>
         <h3 class="text-2xl md:text-3xl font-bold text-purple-900" id="count-co2">0</h3>
-        <p class="text-purple-900 mt-1">{{ __('Emisi CO2 ke atmosfer') }}</p>
+        <p class="text-purple-900 mt-1">{{ __('Potensi CO2e ke atmosfer') }}</p>
       </div>
 
       <div>
         <p class="text-purple-900 text-base mb-1">{{ __('Mencegah') }}</p>
         <h3 class="text-2xl md:text-3xl font-bold text-purple-900" id="count-waste">0</h3>
-        <p class="text-purple-900 mt-1">{{ __('limbah terbuang') }}</p>
+        <p class="text-purple-900 mt-1">{{ __('Potensi limbah terbuang') }}</p>
       </div>
     </div>
 

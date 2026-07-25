@@ -8,7 +8,6 @@ class FinancialReport extends Model
 {
     protected $fillable = [
         'year',
-        'quarter',
         'pdf_path',
     ];
 }

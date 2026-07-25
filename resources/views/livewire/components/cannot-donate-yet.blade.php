@@ -33,7 +33,7 @@
 
                 <div class="lg:col-span-1 lg:order-2 flex items-stretch justify-end h-full">
                     <div class="relative w-full h-full">
-                        <img src="{{ asset('images/Partt9.png') }}" 
+                        <img src="{{ asset('images/Partt9.webp') }}" 
                              alt="Belum bisa berdonasi" 
                              class="w-full h-full object-contain">
                     </div>
